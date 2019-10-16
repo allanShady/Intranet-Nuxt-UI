@@ -1,0 +1,43 @@
+{
+  "name": "nuxt-material-admin",
+  "version": "1.0.0",
+  "description": "vue-material-admin integration with Nuxt.js",
+  "author": "Mohamed Eddami",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "dependencies": {
+    "@nuxtjs/pwa": "^3.0.0-beta.19",
+    "cross-env": "^5.2.0",
+    "firebase": "^5.4.2",
+    "font-awesome": "^4.7.0",
+    "lodash.truncate": "^4.4.2",
+    "nuxt": "^2.4.2",
+    "quill": "^1.3.6",
+    "roboto-fontface": "*",
+    "vee-validate": "^2.1.7",
+    "vue-fullcalendar": "^1.0.9",
+    "vue-perfect-scrollbar": "^0.1.0",
+    "vue-quill-editor": "^3.0.6",
+    "vuetify": "^1.4.4",
+    "vuetify-loader": "^1.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@storybook/addon-actions": "^5.2.3",
+    "@storybook/addon-links": "^5.2.3",
+    "@storybook/addons": "^5.2.3",
+    "@storybook/vue": "^5.2.3",
+    "babel-loader": "^8.0.6",
+    "babel-preset-vue": "^2.0.2",
+    "nodemon": "^1.18.9",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2"
+  }
+}
