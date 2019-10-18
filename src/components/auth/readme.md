@@ -1,0 +1,1 @@
+https://scotch.io/tutorials/implementing-authentication-in-nuxtjs-app

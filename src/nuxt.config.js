@@ -46,7 +46,6 @@ module.exports = {
     'roboto-fontface/css/roboto/roboto-fontface.css'
   ],
   vendor: [
-    'firebase',
     'vuetify'
   ],
 
@@ -59,8 +58,7 @@ module.exports = {
   */
   plugins: [
     '@/plugins/vuetify',
-    '@/plugins/vee-validate',
-    '@/plugins/fireauth.js'
+    '@/plugins/vee-validate'
   ],
 
   /*
@@ -89,9 +87,9 @@ module.exports = {
     extend(config, ctx) {
 
     },
-    extractCSS: true,
-    analyze: {
-      analyzerMode: 'static'
-    }
+    extractCSS: true
+    // ,analyze: {
+    //   analyzerMode: 'static'
+    // }
   }
 }

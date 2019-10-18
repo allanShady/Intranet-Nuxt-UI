@@ -30,10 +30,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
-    "@storybook/addon-actions": "^5.2.3",
-    "@storybook/addon-links": "^5.2.3",
-    "@storybook/addons": "^5.2.3",
-    "@storybook/vue": "^5.2.3",
     "babel-loader": "^8.0.6",
     "babel-preset-vue": "^2.0.2",
     "nodemon": "^1.18.9",
