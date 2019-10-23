@@ -16,4 +16,11 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-Route.on('/').render('welcome')
+Route.group(() => {
+    Route.get('tasks','TaskController.index')
+    Route.get('task/:id','TaskController.show')
+    Route.post('task','TaskController.store')
+    Route.put('tasks','TaskController.update')
+    Route.delete('tasks','TaskController.delete')
+}).prefix('api')
+
