@@ -5,12 +5,12 @@
         <v-flex lg6>
           <v-card class="mb-4">
             <v-toolbar color="teal" dark flat dense cad>
-              <v-toolbar-title class="subheading">Formulario Recolha Dados</v-toolbar-title>
+              <v-toolbar-title class="subheading">Avaliação de Habilidades</v-toolbar-title>
               <v-spacer></v-spacer>
             </v-toolbar>
             <v-divider></v-divider>
             <v-card-text class="">
-               <obra-form></obra-form> 
+              <ability-form></ability-form> 
             </v-card-text>
           </v-card>
          
@@ -21,19 +21,19 @@
   </div>
 </template>
 
- <script>
+<script>
 
-   import ObraForm from '@/components/widgets/form/obras/ObraForm';
+   import AbilityForm from '@/components/widgets/form/rh/evaluation/AbilityForm';
 
-   export default {
-     layout: "obras",
+  export default {
+    layout: "rh",
     components: {
-      ObraForm
+      AbilityForm
     },
     data() {
       return {};
     },
     computed: {},
     methods: {}
-  };
+  }; 
 </script>
