@@ -1,37 +1,37 @@
 export default [{
-  "Provider": "CORTE SERRA MECÂNICA",
+  "Machine": "CORTE SERRA MECÂNICA",
   "Rate": "16.12"
 }, {
-  "Provider": "CORTE COM GUILHOTINA",
+  "Machine": "CORTE COM GUILHOTINA",
   "Rate": "47.64"
 }, {
-  "Provider": "CORTE COM PLASMA",
+  "Machine": "CORTE COM PLASMA",
   "Rate": "81.47"
 }, {
-  "Provider": "FURAÇAO",
+  "Machine": "FURAÇAO",
   "Rate": "12.10"
 }, {
-  "Provider": "QUINAGEM",
+  "Machine": "QUINAGEM",
   "Rate": "64.08"
 }, {
-  "Provider": "TORNEAMENTO",
+  "Machine": "TORNEAMENTO",
   "Rate": "8.83"
 }, {
-  "Provider": "FRESAGEM",
+  "Machine": "FRESAGEM",
   "Rate": "10.95"
 }, {
-  "Provider": "SERRALHARIA",
+  "Machine": "SERRALHARIA",
   "Rate": "15.62"
 }, {
-  "Provider": "SOLDADURA",
+  "Machine": "SOLDADURA",
   "Rate": "22.84"
 }, {
-  "Provider": "CRAINE",
+  "Machine": "CRAINE",
   "Rate": "50.90"
 }, {
-  "Provider": "DECAPAGEM",
+  "Machine": "DECAPAGEM",
   "Rate": "12775"
 }, {
-  "Provider": "PINTURA",
+  "Machine": "PINTURA",
   "Rate": "8425.55"
 }]

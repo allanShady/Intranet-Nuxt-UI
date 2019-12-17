@@ -1,7 +1,7 @@
 <template>
   <v-container grid-list-xl fluid>
     <v-layout row wrap>
-      <v-flex lg5>
+      <v-flex lg4>
         <v-card class="mb-3">
           <v-toolbar color="transparent" flat dense card>
             <v-toolbar-title class="subheading ft-200">PROFORMA INVOICE Nº {{order_Number}}</v-toolbar-title>
@@ -45,10 +45,8 @@
           <v-divider></v-divider>
         </v-card>        
       </v-flex>
-    </v-layout>
 
-    <v-layout row wrap>
-      <v-flex lg12>
+      <v-flex lg8>
         <v-card >
           <v-toolbar color="transparent" flat dense card>
             <v-toolbar-title class="subheading ft-200">FABRICATION AND SUPPLY OIL BUND WALL SKID</v-toolbar-title>
@@ -98,8 +96,9 @@
           </template>
         </v-card>
       </v-flex>
-      
     </v-layout>
+
+
   </v-container>
 </template>
 
@@ -107,7 +106,9 @@
 import Customers from "@/api/sales/customers";
 import items from "@/api/sales/orders";
 
+
 export default {
+  
   data: () => ({
     order_Number: items[0].document,
     country: null,
