@@ -59,12 +59,12 @@
           item-key="machine"
           
         >
-         <!-- <template slot="items" slot-scope="props">
+         <template slot="items" slot-scope="props">
                 <td>{{ props.item.machine }}</td>
                 <td class="text-xs-left">{{ props.item.duration }}</td>
                 <td class="text-xs-left">{{ props.item.rate }}</td>
                 <td class="text-xs-left">{{ props.item.total }}</td>
-        </template> -->
+        </template>
           <template v-slot:item="{ item, expand, isExpanded }">
                 <tr>
                   <td @click="expand(!isExpanded)">

@@ -22,7 +22,7 @@
     "vue-fullcalendar": "^1.0.9",
     "vue-perfect-scrollbar": "^0.1.0",
     "vue-quill-editor": "^3.0.6",
-    "vuetify": "^1.4.4",
+    "vuetify": "^1.5.12",
     "vuetify-loader": "^1.2.0"
   },
   "devDependencies": {
