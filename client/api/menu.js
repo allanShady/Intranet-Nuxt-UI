@@ -42,6 +42,15 @@ const Menu = [
       {name: 'list', title: 'List', href: '/widgets/list'},
     ]
   },
+  {
+    title: 'RH',
+    group: 'RH',
+    component: 'RH',
+    icon: 'widgets',
+    items: [
+      {name: 'Avaliacao', title: 'Avaliação', href: '/rh/avaliacao'}
+    ]
+  },
   {header: 'UI Elements'},
   {
     title: 'General',

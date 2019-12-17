@@ -2,19 +2,46 @@
   <div id="ability">
     <v-container grid-list-xl fluid>
       <v-layout row wrap>
-        <v-flex lg6 sm12 xs12>
-          <v-select
-            id="listEmployment"
-            :items="employments"
-            v-validate="'required'"
-            data-vv-name="employment"
-            :error-messages="errors.collect('employment')"
-            v-model="formModel.employment"
-            label="Nome do Fúncionario"
-            required
-            item-text="Name"
-            item-value="Code"
-          ></v-select>
+        <v-flex lg7 sm12 xs12>
+          <v-card>
+            <v-toolbar color="teal" dark flat dense cad>
+              <v-toolbar-title class="subheading">Avaliação de Habilidades</v-toolbar-title>
+              <v-spacer></v-spacer>
+            </v-toolbar>
+            <v-divider></v-divider>
+            <v-card-text class>
+              <v-layout colum warp>
+                <v-flex lg6>
+                  <v-select
+                    id="listEmployment"
+                    :items="employments"
+                    v-validate="'required'"
+                    data-vv-name="employment"
+                    :error-messages="errors.collect('employment')"
+                    v-model="formModel.employment"
+                    label="Nome do Fúncionario"
+                    required
+                    item-text="Name"
+                    item-value="Code"
+                  ></v-select>
+                </v-flex>
+
+                <v-flex lg3>
+                  <v-layout row>
+                  <v-flex xs4>
+                    <v-subheader>Ano</v-subheader>
+                  </v-flex>
+                  <v-flex xs8>
+                    <v-text-field
+                      label="Ano de Avaliação"
+                      v-model="formModel.year"
+                    ></v-text-field>
+                  </v-flex>
+                </v-layout>
+                </v-flex>
+              </v-layout>
+            </v-card-text>
+          </v-card>
         </v-flex>
 
         <v-flex lg7 sm12 xs12>
@@ -31,12 +58,16 @@
             <v-divider></v-divider>
             <v-card-text class="pa-0">
               <template>
-                <v-data-table :headers="headers" :items="todos" hide-actions class="elevation-0" >
-                  <template slot="items" slot-scope="props" v-if="props.item.employ === formModel.employment">
+                <v-data-table :headers="headers" :items="todos" hide-actions class="elevation-0">
+                  <template
+                    slot="items"
+                    slot-scope="props"
+                    v-if="props.item.employ === formModel.employment && props.item.year.toString() === formModel.year.toString()"
+                  >
                     <td>
                       <!-- <v-avatar size="36px">
                         <img :src="props.item.avatar" :alt="props.item.username" />
-                      </v-avatar> -->
+                      </v-avatar>-->
                     </td>
                     <td>{{ props.item.name }}</td>
                     <td class="text-xs-left">{{ props.item.deadline }}</td>
@@ -100,7 +131,8 @@ export default {
         ":" +
         new Date().getMinutes() +
         ":" +
-        new Date().getSeconds()
+        new Date().getSeconds(),
+      year: new Date().getFullYear()
     },
     employments: Employments,
 

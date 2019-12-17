@@ -5,6 +5,7 @@ const Todos = [{
     deadline: '2 days later',
     points: 90,
     color: 'pink',
+    year: 2019
   },
   {
     employ: '001',
@@ -12,7 +13,8 @@ const Todos = [{
     name: 'Logo Design',
     deadline: '1 weeks later',
     points: 70,
-    color: 'success'
+    color: 'success',
+    year: 2019
   },
   {
     employ: '001',
@@ -20,7 +22,8 @@ const Todos = [{
     name: 'REST API',
     deadline: '1 Month later',
     points: 50,
-    color: 'info'
+    color: 'info',
+    year: 2018
   },
   {
     employ: 'A001',
@@ -28,7 +31,8 @@ const Todos = [{
     name: 'API Unit Test',
     deadline: '2 Month later',
     points: 30,
-    color: 'teal'
+    color: 'teal',
+    year: 2019
   },
   {
     employ: 'A001',
@@ -36,7 +40,8 @@ const Todos = [{
     name: 'Project Deploy',
     deadline: 'half year later',
     points: 15,
-    color: 'grey'
+    color: 'grey',
+    year: 2019
   },
 
 ];

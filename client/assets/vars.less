@@ -1,0 +1,35 @@
+@footer-height: 240px;
+
+.add-overlay(@padding, @overlay-addl-rules, @border-addl-rules) {
+    border: 1px solid transparent;
+    padding: @padding;
+    position: relative;
+
+    &::after {
+        content: '';
+        background: #ffffff;
+        opacity: 0;
+        position: absolute;
+        top: @padding;
+        right: @padding;
+        bottom: @padding;
+        left: @padding;
+        transition: opacity 300ms ease-in;
+        @overlay-addl-rules();
+    }
+
+    &:hover::after,
+    &:focus::after {
+        opacity: 0.1;
+    }
+
+    &:active::after {
+        opacity: 0.15;
+    }
+
+    &:focus {
+        outline: none;
+        border: 1px solid white;
+        @border-addl-rules();
+    }
+}
