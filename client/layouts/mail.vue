@@ -1,7 +1,7 @@
 <template>
   <div id="appRoot">
     <v-app id="mail" class="mail">
-      <v-toolbar fixed app flat dark color="indigo" clipped-left class="mail-toolbar" id="topbar">
+      <v-toolbar fixed app  dark color="indigo" clipped-left class="mail-toolbar" id="topbar">
         <v-toolbar-side-icon class="hidden-sm-and-up" @click="toggleDrawer"></v-toolbar-side-icon>
         <v-avatar class="hidden-sm-and-down">
           <img src="@/static/m.png" alt="Vue Material Mail">
@@ -11,7 +11,7 @@
         </v-toolbar-title>
         <v-spacer></v-spacer>
         <v-text-field
-          flat
+          
           solo-inverted
           prepend-icon="search"
           label="What are you looking for?"
@@ -22,7 +22,7 @@
           <v-icon>notifications</v-icon>
         </v-btn>
         <v-menu offset-y origin="center center" :nudge-bottom="10" transition="scale-transition">
-          <v-btn icon large flat slot="activator">
+          <v-btn icon large  slot="activator">
             <v-avatar size="32px">
               <img src="https://randomuser.me/api/portraits/men/1.jpg">
             </v-avatar>

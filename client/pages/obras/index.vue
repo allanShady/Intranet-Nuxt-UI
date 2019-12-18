@@ -4,7 +4,7 @@
       <v-layout row wrap>
         <v-flex lg6>
           <v-card class="mb-4">
-            <v-toolbar color="teal" dark flat dense cad>
+            <v-toolbar color="teal" dark  dense cad>
               <v-toolbar-title class="subheading">Formulario Recolha Dados</v-toolbar-title>
               <v-spacer></v-spacer>
             </v-toolbar>

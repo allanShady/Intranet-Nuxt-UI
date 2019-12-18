@@ -3,7 +3,7 @@
     <v-layout row wrap>
       <v-flex lg4>
         <v-card class="mb-3">
-          <v-toolbar color="transparent" flat dense card>
+          <v-toolbar color="transparent"  dense card>
             <v-toolbar-title class="subheading ft-200">PROFORMA INVOICE Nº {{order_Number}}</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-btn icon>
@@ -48,7 +48,7 @@
 
       <v-flex lg8>
         <v-card >
-          <v-toolbar color="transparent" flat dense card>
+          <v-toolbar color="transparent"  dense card>
             <v-toolbar-title class="subheading ft-200">FABRICATION AND SUPPLY OIL BUND WALL SKID</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-btn icon>
@@ -81,7 +81,7 @@
             <v-data-table
               :headers="headers"
               :items="items"
-              hide-actions
+              
               class="elevation-0 table-striped"
             >
               <template slot="items" slot-scope="props">

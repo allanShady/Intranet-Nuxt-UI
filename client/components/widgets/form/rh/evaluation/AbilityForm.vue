@@ -4,7 +4,7 @@
       <v-layout row wrap>
         <v-flex lg7 sm12 xs12>
           <v-card>
-            <v-toolbar color="teal" dark flat dense cad>
+            <v-toolbar color="teal" dark  dense cad>
               <v-toolbar-title class="subheading">Avaliação de Habilidades</v-toolbar-title>
               <v-spacer></v-spacer>
             </v-toolbar>
@@ -79,10 +79,10 @@
                       ></v-progress-linear>
                     </td>
                     <td class="text-xs-right">
-                      <v-btn flat icon color="grey">
+                      <v-btn  icon color="grey">
                         <v-icon>edit</v-icon>
                       </v-btn>
-                      <v-btn flat icon color="grey">
+                      <v-btn  icon color="grey">
                         <v-icon>delete</v-icon>
                       </v-btn>
                     </td>

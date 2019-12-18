@@ -25,15 +25,15 @@
     </v-card-text>
   </v-card>
   <v-bottom-nav :value="true" color="transparent" :height="64" v-if="showBottomNav">
-    <v-btn flat color="teal" value="recent">
+    <v-btn  color="teal" value="recent">
       <span>Recent</span>
       <v-icon>history</v-icon>
     </v-btn>
-    <v-btn flat color="teal" value="favorites">
+    <v-btn  color="teal" value="favorites">
       <span>Favorites</span>
       <v-icon>favorite</v-icon>
     </v-btn>
-    <v-btn flat color="teal" value="nearby">
+    <v-btn  color="teal" value="nearby">
       <span>Nearby</span>
       <v-icon>place</v-icon>
     </v-btn>

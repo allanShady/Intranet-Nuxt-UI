@@ -2,21 +2,21 @@
   <div id="media" class="media">
     <v-toolbar class="elevation-0 transparent media-toolbar">
       <v-btn-toggle>
-        <v-btn flat>
+        <v-btn >
           <v-icon color="primary">cloud_upload</v-icon>
           &nbsp;Upload
         </v-btn>
-        <v-btn flat>
+        <v-btn >
           <v-icon color="primary">folder</v-icon>
           &nbsp; Add Folder
         </v-btn>
       </v-btn-toggle>
       <v-spacer></v-spacer>
       <v-btn-toggle v-model="view">
-        <v-btn flat value="list">
+        <v-btn  value="list">
           <v-icon color="primary">view_headline</v-icon>
         </v-btn>
-        <v-btn flat value="grid">
+        <v-btn  value="grid">
           <v-icon color="primary">view_list</v-icon>
         </v-btn>
       </v-btn-toggle>
@@ -35,7 +35,7 @@
                 v-for="(item,index) in folders"
                 :key="'folder'+ index"
               >
-                <v-card flat tile>
+                <v-card  tile>
                   <v-card-media height="150px">
                     <v-icon size="135" class="mx-auto" color="indigo">folder</v-icon>
                   </v-card-media>
@@ -54,7 +54,7 @@
                 :key="index"
               >
                 <a @click="showDetail(item)" class="d-flex">
-                  <v-card flat tile>
+                  <v-card  tile>
 
                       <img style="height: 150px; width: 100%" :src="item.path" alt="" v-if="isImage(item)">
                       <v-icon class="mx-auto" size="135" v-else>insert_drive_file</v-icon>

@@ -51,8 +51,8 @@
                       ></v-text-field>
                       <v-date-picker v-model="date" no-title scrollable>
                         <v-spacer></v-spacer>
-                        <v-btn flat color="primary" @click="menu = false">Cancel</v-btn>
-                        <v-btn flat color="primary" @click="$refs.menu.save(date)">OK</v-btn>
+                        <v-btn  color="primary" @click="menu = false">Cancel</v-btn>
+                        <v-btn  color="primary" @click="$refs.menu.save(date)">OK</v-btn>
                       </v-date-picker>
                     </v-menu>
                   </v-flex>
@@ -76,8 +76,8 @@
                       ></v-text-field>
                       <v-date-picker v-model="date" scrollable>
                         <v-spacer></v-spacer>
-                        <v-btn flat color="primary" @click="modal = false">Cancel</v-btn>
-                        <v-btn flat color="primary" @click="$refs.dialog.save(date)">OK</v-btn>
+                        <v-btn  color="primary" @click="modal = false">Cancel</v-btn>
+                        <v-btn  color="primary" @click="$refs.dialog.save(date)">OK</v-btn>
                       </v-date-picker>
                     </v-dialog>
                   </v-flex>

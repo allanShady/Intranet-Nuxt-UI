@@ -33,10 +33,10 @@
           <v-divider></v-divider>
           <div class="my-3">
             <v-btn-toggle v-model="sideBarOption">
-              <v-btn flat value="dark">
+              <v-btn  value="dark">
                 Dark
               </v-btn>
-              <v-btn flat value="light">
+              <v-btn  value="light">
                 Light
               </v-btn>
             </v-btn-toggle>   

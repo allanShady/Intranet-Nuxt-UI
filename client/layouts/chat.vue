@@ -30,7 +30,7 @@
           <nuxt/>
         </v-content>
         <v-bottom-nav :value="true" absolute color="primary" app fixed v-if="!hideBottomNav">
-          <v-btn dark flat :value="item.to.path" v-for="(item, index) in menus" :key="index" :to="item.to">
+          <v-btn dark  :value="item.to.path" v-for="(item, index) in menus" :key="index" :to="item.to">
             <span>{{item.text}}</span>
             <v-icon>{{item.icon}}</v-icon>
           </v-btn>

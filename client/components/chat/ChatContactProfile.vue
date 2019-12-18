@@ -48,7 +48,7 @@
             </v-tab>
             <v-tabs-items v-model="selectedTab">
               <v-tab-item id="tab-1">
-                <v-card flat>
+                <v-card >
                   <v-card-text>
                     <v-list two-line class="pa-0">
                       <v-list-tile href="#">
@@ -102,7 +102,7 @@
                 </v-card>
               </v-tab-item>
               <v-tab-item id="tab-2">
-                <v-card flat>
+                <v-card >
                   <v-card-text>
 
                   </v-card-text>

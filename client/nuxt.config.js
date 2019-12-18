@@ -1,7 +1,6 @@
-const pkg = require('./package')
+// const pkg = require('./package')
 
-
-const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
+// const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 
 module.exports = {
   mode: 'spa',
@@ -40,8 +39,7 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    '~/assets/style/theme.styl',
-    '~/assets/style/app.styl',
+    
     'font-awesome/css/font-awesome.css',
     'roboto-fontface/css/roboto/roboto-fontface.css'
   ],
@@ -73,12 +71,12 @@ module.exports = {
   */
   build: {
     transpile: ['vuetify/lib'],
-    plugins: [new VuetifyLoaderPlugin()],
-    loaders: {
-      stylus: {
-        import: ["~assets/style/variables.styl"]
-      }
-    },
+    // plugins: [new VuetifyLoaderPlugin()],
+    // loaders: {
+    //   stylus: {
+    //     import: ["~assets/style/variables.styl"]
+    //   }
+    // },
 
     /*
     ** You can extend webpack config here

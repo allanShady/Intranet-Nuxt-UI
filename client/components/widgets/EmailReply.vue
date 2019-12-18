@@ -78,7 +78,7 @@
                 ></v-text-field>              
               </v-card-text>
               <v-toolbar dense class="elevation-1">
-                <v-btn flat icon>
+                <v-btn  icon>
                   <v-icon>send</v-icon>
                 </v-btn>        
                 <v-btn icon>

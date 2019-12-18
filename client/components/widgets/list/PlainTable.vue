@@ -26,10 +26,10 @@
             <td class="text-xs-left">{{ props.item.deadline }}</td>
             <td class="text-xs-left"><v-progress-linear :value="props.item.progress" height="5" :color="props.item.color"></v-progress-linear> </td>
             <td class="text-xs-right">
-              <v-btn flat icon color="grey">
+              <v-btn  icon color="grey">
                 <v-icon>edit</v-icon>
               </v-btn>
-              <v-btn flat icon color="grey">
+              <v-btn  icon color="grey">
                 <v-icon>delete</v-icon>
               </v-btn>
             </td>

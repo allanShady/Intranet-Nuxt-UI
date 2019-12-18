@@ -22,11 +22,12 @@
     "vue-fullcalendar": "^1.0.9",
     "vue-perfect-scrollbar": "^0.1.0",
     "vue-quill-editor": "^3.0.6",
-    "vuetify": "^1.5.12",
+    "vuetify": "^2.0.0",
     "vuetify-loader": "^1.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
+    "@mdi/font": "^4.7.95",
     "@nuxtjs/vuetify": "^1.9.1",
     "babel-loader": "^8.0.6",
     "babel-preset-vue": "^2.0.2",

@@ -1,7 +1,7 @@
 <template>
   <v-container fluid fill-height class="pa-0 mail-reply" id="mailReply">
     <v-layout column class="mail-reply--layout">
-      <v-toolbar flat fixed class="mail-reply--toolbar" app>
+      <v-toolbar  fixed class="mail-reply--toolbar" app>
         <v-toolbar-title>
           <v-avatar size="32">
             <img v-bind:src="mail.from.avatar" >
@@ -55,7 +55,7 @@
                         multi-line
                       ></v-text-field>
                     </v-card-text>
-                    <v-toolbar dense flat>
+                    <v-toolbar dense >
                       <v-btn icon>
                         <v-icon>attach_file</v-icon>
                       </v-btn>
@@ -66,7 +66,7 @@
                         <v-icon>camera</v-icon>
                       </v-btn>
                       <v-spacer></v-spacer>
-                      <v-btn flat icon>
+                      <v-btn  icon>
                         <v-icon>send</v-icon>
                       </v-btn>
                     </v-toolbar>

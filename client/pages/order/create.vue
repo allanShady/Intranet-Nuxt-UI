@@ -8,7 +8,7 @@
 
     <v-tab-item>
         <v-card
-          flat
+          
           tile
         >
           <v-card-text>
@@ -18,7 +18,7 @@
       </v-tab-item>
       <v-tab-item>
         <v-card
-          flat
+          
           tile
         >
           <v-card-text>
@@ -28,7 +28,7 @@
       </v-tab-item>
       <v-tab-item>
         <v-card
-          flat
+          
           tile
         >
           <v-card-text>
@@ -37,11 +37,6 @@
         </v-card>
       </v-tab-item>
   </v-tabs>
-
-  
-
-    
-    
   </div>
 </template>
 
@@ -56,7 +51,9 @@ export default {
     MachineCostForm
   },
   data() {
-    return {};
+    return {
+      menu : false
+    };
   },
   computed: {},
   methods: {}

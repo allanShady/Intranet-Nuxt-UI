@@ -1,6 +1,6 @@
 <template>
   <v-card class="post-card">
-    <v-toolbar color="transparent" flat dense card>
+    <v-toolbar color="transparent"  dense card>
       <v-toolbar-title class="subheading ft-200">Recent Posts</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon>

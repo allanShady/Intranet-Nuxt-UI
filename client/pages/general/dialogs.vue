@@ -58,8 +58,8 @@
                   </v-card-text>
                   <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn color="blue darken-1" flat @click.native="basic.dialog = false">Close</v-btn>
-                    <v-btn color="blue darken-1" flat @click.native="basic.dialog = false">Save</v-btn>
+                    <v-btn color="blue darken-1"  @click.native="basic.dialog = false">Close</v-btn>
+                    <v-btn color="blue darken-1"  @click.native="basic.dialog = false">Save</v-btn>
                   </v-card-actions>
                 </v-card>
               </v-dialog>
@@ -79,7 +79,7 @@
                     <v-toolbar-title>Settings</v-toolbar-title>
                     <v-spacer></v-spacer>
                     <v-toolbar-items>
-                      <v-btn dark flat @click.native="dialog = false">Save</v-btn>
+                      <v-btn dark  @click.native="dialog = false">Save</v-btn>
                     </v-toolbar-items>
                   </v-toolbar>
                   <v-list three-line subheader>
@@ -169,8 +169,8 @@
                   </v-card-text>
                   <v-divider></v-divider>
                   <v-card-actions>
-                    <v-btn color="blue darken-1" flat @click.native="scrollable.dialog = false">Close</v-btn>
-                    <v-btn color="blue darken-1" flat @click.native="scrollable.dialog = false">Save</v-btn>
+                    <v-btn color="blue darken-1"  @click.native="scrollable.dialog = false">Close</v-btn>
+                    <v-btn color="blue darken-1"  @click.native="scrollable.dialog = false">Save</v-btn>
                   </v-card-actions>
                 </v-card>
               </v-dialog>

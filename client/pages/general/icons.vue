@@ -12,7 +12,7 @@
             </v-tab>
             <v-tabs-items v-model="selectedTab">
               <v-tab-item id="tab-1">
-                <v-card flat>
+                <v-card >
                   <v-card-text>
                     <ul class="demo-icons-list">
                       <li v-for="(item, index) in material" :key="index">
@@ -26,7 +26,7 @@
                 </v-card>
               </v-tab-item>
               <v-tab-item id="tab-2">
-                <v-card flat>
+                <v-card >
                   <v-card-text>
                     <ul class="demo-icons-list">
                       <li v-for="(item, index) in ft" :key="index">

@@ -7,29 +7,29 @@ const Menu = [
     name: 'Dashboard',
     href: '/dashboard'
   },
-  {
-    title: 'Chat',
-    group: 'apps',
-    icon: 'chat_bubble',
-    target: '_blank',
-    name: 'Chat',
-    href: '/chat/messaging'
-  },
-  {
-    title: 'Inbox',
-    group: 'apps',
-    name: 'Mail',
-    target: '_blank',
-    icon: 'email',
-    href: '/mail/all'
-  },
-  {
-    title: 'Media',
-    group: 'apps',
-    name: 'Media',
-    icon: 'perm_media',
-    href: '/media'
-  },
+  // {
+  //   title: 'Chat',
+  //   group: 'apps',
+  //   icon: 'chat_bubble',
+  //   target: '_blank',
+  //   name: 'Chat',
+  //   href: '/chat/messaging'
+  // },
+  // {
+  //   title: 'Inbox',
+  //   group: 'apps',
+  //   name: 'Mail',
+  //   target: '_blank',
+  //   icon: 'email',
+  //   href: '/mail/all'
+  // },
+  // {
+  //   title: 'Media',
+  //   group: 'apps',
+  //   name: 'Media',
+  //   icon: 'perm_media',
+  //   href: '/media'
+  // },
   {
     title: 'Widgets',
     group: 'widgets',
@@ -90,23 +90,23 @@ const Menu = [
 
     ]
   },
-  {
-    title: 'Layout',
-    group: 'layout',
-    component: 'layout',
-    icon: 'view_compact',
-    items: [
-      {name: 'bottom-sheets', title: 'Bottom panels', component: 'components/bottom-sheets'},
-      {name: 'expansion-panels', title: 'Expansion panels', component: 'components/expansion-panels'},
-      {name: 'footer', title: 'Footer', component: 'components/footer'},
-      {name: 'lists', title: 'Lists', component: 'components/lists'},
-      {name: 'jumbotrons', title: 'Jumbotrons', badge: 'new', component: 'components/jumbotrons'},
-      {name: 'menus', title: 'Menus', component: 'components/menus'},
-      {name: 'tabs', title: 'Tabs', component: 'components/tabs'},
-      {name: 'toolbar', title: 'Toolbars', component: 'components/toolbar'},
-      {name: 'timeline', title: 'Timeline', component: 'components/timeline'},
-    ]
-  },
+  // {
+  //   title: 'Layout',
+  //   group: 'layout',
+  //   component: 'layout',
+  //   icon: 'view_compact',
+  //   items: [
+  //     {name: 'bottom-sheets', title: 'Bottom panels', component: 'components/bottom-sheets'},
+  //     {name: 'expansion-panels', title: 'Expansion panels', component: 'components/expansion-panels'},
+  //     {name: 'footer', title: 'Footer', component: 'components/footer'},
+  //     {name: 'lists', title: 'Lists', component: 'components/lists'},
+  //     {name: 'jumbotrons', title: 'Jumbotrons', badge: 'new', component: 'components/jumbotrons'},
+  //     {name: 'menus', title: 'Menus', component: 'components/menus'},
+  //     {name: 'tabs', title: 'Tabs', component: 'components/tabs'},
+  //     {name: 'toolbar', title: 'Toolbars', component: 'components/toolbar'},
+  //     {name: 'timeline', title: 'Timeline', component: 'components/timeline'},
+  //   ]
+  // },
   {
     title: 'Forms & Controls',
     group: 'forms',

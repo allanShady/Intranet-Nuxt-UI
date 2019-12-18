@@ -1,7 +1,7 @@
 
 <template>
   <v-card class="chat-room">
-    <v-toolbar card dense flat class="white chat-room--toolbar" light>
+    <v-toolbar card dense  class="white chat-room--toolbar" light>
       <v-btn icon>
         <v-icon color="text--secondary">keyboard_arrow_left</v-icon>
       </v-btn>
@@ -41,7 +41,7 @@
     <v-card-actions>
       <v-text-field 
         full-width 
-        flat
+        
         clearable 
         solo 
         append-icon="send" 

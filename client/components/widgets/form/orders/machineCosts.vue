@@ -3,7 +3,7 @@
     <v-layout row wrap>
       <v-flex lg4>
         <v-card class="mb-3">
-          <v-toolbar color="transparent" flat dense card>
+          <v-toolbar color="transparent"  dense card>
             <v-toolbar-title class="subheading ft-200">Costs Men-Men and Men-Machine</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-btn icon>
@@ -53,31 +53,35 @@
 
       <v-flex lg8>
         <v-data-table
-          :headers="headers"
-          :items="items"
-          :expanded="[items[0]]"
-          item-key="machine"
-          
-        >
-         <template slot="items" slot-scope="props">
-                <td>{{ props.item.machine }}</td>
-                <td class="text-xs-left">{{ props.item.duration }}</td>
-                <td class="text-xs-left">{{ props.item.rate }}</td>
-                <td class="text-xs-left">{{ props.item.total }}</td>
-        </template>
-          <template v-slot:item="{ item, expand, isExpanded }">
-                <tr>
-                  <td @click="expand(!isExpanded)">
-                    {{item.machine}}
-                  </td>
-                </tr>
-            </template>
+      :headers="headers"
+      :items="items"
+      :single-expand="singleExpand"
+      :expanded.sync="expanded"
+      item-key="machine"
+      show-expand
+      class="elevation-1"
+    >
+      <template v-slot:top>
+        <v-toolbar >
+          <v-toolbar-title>Expandable Table</v-toolbar-title>
+          <v-spacer></v-spacer>
+         
+        </v-toolbar>
+      </template>
+      <template v-slot:expanded-item="{ headers,item }">
+        <td :colspan="headers.length"> 
+          <v-data-table 
+                        :single-select="singleSelect"
+                        item-key="provider"
+      show-select
+                        :headers="headers2"
+                        :items = "item.providers">
 
-
-          <template v-slot:expanded-item="{item }">
-            {{ item.name }}
-          </template>
-        </v-data-table>
+          </v-data-table>
+        </td>       
+        
+      </template>
+    </v-data-table>
       </v-flex>
     </v-layout>
   </v-container>
@@ -101,7 +105,13 @@ export default {
       { text: "Duration", value: "duration" },
       { text: "Total Machine", value: "Total" }
     ],
-    items: Orders[0].items[0].cost_Machine
+    items: Orders[0].items[0].cost_Machine,
+    headers2:[
+        { text: "Provider",value: "provider" },
+        { text: "Qty",value: "qty" },
+        { text: "Rate",value: "rate" },
+        { text: "Total",value: "total" }
+      ]
   })
 };
 </script>
