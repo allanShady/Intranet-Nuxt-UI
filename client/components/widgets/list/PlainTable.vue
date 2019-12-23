@@ -19,7 +19,8 @@
           <template slot="items" slot-scope="props">
             <td>
               <v-avatar size="36px">
-                <img :src="props.item.avatar" :alt="props.item.username" />
+                 <v-icon dark>mdi-account-circle</v-icon>
+                <!-- <img :src="props.item.avatar" :alt="props.item.username" /> -->
               </v-avatar>
             </td>
             <td>{{ props.item.name }}</td>
@@ -48,12 +49,12 @@ export default {
   data () {
     return {
       headers: [
-        {
-          text: '',
-          align: 'center',
-          sortable: false,
-          value: 'avatar'
-        },
+        // {
+        //   text: '',
+        //   align: 'center',
+        //   sortable: false,
+        //   value: 'avatar'
+        // },
         {
           text: 'Name',
           align: 'left',

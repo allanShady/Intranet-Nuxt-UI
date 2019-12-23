@@ -2,8 +2,42 @@
   <div id="pageDashboard">
     <v-container grid-list-xl fluid>
       <v-layout row wrap>
+        <!-- statistic section -->
+        <v-flex lg4 sm12 xs12>
+          <linear-statistic
+            title="Sales"
+            sub-title="Sales increase"
+            icon="trending_up"
+            color="success"
+            :value="15"
+          ></linear-statistic>
+          <linear-statistic
+            class="my-4"
+            title="Orders"
+            sub-title="Increase"
+            icon="trending_up"
+            color="pink"
+            :value="30"
+          ></linear-statistic>
+          <linear-statistic
+            class="my-4"
+            title="Revenue"
+            sub-title="Revenue increase"
+            icon="trending_up"
+            color="primary"
+            :value="50"
+          ></linear-statistic>
+          <linear-statistic
+            class="mt-4"
+            title="Cost"
+            sub-title="Cost reduce"
+            icon="trending_down"
+            color="orange"
+            :value="25"
+          ></linear-statistic>
+        </v-flex>
         <!-- mini statistic start -->
-        <v-flex lg3 sm6 xs12>
+        <!-- <v-flex lg3 sm6 xs12>
           <mini-statistic icon="fa fa-facebook" title="100+" sub-title="Likes" color="indigo"></mini-statistic>
         </v-flex>
         <v-flex lg3 sm6 xs12>
@@ -19,8 +53,9 @@
         </v-flex>
         <v-flex lg3 sm6 xs12>
           <mini-statistic icon="fa fa-instagram" title="50+" sub-title="Shots" color="purple"></mini-statistic>
-        </v-flex>
+        </v-flex> -->
         <!-- mini statistic  end -->
+        
         <v-flex lg8 sm12 xs12>
           <v-widget title="Site Traffic" content-bg="white">
             <v-btn icon slot="widget-header-action">
@@ -70,11 +105,17 @@
             </div>
           </v-widget>
         </v-flex>
-        <!-- social/weather card start -->
-        <v-flex lg4 sm12 xs12>
-          <profile-card></profile-card>
+        <v-flex lg7 sm12 xs12>
+          <plain-table></plain-table>
         </v-flex>
-        <v-flex lg4 sm12 xs12>
+        <v-flex lg5 sm12 xs12>
+          <plain-table-order></plain-table-order>
+        </v-flex>
+        <!-- social/weather card start -->
+        <!-- <v-flex lg4 sm12 xs12>
+          <profile-card></profile-card>
+        </v-flex> -->
+        <!-- <v-flex lg4 sm12 xs12>
           <box-chart
             card-color="indigo"
             title="Trending"
@@ -95,41 +136,8 @@
             gradient
             type="area"
           ></box-chart>
-        </v-flex>
-        <!-- statistic section -->
-        <v-flex lg4 sm12 xs12>
-          <linear-statistic
-            title="Sales"
-            sub-title="Sales increase"
-            icon="trending_up"
-            color="success"
-            :value="15"
-          ></linear-statistic>
-          <linear-statistic
-            class="my-4"
-            title="Orders"
-            sub-title="Increase"
-            icon="trending_up"
-            color="pink"
-            :value="30"
-          ></linear-statistic>
-          <linear-statistic
-            class="my-4"
-            title="Revenue"
-            sub-title="Revenue increase"
-            icon="trending_up"
-            color="primary"
-            :value="50"
-          ></linear-statistic>
-          <linear-statistic
-            class="mt-4"
-            title="Cost"
-            sub-title="Cost reduce"
-            icon="trending_down"
-            color="orange"
-            :value="25"
-          ></linear-statistic>
-        </v-flex>
+        </v-flex> -->
+        
         <!-- Circle statistic -->
         <v-flex lg4 sm12 xs12 v-for="(item,index) in trending" :key="'c-trending'+index">
           <circle-statistic
@@ -162,12 +170,7 @@
             </div>
           </v-widget>
         </v-flex>
-        <v-flex lg7 sm12 xs12>
-          <plain-table></plain-table>
-        </v-flex>
-        <v-flex lg5 sm12 xs12>
-          <plain-table-order></plain-table-order>
-        </v-flex>
+        
       </v-layout>
     </v-container>
   </div>

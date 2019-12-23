@@ -56,40 +56,22 @@
       <v-flex lg8>
         <v-card>
           <v-toolbar color="transparent" dense card>
-              <v-toolbar-title>Expandable Table</v-toolbar-title>
-              <v-spacer></v-spacer>
-              <v-btn icon>
-                <v-icon class="text--secondary">add</v-icon>
-              </v-btn>
-            </v-toolbar>
-<template>
-
+            <v-toolbar-title class="subheading ft-200">Consumble's</v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-btn icon>
+              <v-icon class="text--secondary">add</v-icon>
+            </v-btn>
+          </v-toolbar>
+          <template>
             <v-data-table
-          :headers="headers"
+            :headers="headers"
           :items="materials"
-          :single-expand="singleExpand"
-          :expanded.sync="expanded"
-          item-key="machine"
-          show-expand
-          class="elevation-1"
-        >
+          >
           
-          <template v-slot:expanded-item="{ headers,item }">
-            <td :colspan="headers.length">
-              <v-data-table
-                :single-select="singleSelect"
-                item-key="provider"
-                show-select
-                :headers="headers2"
-                :items="item.providers"
-              ></v-data-table>
-            </td>
+          
+          </v-data-table>
           </template>
-        </v-data-table>
-</template>
-          
-          </v-card>
-        
+        </v-card>
       </v-flex>
     </v-layout>
   </v-container>
@@ -98,36 +80,37 @@
 <script>
 import Customers from "@/api/sales/customers";
 import Items from "@/api/sales/orders";
+
 export default {
   data: () => ({
+    order_Number: Items[0].document,
     country: null,
-    customer: null,
-    project_Name: null,
-    project: null,
-    customers: Customers,
+    date: new Date().toISOString().substr(0, 10),
     customer: "11102",
-    expanded: [],
-    singleExpand: false,
-    project: Items[0].project,
+
+    customers: Customers,
+    headers: [
+      {
+        text: "#",
+        align: "left",
+        sortable: false,
+        value: "id"
+      },
+      { text: "Designation", value: "consumble" },
+      
+      { text: "QTY PER PACK", value: "rawMaterial.length" },
+      { text: "Type ", value: "rawMaterial.unity" },
+      { text: "Unit Weight(kg)", value: "rawMaterial.unitWeigt" },
+      { text: "Qty", value: "rawMaterial.qty" },
+      { text: "Total Weight (kg)", value: "rawMaterial.total_Weigth" }
+    ],
     items: Items[0].items,
+    materials: [],
+    project: Items[0].project,
     item: null,
     qty: null,
     design_nr: null,
-    name: null,
-
-    headers: [
-      { text: "Machine", value: "machine" },
-      { text: "Rate", value: "rate" },
-      { text: "Duration", value: "duration" },
-      { text: "Total Machine", value: "Total" }
-    ],
-    materials: [],
-    headers2: [
-      { text: "Provider", value: "provider" },
-      { text: "Qty", value: "qty" },
-      { text: "Rate", value: "rate" },
-      { text: "Total", value: "total" }
-    ]
+    name: null
   }),
   watch: {
     customer: function(customerNew, customerOld) {},
@@ -138,7 +121,7 @@ export default {
         this.qty = item[0].qty;
         this.name = item[0].name;
         this.design_nr = item[0].design_nr;
-        this.materials = item[0].cost_Machine;
+        this.materials = item[0].cost_Consumables.items;
       }
     }
   },

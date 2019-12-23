@@ -21,7 +21,7 @@ import menu from '@/api/menu';
 export default {
   data () {
     return {
-      title: ''
+      title: 'Belutecnica'
     };
   },
   computed: {
