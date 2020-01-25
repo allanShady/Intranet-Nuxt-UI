@@ -83,7 +83,21 @@
                         <v-container>
                           <v-row>
                             <v-col cols="12" sm="6" md="4">
-                              <v-text-field v-model="editedItem.material" label="Designation"></v-text-field>
+                              <!-- <v-text-field v-model="editedItem.material" label="Designation"></v-text-field> -->
+
+                              <v-select
+              id="listMaterials"
+              :items="listMaterials"
+              v-validate="'required'"
+              data-vv-name="editedItem.material"
+              :error-messages="errors.collect('material')"
+              v-model="editedItem.material"
+              label="Designation"
+              required
+              item-text="material"
+              item-value="material"
+            ></v-select>
+
                             </v-col>
                             <v-col cols="12" sm="6" md="4">
                               <v-text-field
@@ -167,6 +181,7 @@
 <script>
 import Customers from "@/api/sales/customers";
 import Items from "@/api/sales/orders";
+import Materials from "@/api/sales/materials";
 
 export default {
   data: () => ({
@@ -177,12 +192,12 @@ export default {
 
     customers: Customers,
     headers: [
-      {
-        text: "#",
-        align: "left",
-        sortable: false,
-        value: "id"
-      },
+      // {
+      //   text: "#",
+      //   align: "left",
+      //   sortable: false,
+      //   value: "id"
+      // },
       { text: "Designation", value: "material" },
       { text: "kg/m or kg/item", value: "fabricatedMaterial.kd_m" },
       { text: "Meters or qty/item ", value: "fabricatedMaterial.meters" },
@@ -197,6 +212,7 @@ export default {
     ],
     items: Items[0].items,
     materials: [],
+    listMaterials: Materials,
     project: Items[0].project,
     item: null,
     qty: null,
