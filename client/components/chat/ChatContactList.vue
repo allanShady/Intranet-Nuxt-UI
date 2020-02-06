@@ -1,7 +1,7 @@
 <template>
   <div class="chat-contact">
-    <v-toolbar  dense class="chat-contact--toolbar">
-      <v-text-field  solo full-width prepend-icon="search" label="Search"></v-text-field>
+    <v-toolbar flat dense class="chat-contact--toolbar">
+      <v-text-field flat solo full-width prepend-icon="search" label="Search"></v-text-field>
     </v-toolbar>
     <vue-perfect-scrollbar class="chat-history--scrollbar">
       <v-divider></v-divider>

@@ -1,7 +1,7 @@
 <template>
   <div class="chat-history">
     <v-toolbar dense class="chat-history-toolbar">
-      <v-text-field  solo full-width clearable prepend-icon="search" label="Search"></v-text-field>
+      <v-text-field flat solo full-width clearable prepend-icon="search" label="Search"></v-text-field>
     </v-toolbar>  
     <vue-perfect-scrollbar class="chat-history--scrollbar">
       <v-divider></v-divider>             

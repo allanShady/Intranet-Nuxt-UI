@@ -7,7 +7,7 @@
     <v-divider></v-divider>
     <v-toolbar card color="white">
         <v-text-field
-        
+        flat
         solo
         label="Comment here"
         append-icon="photo_camera"

@@ -4,7 +4,7 @@
       <v-toolbar fixed app class="elevation-1 mail-list--toolbar">
         <v-checkbox row hide-details class="check-all"></v-checkbox>
         <v-menu offset-y origin="center center" :nudge-bottom="0" transition="scale-transition">
-          <v-btn icon large  slot="activator">
+          <v-btn icon large flat slot="activator">
             <v-avatar size="32px">
               <v-icon>arrow_drop_down</v-icon>
             </v-avatar>
@@ -21,13 +21,13 @@
           </v-list>
         </v-menu>
         <v-spacer></v-spacer>
-        <v-btn icon >
+        <v-btn icon flat>
           <v-icon>refresh</v-icon>
         </v-btn>
-        <v-btn icon >
+        <v-btn icon flat>
           <v-icon>keyboard_arrow_left</v-icon>
         </v-btn>
-        <v-btn icon >
+        <v-btn icon flat>
           <v-icon>keyboard_arrow_right</v-icon>
         </v-btn>
       </v-toolbar>

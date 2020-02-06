@@ -21,7 +21,7 @@
         </template>
       </v-list>
       <v-divider></v-divider>
-      <v-btn block  class="ma-0">All</v-btn>
+      <v-btn block flat class="ma-0">All</v-btn>
       <v-divider></v-divider>
     </v-card-text>
   </v-card>

@@ -3,21 +3,21 @@
   <div class="layout column">
     <v-toolbar class="elevation-0 transparent">
       <v-btn-toggle>
-        <v-btn >
+        <v-btn flat>
           <v-icon>cloud_upload</v-icon>
           &nbsp;Upload
         </v-btn>
-        <v-btn >
+        <v-btn flat>
           <v-icon>folder</v-icon>
           &nbsp; Add Folder
         </v-btn>
       </v-btn-toggle>
       <v-spacer></v-spacer>
       <v-btn-toggle v-model="view">
-        <v-btn  value="list">
+        <v-btn flat value="list">
           <v-icon>view_headline</v-icon>
         </v-btn>
-        <v-btn  value="grid">
+        <v-btn flat value="grid">
           <v-icon>view_list</v-icon>
         </v-btn>
       </v-btn-toggle>

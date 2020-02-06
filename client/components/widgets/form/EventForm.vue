@@ -37,8 +37,8 @@
               ></v-text-field>
               <v-date-picker v-model="startDate" no-title scrollable>
                 <v-spacer></v-spacer>
-                <v-btn  color="primary" @click="startDateMenu = false">Cancel</v-btn>
-                <v-btn  color="primary" @click="$refs.statDate.save(startDate)">OK</v-btn>
+                <v-btn flat color="primary" @click="startDateMenu = false">Cancel</v-btn>
+                <v-btn flat color="primary" @click="$refs.statDate.save(startDate)">OK</v-btn>
               </v-date-picker>
             </v-menu>
           </v-flex>
@@ -64,8 +64,8 @@
               ></v-text-field>
               <v-time-picker v-model="startTime">
                 <v-spacer></v-spacer>
-                <v-btn  color="primary" @click="startTimeMenu = false">Cancel</v-btn>
-                <v-btn  color="primary" @click="$refs.startTime.save(startTime)">OK</v-btn>                
+                <v-btn flat color="primary" @click="startTimeMenu = false">Cancel</v-btn>
+                <v-btn flat color="primary" @click="$refs.startTime.save(startTime)">OK</v-btn>                
               </v-time-picker>
             </v-menu>
           </v-flex>   
@@ -92,8 +92,8 @@
               ></v-text-field>
               <v-date-picker v-model="endDate" no-title scrollable>
                 <v-spacer></v-spacer>
-                <v-btn  color="primary" @click="endDateMenu = false">Cancel</v-btn>
-                <v-btn  color="primary" @click="$refs.endDate.save(endDate)">OK</v-btn>
+                <v-btn flat color="primary" @click="endDateMenu = false">Cancel</v-btn>
+                <v-btn flat color="primary" @click="$refs.endDate.save(endDate)">OK</v-btn>
               </v-date-picker>
             </v-menu>
           </v-flex>
@@ -119,8 +119,8 @@
               ></v-text-field>
               <v-time-picker v-model="endTime" >
                 <v-spacer></v-spacer>
-                <v-btn  color="primary" @click="endTimeMenu = false">Cancel</v-btn>
-                <v-btn  color="primary" @click="$refs.endTime.save(endTime)">OK</v-btn>                
+                <v-btn flat color="primary" @click="endTimeMenu = false">Cancel</v-btn>
+                <v-btn flat color="primary" @click="$refs.endTime.save(endTime)">OK</v-btn>                
               </v-time-picker>
             </v-menu>
           </v-flex> 

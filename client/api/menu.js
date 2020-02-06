@@ -1,5 +1,5 @@
 const Menu = [
-  {header: 'Sales'},
+  {header: 'Apps'},
   {
     title: 'Dashboard',
     group: 'apps',
@@ -63,15 +63,6 @@ const Menu = [
       {name: 'statistic', title: 'Statistic', badge: 'new', href: '/widgets/statistic'},
       {name: 'chart', title: 'Chart', href: '/widgets/chart'},
       {name: 'list', title: 'List', href: '/widgets/list'},
-    ]
-  },
-  {
-    title: 'RH',
-    group: 'RH',
-    component: 'RH',
-    icon: 'widgets',
-    items: [
-      {name: 'Avaliacao', title: 'Avaliação', href: '/rh/avaliacao'}
     ]
   },
   {header: 'UI Elements'},
@@ -171,3 +162,4 @@ Menu.forEach((item) => {
 });
 
 export default Menu;
+

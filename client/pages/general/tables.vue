@@ -9,7 +9,7 @@
           <v-card>
             <v-toolbar card color="white">
               <v-text-field
-                
+                flat
                 solo
                 prepend-icon="search"
                 placeholder="Type something"

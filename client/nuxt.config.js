@@ -1,6 +1,4 @@
-// const pkg = require('./package')
-
-// const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
+const pkg = require("./package");
 
 module.exports = {
   mode: 'spa',
@@ -13,8 +11,11 @@ module.exports = {
       {charset: 'utf-8'},
       {name: 'viewport', content: 'width=device-width, initial-scale=1'},
       {
-        hid: 'description', name: 'description', content: 'Vue Material Admin Template is a \n' +
-          '    Google Material Design inspired admin dashboard template built with Vue and Vuetify.'
+        hid: "description",
+        name: "description",
+        content:
+          "Vue Material Admin Template is a \n" +
+          "    Google Material Design inspired admin dashboard template built with Vue and Vuetify."
       }
     ],
     link: [
@@ -39,12 +40,9 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    
+
     'font-awesome/css/font-awesome.css',
     'roboto-fontface/css/roboto/roboto-fontface.css'
-  ],
-  vendor: [
-    'vuetify'
   ],
 
   router: {
@@ -54,40 +52,25 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [
-    '@/plugins/vuetify',
-    '@/plugins/vee-validate'
-  ],
+ plugins: [],
 
   /*
   ** Nuxt.js modules
   */
-  modules: [
-    '@nuxtjs/pwa',
-  ],
+ modules: ["nuxt-validate"],
+
+ /*
+  ** Nuxt.js dev-modules
+  */
+ buildModules: ["@nuxtjs/vuetify"],
 
   /*
-  ** Build configuration
-  */
+   ** Build configuration
+   */
   build: {
-    transpile: ['vuetify/lib'],
-    // plugins: [new VuetifyLoaderPlugin()],
-    // loaders: {
-    //   stylus: {
-    //     import: ["~assets/style/variables.styl"]
-    //   }
-    // },
-
     /*
-    ** You can extend webpack config here
-    */
-   
-    extend(config, ctx) {
-
-    },
-    extractCSS: true
-    // ,analyze: {
-    //   analyzerMode: 'static'
-    // }
+     ** You can extend webpack config here
+     */
+    extend(config, ctx) {}
   }
 }

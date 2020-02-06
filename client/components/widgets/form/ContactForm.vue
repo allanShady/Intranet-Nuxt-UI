@@ -60,7 +60,7 @@
     </v-card-text>
     <v-divider class="mt-5"></v-divider>
     <v-card-actions>
-      <v-btn >Cancel</v-btn>
+      <v-btn flat>Cancel</v-btn>
       <v-spacer></v-spacer>
       <v-slide-x-reverse-transition>
         <v-tooltip
@@ -78,7 +78,7 @@
           <span>Refresh form</span>
         </v-tooltip>
       </v-slide-x-reverse-transition>
-      <v-btn color="primary"  @click="submit">Submit</v-btn>
+      <v-btn color="primary" flat @click="submit">Submit</v-btn>
     </v-card-actions>
   </v-card>
 </template>

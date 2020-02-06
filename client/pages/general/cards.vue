@@ -14,7 +14,7 @@
               {{cardText}}
             </v-card-text>
             <v-card-actions>
-              <v-btn  small>Link</v-btn>
+              <v-btn flat small>Link</v-btn>
             </v-card-actions>
           </v-card>
         </v-flex>
@@ -27,7 +27,7 @@
               {{cardText}}
             </v-card-text>
             <v-card-actions>
-              <v-btn  small>Link</v-btn>
+              <v-btn flat small>Link</v-btn>
             </v-card-actions>
           </v-card>
         </v-flex>
@@ -40,7 +40,7 @@
               {{cardText}}
             </v-card-text>
             <v-card-actions>
-              <v-btn  small>Link</v-btn>
+              <v-btn flat small>Link</v-btn>
             </v-card-actions>
           </v-card>
         </v-flex>
@@ -63,7 +63,7 @@
             </v-card-text>
             <v-divider></v-divider>
             <v-card-actions>
-              <v-btn  small>Link</v-btn>
+              <v-btn flat small>Link</v-btn>
             </v-card-actions>
           </v-card>
         </v-flex>
@@ -84,7 +84,7 @@
             </v-card-text>
             <v-divider></v-divider>
             <v-card-actions>
-              <v-btn  small>Link</v-btn>
+              <v-btn flat small>Link</v-btn>
             </v-card-actions>
           </v-card>
         </v-flex>
@@ -105,7 +105,7 @@
             </v-card-text>
             <v-divider></v-divider>
             <v-card-actions>
-              <v-btn  small>Link</v-btn>
+              <v-btn flat small>Link</v-btn>
             </v-card-actions>
           </v-card>
         </v-flex>
@@ -125,7 +125,7 @@
                   {{cardText}}
                 </v-card-text>
                 <v-card-actions>
-                  <v-btn  small>Link</v-btn>
+                  <v-btn flat small>Link</v-btn>
                 </v-card-actions>
               </v-card>
             </v-carousel-item>
@@ -138,7 +138,7 @@
                   {{cardText}}
                 </v-card-text>
                 <v-card-actions>
-                  <v-btn  small>Link</v-btn>
+                  <v-btn flat small>Link</v-btn>
                 </v-card-actions>
               </v-card>
             </v-carousel-item>
@@ -151,7 +151,7 @@
                   {{cardText}}
                 </v-card-text>
                 <v-card-actions>
-                  <v-btn  small>Link</v-btn>
+                  <v-btn flat small>Link</v-btn>
                 </v-card-actions>
               </v-card>
             </v-carousel-item>

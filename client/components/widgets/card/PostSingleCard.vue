@@ -37,7 +37,7 @@
               <small>50+</small>
             </a>
           </div>
-          <v-btn outline  color="primary">
+          <v-btn outline flat color="primary">
             More
           </v-btn>
         </div>    
@@ -46,7 +46,7 @@
     <v-divider></v-divider>
     <v-toolbar card color="white">
         <v-text-field
-        
+        flat
         solo
         label="Comment here"
         append-icon="photo_camera"
