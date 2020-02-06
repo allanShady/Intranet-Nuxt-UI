@@ -51,11 +51,11 @@
 </template>
 
 <script>
-import OrderForm from "@/components/widgets/form/orders/order";
-import MachineCostForm from "@/components/widgets/form/orders/machineCosts";
-import MaterialCostForm from "@/components/widgets/form/orders/materialCosts";
-import ConsumbleCostForm from "@/components/widgets/form/orders/consumbleCosts";
-import OrderResumeForm from "@/components/widgets/form/orders/OrderResume";
+import OrderForm from "@/components/crm/sales/orders/order";
+import MachineCostForm from "@/components/crm/sales/orders/machineCosts";
+import MaterialCostForm from "@/components/crm/sales/orders/materialCosts";
+import ConsumbleCostForm from "@/components/crm/sales/orders/consumbleCosts";
+import OrderResumeForm from "@/components/crm/sales/orders/OrderResume";
 
 
 export default {

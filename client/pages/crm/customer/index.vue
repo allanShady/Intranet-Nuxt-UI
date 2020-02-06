@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import CustomerForm from "@/components/widgets/form/customer/CustomerForm";
+import CustomerForm from "@/components/crm/project/customer/CustomerForm";
 
 export default {
   layout: "dashboard",

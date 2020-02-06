@@ -1,16 +1,16 @@
 <template>
   <div id="page-forms">
-    <ability-form></ability-form> 
-    
+    <ability-form></ability-form>
+
   </div>
 </template>
 
 <script>
 
-   import AbilityForm from '@/components/widgets/form/rh/evaluation/AbilityForm';
+   import AbilityForm from '@/components/crm/rh/evaluation/AbilityForm';
 
   export default {
-    layout: "rh",
+    layout: "dashboard",
     components: {
       AbilityForm
     },
@@ -19,5 +19,5 @@
     },
     computed: {},
     methods: {}
-  }; 
+  };
 </script>

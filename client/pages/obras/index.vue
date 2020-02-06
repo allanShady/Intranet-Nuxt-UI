@@ -10,12 +10,12 @@
             </v-toolbar>
             <v-divider></v-divider>
             <v-card-text class="">
-               <obra-form></obra-form> 
+               <obra-form></obra-form>
             </v-card-text>
           </v-card>
-         
+
         </v-flex>
-        
+
       </v-layout>
     </v-container>
   </div>
@@ -23,10 +23,10 @@
 
  <script>
 
-   import ObraForm from '@/components/widgets/form/obras/ObraForm';
+   import ObraForm from '@/components/crm/project/obras/ObraForm';
 
    export default {
-     layout: "obras",
+     layout: "dashboard",
     components: {
       ObraForm
     },
