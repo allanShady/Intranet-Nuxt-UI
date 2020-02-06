@@ -43,7 +43,7 @@
             ></v-text-field>
           </v-card-text>
           <v-divider></v-divider>
-        </v-card>        
+        </v-card>
       </v-flex>
 
       <v-flex lg8>
@@ -81,7 +81,7 @@
             <v-data-table
               :headers="headers"
               :items="items"
-              
+
               class="elevation-0 table-striped"
             >
               <template slot="items" slot-scope="props">
@@ -97,8 +97,6 @@
         </v-card>
       </v-flex>
     </v-layout>
-
-
   </v-container>
 </template>
 
@@ -108,7 +106,7 @@ import items from "@/api/sales/orders";
 
 
 export default {
-  
+
   data: () => ({
     order_Number: items[0].document,
     country: null,

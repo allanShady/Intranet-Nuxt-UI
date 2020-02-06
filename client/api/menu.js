@@ -14,6 +14,13 @@ const Menu = [
     name: 'order',
     href: '/order/create'
   },
+  {
+    title: 'Appointment',
+    group: 'apps',
+    icon: 'tune',
+    name: 'appointment',
+    href: '/crm/appointment/'
+  },
   // {
   //   title: 'Chat',
   //   group: 'apps',
