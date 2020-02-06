@@ -86,18 +86,17 @@
                               <!-- <v-text-field v-model="editedItem.material" label="Designation"></v-text-field> -->
 
                               <v-select
-              id="listMaterials"
-              :items="listMaterials"
-              v-validate="'required'"
-              data-vv-name="editedItem.material"
-              :error-messages="errors.collect('material')"
-              v-model="editedItem.material"
-              label="Designation"
-              required
-              item-text="material"
-              item-value="material"
-            ></v-select>
-
+                                id="listMaterials"
+                                :items="listMaterials"
+                                v-validate="'required'"
+                                data-vv-name="editedItem.material"
+                                :error-messages="errors.collect('material')"
+                                v-model="editedItem.material"
+                                label="Designation"
+                                required
+                                item-text="material"
+                                item-value="material"
+                              ></v-select>
                             </v-col>
                             <v-col cols="12" sm="6" md="4">
                               <v-text-field
@@ -116,11 +115,11 @@
                                 v-model="editedItem.fabricatedMaterial.total"
                                 :value="subtotalRow1"
                                 label="Total Weight (kg)"
-                                readonly 
+                                readonly
                               ></v-text-field>
                             </v-col>
-                            </v-row>
-                            <v-row>
+                          </v-row>
+                          <v-row>
                             <v-col cols="12" sm="6" md="4">
                               <v-text-field v-model="editedItem.rawMaterial.length" label="Type"></v-text-field>
                             </v-col>
@@ -131,24 +130,30 @@
                                 label="Unit Weight(kg)"
                               ></v-text-field>
                             </v-col>
-                            
+
                             <v-col cols="12" sm="6" md="4">
-                              <v-text-field 
-                              type="number"
-                              v-model="editedItem.rawMaterial.unitWeigt" label="Unit Weight(kg)"></v-text-field>
-                            </v-col>
-                            
-                            <v-col cols="12" sm="6" md="4">
-                              <v-text-field 
-                              type="number"
-                              v-model="editedItem.rawMaterial.qty" label="Qty"></v-text-field>
+                              <v-text-field
+                                type="number"
+                                v-model="editedItem.rawMaterial.unitWeigt"
+                                label="Unit Weight(kg)"
+                              ></v-text-field>
                             </v-col>
 
                             <v-col cols="12" sm="6" md="4">
-                              <v-text-field type="number"
+                              <v-text-field
+                                type="number"
+                                v-model="editedItem.rawMaterial.qty"
+                                label="Qty"
+                              ></v-text-field>
+                            </v-col>
+
+                            <v-col cols="12" sm="6" md="4">
+                              <v-text-field
+                                type="number"
                                 v-model="editedItem.rawMaterial.total_Weigth"
                                 :value="subtotalRow2"
-                                label="Total Weight (kg)" readonly 
+                                label="Total Weight (kg)"
+                                readonly
                               ></v-text-field>
                             </v-col>
                           </v-row>
@@ -169,7 +174,6 @@
                 <v-icon small class="mr-2" @click="editItem(item)">edit</v-icon>
                 <v-icon small @click="deleteItem(item)">delete</v-icon>
               </template>
-              
             </v-data-table>
           </template>
         </v-card>
@@ -208,7 +212,7 @@ export default {
       { text: "Unit Weight(kg)", value: "rawMaterial.unitWeigt" },
       { text: "Qty", value: "rawMaterial.qty" },
       { text: "Total Weight (kg)", value: "rawMaterial.total_Weigth" },
-      { text: 'Actions', value: 'action', sortable: false },
+      { text: "Actions", value: "action", sortable: false }
     ],
     items: Items[0].items,
     materials: [],
@@ -227,13 +231,13 @@ export default {
         meters: 0,
         total: 0
       },
-            rawMaterial: {
-              length: "6",
-              dim: 'm',
-              unitWeigt: 0,
-              qty: 0,
-              total_Weigth: 0
-            }
+      rawMaterial: {
+        length: "6",
+        dim: "m",
+        unitWeigt: 0,
+        qty: 0,
+        total_Weigth: 0
+      }
     },
     defaultItem: {
       material: "",
@@ -242,13 +246,13 @@ export default {
         meters: 0,
         total: 0
       },
-            rawMaterial: {
-              length: "6",
-              dim: 'm',
-              unitWeigt: 0,
-              qty: 0,
-              total_Weigth: 0
-            }
+      rawMaterial: {
+        length: "6",
+        dim: "m",
+        unitWeigt: 0,
+        qty: 0,
+        total_Weigth: 0
+      }
     }
   }),
   watch: {
@@ -269,7 +273,7 @@ export default {
   },
   methods: {
     changeCustomer() {},
-    updateQuantity(event){
+    updateQuantity(event) {
       //this.editedItem.rawMaterial.qty = event.target.value
       //this.editedItem.rawMaterial.total_Weigth = this.editedItem.rawMaterial.qty * this.form.rawMaterial.unitWeigt
     }
@@ -280,13 +284,15 @@ export default {
 
   computed: {
     subtotalRow1() {
-      
-      this.editedItem.fabricatedMaterial.total =this.editedItem.fabricatedMaterial.meters * this.editedItem.fabricatedMaterial.kd_m;
-      return this.editedItem.fabricatedMaterial.total
+      this.editedItem.fabricatedMaterial.total =
+        this.editedItem.fabricatedMaterial.meters *
+        this.editedItem.fabricatedMaterial.kd_m;
+      return this.editedItem.fabricatedMaterial.total;
     },
     subtotalRow2() {
-      this.editedItem.rawMaterial.total_Weigth =this.editedItem.rawMaterial.unitWeigt * this.editedItem.rawMaterial.qty;
-      return this.editedItem.rawMaterial.total_Weigth
+      this.editedItem.rawMaterial.total_Weigth =
+        this.editedItem.rawMaterial.unitWeigt * this.editedItem.rawMaterial.qty;
+      return this.editedItem.rawMaterial.total_Weigth;
     },
 
     location: () => window.location,
@@ -307,34 +313,35 @@ export default {
     formTitle() {
       return this.editedIndex === -1 ? "New Item" : "Edit Item";
     },
-    editItem (item) {
-        this.editedIndex = this.materials.indexOf(item)
-        this.editedItem = Object.assign({}, item)
-        this.dialog = true
-      },
+    editItem(item) {
+      this.editedIndex = this.materials.indexOf(item);
+      this.editedItem = Object.assign({}, item);
+      this.dialog = true;
+    },
 
-      deleteItem (item) {
-        const index = this.materials.indexOf(item)
-        confirm('Are you sure you want to delete this item?') && this.materials.splice(index, 1)
-      },
+    deleteItem(item) {
+      const index = this.materials.indexOf(item);
+      confirm("Are you sure you want to delete this item?") &&
+        this.materials.splice(index, 1);
+    },
 
-      close () {
-        this.dialog = false
-        setTimeout(() => {
-          this.editedItem = Object.assign({}, this.defaultItem)
-          this.editedIndex = -1
-        }, 300)
-      },
+    close() {
+      this.dialog = false;
+      setTimeout(() => {
+        this.editedItem = Object.assign({}, this.defaultItem);
+        this.editedIndex = -1;
+      }, 300);
+    },
 
-      save () {
-        if (this.editedIndex > -1) {
-          Object.assign(this.materials[this.editedIndex], this.editedItem)
-        } else {
-          this.materials.push(this.editedItem)
-        }
-         this.dialog = false
-        //close()
-      },
+    save() {
+      if (this.editedIndex > -1) {
+        Object.assign(this.materials[this.editedIndex], this.editedItem);
+      } else {
+        this.materials.push(this.editedItem);
+      }
+      this.dialog = false;
+      //close()
+    }
   }
 };
 </script>

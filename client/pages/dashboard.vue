@@ -55,7 +55,7 @@
           <mini-statistic icon="fa fa-instagram" title="50+" sub-title="Shots" color="purple"></mini-statistic>
         </v-flex> -->
         <!-- mini statistic  end -->
-        
+
         <v-flex lg8 sm12 xs12>
           <v-widget title="Site Traffic" content-bg="white">
             <v-btn icon slot="widget-header-action">
@@ -137,7 +137,7 @@
             type="area"
           ></box-chart>
         </v-flex> -->
-        
+
         <!-- Circle statistic -->
         <v-flex lg4 sm12 xs12 v-for="(item,index) in trending" :key="'c-trending'+index">
           <circle-statistic
@@ -170,7 +170,7 @@
             </div>
           </v-widget>
         </v-flex>
-        
+
       </v-layout>
     </v-container>
   </div>

@@ -18,8 +18,7 @@
       <v-list dense expand>
         <template v-for="(item, i) in menus">
           <!--group with subitems-->
-          <v-list-group v-if="item.items" :key="item.name" :group="item.group" :prepend-icon="item.icon"
-                        no-action="no-action">
+          <v-list-group v-if="item.items" :key="item.name" :group="item.group" :prepend-icon="item.icon" no-action="no-action">
             <v-list-item slot="activator" ripple="ripple">
               <v-list-item-content>
                 <v-list-item-title>{{ item.title }}</v-list-item-title>
