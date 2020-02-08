@@ -57,7 +57,7 @@ module.exports = {
   /*
   ** Nuxt.js modules
   */
- modules: ["nuxt-validate"],
+ modules: ["nuxt-validate",'nuxtjs-mdi-font'],
 
  /*
   ** Nuxt.js dev-modules
