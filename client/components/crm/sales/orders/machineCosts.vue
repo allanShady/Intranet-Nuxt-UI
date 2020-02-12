@@ -1,103 +1,59 @@
 <template>
   <v-container grid-list-xl fluid>
     <v-layout row wrap>
-      <v-flex lg4>
-        <v-card class="mb-3">
-          <v-toolbar color="transparent" dense card>
-            <v-toolbar-title class="subheading ft-200">Header</v-toolbar-title>
+      <v-flex lg12>
+        <v-card>
+          <v-toolbar flat dense color="transparent">
+            <v-toolbar-title>Expandable Table</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-btn icon>
-              <v-icon class="text--secondary">more_vert</v-icon>
+              <v-icon class="text--secondary">add</v-icon>
             </v-btn>
           </v-toolbar>
-
-          <v-card-text>
-            <v-select
-              id="listCustomer"
-              :items="customers"
-              v-validate="'required'"
-              data-vv-name="customer"
-              :error-messages="errors.collect('customer')"
-              v-model="customer"
-              label="Client"
-              required
-              item-text="Name"
-              item-value="Customer"
-            ></v-select>
-            <v-text-field label="Project" placeholder v-model="project" required ref="project"></v-text-field>
-
-            <v-select
-              id="listItems"
-              :items="items"
-              v-validate="'required'"
-              data-vv-name="item"
-              :error-messages="errors.collect('items')"
-              v-model="item"
-              label="item"
-              required
-              item-text="desc"
-              item-value="item"
-            ></v-select>
-
-            <v-text-field label="Name" placeholder v-model="name" required ref="name"></v-text-field>
-            <v-text-field
-              label="Design Nr."
-              placeholder
-              v-model="design_nr"
-              required
-              ref="design_nr"
-            ></v-text-field>
-            <v-text-field label="Qty" placeholder v-model="qty" required ref="qty" type="number"></v-text-field>
-          </v-card-text>
-          <v-divider></v-divider>
-        </v-card>
-      </v-flex>
-
-      <v-flex lg8>
-        <v-card>
-          <v-toolbar color="transparent" dense card>
-              <v-toolbar-title>Expandable Table</v-toolbar-title>
-              <v-spacer></v-spacer>
-              <v-btn icon>
-                <v-icon class="text--secondary">add</v-icon>
-              </v-btn>
-            </v-toolbar>
-<template>
-
+          <template>
             <v-data-table
-          :headers="headers"
-          :items="materials"
-          :single-expand="singleExpand"
-          :expanded.sync="expanded"
-          item-key="machine"
-          show-expand
-          class="elevation-1"
-        >
-          
-          <template v-slot:expanded-item="{ headers,item }">
-            <td :colspan="headers.length">
-              <v-data-table
-                :single-select="singleSelect"
-                item-key="provider"
-                show-select
-                :headers="headers2"
-                :items="item.providers"
-              ></v-data-table>
-            </td>
+              :headers="headers"
+              :items="machines"
+              :single-expand="singleExpand"
+              :expanded.sync="expanded"
+              item-key="machine"
+              show-expand
+              class="elevation-1"
+            >
+              <template v-slot:item.TotalMen="{ item }">
+                <span>{{ totalMen(item) }}</span>
+              </template>
+
+<template v-slot:item.Total="{ item }">
+                <span>{{ totalCost(item) }}</span>
+              </template>
+
+
+              <template v-slot:expanded-item="{ headers,item }">
+                <td :colspan="headers.length">
+                  <v-data-table
+                    :single-select="singleSelect"
+                    item-key="provider"
+                    show-select
+                    :headers="headers2"
+                    :items="item.providers"
+                  ></v-data-table>
+                </td>
+              </template>
+            </v-data-table>
           </template>
-        </v-data-table>
-</template>
-          
-          </v-card>
-        
+        </v-card>
       </v-flex>
     </v-layout>
   </v-container>
 </template>
 
+
 <script>
 import Customers from "@/api/sales/customers";
 import Items from "@/api/sales/orders";
+import Machines from "@/api/sales/costMachine";
+
 export default {
   data: () => ({
     country: null,
@@ -109,6 +65,7 @@ export default {
     expanded: [],
     singleExpand: false,
     project: Items[0].project,
+    machines: Machines,
     items: Items[0].items,
     item: null,
     qty: null,
@@ -119,7 +76,9 @@ export default {
       { text: "Machine", value: "machine" },
       { text: "Rate", value: "rate" },
       { text: "Duration", value: "duration" },
-      { text: "Total Machine", value: "Total" }
+      { text: "Total Machine", value: "total",align: 'rigth' },
+      { text: "Total Men", value: "TotalMen",align: 'rigth' },
+      { text: "Total", value: "Total",align: 'rigth' }
     ],
     materials: [],
     headers2: [
@@ -143,11 +102,36 @@ export default {
     }
   },
   methods: {
+    totalMen(prov) {
+      let totalM = 0;
+      console.log(prov.providers);
+      if (prov.providers != null) {
+        console.log(prov.providers.length);
+
+        prov.providers.forEach(e => {
+          totalM += e.total;
+        });
+      }
+      return totalM.toFixed(2);
+    },
+    totalCost(prov) {
+      let totalM = 0;
+      console.log(prov.providers);
+      if (prov.providers != null) {
+        console.log(prov.providers.length);
+
+        prov.providers.forEach(e => {
+          totalM += e.total;
+        });
+      }
+
+      totalM +=  prov.total;
+      return totalM.toFixed(2);
+    },
     changeCustomer() {}
   },
   created() {
     setInterval(this.getNow, 1000);
-    
   },
 
   computed: {

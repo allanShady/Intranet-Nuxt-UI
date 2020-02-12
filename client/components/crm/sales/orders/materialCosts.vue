@@ -1,61 +1,11 @@
 <template>
   <v-container grid-list-xl fluid>
     <v-layout row wrap>
-      <v-flex lg4>
-        <v-card class="mb-3">
-          <v-toolbar color="transparent" dense card>
-            <v-toolbar-title class="subheading ft-200">Header</v-toolbar-title>
-            <v-spacer></v-spacer>
-            <v-btn icon>
-              <v-icon class="text--secondary">more_vert</v-icon>
-            </v-btn>
-          </v-toolbar>
 
-          <v-card-text>
-            <v-select
-              id="listCustomer"
-              :items="customers"
-              v-validate="'required'"
-              data-vv-name="customer"
-              :error-messages="errors.collect('customer')"
-              v-model="customer"
-              label="Client"
-              required
-              item-text="Name"
-              item-value="Customer"
-            ></v-select>
-            <v-text-field label="Project" placeholder v-model="project" required ref="project"></v-text-field>
 
-            <v-select
-              id="listItems"
-              :items="items"
-              v-validate="'required'"
-              data-vv-name="item"
-              :error-messages="errors.collect('items')"
-              v-model="item"
-              label="item"
-              required
-              item-text="desc"
-              item-value="item"
-            ></v-select>
-
-            <v-text-field label="Name" placeholder v-model="name" required ref="name"></v-text-field>
-            <v-text-field
-              label="Design Nr."
-              placeholder
-              v-model="design_nr"
-              required
-              ref="design_nr"
-            ></v-text-field>
-            <v-text-field label="Qty" placeholder v-model="qty" required ref="qty" type="number"></v-text-field>
-          </v-card-text>
-          <v-divider></v-divider>
-        </v-card>
-      </v-flex>
-
-      <v-flex lg8>
+      <v-flex lg12>
         <v-card>
-          <v-toolbar color="transparent" dense card>
+          <v-toolbar flat dense color="transparent">
             <v-toolbar-title class="subheading ft-200">Material's</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-btn icon>
@@ -63,7 +13,7 @@
             </v-btn>
           </v-toolbar>
           <template>
-            <v-data-table :headers="headers" :items="materials">
+            <v-data-table :headers="headers" :items="listMaterials">
               <template v-slot:top>
                 <v-toolbar flat color="white">
                   <v-toolbar-title>List's Material's</v-toolbar-title>

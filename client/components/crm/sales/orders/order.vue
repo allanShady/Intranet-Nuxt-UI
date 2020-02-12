@@ -1,10 +1,12 @@
 <template>
   <v-container grid-list-xl fluid>
     <v-layout row wrap>
+      <v-flex lg12>PROFORMA INVOICE Nº {{order_Number}}</v-flex>
       <v-flex lg4>
+
         <v-card class="mb-3">
-          <v-toolbar color="transparent"  dense card>
-            <v-toolbar-title class="subheading ft-200">PROFORMA INVOICE Nº {{order_Number}}</v-toolbar-title>
+          <v-toolbar flat dense color="transparent">
+            <v-toolbar-title class="subheading ft-200">Customer</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-btn icon>
               <v-icon class="text--secondary">more_vert</v-icon>
@@ -48,7 +50,7 @@
 
       <v-flex lg8>
         <v-card >
-          <v-toolbar color="transparent"  dense card>
+          <v-toolbar flat dense color="transparent">
             <v-toolbar-title class="subheading ft-200">FABRICATION AND SUPPLY OIL BUND WALL SKID</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-btn icon>

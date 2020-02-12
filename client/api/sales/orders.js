@@ -18,8 +18,8 @@ export default [{
       material:9000,
       mem_machine:34444,
       consumbles:94000,
-      cost_Materials: {
-        
+      costMaterials: {
+
         items: [{
             material: '406x140x39 I SECTION (18 M)',
             fabricatedMaterial: {
@@ -595,7 +595,7 @@ export default [{
       consumbles:94000,
       cost_Materials: {
         items: [
-            
+
           {
             material: '3285x1965x8 PLATE',
             fabricatedMaterial: {
