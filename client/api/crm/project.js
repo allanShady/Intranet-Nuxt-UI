@@ -1,6 +1,7 @@
 const Projects = [
   {
     code: "RECCA_3818",
+    summary:"ESCRITÓRIO -  fracção autonoma A4, R/C loja nº 4, inserido no talhão nº 85",
     description: "ESCRITÓRIO -  fracção autonoma A4, R/C loja nº 4, inserido no talhão nº 85, implantado num lote de terreno com uma área de 1.399,95 m2, localizado na Av. José Cabral esquina com a Rua Gago Coutinho, Cidade de Nampula.",
     barcode: "8850585992458",
     year: 2019,
@@ -25,6 +26,7 @@ const Projects = [
   },
   {
     code: "11001",
+    summary:"POSTO DE COMBUSTÍVEL - composto por escritórios, loja de conviniencia",
     description: "POSTO DE COMBUSTÍVEL - composto por escritórios, loja de conviniencia, e sanitarios, inserido na parcela nº 1119, implantado num lote de terreno com uma área de 3 hectares e uma área coberta de 477 m2, localizado em Chicochana, Província de Maputo.",
     barcode: "8850585992526",
     year: 2019,
@@ -49,6 +51,7 @@ const Projects = [
   },
   {
     code: "11002",
+    summary:"MORADIA - inserido na parcela",
     description: "MORADIA - inserido na parcela , implantado num lote de terreno com uma área de 536 m2, localizado em Tete",
     barcode: "8850585992632",
     year: 2019,
@@ -73,6 +76,7 @@ const Projects = [
   },
   {
     code: "11003",
+    summary:"MORADIA - do tipo T5",
     description: "MORADIA - do tipo T5, implanato num lote de terreno com uma área de 800 m2",
     barcode: "8850585992649",
     year: 2018,
@@ -102,7 +106,7 @@ const Projects = [
 const Invoices = [
   {
     id: 'ADC 1/2019',
-    description: 'Adiantamento 10% do projeto',
+    summary: 'Adiantamento 10% do projeto',
     date: '2019-02-01',
     price: -300000,
     status: 'advance',
@@ -111,7 +115,7 @@ const Invoices = [
   },
   {
     id: 'FA 10/2019',
-    description: 'Emissão do Relatiorio Inicial',
+    summary: 'Emissão do Relatiorio Inicial',
     date: '2019-05-01',
     price: 50000,
     status: 'paid',
@@ -120,7 +124,7 @@ const Invoices = [
   },
   {
     id: 'FA 20/2019',
-    description: 'Emissão do Relatiorio Inicial',
+    summary: 'Emissão do Relatiorio Inicial',
     date: '2019-05-01',
     price: 50000,
     status: 'pedding',

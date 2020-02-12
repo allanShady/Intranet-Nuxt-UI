@@ -41,7 +41,7 @@ export default {
     headers: [
       { text: "Year", value: "year" },
       { text: "Project", value: "code" },
-      { text: "Description", value: "description" },
+      { text: "Summary", value: "summary" },
       { text: "Client", value: "client.name" },
       { text: "Proponent", value: "proponent.name" },
       { text: "Dead Line", value: "deadline" },

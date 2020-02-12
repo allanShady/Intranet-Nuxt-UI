@@ -11,6 +11,9 @@
         <v-icon right>mdi-cash-100</v-icon>Invoices
       </v-tab>
       <v-tab>
+        <v-icon right>mdi-calendar-check-outline</v-icon>Appoiment
+      </v-tab>
+      <v-tab>
         <v-icon right>mdi-calendar-check-outline</v-icon>Tasks
       </v-tab>
 
@@ -19,6 +22,14 @@
           <v-card-text>
             <v-container>
               <v-layout row>
+                <v-flex xs12>
+                  <v-textarea
+                    outlined
+                    label="Summary"
+                    v-model="project.summary"
+                    :rules="[() => !!project.summary || 'This field is required']"
+                  ></v-textarea>
+                </v-flex>
                 <v-flex xs12>
                   <v-textarea
                     outlined
@@ -116,6 +127,58 @@
           </v-card-text>
         </v-card>
       </v-tab-item>
+
+      <v-tab-item>
+        <v-card flat>
+          <v-toolbar flat dense color="transparent">
+            <v-toolbar-title>
+              <h4>Task's</h4>
+            </v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-btn icon>
+              <v-icon>more_vert</v-icon>
+            </v-btn>
+          </v-toolbar>
+          <v-divider></v-divider>
+          <v-card-text class="pa-0">
+            <template>
+              <v-data-table
+                :headers="headersTask"
+                :items="tasks"
+                hide-default-footer
+                class="elevation-0"
+              >
+                <template v-slot:item.avatar="{ item }">
+                  <v-avatar size="36px">
+                    <img :src="item.avatar" :alt="item.username" />
+                  </v-avatar>
+                </template>
+                <template v-slot:item.name="{ item }">
+                  <td>{{ item.name }}</td>
+                </template>
+                <template v-slot:item.date="{ item }">
+                <span>{{ item.date.toLocaleString('pt-BR')}}</span>
+              </template>
+              <template v-slot:item.duo="{ item }">
+                <span>{{ item.duo.toLocaleString('pt-BR')}}</span>
+              </template>
+
+                <template v-slot:item.deadline="{ item }">
+                  <td class="text-xs-left">{{ item.deadline }}</td>
+                </template>
+                <template v-slot:item.progress="{ item }">
+                  <v-progress-linear :value="item.progress" height="5" :color="item.color"></v-progress-linear>
+                </template>
+                <template v-slot:item.action>
+                  <v-icon  @click="detailsItem(item)">mdi-eye</v-icon>
+                </template>
+              </v-data-table>
+            </template>
+            <v-divider></v-divider>
+          </v-card-text>
+        </v-card>
+      </v-tab-item>
+
       <v-tab-item>
         <v-card flat>
           <v-toolbar flat dense color="transparent">
@@ -180,7 +243,7 @@ export default {
     tasks:[{}],
     headers: [
       { text: "Document", value: "id" },
-      { text: "Description", value: "description" },
+      { text: "Summary", value: "summary" },
       { text: "Date", value: "date" },
       { text: "Price", value: "price" },
       { text: "Status", value: "status" },
