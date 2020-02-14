@@ -56,7 +56,7 @@ import MachineCostForm from "@/components/crm/sales/orders/machineCosts";
 import MaterialCostForm from "@/components/crm/sales/orders/materialCosts";
 import ConsumbleCostForm from "@/components/crm/sales/orders/consumbleCosts";
 import OrderResumeForm from "@/components/crm/sales/orders/OrderResume";
-
+//import axios from '~/plugins/axios'
 
 export default {
   layout: "dashboard",

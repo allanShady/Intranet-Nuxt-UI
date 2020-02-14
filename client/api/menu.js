@@ -1,11 +1,25 @@
 const Menu = [
   {header: 'Apps'},
+
+
+
   {
     title: 'Dashboard',
     group: 'apps',
     icon: 'dashboard',
     name: 'Dashboard',
     href: '/dashboard'
+  },
+  {header: 'Inventory'},
+
+  {
+    title: 'Inventory',
+    group: 'Inv',
+    component: 'Inv',
+    icon: 'reorder',
+    items: [
+      {name: 'internalDoc', title: 'Documento Interno', href: '/inventory/create'},
+    ]
   },
   {
     title: 'Order',

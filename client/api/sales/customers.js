@@ -1,4 +1,12 @@
-export default [{
+
+const getAllCustomer = (limit) =>  {
+
+  var data =  this.$api.get('/api/Iventario/ListaFuncionarios');
+
+  return (limit) ? data.slice(0, limit) : data;
+};
+
+const Customers = [{
   "Customer": "10001",
   "Name": "Brighten Chemicals"
 }, {
@@ -259,4 +267,9 @@ export default [{
   "Customer": "VD",
   "Name": "Cliente Indiferenciado",
   "Address":""
-}]
+}];
+
+export {
+  Customers,
+  getAllCustomer
+};

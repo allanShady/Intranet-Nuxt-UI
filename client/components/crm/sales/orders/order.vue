@@ -103,7 +103,7 @@
 </template>
 
 <script>
-import Customers from "@/api/sales/customers";
+import {Customers} from "@/api/sales/customers";
 import items from "@/api/sales/orders";
 
 

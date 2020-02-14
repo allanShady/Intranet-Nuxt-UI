@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import Customers from "@/api/sales/customers";
+import {Customers} from "@/api/sales/customers";
 import Items from "@/api/sales/orders";
 import Consumbles from "@/api/sales/consumables";
 

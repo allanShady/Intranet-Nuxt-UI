@@ -50,7 +50,7 @@
 
 
 <script>
-import Customers from "@/api/sales/customers";
+import {Customers} from "@/api/sales/customers";
 import Items from "@/api/sales/orders";
 import Machines from "@/api/sales/costMachine";
 

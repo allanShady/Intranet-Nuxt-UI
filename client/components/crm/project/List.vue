@@ -39,6 +39,7 @@ export default {
   data: () => ({
     search: "",
     headers: [
+
       { text: "Year", value: "year" },
       { text: "Project", value: "code" },
       { text: "Summary", value: "summary" },
@@ -46,8 +47,10 @@ export default {
       { text: "Proponent", value: "proponent.name" },
       { text: "Dead Line", value: "deadline" },
       { text: "Progress", value: "progress" },
+      { text: "State", value: "state" },
       { text: "Status", value: "status" },
       { text: "Supervisor", value: "supervisor.name" },
+
       { text: "Actions", value: "action", sortable: false }
     ],
     items: Projects

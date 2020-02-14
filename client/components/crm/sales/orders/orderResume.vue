@@ -155,7 +155,7 @@
 </template>
 
 <script>
-import Customers from "@/api/sales/customers";
+import {Customers} from "@/api/sales/customers";
 import Items from "@/api/sales/orders";
 
 export default {
@@ -174,7 +174,7 @@ export default {
         value: "id"
       },
       { text: "Designation", value: "consumble" },
-      
+
       { text: "QTY PER PACK", value: "rawMaterial.length" },
       { text: "Type ", value: "rawMaterial.unity" },
       { text: "Unit Weight(kg)", value: "rawMaterial.unitWeigt" },
@@ -232,7 +232,7 @@ export default {
   },
   created() {
     setInterval(this.getNow, 1000);
-    
+
   },
 
   computed: {

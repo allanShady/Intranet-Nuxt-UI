@@ -99,7 +99,7 @@
 </template>
 
 <script>
-import Employments from "@/api/rh/employments";
+import {Employees} from "@/api/rh/employments";
 import { Todos } from "@/api/rh/todos";
 
 export default {
@@ -134,7 +134,7 @@ export default {
         new Date().getSeconds(),
       year: new Date().getFullYear()
     },
-    employments: Employments,
+    employments: Employees,
 
     valid: true
   }),
