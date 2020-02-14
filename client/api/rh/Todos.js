@@ -52,6 +52,6 @@ const getTodos = (limit) => {
 
 
 export {
-    Todos,
+  Todos,
   getTodos
 };
