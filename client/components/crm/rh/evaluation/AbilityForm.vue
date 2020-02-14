@@ -21,8 +21,8 @@
                     v-model="formModel.employment"
                     label="Nome do Fúncionario"
                     required
-                    item-text="Name"
-                    item-value="Code"
+                    item-text="name"
+                    item-value="code"
                   ></v-select>
                 </v-flex>
 
