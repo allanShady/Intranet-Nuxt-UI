@@ -11,14 +11,13 @@ const Menu = [
     href: '/dashboard'
   },
   {header: 'Inventory'},
-
   {
     title: 'Inventory',
     group: 'Inv',
     component: 'Inv',
     icon: 'reorder',
     items: [
-      {name: 'internalDoc', title: 'Documento Interno', href: '/inventory/create'},
+      {name: 'internalDoc', icon: 'reorder',title: 'Internal Doc', href: '/inventory/create'},
     ]
   },
   {

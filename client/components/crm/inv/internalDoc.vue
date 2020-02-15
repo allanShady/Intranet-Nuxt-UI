@@ -140,32 +140,34 @@
                                     label="Selecione o Artigo"
                                     item-text="description"
                                     item-value="code"
+                                    required
+                                    @input="changeArticle"
                                     :filter="filterCodeDesc"
                                     return-object
                                   ></v-autocomplete>
                                 </v-col>
-
                               </v-row>
                               <v-row>
-<v-autocomplete
-                                    class="body-1"
-                                    :items="unitys"
-                                    v-model="editedItem.unity"
-                                    clearable
-                                    label="Selecione o UN"
-                                    item-text="name"
-                                    item-value="code"
-                                    :filter="filterCodeName"
-                                    return-object
-                                  ></v-autocomplete>
-<v-col>
+                                <v-autocomplete
+                                  class="body-1"
+                                  :items="unitys"
+                                  v-model="editedItem.unity"
+                                  clearable
+                                  label="Selecione o UN"
+                                  item-text="name"
+                                  item-value="code"
+                                  required
+                                  :filter="filterCodeName"
+                                  return-object
+                                ></v-autocomplete>
+                                <v-col>
                                   <v-text-field
                                     type="number"
                                     v-model="editedItem.quantity"
+                                    required
                                     label="Qnt."
                                   ></v-text-field>
                                 </v-col>
-
                               </v-row>
                               <v-row>
                                 <v-col>
@@ -177,6 +179,7 @@
                                     label="Selecione o projecto"
                                     item-text="description"
                                     item-value="code"
+                                    required
                                     :filter="filterCodeDesc"
                                     return-object
                                   ></v-autocomplete>
@@ -292,7 +295,7 @@ export default {
     projects: Projects,
     businessArea: BusinessArea,
     artigos: Articles,
-    unitys : [],
+    unitys: [],
     docTypes: DocTypes,
 
     headers: [
@@ -327,6 +330,16 @@ export default {
       alert("are you sure want close this form?");
     },
     //============================================================================================================================================
+
+    changeArticle(item) {
+      if (!item) {
+        this.unitys = [];
+      } else {
+        this.unitys = item.units;
+        this.editedItem.unity = item.baseUnit;
+      }
+    },
+
     editItem(item) {
       console.log("Editied item:", item);
     },
@@ -347,7 +360,6 @@ export default {
     },
 
     save() {
-
       this.formModel.items.push({
         article: this.editedItem.article.code,
         description: this.editedItem.article.description,
@@ -373,7 +385,7 @@ export default {
       );
     },
 
-    filterCodeDesc(item, queryText, itemText){
+    filterCodeDesc(item, queryText, itemText) {
       if (!queryText) return "";
 
       const textOne = item.code.toLowerCase();

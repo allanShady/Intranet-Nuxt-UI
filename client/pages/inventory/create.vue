@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import InternalDocForm from "@/components/crm/inv/internalDoc";
+import InternalDocForm from "@/components/crm/inv/InternalDoc";
 
 export default {
   layout: "dashboard",

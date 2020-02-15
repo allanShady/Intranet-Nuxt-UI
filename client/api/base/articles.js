@@ -9,7 +9,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0001",
@@ -21,7 +29,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0002",
@@ -33,7 +49,16 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
+
   },
   {
     code: "FE0003",
@@ -45,7 +70,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0004",
@@ -57,7 +90,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0005",
@@ -69,7 +110,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0006",
@@ -81,7 +130,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0007",
@@ -93,7 +150,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0008",
@@ -105,7 +170,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0009",
@@ -117,7 +190,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0010",
@@ -129,7 +210,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0011",
@@ -141,7 +230,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0012",
@@ -153,7 +250,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0013",
@@ -165,7 +270,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0014",
@@ -177,7 +290,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0015",
@@ -189,7 +310,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0016",
@@ -201,7 +330,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0017",
@@ -213,7 +350,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0018",
@@ -225,7 +370,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0019",
@@ -237,7 +390,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0020",
@@ -249,7 +410,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0021",
@@ -261,7 +430,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0022",
@@ -273,7 +450,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0023",
@@ -285,7 +470,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0024",
@@ -297,7 +490,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0025",
@@ -309,7 +510,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0026",
@@ -321,7 +530,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0027",
@@ -333,7 +550,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0028",
@@ -345,7 +570,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0029",
@@ -357,7 +590,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0030",
@@ -369,7 +610,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0031",
@@ -381,7 +630,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0032",
@@ -393,7 +650,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0033",
@@ -405,7 +670,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0034",
@@ -417,7 +690,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0035",
@@ -429,7 +710,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0036",
@@ -441,7 +730,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0037",
@@ -453,7 +750,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0038",
@@ -465,7 +770,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0039",
@@ -477,7 +790,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0040",
@@ -489,7 +810,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0041",
@@ -501,7 +830,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0042",
@@ -513,7 +850,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0043",
@@ -525,7 +870,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0044",
@@ -537,7 +890,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0045",
@@ -549,7 +910,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0046",
@@ -561,7 +930,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0047",
@@ -573,7 +950,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0048",
@@ -585,7 +970,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0049",
@@ -597,7 +990,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0050",
@@ -609,7 +1010,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0051",
@@ -621,7 +1030,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0052",
@@ -633,7 +1050,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0053",
@@ -645,7 +1070,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0054",
@@ -657,7 +1090,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0055",
@@ -669,7 +1110,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0056",
@@ -681,7 +1130,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0057",
@@ -693,7 +1150,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0058",
@@ -705,7 +1170,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0059",
@@ -717,7 +1190,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0060",
@@ -729,7 +1210,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0061",
@@ -741,7 +1230,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0062",
@@ -753,7 +1250,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0063",
@@ -765,7 +1270,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0064",
@@ -777,7 +1290,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0065",
@@ -789,7 +1310,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0066",
@@ -801,7 +1330,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0067",
@@ -813,7 +1350,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0068",
@@ -825,7 +1370,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0069",
@@ -837,7 +1390,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0070",
@@ -849,7 +1410,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0071",
@@ -861,7 +1430,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0072",
@@ -873,7 +1450,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0073",
@@ -885,7 +1470,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0074",
@@ -897,7 +1490,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0075",
@@ -909,7 +1510,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0076",
@@ -921,7 +1530,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0077",
@@ -933,7 +1550,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0078",
@@ -945,7 +1570,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0079",
@@ -957,7 +1590,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0080",
@@ -969,7 +1610,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0081",
@@ -981,7 +1630,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0082",
@@ -993,7 +1650,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0083",
@@ -1005,7 +1670,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0084",
@@ -1017,7 +1690,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0085",
@@ -1029,7 +1710,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0086",
@@ -1041,7 +1730,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0087",
@@ -1053,7 +1750,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0088",
@@ -1065,7 +1770,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0089",
@@ -1077,7 +1790,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0090",
@@ -1089,7 +1810,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0091",
@@ -1101,7 +1830,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0092",
@@ -1113,7 +1850,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0093",
@@ -1125,7 +1870,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0094",
@@ -1137,7 +1890,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0095",
@@ -1149,7 +1910,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0096",
@@ -1161,7 +1930,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0097",
@@ -1173,7 +1950,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0098",
@@ -1185,7 +1970,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0099",
@@ -1197,7 +1990,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0100",
@@ -1209,7 +2010,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0101",
@@ -1221,7 +2030,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0102",
@@ -1233,7 +2050,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0103",
@@ -1245,7 +2070,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0104",
@@ -1257,7 +2090,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0105",
@@ -1269,7 +2110,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0106",
@@ -1281,7 +2130,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0107",
@@ -1293,7 +2150,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0108",
@@ -1305,7 +2170,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0109",
@@ -1317,7 +2190,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0110",
@@ -1329,7 +2210,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0111",
@@ -1341,7 +2230,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0112",
@@ -1353,7 +2250,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0113",
@@ -1365,7 +2270,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0114",
@@ -1377,7 +2290,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0115",
@@ -1389,7 +2310,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0116",
@@ -1401,7 +2330,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0117",
@@ -1413,7 +2350,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0118",
@@ -1425,7 +2370,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0119",
@@ -1437,7 +2390,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0120",
@@ -1449,7 +2410,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0121",
@@ -1461,7 +2430,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0122",
@@ -1473,7 +2450,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0123",
@@ -1485,7 +2470,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0124",
@@ -1497,7 +2490,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0125",
@@ -1509,7 +2510,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0126",
@@ -1521,7 +2530,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0127",
@@ -1533,7 +2550,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0128",
@@ -1545,7 +2570,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0129",
@@ -1557,7 +2590,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0130",
@@ -1569,7 +2610,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0131",
@@ -1581,7 +2630,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0132",
@@ -1593,7 +2650,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0133",
@@ -1605,7 +2670,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0134",
@@ -1617,7 +2690,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0135",
@@ -1629,7 +2710,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0136",
@@ -1641,7 +2730,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0137",
@@ -1653,7 +2750,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0138",
@@ -1665,7 +2770,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0139",
@@ -1677,7 +2790,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0140",
@@ -1689,7 +2810,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0141",
@@ -1701,7 +2830,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0142",
@@ -1713,7 +2850,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0143",
@@ -1725,7 +2870,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0144",
@@ -1737,7 +2890,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0145",
@@ -1749,7 +2910,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0146",
@@ -1761,7 +2930,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0147",
@@ -1773,7 +2950,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0148",
@@ -1785,7 +2970,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0149",
@@ -1797,7 +2990,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0150",
@@ -1809,7 +3010,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0151",
@@ -1821,7 +3030,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0152",
@@ -1833,7 +3050,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0153",
@@ -1845,7 +3070,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0154",
@@ -1857,7 +3090,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0155",
@@ -1869,7 +3110,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0156",
@@ -1881,7 +3130,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0157",
@@ -1893,7 +3150,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0158",
@@ -1905,7 +3170,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0159",
@@ -1917,7 +3190,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0160",
@@ -1929,7 +3210,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0161",
@@ -1941,7 +3230,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0162",
@@ -1953,7 +3250,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0163",
@@ -1965,7 +3270,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0164",
@@ -1977,7 +3290,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0165",
@@ -1989,7 +3310,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0166",
@@ -2001,7 +3330,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0167",
@@ -2013,7 +3350,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0168",
@@ -2025,7 +3370,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0169",
@@ -2037,7 +3390,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0170",
@@ -2049,7 +3410,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0171",
@@ -2061,7 +3430,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0172",
@@ -2073,7 +3450,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0173",
@@ -2085,7 +3470,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0174",
@@ -2097,7 +3490,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0175",
@@ -2109,7 +3510,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0176",
@@ -2121,7 +3530,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0177",
@@ -2133,7 +3550,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0178",
@@ -2145,7 +3570,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0179",
@@ -2157,7 +3590,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0180",
@@ -2169,7 +3610,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0181",
@@ -2181,7 +3630,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0182",
@@ -2193,7 +3650,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0183",
@@ -2205,7 +3670,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0184",
@@ -2217,7 +3690,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0185",
@@ -2229,7 +3710,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0186",
@@ -2241,7 +3730,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0187",
@@ -2253,7 +3750,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0188",
@@ -2265,7 +3770,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0189",
@@ -2277,7 +3790,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0190",
@@ -2289,7 +3810,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0191",
@@ -2301,7 +3830,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0192",
@@ -2313,7 +3850,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0193",
@@ -2325,7 +3870,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0194",
@@ -2337,7 +3890,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0195",
@@ -2349,7 +3910,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0196",
@@ -2361,7 +3930,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0197",
@@ -2373,7 +3950,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0198",
@@ -2385,7 +3970,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0199",
@@ -2397,7 +3990,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0200",
@@ -2409,7 +4010,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0201",
@@ -2421,7 +4030,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0202",
@@ -2433,7 +4050,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0203",
@@ -2445,7 +4070,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0204",
@@ -2457,7 +4090,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0205",
@@ -2469,7 +4110,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0206",
@@ -2481,7 +4130,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0207",
@@ -2493,7 +4150,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0208",
@@ -2505,7 +4170,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0209",
@@ -2517,7 +4190,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0211",
@@ -2529,7 +4210,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0212",
@@ -2541,7 +4230,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0213",
@@ -2553,7 +4250,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0214",
@@ -2565,7 +4270,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0215",
@@ -2577,7 +4290,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0216",
@@ -2589,7 +4310,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0217",
@@ -2601,7 +4330,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0218",
@@ -2613,7 +4350,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0219",
@@ -2625,7 +4370,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0220",
@@ -2637,7 +4390,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0221",
@@ -2649,7 +4410,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0222",
@@ -2661,7 +4430,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0223",
@@ -2673,7 +4450,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0224",
@@ -2685,7 +4470,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0225",
@@ -2697,7 +4490,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0226",
@@ -2709,7 +4510,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0227",
@@ -2721,7 +4530,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0228",
@@ -2733,7 +4550,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0229",
@@ -2745,7 +4570,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0230",
@@ -2757,7 +4590,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0231",
@@ -2769,7 +4610,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0232",
@@ -2781,7 +4630,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0233",
@@ -2793,7 +4650,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0234",
@@ -2805,7 +4670,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0235",
@@ -2817,7 +4690,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0236",
@@ -2829,7 +4710,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0237",
@@ -2841,7 +4730,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0238",
@@ -2853,7 +4750,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0239",
@@ -2865,7 +4770,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0240",
@@ -2877,7 +4790,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0241",
@@ -2889,7 +4810,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0242",
@@ -2901,7 +4830,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0243",
@@ -2913,7 +4850,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0244",
@@ -2925,7 +4870,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0245",
@@ -2937,7 +4890,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0246",
@@ -2949,7 +4910,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0247",
@@ -2961,7 +4930,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0248",
@@ -2973,7 +4950,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0249",
@@ -2985,7 +4970,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0250",
@@ -2997,7 +4990,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0251",
@@ -3009,7 +5010,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0252",
@@ -3021,7 +5030,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0253",
@@ -3033,7 +5050,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0254",
@@ -3045,7 +5070,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0255",
@@ -3057,7 +5090,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0256",
@@ -3069,7 +5110,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0257",
@@ -3081,7 +5130,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0258",
@@ -3093,7 +5150,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0259",
@@ -3105,7 +5170,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0260",
@@ -3117,7 +5190,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0261",
@@ -3129,7 +5210,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0262",
@@ -3141,7 +5230,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0263",
@@ -3153,7 +5250,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0264",
@@ -3165,7 +5270,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0265",
@@ -3177,7 +5290,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0266",
@@ -3189,7 +5310,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0267",
@@ -3201,7 +5330,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0268",
@@ -3213,7 +5350,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0269",
@@ -3225,7 +5370,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0270",
@@ -3237,7 +5390,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0271",
@@ -3249,7 +5410,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0272",
@@ -3261,7 +5430,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0273",
@@ -3273,7 +5450,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0274",
@@ -3285,7 +5470,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0275",
@@ -3297,7 +5490,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0276",
@@ -3309,7 +5510,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0277",
@@ -3321,7 +5530,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0278",
@@ -3333,7 +5550,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0279",
@@ -3345,7 +5570,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0280",
@@ -3357,7 +5590,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0281",
@@ -3369,7 +5610,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0282",
@@ -3381,7 +5630,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0283",
@@ -3393,7 +5650,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0303",
@@ -3405,7 +5670,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0304",
@@ -3417,7 +5690,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0312",
@@ -3429,7 +5710,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0313",
@@ -3441,7 +5730,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0314",
@@ -3453,7 +5750,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0315",
@@ -3465,7 +5770,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0316",
@@ -3477,7 +5790,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0317",
@@ -3489,7 +5810,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0318",
@@ -3501,7 +5830,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0319",
@@ -3513,7 +5850,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0320",
@@ -3525,7 +5870,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0321",
@@ -3537,7 +5890,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0322",
@@ -3549,7 +5910,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0323",
@@ -3561,7 +5930,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0324",
@@ -3573,7 +5950,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0325",
@@ -3585,7 +5970,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0326",
@@ -3597,7 +5990,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0327",
@@ -3609,7 +6010,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0328",
@@ -3621,7 +6030,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0329",
@@ -3633,7 +6050,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0330",
@@ -3645,7 +6070,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0331",
@@ -3657,7 +6090,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0332",
@@ -3669,7 +6110,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0333",
@@ -3681,7 +6130,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0334",
@@ -3693,7 +6150,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0335",
@@ -3705,7 +6170,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0336",
@@ -3717,7 +6190,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0337",
@@ -3729,7 +6210,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0338",
@@ -3741,7 +6230,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0339",
@@ -3753,7 +6250,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0340",
@@ -3765,7 +6270,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0341",
@@ -3777,7 +6290,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0342",
@@ -3789,7 +6310,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0343",
@@ -3801,7 +6330,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0344",
@@ -3813,7 +6350,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0345",
@@ -3825,7 +6370,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0346",
@@ -3837,7 +6390,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0347",
@@ -3849,7 +6410,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0348",
@@ -3861,7 +6430,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0349",
@@ -3873,7 +6450,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0350",
@@ -3885,7 +6470,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0351",
@@ -3897,7 +6490,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0352",
@@ -3909,7 +6510,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0353",
@@ -3921,7 +6530,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0354",
@@ -3933,7 +6550,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0355",
@@ -3945,7 +6570,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0356",
@@ -3957,7 +6590,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0357",
@@ -3969,7 +6610,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0358",
@@ -3981,7 +6630,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0359",
@@ -3993,7 +6650,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0360",
@@ -4005,7 +6670,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0361",
@@ -4017,7 +6690,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0362",
@@ -4029,7 +6710,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0363",
@@ -4041,7 +6730,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0364",
@@ -4053,7 +6750,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0365",
@@ -4065,7 +6770,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0366",
@@ -4077,7 +6790,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0367",
@@ -4089,7 +6810,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0368",
@@ -4101,7 +6830,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0369",
@@ -4113,7 +6850,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0370",
@@ -4125,7 +6870,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0371",
@@ -4137,7 +6890,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0372",
@@ -4149,7 +6910,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0373",
@@ -4161,7 +6930,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0374",
@@ -4173,7 +6950,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0375",
@@ -4185,7 +6970,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0376",
@@ -4197,7 +6990,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0377",
@@ -4209,7 +7010,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0379",
@@ -4221,7 +7030,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0380",
@@ -4233,7 +7050,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0381",
@@ -4245,7 +7070,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0382",
@@ -4257,7 +7090,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0383",
@@ -4269,7 +7110,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0384",
@@ -4281,7 +7130,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0395",
@@ -4293,7 +7150,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0396",
@@ -4305,7 +7170,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0400",
@@ -4317,7 +7190,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0401",
@@ -4329,7 +7210,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "FE0402",
@@ -4341,7 +7230,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "OU0042",
@@ -4353,7 +7250,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "OU0043",
@@ -4365,7 +7270,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   },
   {
     code: "OU0239",
@@ -4377,7 +7290,15 @@ const Articles = [
     cod_Fornecedor: "",
     nome_Fornecedor: "",
     estado: 0,
-    tipoArtigo: null
+    tipoArtigo: null,
+    baseUnit:"UN",
+    units:[
+      {
+        code:"UN",
+        name: "Unidade",
+        conversion:1
+      }
+    ]
   }
 ];
 
