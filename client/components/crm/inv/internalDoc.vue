@@ -17,11 +17,11 @@
               <v-row>
                 <v-col>
                   <v-autocomplete
+                    prepend-icon="mdi-text-box"
                     v-model="formModel.typeDocument"
                     :items="docTypes"
                     clearable
                     label="Tipo de documento"
-                    prepend-icon="mdi-text-box"
                     :filter="filterCodeName"
                     return-object
                     v-validate="'required'"
@@ -270,11 +270,14 @@ export default {
       typeEntity: "U",
       entity: null,
       Attachs: [],
-
+      createdBy:'Guimarães Mahota',
+      createdAt: new Date().toISOString(),
       isSavingDataAndClose: false,
       isSavingData: false,
       items: []
     },
+
+
 
     editedItem: {},
     editedIndex: 0,
@@ -399,7 +402,9 @@ export default {
     },
 
     submit() {
+      console.log(this.formModel);
       this.formModel.isSavingData = true;
+
       // if (formModel.callerbtn == false)
       //   this.isSavingData = !this.isSavingData;
       // else if (callerbtn == 2)

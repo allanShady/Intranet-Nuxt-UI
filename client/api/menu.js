@@ -15,6 +15,7 @@ const Menu = [
     icon: 'reorder',
     items: [
       {name: 'internalDoc', icon: 'reorder',title: 'Internal Doc', href: '/inventory/create'},
+      {name: 'approvalPending', icon: 'reorder',title: 'Approval', href: '/inventory/pendinglist'},
     ]
   },
   {header: 'Human Resources'},

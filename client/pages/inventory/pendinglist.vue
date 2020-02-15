@@ -1,16 +1,15 @@
 <template>
   <div id="page-forms">
-    <InternalDoc-Form></InternalDoc-Form>
+    <Pending-List></Pending-List>
   </div>
 </template>
-
 <script>
-import InternalDocForm from "@/components/crm/inv/InternalDoc";
+import PendingList from "@/components/crm/inv/PendingList";
 
 export default {
   layout: "dashboard",
   components: {
-    InternalDocForm
+    PendingList
   },
   data() {
     return {
