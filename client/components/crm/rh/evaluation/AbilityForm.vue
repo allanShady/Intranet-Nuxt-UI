@@ -100,7 +100,7 @@
 
 <script>
 import {Employees} from "@/api/rh/employments";
-import { Todos } from "@/api/rh/todos";
+import {Todos} from "@/api/rh/employments";
 
 export default {
   data: () => ({

@@ -364,11 +364,12 @@ export default {
         article: this.editedItem.article.code,
         description: this.editedItem.article.description,
         quantity: this.editedItem.quantity,
-        unity: "UN",
+        unity: this.editedItem.unity,
         businessArea: this.formModel.businessArea,
         project: this.editedItem.project.code,
         notes: this.editedItem.notes
       });
+
       this.close();
     },
 

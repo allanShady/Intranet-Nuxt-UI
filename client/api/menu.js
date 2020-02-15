@@ -1,8 +1,5 @@
 const Menu = [
   {header: 'Apps'},
-
-
-
   {
     title: 'Dashboard',
     group: 'apps',
@@ -18,6 +15,16 @@ const Menu = [
     icon: 'reorder',
     items: [
       {name: 'internalDoc', icon: 'reorder',title: 'Internal Doc', href: '/inventory/create'},
+    ]
+  },
+  {header: 'Human Resources'},
+  {
+    title: 'Rh',
+    group: 'rh',
+    component: 'rh',
+    icon: 'reorder',
+    items: [
+      {name: 'ability', icon: 'reorder',title: 'Avaliação', href: '/rh/avaliacao'},
     ]
   },
   {
