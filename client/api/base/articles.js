@@ -2,23 +2,35 @@ const Articles = [
   {
     code: "F0238",
     description: "Chave de boca luneta 13",
-    codbarrasartigo: "",
-    armazem: "001",
-    tipo: "52",
-    stkActual: 0.0,
-    cod_Fornecedor: "",
-    nome_Fornecedor: "",
-    estado: 0,
-    tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
-      {
-        code:"UN",
-        name: "Unidade",
-        conversion:1
-      }
-    ]
+    barcode: "",
+    warehouse: {
+      default: "001",
+      totalStock: 5.0,
+      items: [
+        {
+          warehouse:"001",
+          stock: 5
+        }
+      ]
+    },
+    type: {
+      code: "52",
+      description: "Consumiveis"
+    },
+    unity: {
+      base:"UN",
+      sale:"UN",
+      purchase:"UN",
+      items: [
+        {
+          code: "UN",
+          name: "Unidade",
+          conversion: 1
+        }
+      ]
+    }
   },
+
   {
     code: "FE0001",
     description: " Broca de ferro Ø10mm ",
@@ -30,12 +42,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -50,15 +62,14 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
-
   },
   {
     code: "FE0003",
@@ -71,12 +82,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -91,12 +102,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -111,12 +122,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -131,12 +142,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -151,12 +162,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -171,12 +182,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -191,12 +202,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -211,12 +222,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -231,12 +242,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -251,12 +262,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -271,12 +282,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -291,12 +302,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -311,12 +322,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -331,12 +342,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -351,12 +362,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -371,12 +382,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -391,12 +402,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -411,12 +422,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -431,12 +442,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -451,12 +462,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -471,12 +482,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -491,12 +502,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -511,12 +522,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -531,12 +542,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -551,12 +562,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -571,12 +582,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -591,12 +602,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -611,12 +622,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -631,12 +642,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -651,12 +662,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -671,12 +682,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -691,12 +702,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -711,12 +722,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -731,12 +742,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -751,12 +762,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -771,12 +782,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -791,12 +802,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -811,12 +822,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -831,12 +842,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -851,12 +862,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -871,12 +882,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -891,12 +902,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -911,12 +922,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -931,12 +942,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -951,12 +962,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -971,12 +982,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -991,12 +1002,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1011,12 +1022,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1031,12 +1042,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1051,12 +1062,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1071,12 +1082,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1091,12 +1102,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1111,12 +1122,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1131,12 +1142,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1151,12 +1162,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1171,12 +1182,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1191,12 +1202,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1211,12 +1222,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1231,12 +1242,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1251,12 +1262,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1271,12 +1282,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1291,12 +1302,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1311,12 +1322,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1331,12 +1342,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1351,12 +1362,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1371,12 +1382,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1391,12 +1402,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1411,12 +1422,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1431,12 +1442,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1451,12 +1462,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1471,12 +1482,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1491,12 +1502,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1511,12 +1522,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1531,12 +1542,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1551,12 +1562,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1571,12 +1582,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1591,12 +1602,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1611,12 +1622,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1631,12 +1642,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1651,12 +1662,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1671,12 +1682,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1691,12 +1702,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1711,12 +1722,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1731,12 +1742,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1751,12 +1762,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1771,12 +1782,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1791,12 +1802,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1811,12 +1822,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1831,12 +1842,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1851,12 +1862,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1871,12 +1882,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1891,12 +1902,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1911,12 +1922,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1931,12 +1942,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1951,12 +1962,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1971,12 +1982,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -1991,12 +2002,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2011,12 +2022,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2031,12 +2042,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2051,12 +2062,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2071,12 +2082,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2091,12 +2102,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2111,12 +2122,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2131,12 +2142,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2151,12 +2162,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2171,12 +2182,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2191,12 +2202,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2211,12 +2222,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2231,12 +2242,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2251,12 +2262,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2271,12 +2282,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2291,12 +2302,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2311,12 +2322,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2331,12 +2342,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2351,12 +2362,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2371,12 +2382,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2391,12 +2402,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2411,12 +2422,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2431,12 +2442,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2451,12 +2462,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2471,12 +2482,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2491,12 +2502,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2511,12 +2522,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2531,12 +2542,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2551,12 +2562,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2571,12 +2582,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2591,12 +2602,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2611,12 +2622,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2631,12 +2642,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2651,12 +2662,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2671,12 +2682,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2691,12 +2702,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2711,12 +2722,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2731,12 +2742,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2751,12 +2762,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2771,12 +2782,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2791,12 +2802,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2811,12 +2822,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2831,12 +2842,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2851,12 +2862,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2871,12 +2882,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2891,12 +2902,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2911,12 +2922,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2931,12 +2942,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2951,12 +2962,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2971,12 +2982,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -2991,12 +3002,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3011,12 +3022,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3031,12 +3042,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3051,12 +3062,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3071,12 +3082,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3091,12 +3102,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3111,12 +3122,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3131,12 +3142,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3151,12 +3162,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3171,12 +3182,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3191,12 +3202,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3211,12 +3222,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3231,12 +3242,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3251,12 +3262,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3271,12 +3282,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3291,12 +3302,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3311,12 +3322,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3331,12 +3342,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3351,12 +3362,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3371,12 +3382,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3391,12 +3402,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3411,12 +3422,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3431,12 +3442,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3451,12 +3462,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3471,12 +3482,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3491,12 +3502,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3511,12 +3522,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3531,12 +3542,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3551,12 +3562,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3571,12 +3582,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3591,12 +3602,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3611,12 +3622,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3631,12 +3642,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3651,12 +3662,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3671,12 +3682,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3691,12 +3702,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3711,12 +3722,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3731,12 +3742,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3751,12 +3762,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3771,12 +3782,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3791,12 +3802,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3811,12 +3822,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3831,12 +3842,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3851,12 +3862,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3871,12 +3882,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3891,12 +3902,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3911,12 +3922,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3931,12 +3942,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3951,12 +3962,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3971,12 +3982,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -3991,12 +4002,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4011,12 +4022,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4031,12 +4042,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4051,12 +4062,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4071,12 +4082,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4091,12 +4102,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4111,12 +4122,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4131,12 +4142,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4151,12 +4162,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4171,12 +4182,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4191,12 +4202,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4211,12 +4222,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4231,12 +4242,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4251,12 +4262,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4271,12 +4282,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4291,12 +4302,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4311,12 +4322,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4331,12 +4342,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4351,12 +4362,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4371,12 +4382,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4391,12 +4402,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4411,12 +4422,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4431,12 +4442,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4451,12 +4462,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4471,12 +4482,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4491,12 +4502,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4511,12 +4522,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4531,12 +4542,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4551,12 +4562,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4571,12 +4582,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4591,12 +4602,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4611,12 +4622,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4631,12 +4642,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4651,12 +4662,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4671,12 +4682,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4691,12 +4702,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4711,12 +4722,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4731,12 +4742,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4751,12 +4762,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4771,12 +4782,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4791,12 +4802,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4811,12 +4822,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4831,12 +4842,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4851,12 +4862,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4871,12 +4882,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4891,12 +4902,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4911,12 +4922,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4931,12 +4942,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4951,12 +4962,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4971,12 +4982,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -4991,12 +5002,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5011,12 +5022,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5031,12 +5042,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5051,12 +5062,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5071,12 +5082,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5091,12 +5102,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5111,12 +5122,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5131,12 +5142,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5151,12 +5162,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5171,12 +5182,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5191,12 +5202,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5211,12 +5222,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5231,12 +5242,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5251,12 +5262,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5271,12 +5282,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5291,12 +5302,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5311,12 +5322,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5331,12 +5342,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5351,12 +5362,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5371,12 +5382,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5391,12 +5402,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5411,12 +5422,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5431,12 +5442,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5451,12 +5462,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5471,12 +5482,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5491,12 +5502,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5511,12 +5522,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5531,12 +5542,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5551,12 +5562,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5571,12 +5582,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5591,12 +5602,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5611,12 +5622,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5631,12 +5642,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5651,12 +5662,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5671,12 +5682,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5691,12 +5702,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5711,12 +5722,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5731,12 +5742,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5751,12 +5762,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5771,12 +5782,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5791,12 +5802,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5811,12 +5822,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5831,12 +5842,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5851,12 +5862,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5871,12 +5882,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5891,12 +5902,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5911,12 +5922,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5931,12 +5942,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5951,12 +5962,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5971,12 +5982,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -5991,12 +6002,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6011,12 +6022,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6031,12 +6042,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6051,12 +6062,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6071,12 +6082,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6091,12 +6102,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6111,12 +6122,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6131,12 +6142,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6151,12 +6162,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6171,12 +6182,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6191,12 +6202,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6211,12 +6222,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6231,12 +6242,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6251,12 +6262,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6271,12 +6282,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6291,12 +6302,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6311,12 +6322,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6331,12 +6342,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6351,12 +6362,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6371,12 +6382,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6391,12 +6402,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6411,12 +6422,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6431,12 +6442,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6451,12 +6462,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6471,12 +6482,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6491,12 +6502,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6511,12 +6522,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6531,12 +6542,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6551,12 +6562,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6571,12 +6582,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6591,12 +6602,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6611,12 +6622,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6631,12 +6642,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6651,12 +6662,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6671,12 +6682,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6691,12 +6702,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6711,12 +6722,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6731,12 +6742,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6751,12 +6762,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6771,12 +6782,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6791,12 +6802,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6811,12 +6822,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6831,12 +6842,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6851,12 +6862,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6871,12 +6882,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6891,12 +6902,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6911,12 +6922,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6931,12 +6942,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6951,12 +6962,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6971,12 +6982,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -6991,12 +7002,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -7011,12 +7022,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -7031,12 +7042,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -7051,12 +7062,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -7071,12 +7082,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -7091,12 +7102,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -7111,12 +7122,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -7131,12 +7142,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -7151,12 +7162,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -7171,12 +7182,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -7191,12 +7202,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -7211,12 +7222,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -7231,12 +7242,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -7251,12 +7262,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -7271,12 +7282,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   },
@@ -7291,12 +7302,12 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit:"UN",
-    units:[
+    baseUnit: "UN",
+    units: [
       {
-        code:"UN",
+        code: "UN",
         name: "Unidade",
-        conversion:1
+        conversion: 1
       }
     ]
   }

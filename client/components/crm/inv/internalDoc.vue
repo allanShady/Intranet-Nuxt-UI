@@ -339,7 +339,7 @@ export default {
         this.unitys = [];
       } else {
         this.unitys = item.units;
-        this.editedItem.unity = item.baseUnit;
+        this.editedItem.unity = item.unity.base;
       }
     },
 
