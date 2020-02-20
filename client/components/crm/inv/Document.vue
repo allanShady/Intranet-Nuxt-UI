@@ -254,7 +254,7 @@
 </template>
 
 <script>
-import { Employees } from "@/api/rh/employments";
+import { getEmployees } from "@/api/base/employe";
 import { Projects } from "@/api/crm/project";
 import { BusinessArea } from "@/api/base/businessArea";
 import { getArticles } from "@/api/base/articles";
@@ -271,7 +271,7 @@ export default {
       typeEntity: "U",
       entity: null,
       Attachs: [],
-      createdBy:'Guimarães Mahota',
+      createdBy: "Guimarães Mahota",
       createdAt: new Date().toISOString(),
       isSavingDataAndClose: false,
       isSavingData: false,
@@ -293,10 +293,10 @@ export default {
     dialog: false,
     dateMenu: false,
 
-    employees: Employees,
+    employees: [],
     projects: Projects,
     businessArea: BusinessArea,
-    articles: [] ,
+    articles: [],
     unitys: [],
     docTypes: DocTypes,
 
@@ -310,13 +310,12 @@ export default {
     ]
   }),
   beforeMount: async function() {
-      this.articles = await getArticles();
-      this.unitys = await getUnities();
-    },
+    this.articles = await getArticles();
+    this.unitys = await getUnities();
+    this.employees = await getEmployees();
+  },
   methods: {
     async changeEntity() {
-
-
       //this.formModel.items = [];
     },
 
