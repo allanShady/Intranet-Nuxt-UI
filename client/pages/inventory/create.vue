@@ -1,16 +1,16 @@
 <template>
   <div id="page-forms">
-    <InternalDoc-Form></InternalDoc-Form>
+    <Document-Form></Document-Form>
   </div>
 </template>
 
 <script>
-import InternalDocForm from "@/components/crm/inv/InternalDoc";
+import DocumentForm from "@/components/crm/inv/Document";
 
 export default {
   layout: "dashboard",
   components: {
-    InternalDocForm
+    DocumentForm
   },
   data() {
     return {

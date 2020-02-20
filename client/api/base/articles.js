@@ -7333,9 +7333,6 @@ async function getArticles(limit){
    )
 
   );
-
-  console.log(Items);
-
   return (limit) ? Items.slice(0, limit) : Items;
 };
 

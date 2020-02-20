@@ -154,10 +154,10 @@
                                   v-model="editedItem.unity"
                                   clearable
                                   label="Selecione o UN"
-                                  item-text="name"
+                                  item-text="description"
                                   item-value="code"
                                   required
-                                  :filter="filterCodeName"
+                                  :filter="filterCodeDesc"
                                   return-object
                                 ></v-autocomplete>
                                 <v-col>
@@ -258,6 +258,7 @@ import { Employees } from "@/api/rh/employments";
 import { Projects } from "@/api/crm/project";
 import { BusinessArea } from "@/api/base/businessArea";
 import { getArticles } from "@/api/base/articles";
+import { getUnities } from "@/api/base/unities";
 import DocTypes from "@/api/base/documents";
 
 export default {
@@ -310,6 +311,7 @@ export default {
   }),
   beforeMount: async function() {
       this.articles = await getArticles();
+      this.unitys = await getUnities();
     },
   methods: {
     async changeEntity() {
@@ -339,10 +341,12 @@ export default {
 
     changeArticle(item) {
       if (!item) {
-        this.unitys = [];
+        this.editedItem.unity = null;
+        //this.unitys = [];
       } else {
-        this.unitys = item.units;
-        this.editedItem.unity = item.unity.base;
+        //this.unitys = item.units;
+
+        this.editedItem.unity = item.Unity.base;
       }
     },
 
