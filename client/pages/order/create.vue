@@ -18,7 +18,7 @@
       <v-tab-item>
         <v-card tile>
           <v-card-text>
-            <orderResume-form></orderResume-form>
+            <Resume-form></Resume-form>
           </v-card-text>
         </v-card>
       </v-tab-item>
@@ -55,7 +55,7 @@ import OrderForm from "@/components/crm/sales/orders/order";
 import MachineCostForm from "@/components/crm/sales/orders/machineCosts";
 import MaterialCostForm from "@/components/crm/sales/orders/materialCosts";
 import ConsumbleCostForm from "@/components/crm/sales/orders/consumbleCosts";
-import OrderResumeForm from "@/components/crm/sales/orders/OrderResume";
+import ResumeForm from "@/components/crm/sales/orders/resume";
 //import axios from '~/plugins/axios'
 
 export default {
@@ -65,7 +65,7 @@ export default {
     MachineCostForm,
     MaterialCostForm,
     ConsumbleCostForm,
-    OrderResumeForm
+    ResumeForm
   },
   data() {
     return {
