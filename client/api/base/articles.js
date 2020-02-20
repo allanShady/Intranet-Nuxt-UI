@@ -1,3 +1,7 @@
+import axios from 'axios';
+
+let url = 'https://192.168.3.106:5001/';
+
 const Articles = [
   {
     code: "F0238",
@@ -7313,4 +7317,29 @@ const Articles = [
   }
 ];
 
-export { Articles };
+async function getArticles(limit){
+
+  var Items;
+
+  await axios
+  .get(url+'api/Products',null, {
+    headers: {
+      }
+    })
+  .then(response => (
+
+    Items = response.data
+
+   )
+
+  );
+
+  console.log(Items);
+
+  return (limit) ? Items.slice(0, limit) : Items;
+};
+
+export {
+  Articles ,
+  getArticles
+};

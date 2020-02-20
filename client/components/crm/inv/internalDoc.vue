@@ -134,7 +134,7 @@
                                 <v-col>
                                   <v-autocomplete
                                     class="body-1"
-                                    :items="artigos"
+                                    :items="articles"
                                     v-model="editedItem.article"
                                     clearable
                                     label="Selecione o Artigo"
@@ -215,7 +215,7 @@
                       <template v-slot:input>
                         <v-select
                           class="body-1"
-                          :items="artigos"
+                          :items="articles"
                           @input="getSelectedArtigo"
                           label="Selecione o artigo"
                           item-text="artigo"
@@ -257,7 +257,7 @@
 import { Employees } from "@/api/rh/employments";
 import { Projects } from "@/api/crm/project";
 import { BusinessArea } from "@/api/base/businessArea";
-import { Articles } from "@/api/base/articles";
+import { getArticles } from "@/api/base/articles";
 import DocTypes from "@/api/base/documents";
 
 export default {
@@ -277,8 +277,6 @@ export default {
       items: []
     },
 
-
-
     editedItem: {},
     editedIndex: 0,
     defaultItem: {
@@ -297,7 +295,7 @@ export default {
     employees: Employees,
     projects: Projects,
     businessArea: BusinessArea,
-    artigos: Articles,
+    articles: [] ,
     unitys: [],
     docTypes: DocTypes,
 
@@ -310,8 +308,13 @@ export default {
       { text: "Notas", value: "notes" }
     ]
   }),
+  beforeMount: async function() {
+      this.articles = await getArticles();
+    },
   methods: {
-    changeEntity() {
+    async changeEntity() {
+
+
       //this.formModel.items = [];
     },
 
