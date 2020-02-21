@@ -75,6 +75,7 @@
                     prepend-icon="mdi-account-box"
                     :filter="filterCodeName"
                     return-object
+                    @input="changeEntity"
                     v-validate="'required'"
                     data-vv-name="typeDocument"
                     :error-messages="errors.collect('typeDocument')"
@@ -91,14 +92,14 @@
                     clearable
                     label="Selecione o Área de Negocio"
                     prepend-icon="mdi-cash-usd-outline"
-                    :filter="filterCodeName"
+                    :filter="filterCodeDesc"
                     return-object
                     v-validate="'required'"
                     data-vv-name="typeDocument"
                     :error-messages="errors.collect('typeDocument')"
                     required
                     item-value="code"
-                    item-text="name"
+                    item-text="description"
                   ></v-autocomplete>
                 </v-col>
                 <v-col>
@@ -255,8 +256,8 @@
 
 <script>
 import { getEmployees } from "@/api/base/employe";
-import { Projects } from "@/api/crm/project";
-import { BusinessArea } from "@/api/base/businessArea";
+import { getProjects } from "@/api/base/project";
+import { getBusinessArea } from "@/api/base/businessArea";
 import { getArticles } from "@/api/base/articles";
 import { getUnities } from "@/api/base/unities";
 import DocTypes from "@/api/base/documents";
@@ -270,6 +271,7 @@ export default {
       docNumber: "",
       typeEntity: "U",
       entity: null,
+      businessArea: null,
       Attachs: [],
       createdBy: "Guimarães Mahota",
       createdAt: new Date().toISOString(),
@@ -294,8 +296,8 @@ export default {
     dateMenu: false,
 
     employees: [],
-    projects: Projects,
-    businessArea: BusinessArea,
+    projects: [],
+    businessArea: [] ,
     articles: [],
     unitys: [],
     docTypes: DocTypes,
@@ -313,10 +315,23 @@ export default {
     this.articles = await getArticles();
     this.unitys = await getUnities();
     this.employees = await getEmployees();
+    this.businessArea = await getBusinessArea();
+    this.projects = await getProjects();
   },
   methods: {
-    async changeEntity() {
-      //this.formModel.items = [];
+    changeEntity(item) {
+      if (!item) {
+
+
+      }else{
+        var buss = item.BusinessArea.filter(d => d.isPrincipal === true);
+
+        if (buss.length > 0) {
+          this.formModel.businessArea = buss[0].businessArea;
+        }
+      }
+
+      this.formModel.items = [];
     },
 
     clearDoc() {
@@ -330,7 +345,6 @@ export default {
         Attachs: [],
         items: []
       };
-      //this.$validator.reset();
     },
 
     requestCloseForm() {

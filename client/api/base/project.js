@@ -1,3 +1,7 @@
+import axios from 'axios';
+
+let url = 'https://192.168.3.106:5001/';
+
 const Projects = [
   {
     code: "RECCA_3818",
@@ -188,6 +192,17 @@ const Task = [{
   duo: '2019-02-05',
 }]
 
+async function getProjects(limit) {
+  var Items;
+
+  await axios
+    .get(url + "api/Projects", null, {
+      headers: {}
+    })
+    .then(response => (Items = response.data));
+  return limit ? Items.slice(0, limit) : Items;
+}
+
 
 const getProjectByCode = (code) => {
   return Projects.find(x => x.code === code);
@@ -203,6 +218,7 @@ const getProjectTasks =(code) => {
 
 export {
   Projects,
+  getProjects,
   getProjectByCode,
   getProjectInvoices,
   getProjectTasks

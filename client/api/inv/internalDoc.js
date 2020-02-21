@@ -1,6 +1,6 @@
 const Documents = [
   {
-    typeDocument: "ES",
+    type: "ES",
     date: "2020-02-01",
     docNumber: "ES0001",
     typeEntity: "U",
@@ -70,6 +70,9 @@ const Documents = [
   }
 ];
 
+function save(){
+
+}
 export {
   Documents
 };
