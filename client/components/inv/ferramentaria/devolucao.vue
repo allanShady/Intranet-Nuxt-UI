@@ -107,134 +107,10 @@
                 </v-col>
               </v-row>
             </v-flex>
+
             <v-flex lg12>
-              <template>
-                <v-data-table :headers="headers" :items="formModel.items" class="elevation-1">
-                  <template v-slot:top>
-                    <v-toolbar flat dense color="transparent">
-                      <v-toolbar-title>
-                        <h3>Linhas</h3>
-                      </v-toolbar-title>
-                      <v-spacer></v-spacer>
-
-                      <v-dialog v-model="dialog" max-width="500px">
-                        <template v-slot:activator="{ on }">
-                          <v-btn v-on="on">
-                            <v-icon>mdi-plus-circle-outline</v-icon>
-                          </v-btn>
-                        </template>
-
-                        <v-card>
-                          <v-card-title>
-                            <span class="headline">{{ defaultItem.Title }}</span>
-                          </v-card-title>
-
-                          <v-card-text>
-                            <v-container>
-                              <v-row>
-                                <v-col>
-                                  <v-autocomplete
-                                    class="body-1"
-                                    :items="articles"
-                                    v-model="editedItem.article"
-                                    clearable
-                                    label="Selecione o Artigo"
-                                    item-text="description"
-                                    item-value="code"
-                                    required
-                                    @input="changeArticle"
-                                    :filter="filterCodeDesc"
-                                    return-object
-                                  ></v-autocomplete>
-                                </v-col>
-                              </v-row>
-                              <v-row>
-                                <v-autocomplete
-                                  class="body-1"
-                                  :items="unitys"
-                                  v-model="editedItem.unity"
-                                  clearable
-                                  label="Selecione o UN"
-                                  item-text="description"
-                                  item-value="code"
-                                  required
-                                  :filter="filterCodeDesc"
-                                  return-object
-                                ></v-autocomplete>
-                                <v-col>
-                                  <v-text-field
-                                    type="number"
-                                    v-model="editedItem.quantity"
-                                    required
-                                    label="Qnt."
-                                  ></v-text-field>
-                                </v-col>
-                              </v-row>
-                              <v-row>
-                                <v-col>
-                                  <v-autocomplete
-                                    class="body-1"
-                                    :items="projects"
-                                    v-model="editedItem.project"
-                                    clearable
-                                    label="Selecione o projecto"
-                                    item-text="description"
-                                    item-value="code"
-                                    required
-                                    :filter="filterCodeDesc"
-                                    return-object
-                                  ></v-autocomplete>
-                                </v-col>
-                              </v-row>
-                              <v-row>
-                                <v-col>
-                                  <v-text-field v-model="editedItem.notes" label="Notas"></v-text-field>
-                                </v-col>
-                              </v-row>
-                            </v-container>
-                          </v-card-text>
-
-                          <v-card-actions>
-                            <v-spacer></v-spacer>
-                            <v-btn color="blue darken-1" text @click="close">Cancel</v-btn>
-                            <v-btn color="blue darken-1" text @click="save">Adicionar</v-btn>
-                          </v-card-actions>
-                        </v-card>
-                      </v-dialog>
-                    </v-toolbar>
-                  </template>
-                  <!----------------------------- Edit Artigo ------------------------------------->
-                  <template v-slot:item.item="props">
-                    <v-edit-dialog
-                      :return-value.sync="props.item.artigo"
-                      @save="save"
-                      @cancel="cancel"
-                      @open="open"
-                      @close="close"
-                    >
-                      {{ props.item.artigo }}
-                      <template v-slot:input>
-                        <v-select
-                          class="body-1"
-                          :items="articles"
-                          @input="getSelectedArtigo"
-                          label="Selecione o artigo"
-                          item-text="artigo"
-                          return-object
-                        ></v-select>
-                      </template>
-                    </v-edit-dialog>
-                  </template>
-                  <!------------------------------------------------------------------------------->
-                  <template v-slot:item.action="{ item }">
-                    <v-icon small class="mr-2" @click="editItem(item)">edit</v-icon>
-                    <v-icon small @click="deleteItem(item)">delete</v-icon>
-                  </template>
-                  <template v-slot:no-data>0 - Linhas Adicionadas</template>
-                </v-data-table>
-              </template>
+<Lines-Form v-bind:items = formModel.items></Lines-Form>
             </v-flex>
-
           </v-card-text>
 
           <v-card-actions class="pb-3">
@@ -262,7 +138,7 @@ import { getBusinessArea } from "@/api/base/businessArea";
 import { getArticles } from "@/api/base/articles";
 import { getUnities } from "@/api/base/unities";
 import DocTypes from "@/api/base/documents";
-import LinesForm from "@/components/crm/inv/LinesDevolution"
+import LinesForm from "@/components/inv/LinesDevolution"
 
 export default {
   components: {
@@ -272,7 +148,7 @@ export default {
     formModel: {
       type: Object,
       default: () => ({
-        title: "Documentos Internos",
+        title: "Devolução Equipamentos",
         typeDocument: null,
         date: new Date().toISOString().substr(0, 10),
         docNumber: "",

@@ -1,6 +1,6 @@
-import axios from 'axios';
+import axios from "axios";
 
-let url = 'https://192.168.3.106:5001/';
+let url = "https://192.168.3.106:5001/";
 
 const Employees = [
   {
@@ -212,26 +212,22 @@ const Employees = [
   }
 ];
 
-async function getEmployees(limit){
-
+async function getEmployees(limit) {
   var Items;
 
   await axios
-  .get(url+'api/Employees',null, {
-    headers: {
-      }
+    .get(url + "api/Employees", null, {
+      headers: {}
     })
-  .then(response => (
+    .then(
+      response => (Items = response.data),
+      error => {
+        console.log(error);
+        Items = Employees;
+      }
+    );
 
-    Items = response.data
+  return limit ? Items.slice(0, limit) : Items;
+}
 
-   )
-
-  );
-  return (limit) ? Items.slice(0, limit) : Items;
-};
-
-export {
-  Employees ,
-  getEmployees
-};
+export { Employees, getEmployees };

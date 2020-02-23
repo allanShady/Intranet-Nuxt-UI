@@ -199,7 +199,11 @@ async function getProjects(limit) {
     .get(url + "api/Projects", null, {
       headers: {}
     })
-    .then(response => (Items = response.data));
+    .then(response => (Items = response.data),
+    error => {
+      console.log(error);
+      Items = Projects;
+    });
   return limit ? Items.slice(0, limit) : Items;
 }
 

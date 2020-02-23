@@ -1,6 +1,6 @@
-import axios from 'axios';
+import axios from "axios";
 
-let url = 'https://192.168.3.106:5001/';
+let url = "https://192.168.3.106:5001/";
 
 const Articles = [
   {
@@ -12,7 +12,7 @@ const Articles = [
       totalStock: 5.0,
       items: [
         {
-          warehouse:"001",
+          warehouse: "001",
           stock: 5
         }
       ]
@@ -21,10 +21,10 @@ const Articles = [
       code: "52",
       description: "Consumiveis"
     },
-    unity: {
-      base:"UN",
-      sale:"UN",
-      purchase:"UN",
+    Unity: {
+      base: "UN",
+      sale: "UN",
+      purchase: "UN",
       items: [
         {
           code: "UN",
@@ -46,14 +46,18 @@ const Articles = [
     nome_Fornecedor: "",
     estado: 0,
     tipoArtigo: null,
-    baseUnit: "UN",
-    units: [
-      {
-        code: "UN",
-        name: "Unidade",
-        conversion: 1
-      }
-    ]
+    Unity: {
+      base: "UN",
+      sale: "UN",
+      purchase: "UN",
+      items: [
+        {
+          code: "UN",
+          name: "Unidade",
+          conversion: 1
+        }
+      ]
+    }
   },
   {
     code: "FE0002",
@@ -7317,26 +7321,21 @@ const Articles = [
   }
 ];
 
-async function getArticles(limit){
-
+async function getArticles(limit) {
   var Items;
 
   await axios
-  .get(url+'api/Products',null, {
-    headers: {
-      }
+    .get(url + "api/Products", null, {
+      headers: {}
     })
-  .then(response => (
+    .then(
+      response => (Items = response.data),
+      error => {
+        console.log(error);
+        Items = Articles;
+      }
+    );
+  return limit ? Items.slice(0, limit) : Items;
+}
 
-    Items = response.data
-
-   )
-
-  );
-  return (limit) ? Items.slice(0, limit) : Items;
-};
-
-export {
-  Articles ,
-  getArticles
-};
+export { Articles, getArticles };

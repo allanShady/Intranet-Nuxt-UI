@@ -1,6 +1,6 @@
-import axios from 'axios';
+import axios from "axios";
 
-let url = 'https://192.168.3.106:5001/';
+let url = "https://192.168.3.106:5001/";
 
 const Unities = [
   { code: "%", description: "%", rounding: 0 },
@@ -16,26 +16,22 @@ const Unities = [
   { code: "VG", description: "VG", rounding: 0 }
 ];
 
-async function getUnities(limit){
-
+async function getUnities(limit) {
   var Items;
 
   await axios
-  .get(url+'api/Unities',null, {
-    headers: {
-      }
+    .get(url + "api/Unities", null, {
+      headers: {}
     })
-  .then(response => (
+    .then(
+      response => (Items = response.data),
+      error => {
+        console.log(error);
+        Items = Unities;
+      }
+    );
 
-    Items = response.data
+  return limit ? Items.slice(0, limit) : Items;
+}
 
-   )
-
-  );
-  return (limit) ? Items.slice(0, limit) : Items;
-};
-
-export {
-  Unities ,
-  getUnities
-};
+export { Unities, getUnities };

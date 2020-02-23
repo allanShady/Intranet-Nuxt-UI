@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import DocumentForm from "@/components/crm/inv/Document";
+import DocumentForm from "@/components/inv/ferramentaria/devolucao";
 
 export default {
   layout: "dashboard",
@@ -14,7 +14,6 @@ export default {
   },
   data() {
     return {
-
       menu: false
     };
   }
