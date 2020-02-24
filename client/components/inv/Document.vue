@@ -43,7 +43,7 @@
 import { getEmployees } from "@/api/base/employe";
 import { getProjects } from "@/api/base/project";
 import { getBusinessArea } from "@/api/base/businessArea";
-import { getArticles } from "@/api/base/articles";
+import { getProducts } from "@/api/base/productServices";
 import { getUnities } from "@/api/base/unities";
 import DocTypes from "@/api/base/documents";
 import LinesDocumentForm from "@/components/inv/LinesDevolution";
@@ -119,7 +119,7 @@ export default {
     ]
   }),
   beforeMount: async function() {
-    this.articles = await getArticles();
+    this.articles = await getProducts(this.$axios);
     this.unitys = await getUnities();
     this.employees = await getEmployees();
     this.businessArea = await getBusinessArea();

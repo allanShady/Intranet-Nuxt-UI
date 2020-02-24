@@ -18,25 +18,25 @@
                 <v-col>
                   <v-autocomplete
                     prepend-icon="mdi-text-box"
-                    v-model="formModel.typeDocument"
-                    :items="docTypes"
+                    v-model="formModel.documenttype"
+                    :items="documentTypes"
                     clearable
                     label="Tipo de documento"
                     :filter="filterCodeName"
                     return-object
                     v-validate="'required'"
-                    data-vv-name="typeDocument"
-                    :error-messages="errors.collect('typeDocument')"
+                    data-vv-name="documenttype"
+                    :error-messages="errors.collect('documenttype')"
                     required
-                    item-text="name"
-                    item-value="code"
+                    item-text="description"
+                    item-value="description"
                   ></v-autocomplete>
                 </v-col>
 
                 <v-col>
                   <v-text-field
                     prepend-icon="mdi-file-document-outline"
-                    v-model="formModel.docNumber"
+                    v-model="formModel.referenceDoc"
                     label="Nr. Guia"
                     :error-messages="errors.collect('docNumber')"
                     required
@@ -109,7 +109,7 @@
             </v-flex>
             <v-flex lg12>
               <template>
-                <v-data-table :headers="headers" :items="formModel.items" class="elevation-1">
+                <v-data-table :headers="headers" :items="formModel.details" class="elevation-1">
                   <template v-slot:top>
                     <v-toolbar flat dense color="transparent">
                       <v-toolbar-title>
@@ -135,8 +135,8 @@
                                 <v-col>
                                   <v-autocomplete
                                     class="body-1"
-                                    :items="articles"
-                                    v-model="editedItem.article"
+                                    :items="products"
+                                    v-model="editedItem.product"
                                     clearable
                                     label="Selecione o Artigo"
                                     item-text="description"
@@ -151,8 +151,8 @@
                               <v-row>
                                 <v-autocomplete
                                   class="body-1"
-                                  :items="unitys"
-                                  v-model="editedItem.unity"
+                                  :items="units"
+                                  v-model="editedItem.unit"
                                   clearable
                                   label="Selecione o UN"
                                   item-text="description"
@@ -216,7 +216,7 @@
                       <template v-slot:input>
                         <v-select
                           class="body-1"
-                          :items="articles"
+                          :items="products"
                           @input="getSelectedArtigo"
                           label="Selecione o artigo"
                           item-text="artigo"
@@ -256,42 +256,30 @@
 </template>
 
 <script>
-import { getEmployees } from "@/api/base/employe";
-import { getProjects } from "@/api/base/project";
-import { getBusinessArea } from "@/api/base/businessArea";
-import { getArticles } from "@/api/base/articles";
-import { getUnities } from "@/api/base/unities";
-import DocTypes from "@/api/base/documents";
-import LinesForm from "@/components/crm/inv/LinesDevolution"
-
 export default {
-  components: {
-    LinesForm
-  },
+
   props: {
     formModel: {
       type: Object,
       default: () => ({
         title: "Documentos Internos",
-        typeDocument: null,
+        documenttype: null,
         date: new Date().toISOString().substr(0, 10),
-        docNumber: "",
-        typeEntity: "U",
-        entity: null,
+        referenceDoc: "",
+        entityType: "U",
+        entityId: null,
         businessArea: null,
-        Attachs: [],
-        createdBy: "Guimarães Mahota",
-        createdAt: new Date().toISOString(),
+        attachement: [],
         isSavingDataAndClose: false,
         isSavingData: false,
-        items: []
+        details: []
       })
     },
     form:{
       type: Object,
       default:() => ({
         title:"Documentos Internos",
-        typeDocument:null,
+        documenttype:null,
         requiredBussinessArea: true,
         requiredExternalDocNumber:true,
         requiredAttachs:false,
@@ -305,11 +293,12 @@ export default {
     editedIndex: 0,
     defaultItem: {
       title: "Adiciona o Artigo",
-      article: null,
+      productId: null,
       description: null,
-      unity: null,
+      unitId: null,
       quantity: 0,
       project: null,
+      factor: 1,
       notes: null
     },
 
@@ -319,27 +308,21 @@ export default {
     employees: [],
     projects: [],
     businessArea: [],
-    articles: [],
-    unitys: [],
-    docTypes: DocTypes,
+    products: [],
+    units: [],
+    documentTypes: [],
 
     headers: [
-      { text: "Artigo", value: "article" },
+      { text: "Artigo", value: "productId" },
       { text: "Descrição", value: "description" },
-      { text: "UN", value: "unity" },
+      { text: "UN", value: "unityId" },
       { text: "Qnt.", value: "quantity" },
       { text: "Projeto", value: "project" },
       { text: "Notas", value: "notes" }
     ]
   }),
-  beforeMount: async function() {
-    this.articles = await getArticles();
-    this.unitys = await getUnities();
-    this.employees = await getEmployees();
-    this.businessArea = await getBusinessArea();
-    this.projects = await getProjects();
-  },
-  methods: {
+
+methods: {
     changeEntity(item) {
       if (!item) {
       } else {
@@ -355,14 +338,13 @@ export default {
 
     clearDoc() {
       this.formModel = {
-        title: "Documentos Internos",
-        typeDocument: null,
+        documenttype: null,
         date: new Date().toISOString().substr(0, 10),
-        docNumber: "",
-        typeEntity: "Fúncionario",
-        entity: null,
-        Attachs: [],
-        items: []
+        referenceDoc: "",
+        entityType: "Fúncionario",
+        entityId: null,
+        attachement: [],
+        details: []
       };
     },
 
@@ -374,9 +356,9 @@ export default {
     changeArticle(item) {
       if (!item) {
         this.editedItem.unity = null;
-        //this.unitys = [];
+        //this.units = [];
       } else {
-        //this.unitys = item.units;
+        //this.units = item.units;
 
         this.editedItem.unity = item.Unity.base;
       }
@@ -402,11 +384,12 @@ export default {
     },
 
     save() {
-      this.formModel.items.push({
-        article: this.editedItem.article.code,
-        description: this.editedItem.article.description,
+      console.log(this.editedItem);
+      this.formModel.details.push({
+        productId: this.editedItem.product.code,
+        description: this.editedItem.product.description,
         quantity: this.editedItem.quantity,
-        unity: this.editedItem.unity,
+        unityId: this.editedItem.unity,
         businessArea: this.formModel.businessArea,
         project: this.editedItem.project.code,
         notes: this.editedItem.notes
@@ -441,7 +424,20 @@ export default {
     },
 
     submit() {
-      console.log(this.formModel);
+      console.log(this.formModel)
+      
+      const dataToSave = {
+        documenttype: this.formModel.documenttype.code,
+        entityId: this.formModel.entityId.code,
+        businessarea:  this.formModel.businessArea.code,
+        date: this.formModel.date,
+        referencedoc: this.formModel.referencedoc,
+        entitytype: this.formModel.entityType.code,  
+        businessArea: this.formModel.businessArea.code,
+        detail: this.formModel.details,
+
+      }
+      console.log(dataToSave);
       this.formModel.isSavingData = true;
     },
     //==============================================================================================================================================
@@ -454,11 +450,24 @@ export default {
       this.snack = true;
       this.snackColor = "info";
       this.snackText = "Dialog opened";
-    }
+    },
+
+    async intData() {
+      this.units = await this.$store.dispatch("getDataAsync", 'units');
+      this.employees = await this.$store.dispatch("getDataAsync", 'employees')    
+      this.projects = await this.$store.dispatch("getDataAsync", 'projects')  
+      this.businessArea = await this.$store.dispatch("getDataAsync", 'businessArea')   
+      this.products = await this.$store.dispatch("getDataAsync", 'products') 
+      this.documentTypes = await this.$store.dispatch("getDataAsync", 'documenttypes')   
+    }    
   },
 
   computed: {
     location: () => window.location
+  },
+  
+  created() {
+    this.intData()
   }
 };
 </script>
