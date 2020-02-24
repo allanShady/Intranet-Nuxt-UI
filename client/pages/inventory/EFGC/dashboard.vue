@@ -1,16 +1,13 @@
 <template>
-  <div id="page-forms">
-    <Document-Form></Document-Form>
-  </div>
+  <dashboard></dashboard>
 </template>
-
 <script>
-import DocumentForm from "@/components/inv/ferramentaria/entrega";
+import dashboard from "@/components/inv/Dashboard";
 
 export default {
   layout: "dashboard",
   components: {
-    DocumentForm
+    dashboard
   },
   data() {
     return {

@@ -256,13 +256,13 @@
 </template>
 
 <script>
+
 import { getEmployees } from "@/api/base/employe";
 import { getProjects } from "@/api/base/project";
 import { getBusinessArea } from "@/api/base/businessArea";
 import { getArticles } from "@/api/base/articles";
 import { getUnities } from "@/api/base/unities";
-import DocTypes from "@/api/base/documents";
-import LinesForm from "@/components/crm/inv/LinesDevolution"
+import {typeDocuments} from "@/api/base/typeDocuments";
 
 export default {
   components: {
