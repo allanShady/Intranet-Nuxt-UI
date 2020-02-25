@@ -11,10 +11,9 @@ export default {
   beforeMount: async function() {
     let doc = this.$router.currentRoute.query["id"];
     console.log(doc);
-    this.documentTypes = await this.$store.dispatch("getDataAsync", 'documenttypes')
+    this.documentTypes = await this.$store.dispatch("getDataAsync", 'documenttypes/' +doc);
 
-
-    console.log(this.docTypes);
+    console.log(this.documentTypes);
   }
 };
 </script>
