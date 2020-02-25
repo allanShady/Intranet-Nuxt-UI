@@ -2,17 +2,18 @@
   <v-card></v-card>
 </template>
 <script>
-import { getTypeDocuments } from "@/api/base/typeDocuments";
 
 export default {
 
   data: () => ({
-    docTypes: []
+    documentTypes: []
   }),
   beforeMount: async function() {
     let doc = this.$router.currentRoute.query["id"];
     console.log(doc);
-    this.docTypes = await getTypeDocuments(doc);
+    this.documentTypes = await this.$store.dispatch("getDataAsync", 'documenttypes')
+
+
     console.log(this.docTypes);
   }
 };
