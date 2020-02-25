@@ -54,7 +54,7 @@
   </v-card>
 </template>
 <script>
-import { Documents } from "@/api/inv/internalDoc";
+/* import { Documents } from "@/api/inv/internalDoc";
 
 import { Employees } from "@/api/rh/employments";
 import { Projects } from "@/api/crm/project";
@@ -102,5 +102,5 @@ export default {
     editItem(value) {},
     deleteItem(value) {}
   }
-};
+}; */
 </script>
