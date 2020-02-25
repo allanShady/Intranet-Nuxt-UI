@@ -59,7 +59,7 @@
 import { Employees } from "@/api/rh/employments";
 import { Projects } from "@/api/crm/project";
 import { BusinessArea } from "@/api/base/businessArea";
-import { getProducts } from "@/api/base/productServices";
+//import { getProducts } from "@/api/base/productServices";
 
 
 export default {

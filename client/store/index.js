@@ -12,7 +12,7 @@ export const mutations = {
 }
 
 export const actions = {
-  authenticateUser(vuexContext, user) {
+  authenticateUser(vuexContext, user, apiResourse) {
     console.log('vue context', vuexContext);
     return this.$axios.$post('/auth/login', {
       email: user.email,
@@ -38,6 +38,19 @@ export const actions = {
      .$get(`/${resource}`)
      .then(response => response)
      .catch(error => console.log(error));
+  },
+
+  async postDataAsync(vuexContext, data) {
+    return await this.$axios
+     .$post(`/${data.api_resourse}`, data.post_data)
+     .then(response => response)
+     .catch(error => {
+        if (error.response) {
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        }
+     });
   },
 
   setLogoutTimer(vuexContext, duration) {

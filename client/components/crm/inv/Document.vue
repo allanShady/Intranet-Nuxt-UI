@@ -268,7 +268,7 @@ export default {
         date: new Date().toISOString().substr(0, 10),
         referenceDoc: "",
         entityType: "U",
-        entityId: null,
+        entitId: null,
         businessArea: null,
         attachement: [],
         isSavingDataAndClose: false,
@@ -314,11 +314,11 @@ export default {
     documentTypes: [],
 
     headers: [
-      { text: "Artigo", value: "productId" },
+      { text: "Artigo", value: "product_id" },
       { text: "Descrição", value: "description" },
-      { text: "UN", value: "unityId" },
+      { text: "UN", value: "unit_id" },
       { text: "Qnt.", value: "quantity" },
-      { text: "Projeto", value: "project" },
+      { text: "Projeto", value: "project_id" },
       { text: "Notas", value: "notes" }
     ]
   }),
@@ -376,7 +376,6 @@ methods: {
     },
 
     close() {
-      console.log("closing the dialog");
       this.dialog = false;
       setTimeout(() => {
         this.editedItem = Object.assign({}, this.defaultItem);
@@ -385,15 +384,16 @@ methods: {
     },
 
     save() {
-      console.log(this.editedItem);
-      this.formModel.details.push({
-        productId: this.editedItem.product.code,
+        this.formModel.details.push({
+        product_id: this.editedItem.product.code,
         description: this.editedItem.product.description,
         quantity: this.editedItem.quantity,
-        unityId: this.editedItem.unity,
-        businessArea: this.formModel.businessArea,
-        project: this.editedItem.project.code,
-        notes: this.editedItem.notes
+        unit_id: this.editedItem.unit.code,
+        business_area_id: this.formModel.businessArea.code,
+        project_id: this.editedItem.project.code,
+        notes: this.editedItem.notes,
+        factor: 1,
+        whareahouse: null
       });
 
       this.close();
@@ -424,22 +424,32 @@ methods: {
       );
     },
 
-    submit() {
-      console.log(this.formModel)
-
-      const dataToSave = {
-        documenttype: this.formModel.documenttype.code,
-        entityId: this.formModel.entityId.code,
-        businessarea:  this.formModel.businessArea.code,
+    async submit() {
+      const post_data = {
+        from_warehouse_id: null,
+        document_type_id: this.formModel.documenttype.code,
+        entity_id: this.formModel.entity.code,
+        entity_name: this.formModel.entity.name,
+        business_area_id:  this.formModel.businessArea.code,
         date: this.formModel.date,
-        referencedoc: this.formModel.referencedoc,
-        entitytype: this.formModel.entityType.code,
-        businessArea: this.formModel.businessArea.code,
-        detail: this.formModel.details,
+        reference_doc: this.formModel.referenceDoc,
+        entity_type: this.formModel.entityType.code || null, 
+        attachement:  this.formModel.attachement.length || 'note attached any doc' ,
+        details: this.formModel.details,
 
       }
-      console.log(dataToSave);
+      console.log('DATA TO SAVE IS: ',post_data);
       this.formModel.isSavingData = true;
+
+      await this.$store.dispatch("postDataAsync", {api_resourse: 'stocks' , post_data})
+      .then(response => { 
+          console.log(response)
+          this.formModel.isSavingData = !this.formModel.isSavingData;
+        })
+        .catch(error => {
+            console.log('Error on the component');
+            console.log(error);  
+        });
     },
     //==============================================================================================================================================
     cancel() {
