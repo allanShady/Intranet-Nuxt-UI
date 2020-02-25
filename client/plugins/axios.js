@@ -1,20 +1,21 @@
-
-
-
 export default function ({ $axios, redirect }, inject) {
-  let url = 'https://192.168.3.106:5001/';
   // Create a custom axios instance
-  const api = $axios.create({
+  const token = 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwiZW1haWwiOiJhbGFuLmNhbWlsb0BpbmNlbnRlYS5jb20iLCJuYmYiOjE1ODIyNzg2NTYsImV4cCI6MTU4Mjg4MzQ1NiwiaWF0IjoxNTgyMjc4NjU2fQ.BsWy2DF8BE7qz_aoKyt5OvTfjBSqC95XTSyQoREFC0gs9ZRgnpVeuudHuyRgTo3H09Mo6hsqeVIcgdM80DsjZQ';
+  const axios = $axios.create({
     headers: {
-       common: {
-         //Accept: 'text/plain, */*'
-       }
+      common: {
+        Accept: 'text/plain, */*'
+      }
     }
   })
+  
+  // Set baseURL
+  axios.setBaseURL(process.env.baseUrl);
 
-  // Set baseURL to something different
-  api.setBaseURL(url)
+  axios.onRequest((config) => {
+    config.headers.common['Authorization'] = `Bearer ${token}`;
+  });
 
-  // Inject to context as $api
-  inject('api', api)
+  // Inject to context as $axios
+  inject('axios', axios);
 }

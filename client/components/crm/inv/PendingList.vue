@@ -59,7 +59,7 @@ import { Documents } from "@/api/inv/internalDoc";
 import { Employees } from "@/api/rh/employments";
 import { Projects } from "@/api/crm/project";
 import { BusinessArea } from "@/api/base/businessArea";
-import { Articles } from "@/api/base/articles";
+import { getProducts } from "@/api/base/productServices";
 
 
 export default {
