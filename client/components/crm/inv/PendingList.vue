@@ -61,7 +61,6 @@ import { Projects } from "@/api/crm/project";
 import { BusinessArea } from "@/api/base/businessArea";
 import { getProducts } from "@/api/base/productServices";
 
-import DocTypes from "@/api/base/documents";
 
 export default {
   data: () => ({

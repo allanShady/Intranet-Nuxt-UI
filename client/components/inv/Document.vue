@@ -40,12 +40,12 @@
 </template>
 
 <script>
+import { getTypeDocuments } from "@/api/base/typeDocuments";
 import { getEmployees } from "@/api/base/employe";
 import { getProjects } from "@/api/base/project";
 import { getBusinessArea } from "@/api/base/businessArea";
 import { getProducts } from "@/api/base/productServices";
 import { getUnities } from "@/api/base/unities";
-import DocTypes from "@/api/base/documents";
 import LinesDocumentForm from "@/components/inv/LinesDevolution";
 import HeaderDocumentForm from "@/components/inv/HeaderDocument";
 
@@ -107,7 +107,7 @@ export default {
     businessArea: [],
     articles: [],
     unitys: [],
-    docTypes: DocTypes,
+    docTypes: [],
 
     headers: [
       { text: "Artigo", value: "article" },
@@ -124,6 +124,7 @@ export default {
     this.employees = await getEmployees();
     this.businessArea = await getBusinessArea();
     this.projects = await getProjects();
+    this.docTypes = await getTypeDocuments("Ferramentas");
   },
   methods: {
     changeEntity(item) {

@@ -256,6 +256,7 @@
 </template>
 
 <script>
+
 export default {
 
   props: {
@@ -464,18 +465,18 @@ methods: {
 
     async intData() {
       this.units = await this.$store.dispatch("getDataAsync", 'units');
-      this.employees = await this.$store.dispatch("getDataAsync", 'employees')    
-      this.projects = await this.$store.dispatch("getDataAsync", 'projects')  
-      this.businessArea = await this.$store.dispatch("getDataAsync", 'businessArea')   
-      this.products = await this.$store.dispatch("getDataAsync", 'products') 
-      this.documentTypes = await this.$store.dispatch("getDataAsync", 'documenttypes')   
-    }    
+      this.employees = await this.$store.dispatch("getDataAsync", 'employees')
+      this.projects = await this.$store.dispatch("getDataAsync", 'projects')
+      this.businessArea = await this.$store.dispatch("getDataAsync", 'businessArea')
+      this.products = await this.$store.dispatch("getDataAsync", 'products')
+      this.documentTypes = await this.$store.dispatch("getDataAsync", 'documenttypes')
+    }
   },
 
   computed: {
     location: () => window.location
   },
-  
+
   created() {
     this.intData()
   }

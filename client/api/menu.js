@@ -16,6 +16,7 @@ const Menu = [
     items: [
       {name: 'internalDoc', icon: 'reorder',title: 'Internal Doc', href: '/inventory/create'},
       {name: 'approvalPending', icon: 'reorder',title: 'Approval', href: '/inventory/pendinglist'},
+      {name: 'approvalPending', icon: 'reorder',title: 'Ferramentas', href: '/inventory/EFGC/dashboard?id=Ferramentas'},
     ]
   },
   {header: 'Human Resources'},
