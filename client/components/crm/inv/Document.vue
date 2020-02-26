@@ -433,7 +433,7 @@ methods: {
         business_area_id:  this.formModel.businessArea.code,
         date: this.formModel.date,
         reference_doc: this.formModel.referenceDoc,
-        entity_type: this.formModel.entityType.code || null, 
+        entity_type: this.formModel.entityType.code || null,
         attachement:  this.formModel.attachement.length || 'note attached any doc' ,
         details: this.formModel.details,
 
@@ -442,13 +442,13 @@ methods: {
       this.formModel.isSavingData = true;
 
       await this.$store.dispatch("postDataAsync", {api_resourse: 'stocks' , post_data})
-      .then(response => { 
+      .then(response => {
           console.log(response)
           this.formModel.isSavingData = !this.formModel.isSavingData;
         })
         .catch(error => {
             console.log('Error on the component');
-            console.log(error);  
+            console.log(error);
         });
     },
     //==============================================================================================================================================
@@ -470,6 +470,8 @@ methods: {
       this.businessArea = await this.$store.dispatch("getDataAsync", 'businessArea')
       this.products = await this.$store.dispatch("getDataAsync", 'products')
       this.documentTypes = await this.$store.dispatch("getDataAsync", 'documenttypes')
+
+
     }
   },
 

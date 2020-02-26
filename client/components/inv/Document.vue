@@ -40,13 +40,8 @@
 </template>
 
 <script>
-import { getTypeDocuments } from "@/api/base/typeDocuments";
-import { getEmployees } from "@/api/base/employe";
-import { getProjects } from "@/api/base/project";
-import { getBusinessArea } from "@/api/base/businessArea";
-import { getProducts } from "@/api/base/productServices";
-import { getUnities } from "@/api/base/unities";
-import LinesDocumentForm from "@/components/inv/LinesDevolution";
+
+import LinesDocumentForm from "@/components/inv/LinesDocument";
 import HeaderDocumentForm from "@/components/inv/HeaderDocument";
 
 export default {
@@ -82,49 +77,35 @@ export default {
         requiredExternalDocNumber: true,
         requiredAttachs: false,
         requiredProject: true,
-        requiredNotes: true
+        requiredNotes: true,
+        isSelectedProduct:false,
+        canAddProduct:true,
+        employees: [],
+        projects: [],
+        businessArea: [],
+        docTypes: [],
       })
     }
   },
   data: () => ({
-    editedItem: {},
-    editedIndex: 0,
-    defaultItem: {
-      title: "Adiciona o Artigo",
-      article: null,
-      description: null,
-      unity: null,
-      quantity: 0,
-      project: null,
-      notes: null
-    },
 
-    dialog: false,
-    dateMenu: false,
-
-    employees: [],
-    projects: [],
-    businessArea: [],
-    articles: [],
-    unitys: [],
-    docTypes: [],
-
-    headers: [
-      { text: "Artigo", value: "article" },
-      { text: "Descrição", value: "description" },
-      { text: "UN", value: "unity" },
-      { text: "Qnt.", value: "quantity" },
-      { text: "Projeto", value: "project" },
-      { text: "Notas", value: "notes" }
-    ]
   }),
   beforeMount: async function() {
-    this.articles = await getProducts(this.$axios);
-    this.unitys = await getUnities();
-    this.employees = await getEmployees();
-    this.businessArea = await getBusinessArea();
-    this.projects = await getProjects();
-    this.docTypes = await getTypeDocuments("Ferramentas");
+    let doc = this.$router.currentRoute.query["doc"];
+    let classifier = this.$router.currentRoute.query["tipo"];
+
+    this.form.articles = await this.$store.dispatch("getDataAsync", 'products');
+    this.form.unitys =await this.$store.dispatch("getDataAsync", 'units');
+    this.form.employees = await this.$store.dispatch("getDataAsync", 'employees');
+    this.form.businessArea = await this.$store.dispatch("getDataAsync", 'businessArea');
+    this.form.projects = await this.$store.dispatch("getDataAsync", 'products');
+    this.form.docTypes = await this.$store.dispatch("getDataAsync", 'documenttypes');
+    this.form.docTypes = this.form.docTypes.filter(p=> p.code == doc);
+
+    this.formModel.typeDocument = this.form.docTypes[0];
+    this.form.isSelectedProduct = this.form.docTypes[0].isSelectedProduct;
+    this.form.canAddProduct = this.form.docTypes[0].isSelectedProduct;
+
   },
   methods: {
     changeEntity(item) {

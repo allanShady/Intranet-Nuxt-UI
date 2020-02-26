@@ -81,6 +81,6 @@ module.exports = {
   },
 
   env: {
-    baseUrl: process.env.BASE_URL || 'https://192.168.3.106:5001/api'
+    baseUrl: process.env.BASE_URL || 'https://localhost:5001/api'
   }
 }

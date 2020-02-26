@@ -3,10 +3,9 @@
     <v-row>
       <v-btn-toggle>
         <v-bottom-navigation
-    :value="activeBtn"
     color="primary"
     horizontal>
-          <v-btn v-for="document in documentTypes" :key="document">
+          <v-btn v-for="document in documentTypes" :key="document.code" @click="openFrm(document)">
               <span>{{document.code}}</span>
               <v-icon>{{document.icon}}</v-icon>
           </v-btn>
@@ -18,7 +17,8 @@
 <script>
 export default {
   data: () => ({
-    documentTypes: []
+    documentTypes: [],
+    classifier:null,
   }),
   beforeMount: async function() {
     let doc = this.$router.currentRoute.query["id"];
@@ -27,6 +27,17 @@ export default {
       "getDataAsync",
       "documenttypes/" + doc
     );
+
+    this.classifier = doc;
+  },
+  methods: {
+    openFrm(item) {
+
+      var url = `/inventory/EFGC/Form?doc=${item.code}&tipo =${this.classifier}`;
+
+      this.$router.push(url);
+
+    }
   }
 };
 </script>
