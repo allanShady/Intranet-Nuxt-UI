@@ -51,6 +51,14 @@ const Menu = [
     name: 'project',
     href: '/project/'
   },
+  {header: 'Utilizadores'},
+  {
+    title: 'Utilizadores',
+    group: 'Utilizadores',
+    icon: 'reorder',
+    name: 'utilizadores',
+    href: '/users'
+  },
   {divider: true},
   {
     title: 'Chat',
