@@ -56,11 +56,11 @@ export default {
         title: "Documentos Internos",
         typeDocument: null,
         date: new Date().toISOString().substr(0, 10),
-        docNumber: "",
+        referenceDoc: "",
         typeEntity: "U",
         entity: null,
         businessArea: null,
-        Attachs: [],
+        attachement: [],
         createdBy: "Guimarães Mahota",
         createdAt: new Date().toISOString(),
         isSavingDataAndClose: false,
@@ -102,11 +102,11 @@ export default {
     this.form.docTypes = await this.$store.dispatch("getDataAsync", 'documenttypes');
     this.form.docTypes = this.form.docTypes.filter(p=> p.code == doc);
 
-    this.formModel.typeDocument = this.form.docTypes[0];
+    this.formModel.documenttype = this.form.docTypes[0];
     this.form.isSelectedProduct = this.form.docTypes[0].isSelectedProduct;
     this.form.canAddProduct = this.form.docTypes[0].isSelectedProduct;
 
-    this.form.products = await this.$store.dispatch("getDataAsync", 'products/filters?type=' + this.formModel.typeDocument.typeArticle);
+    this.form.products = await this.$store.dispatch("getDataAsync", 'products/filters?type=' + this.formModel.documenttype.typeArticle);
     this.form.unitys =await this.$store.dispatch("getDataAsync", 'units');
 
     console.log(this.form.projects );
@@ -165,9 +165,31 @@ export default {
       );
     },
 
-    submit() {
-      console.log(this.formModel);
+    async submit() {
+      const post_data = {
+        from_warehouse_id: null,
+        document_type_id: this.formModel.documenttype.code,
+        entity_id: this.formModel.entity.code,
+        entity_name: this.formModel.entity.name,
+        business_area_id:  this.formModel.businessArea.code,
+        date: this.formModel.date,
+        reference_doc: this.formModel.referenceDoc,
+        entity_type: this.formModel.typeEntity || null,
+        attachement:  this.formModel.attachement.length || 'note attached any doc' ,
+        details: this.formModel.items,
+      }
+      console.log('DATA TO SAVE IS: ',post_data);
       this.formModel.isSavingData = true;
+
+      await this.$store.dispatch("postDataAsync", {api_resourse: 'stocks' , post_data})
+      .then(response => {
+          console.log(response)
+          this.formModel.isSavingData = !this.formModel.isSavingData;
+        })
+        .catch(error => {
+            console.log('Error on the component');
+            console.log(error);
+        });
     },
     //==============================================================================================================================================
     cancel() {

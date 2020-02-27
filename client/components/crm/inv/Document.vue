@@ -439,7 +439,6 @@ methods: {
         entity_type: this.formModel.entityType.code || null,
         attachement:  this.formModel.attachement.length || 'note attached any doc' ,
         details: this.formModel.details,
-
       }
       console.log('DATA TO SAVE IS: ',post_data);
       this.formModel.isSavingData = true;

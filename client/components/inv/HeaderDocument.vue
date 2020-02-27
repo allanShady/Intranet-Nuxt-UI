@@ -4,7 +4,7 @@
       <v-col>
         <v-autocomplete
           prepend-icon="mdi-text-box"
-          v-model="formModel.typeDocument"
+          v-model="formModel.documenttype"
           :items="form.docTypes"
           clearable
           label="Tipo de documento"
@@ -22,7 +22,7 @@
       <v-col>
         <v-text-field
           prepend-icon="mdi-file-document-outline"
-          v-model="formModel.docNumber"
+          v-model="formModel.referenceDoc"
           label="Nr. Guia"
           :error-messages="errors.collect('docNumber')"
           required
@@ -139,14 +139,14 @@ export default {
       type: Object,
       default: () => ({
         title: "Documentos Internos",
-        typeDocument: null,
+        documenttype: null,
         date: new Date().toISOString().substr(0, 10),
-        docNumber: "",
+        referenceDoc: "",
         typeEntity: "U",
         entity: null,
         businessArea: null,
         Attachs: [],
-        createdBy: "Guimarães Mahota",
+        createdBy: null,
         createdAt: new Date().toISOString(),
         isSavingDataAndClose: false,
         isSavingData: false,
