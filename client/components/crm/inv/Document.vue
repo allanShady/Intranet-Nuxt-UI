@@ -472,13 +472,7 @@ methods: {
       this.businessArea = await this.$store.dispatch("getDataAsync", 'businessArea')
       this.products = await this.$store.dispatch("getDataAsync", 'products')
       this.documentTypes = await this.$store.dispatch("getDataAsync", 'documenttypes')
-<<<<<<< HEAD
   }
-=======
-
-
-    }
->>>>>>> d8673a2723e1a7e191432592f2ed9e08a53599a4
   },
 
   computed: {
