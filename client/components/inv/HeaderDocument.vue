@@ -4,17 +4,17 @@
       <v-col>
         <v-autocomplete
           prepend-icon="mdi-text-box"
-          v-model="formModel.typeDocument"
-          :items="docTypes"
+          v-model="formModel.documenttype"
+          :items="form.docTypes"
           clearable
           label="Tipo de documento"
-          :filter="filterCodeName"
+          :filter="filterCodeDesc"
           return-object
           v-validate="'required'"
           data-vv-name="typeDocument"
           :error-messages="errors.collect('typeDocument')"
           required
-          item-text="name"
+          item-text="description"
           item-value="code"
         ></v-autocomplete>
       </v-col>
@@ -22,7 +22,7 @@
       <v-col>
         <v-text-field
           prepend-icon="mdi-file-document-outline"
-          v-model="formModel.docNumber"
+          v-model="formModel.referenceDoc"
           label="Nr. Guia"
           :error-messages="errors.collect('docNumber')"
           required
@@ -55,7 +55,7 @@
         <v-autocomplete
           class="body-1"
           v-model="formModel.entity"
-          :items="employees"
+          :items="form.employees"
           clearable
           label="Selecione o funcionário"
           prepend-icon="mdi-account-box"
@@ -74,7 +74,7 @@
         <v-autocomplete
           class="body-1"
           v-model="formModel.businessArea"
-          :items="businessArea"
+          :items="form.businessArea"
           clearable
           label="Selecione o Área de Negocio"
           prepend-icon="mdi-cash-usd-outline"
@@ -95,12 +95,7 @@
   </v-flex>
 </template>
 <script>
-import { getEmployees } from "@/api/base/employe";
-import { getProjects } from "@/api/base/project";
-import { getBusinessArea } from "@/api/base/businessArea";
-import { getProducts } from "@/api/base/productServices";
-import { getUnities } from "@/api/base/unities";
-import {getTypeDocuments} from "@/api/base/typeDocuments";
+
 
 export default {
   props: {
@@ -131,7 +126,11 @@ export default {
         requiredExternalDocNumber: true,
         requiredAttachs: false,
         requiredProject: true,
-        requiredNotes: true
+        requiredNotes: true,
+        employees: [],
+        projects: [],
+        businessArea: [],
+        docTypes: [],
       })
     }
   },
@@ -140,14 +139,14 @@ export default {
       type: Object,
       default: () => ({
         title: "Documentos Internos",
-        typeDocument: null,
+        documenttype: null,
         date: new Date().toISOString().substr(0, 10),
-        docNumber: "",
+        referenceDoc: "",
         typeEntity: "U",
         entity: null,
         businessArea: null,
         Attachs: [],
-        createdBy: "Guimarães Mahota",
+        createdBy: null,
         createdAt: new Date().toISOString(),
         isSavingDataAndClose: false,
         isSavingData: false,
@@ -168,44 +167,11 @@ export default {
     }
   },
   data: () => ({
-    editedItem: {},
-    editedIndex: 0,
-    defaultItem: {
-      title: "Adiciona o Artigo",
-      article: null,
-      description: null,
-      unity: null,
-      quantity: 0,
-      project: null,
-      notes: null
-    },
-
     dialog: false,
     dateMenu: false,
-
-    employees: [],
-    projects: [],
-    businessArea: [],
-    articles: [],
-    unitys: [],
-    docTypes: [],
-
-    headers: [
-      { text: "Artigo", value: "article" },
-      { text: "Descrição", value: "description" },
-      { text: "UN", value: "unity" },
-      { text: "Qnt.", value: "quantity" },
-      { text: "Projeto", value: "project" },
-      { text: "Notas", value: "notes" }
-    ]
   }),
   beforeMount: async function() {
-    this.articles = await getArticles();
-    this.unitys = await getUnities();
-    this.employees = await getEmployees();
-    this.businessArea = await getBusinessArea();
-    this.projects = await getProjects();
-    this.docTypes = await getTypeDocuments("Ferramentas");
+
   },
   methods: {
     changeEntity(item) {
@@ -245,7 +211,6 @@ export default {
       );
     }
   },
-
   computed: {
     location: () => window.location
   }

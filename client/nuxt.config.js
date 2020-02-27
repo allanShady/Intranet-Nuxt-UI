@@ -81,6 +81,10 @@ module.exports = {
   },
 
   env: {
+<<<<<<< HEAD
     baseUrl: process.env.BASE_URL || 'https://localhost:44342/api'
+=======
+    baseUrl: process.env.BASE_URL || 'https://localhost:5001/api'
+>>>>>>> d8673a2723e1a7e191432592f2ed9e08a53599a4
   }
 }
