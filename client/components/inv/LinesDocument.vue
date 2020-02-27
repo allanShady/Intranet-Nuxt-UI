@@ -32,7 +32,7 @@
                   <v-col>
                     <v-autocomplete
                       class="body-1"
-                      :items="products"
+                      :items="form.products"
                       v-model="editedItem.product"
                       clearable
                       label="Selecione o Artigo"
@@ -48,8 +48,8 @@
                 <v-row>
                   <v-autocomplete
                     class="body-1"
-                    :items="units"
-                    v-model="editedItem.unit"
+                    :items="form.unitys"
+                    v-model="editedItem.unity"
                     clearable
                     label="Selecione o UN"
                     item-text="description"
@@ -66,7 +66,7 @@
                   <v-col>
                     <v-autocomplete
                       class="body-1"
-                      :items="projects"
+                      :items="form.projects"
                       v-model="editedItem.project"
                       clearable
                       label="Selecione o projecto"
@@ -136,7 +136,9 @@ export default {
         employees: [],
         projects: [],
         businessArea: [],
-        docTypes: []
+        docTypes: [],
+        products:[],
+        unitys:[]
       })
     },
     items: {
@@ -152,29 +154,101 @@ editedItem: {},
     editedIndex: 0,
     defaultItem: {
       title: "Adiciona o Artigo",
-      productId: null,
+      product: null,
       description: null,
-      unitId: null,
+      unity: null,
       quantity: 0,
       project: null,
       factor: 1,
-      notes: null
+      notes: null,
     },
 
     dialog: false,
     dateMenu: false,
 
     headers: [
-      { text: "Artigo", value: "article" },
+      { text: "Artigo", value: "product.code" },
       { text: "Descrição", value: "description" },
       { text: "UN", value: "unity" },
       { text: "Qnt.", value: "quantity" },
-      { text: "Projeto", value: "project" },
+      { text: "Projeto", value: "project.code" },
       { text: "Notas", value: "notes" }
     ]
   }),
   computed: {
     location: () => window.location
+  },
+  methods: {
+    changeArticle(item) {
+      if (!item) {
+        this.editedItem.unity = null;
+
+      } else {
+        this.editedItem.unity = item.Unity.base;
+      }
+    },
+
+    editItem(item) {
+      console.log("Editied item:", item);
+    },
+
+    deleteItem(item) {
+      const index = this.items.indexOf(item);
+      confirm("Are you sure you want to delete this item?") &&
+        this.items.splice(index, 1);
+    },
+
+    close() {
+      console.log("closing the dialog");
+      this.dialog = false;
+      setTimeout(() => {
+        this.editedItem = Object.assign({}, this.defaultItem);
+        this.editedIndex = -1;
+      }, 300);
+    },
+
+    save() {
+      console.log(this.editedItem);
+      this.formModel.items.push({
+
+        product_id: this.editedItem.product.code,
+        unit_id: this.editedItem.unity.code,
+        project_id: this.editedItem.project.code,
+
+        product: this.editedItem.product,
+        description: this.editedItem.product.description,
+        quantity: this.editedItem.quantity,
+        unity: this.editedItem.unity,
+        businessArea: this.formModel.businessArea,
+        project: this.editedItem.project,
+        notes: this.editedItem.notes
+      });
+
+      this.close();
+    },
+    filterCodeName(item, queryText, itemText) {
+      if (!queryText) return "";
+
+      const textOne = item.code.toLowerCase();
+      const textTwo = item.name.toLowerCase();
+      const searchText = queryText.toLowerCase();
+
+      return (
+        textOne.indexOf(searchText) > -1 || textTwo.indexOf(searchText) > -1
+      );
+    },
+
+    filterCodeDesc(item, queryText, itemText) {
+      if (!queryText) return "";
+
+      const textOne = item.code.toLowerCase();
+      const textTwo = item.description.toLowerCase();
+      const searchText = queryText.toLowerCase();
+
+      return (
+        textOne.indexOf(searchText) > -1 || textTwo.indexOf(searchText) > -1
+      );
+    }
   }
 };
 </script>

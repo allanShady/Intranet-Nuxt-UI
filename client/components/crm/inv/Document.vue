@@ -386,11 +386,14 @@ methods: {
     save() {
         this.formModel.details.push({
         product_id: this.editedItem.product.code,
+        unit_id: this.editedItem.unit.code,
+        project_id: this.editedItem.project.code,
+
         description: this.editedItem.product.description,
         quantity: this.editedItem.quantity,
-        unit_id: this.editedItem.unit.code,
+
         business_area_id: this.formModel.businessArea.code,
-        project_id: this.editedItem.project.code,
+
         notes: this.editedItem.notes,
         factor: 1,
         whareahouse: null

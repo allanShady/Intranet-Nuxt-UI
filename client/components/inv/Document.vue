@@ -84,6 +84,8 @@ export default {
         projects: [],
         businessArea: [],
         docTypes: [],
+        products:[],
+        unitys:[]
       })
     }
   },
@@ -94,11 +96,9 @@ export default {
     let doc = this.$router.currentRoute.query["doc"];
     let classifier = this.$router.currentRoute.query["tipo"];
 
-    this.form.articles = await this.$store.dispatch("getDataAsync", 'products');
-    this.form.unitys =await this.$store.dispatch("getDataAsync", 'units');
     this.form.employees = await this.$store.dispatch("getDataAsync", 'employees');
     this.form.businessArea = await this.$store.dispatch("getDataAsync", 'businessArea');
-    this.form.projects = await this.$store.dispatch("getDataAsync", 'products');
+    this.form.projects = await this.$store.dispatch("getDataAsync", 'projects');
     this.form.docTypes = await this.$store.dispatch("getDataAsync", 'documenttypes');
     this.form.docTypes = this.form.docTypes.filter(p=> p.code == doc);
 
@@ -106,6 +106,10 @@ export default {
     this.form.isSelectedProduct = this.form.docTypes[0].isSelectedProduct;
     this.form.canAddProduct = this.form.docTypes[0].isSelectedProduct;
 
+    this.form.products = await this.$store.dispatch("getDataAsync", 'products/filters?type=' + this.formModel.typeDocument.typeArticle);
+    this.form.unitys =await this.$store.dispatch("getDataAsync", 'units');
+
+    console.log(this.form.projects );
   },
   methods: {
     changeEntity(item) {
@@ -137,53 +141,6 @@ export default {
     requestCloseForm() {
       alert("are you sure want close this form?");
     },
-    //============================================================================================================================================
-
-    changeArticle(item) {
-      if (!item) {
-        this.editedItem.unity = null;
-        //this.unitys = [];
-      } else {
-        //this.unitys = item.units;
-
-        this.editedItem.unity = item.Unity.base;
-      }
-    },
-
-    editItem(item) {
-      console.log("Editied item:", item);
-    },
-
-    deleteItem(item) {
-      const index = this.items.indexOf(item);
-      confirm("Are you sure you want to delete this item?") &&
-        this.items.splice(index, 1);
-    },
-
-    close() {
-      console.log("closing the dialog");
-      this.dialog = false;
-      setTimeout(() => {
-        this.editedItem = Object.assign({}, this.defaultItem);
-        this.editedIndex = -1;
-      }, 300);
-    },
-
-    save() {
-      this.formModel.items.push({
-        article: this.editedItem.article.code,
-        description: this.editedItem.article.description,
-        quantity: this.editedItem.quantity,
-        unity: this.editedItem.unity,
-        businessArea: this.formModel.businessArea,
-        project: this.editedItem.project.code,
-        notes: this.editedItem.notes
-      });
-
-      this.close();
-    },
-
-    //============================================================================================================================================
     filterCodeName(item, queryText, itemText) {
       if (!queryText) return "";
 
