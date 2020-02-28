@@ -436,7 +436,7 @@ methods: {
         business_area_id:  this.formModel.businessArea.code,
         date: this.formModel.date,
         reference_doc: this.formModel.referenceDoc,
-        entity_type: this.formModel.entityType.code || null,
+        entity_type: this.formModel.entityType.code || 'F',
         attachement:  this.formModel.attachement.length || 'note attached any doc' ,
         details: this.formModel.details,
       }
