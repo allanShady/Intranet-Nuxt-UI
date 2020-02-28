@@ -9,6 +9,7 @@ import DocumentForm from "@/components/crm/inv/Document";
 
 export default {
   layout: "dashboard",
+  middleware: 'custom-auth',
   components: {
     DocumentForm
   },
