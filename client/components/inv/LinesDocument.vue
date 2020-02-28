@@ -16,7 +16,7 @@
 
         <v-dialog v-model="dialog" max-width="500px">
           <template v-slot:activator="{ on }">
-            <v-btn v-on="on" v-show="!form.canAddProduct" >
+            <v-btn v-on="on" v-show="!form.canAddProduct">
               <v-icon>mdi-plus-circle-outline</v-icon>
             </v-btn>
           </template>
@@ -132,13 +132,13 @@ export default {
         requiredProject: true,
         requiredNotes: true,
         isSelectedProduct: false,
-        canAddProduct:true,
+        canAddProduct: true,
         employees: [],
         projects: [],
         businessArea: [],
         docTypes: [],
-        products:[],
-        unitys:[]
+        products: [],
+        unitys: []
       })
     },
     items: {
@@ -150,7 +150,7 @@ export default {
   data: () => ({
     isSelected: false,
 
-editedItem: {},
+    editedItem: { quantity: 0 },
     editedIndex: 0,
     defaultItem: {
       title: "Adiciona o Artigo",
@@ -160,18 +160,18 @@ editedItem: {},
       quantity: 0,
       project: null,
       factor: 1,
-      notes: null,
+      notes: null
     },
 
     dialog: false,
     dateMenu: false,
 
     headers: [
-      { text: "Artigo", value: "product.code" },
+      { text: "Artigo", value: "product_id" },
       { text: "Descrição", value: "description" },
       { text: "UN", value: "unity" },
       { text: "Qnt.", value: "quantity" },
-      { text: "Projeto", value: "project.code" },
+      { text: "Projeto", value: "project_id" },
       { text: "Notas", value: "notes" }
     ]
   }),
@@ -182,7 +182,6 @@ editedItem: {},
     changeArticle(item) {
       if (!item) {
         this.editedItem.unity = null;
-
       } else {
         this.editedItem.unity = item.Unity.base;
       }
@@ -209,18 +208,19 @@ editedItem: {},
 
     save() {
       console.log(this.editedItem);
-      this.formModel.items.push({
 
+      this.formModel.items.push({
         product_id: this.editedItem.product.code,
         unit_id: this.editedItem.unity.code,
         project_id: this.editedItem.project.code,
 
-        product: this.editedItem.product,
+        //product: this.editedItem.product,
         description: this.editedItem.product.description,
         quantity: this.editedItem.quantity,
         unity: this.editedItem.unity,
-        businessArea: this.formModel.businessArea,
-        project: this.editedItem.project,
+        businessArea_id:this.formModel.businessArea,
+        //businessArea: this.formModel.businessArea,
+        //project: this.editedItem.project,
         notes: this.editedItem.notes
       });
 

@@ -14,10 +14,10 @@
 
           <v-card-text>
             <v-flex lg12>
-              <HeaderDocument-Form v-bind:form = form v-bind:formModel =formModel ></HeaderDocument-Form>
+              <HeaderDocument-Form v-bind:form="form" v-bind:formModel="formModel"></HeaderDocument-Form>
             </v-flex>
             <v-flex lg12>
-              <LinesDocument-Form v-bind:form = form v-bind:formModel =formModel></LinesDocument-Form>
+              <LinesDocument-Form v-bind:form="form" v-bind:formModel="formModel"></LinesDocument-Form>
             </v-flex>
           </v-card-text>
 
@@ -40,7 +40,6 @@
 </template>
 
 <script>
-
 import LinesDocumentForm from "@/components/inv/LinesDocument";
 import HeaderDocumentForm from "@/components/inv/HeaderDocument";
 
@@ -78,68 +77,79 @@ export default {
         requiredAttachs: false,
         requiredProject: true,
         requiredNotes: true,
-        isSelectedProduct:false,
-        canAddProduct:true,
+        isSelectedProduct: false,
+        canAddProduct: true,
         employees: [],
         projects: [],
         businessArea: [],
         docTypes: [],
-        products:[],
-        unitys:[]
+        products: [],
+        unitys: []
       })
     }
   },
-  data: () => ({
-
-  }),
+  data: () => ({}),
   beforeMount: async function() {
     let doc = this.$router.currentRoute.query["doc"];
     let classifier = this.$router.currentRoute.query["tipo"];
 
-    this.form.employees = await this.$store.dispatch("getDataAsync", 'employees');
-    this.form.businessArea = await this.$store.dispatch("getDataAsync", 'businessArea');
-    this.form.projects = await this.$store.dispatch("getDataAsync", 'projects');
-    this.form.docTypes = await this.$store.dispatch("getDataAsync", 'documenttypes');
-    this.form.docTypes = this.form.docTypes.filter(p=> p.code == doc);
+    this.form.employees = await this.$store.dispatch(
+      "getDataAsync",
+      "employees"
+    );
+    this.form.businessArea = await this.$store.dispatch(
+      "getDataAsync",
+      "businessArea"
+    );
+    this.form.projects = await this.$store.dispatch("getDataAsync", "projects");
+    this.form.docTypes = await this.$store.dispatch(
+      "getDataAsync",
+      "documenttypes"
+    );
+    this.form.docTypes = this.form.docTypes.filter(p => p.code == doc);
 
     this.formModel.documenttype = this.form.docTypes[0];
     this.form.isSelectedProduct = this.form.docTypes[0].isSelectedProduct;
     this.form.canAddProduct = this.form.docTypes[0].isSelectedProduct;
 
-    this.form.products = await this.$store.dispatch("getDataAsync", 'products/filters?type=' + this.formModel.documenttype.typeArticle);
-    this.form.unitys =await this.$store.dispatch("getDataAsync", 'units');
-
-    console.log(this.form.projects );
+    this.form.products = await this.$store.dispatch(
+      "getDataAsync",
+      "products/filters?type=" + this.formModel.documenttype.typeArticle
+    );
+    this.form.unitys = await this.$store.dispatch("getDataAsync", "units");
   },
   methods: {
-    changeEntity(item) {
-      if (!item) {
-      } else {
-        var buss = item.BusinessArea.filter(d => d.isPrincipal === true);
+    async redirectDashboard() {
+      let doc = this.$router.currentRoute.query["doc"];
+      let classifier = this.$router.currentRoute.query["tipo"];
 
-        if (buss.length > 0) {
-          this.formModel.businessArea = buss[0].businessArea;
-        }
-      }
+      var url = `/inventory/EFGC/Dashboard?id=${classifier}`;
 
-      this.formModel.items = [];
+      this.$router.push(url);
     },
 
-    clearDoc() {
+    async clearDoc() {
       this.formModel = {
         title: "Documentos Internos",
         typeDocument: null,
         date: new Date().toISOString().substr(0, 10),
-        docNumber: "",
-        typeEntity: "Fúncionario",
+        referenceDoc: "",
+        typeEntity: "U",
         entity: null,
-        Attachs: [],
+        businessArea: null,
+        attachement: [],
+        createdBy: "Guimarães Mahota",
+        createdAt: new Date().toISOString(),
+        isSavingDataAndClose: false,
+        isSavingData: false,
         items: []
       };
     },
 
     requestCloseForm() {
       alert("are you sure want close this form?");
+
+      this.redirectDashboard();
     },
     filterCodeName(item, queryText, itemText) {
       if (!queryText) return "";
@@ -171,24 +181,33 @@ export default {
         document_type_id: this.formModel.documenttype.code,
         entity_id: this.formModel.entity.code,
         entity_name: this.formModel.entity.name,
-        business_area_id:  this.formModel.businessArea.code,
+        business_area_id: this.formModel.businessArea.code,
         date: this.formModel.date,
         reference_doc: this.formModel.referenceDoc,
         entity_type: this.formModel.typeEntity || null,
-        attachement:  this.formModel.attachement.length || 'note attached any doc' ,
-        details: this.formModel.items,
-      }
-      console.log('DATA TO SAVE IS: ',post_data);
+        attachement:
+          this.formModel.attachement.length || "note attached any doc",
+        details: this.formModel.items
+      };
+
       this.formModel.isSavingData = true;
 
-      await this.$store.dispatch("postDataAsync", {api_resourse: 'stocks' , post_data})
-      .then(response => {
-          console.log(response)
+      await this.$store
+        .dispatch("postDataAsync", { api_resourse: "stocks", post_data })
+        .then(response => {
           this.formModel.isSavingData = !this.formModel.isSavingData;
+          alert("Documento Gravado - com Sucesso");
+
+          if (this.isSavingDataAndClose == true) {
+            this.redirectDashboard();
+          } else {
+            this.clearDoc();
+          }
         })
         .catch(error => {
-            console.log('Error on the component');
-            console.log(error);
+          console.log("Error on the component");
+          console.log(error);
+          alert("Ocorreu um erro durante a gração do documento");
         });
     },
     //==============================================================================================================================================

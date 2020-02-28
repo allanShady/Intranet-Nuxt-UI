@@ -33,7 +33,7 @@ export default {
   methods: {
     openFrm(item) {
 
-      var url = `/inventory/EFGC/Form?doc=${item.code}&tipo =${this.classifier}`;
+      var url = `/inventory/EFGC/Form?doc=${item.code}&tipo=${this.classifier}`;
 
       this.$router.push(url);
 
