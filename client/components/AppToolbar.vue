@@ -43,6 +43,7 @@
     >
       <template v-slot:activator="{ on }">
         <v-btn icon large text v-on="on">
+         
           <v-avatar size="30px">
             <v-icon>person</v-icon>
           </v-avatar>
@@ -123,6 +124,7 @@ export default {
       Util.toggleFullScreen()
     },
     handleLogout() {
+      this.$store.dispatch("logout");
       this.$router.push('/login')
     }
   }

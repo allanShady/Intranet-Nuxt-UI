@@ -94,13 +94,12 @@ export const actions = {
   },
 
   logout(vuexContext) {
-    commit('clearAuthData')
+    vuexContext.commit('clearAuthData')
     localStorage.removeItem('expiration_date')
     localStorage.removeItem('token')
     localStorage.removeItem('user_email')
     localStorage.removeItem('user_name')
     localStorage.removeItem('user_id')
-    vuexContext.redirect("/login")
   },
 } 
 
