@@ -330,7 +330,7 @@ methods: {
         var buss = item.BusinessArea.filter(d => d.isPrincipal === true);
 
         if (buss.length > 0) {
-          this.formModel.businessArea = buss[0].businessArea;
+          this.formModel.businessArea = { code: buss[0].businessArea };
         }
       }
 
@@ -474,9 +474,7 @@ methods: {
       this.businessArea = await this.$store.dispatch("getDataAsync", 'businessArea')
       this.products = await this.$store.dispatch("getDataAsync", 'products')
       this.documentTypes = await this.$store.dispatch("getDataAsync", 'documenttypes')
-
-
-    }
+  }
   },
 
   computed: {

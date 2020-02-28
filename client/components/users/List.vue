@@ -1,0 +1,149 @@
+<template>
+  <v-card>
+    <v-card-title>
+      Utilizadores
+      <v-spacer></v-spacer>
+      <v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details></v-text-field>
+      <v-icon color="primary" @click="dialog = !dialog" >add</v-icon>
+      <v-dialog v-model="dialog" max-width="500px">
+          <v-card>
+            <v-card-title>
+              <span class="headline">{{ formTitle }}</span>
+            </v-card-title>
+
+            <v-card-text>
+              <v-container>
+                <v-row>
+                  <v-col cols="12" sm="12" md="6">
+                    <v-text-field v-model="userModel.first_name" label="First Name"></v-text-field>
+                  </v-col>
+                  <v-col cols="12" sm="12" md="6">
+                    <v-text-field v-model="userModel.last_name" label="Last Name"></v-text-field>
+                  </v-col>                  
+                </v-row>
+                <v-row>
+                  <v-col cols="12" sm="12" md="6">
+                    <v-text-field v-model="userModel.email" type="email" label="Email"></v-text-field>
+                  </v-col>
+                  <v-col cols="12" sm="12" md="6">
+                    <v-text-field v-model="userModel.phone_number_1" label="Phone Nbr."></v-text-field>
+                  </v-col>                  
+                </v-row>
+                <v-row>
+                  <v-col cols="12" sm="12" md="6">
+                    <v-text-field v-model="userModel.password" type="password" label="Password"></v-text-field>
+                  </v-col>
+                  <v-col>
+                    <v-text-field v-model="userModel.confirm_password" type="password" label="Confirm Password"></v-text-field>
+                  </v-col>
+                </v-row>
+              </v-container>
+            </v-card-text>
+
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn color="blue darken-1" text @click="close">Cancel</v-btn>
+              <v-btn color="blue darken-1" text @click="save">Save</v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+    </v-card-title>
+
+    <v-card-text class="pa-0">
+      <v-data-table
+        :headers="headers"
+        :items="users"
+        :search="search"
+        single-select
+        :items-per-page="20"
+        item-key="code"
+        class="elevation-0"
+        :loading="loading" 
+        loading-text="Loading users. Please wait"
+      >
+        <template v-slot:item.progress="{ item }">
+          <v-progress-linear :value="item.progress" height="5" :color="item.color"></v-progress-linear>
+        </template>
+
+        <template v-slot:item.action="{ item }">
+          <v-icon small class="mr-2" @click="editItem(item)">mdi-pencil</v-icon>
+          <v-icon small @click="deleteItem(item)">mdi-delete</v-icon>
+        </template>
+      </v-data-table>
+
+      <v-divider></v-divider>
+    </v-card-text>
+  </v-card>
+</template>
+<script>
+
+export default {
+  data: () => ({
+    search: "",
+    users: [],
+    userModel: {},
+    dialog: false,
+    formTitle: 'Criar utilizador',
+    loading: false,
+    headers: [
+
+      { text: "#", value: "id" },
+      { text: "First name", value: "first_name" },
+      { text: "Last name", value: "last_name" },
+      { text: "Email", value: "email" },
+      { text: "Phone nbr.", value: "phone_number_1" },
+      { text: "Active", value: "inactive" },
+      { text: "Actions", value: "action", sortable: false }
+    ],
+  }),
+  methods: {
+    detailsItem(value){
+      this.$router.push('/project/detail?id='+value.code)
+    },
+    editItem(value){
+
+    },
+    deleteItem(value){
+
+    },
+
+    close() {
+      this.dialog = false;
+
+      //Reset form
+      this.userModel.first_name = null,
+      this.userModel.last_name = null,
+      this.userModel.email = null,
+      this.userModel.phone_number_1 = null,
+      this.userModel.password = null,
+      this.userModel.confirm_password = null
+    }, 
+
+    async save() {
+     let post_data = this.userModel;
+     let created_user = await this.$store.dispatch("postDataAsync", {api_resourse: 'auth/create' , post_data})
+     
+     this.users.push({
+       id: created_user.id,
+       first_name: created_user.firstName,
+       last_name: created_user.lastName,
+       email: created_user.email,
+       phone_number_1: created_user.phoneNumber1,
+       inactive: false
+     }) 
+
+      this.close();
+    },
+    
+    async initData() {
+      this.loading = !this.loading;
+      this.users = await this.$store.dispatch("getDataAsync", 'auth/users');  
+      this.loading = !this.loading;  
+    }
+  },
+
+  created() {
+    this.initData()
+  }
+};
+</script>

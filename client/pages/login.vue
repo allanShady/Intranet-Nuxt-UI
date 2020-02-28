@@ -8,26 +8,22 @@
               <v-card-text>
                 <div class="layout column align-center">
                   <img src="../static/m.png" alt="Vue Material Admin" width="120" height="120">
-                  <h1 class="flex my-4 primary--text">Material Admin Template</h1>
+                  <h1 class="flex my-4 primary--text">Belutécnica</h1>
                 </div>
                 <v-form>
-                  <v-text-field append-icon="person" name="login" label="Login" type="text"
-                                v-model="model.username"></v-text-field>
-                  <v-text-field append-icon="lock" name="password" label="Password" id="password" type="password"
+                  <v-text-field append-icon="person" name="login" label="Login" placeholder="youremail@domain.com" type="text"
+                                v-model="model.email"></v-text-field>
+                  <v-text-field append-icon="lock" name="password" label="Password" id="password" placeholder="password"  type="password"
                                 v-model="model.password"></v-text-field>
+                
+                  <p v-show="signInSuccess()">
+                    <v-icon small color="warning" class="text-xs-center">warning</v-icon>
+                  <span class="body-1 red--text" color="red">Invalid Email address or Password!</span>
+                  <!--span-- style="cursor: pointer; color: #3366BB" class="caption">I forget password</!--span-->
+                  </p>
                 </v-form>
               </v-card-text>
               <v-card-actions>
-                <v-btn icon>
-                  <v-icon color="blue">fa fa-facebook-square fa-lg</v-icon>
-                </v-btn>
-                <v-btn icon>
-                  <v-icon color="red">fa fa-google fa-lg</v-icon>
-                </v-btn>
-                <v-btn icon>
-                  <v-icon color="light-blue">fa fa-twitter fa-lg</v-icon>
-                </v-btn>
-                <v-spacer></v-spacer>
                 <v-btn block color="primary" @click="login" :loading="loading">Login</v-btn>
               </v-card-actions>
             </v-card>
@@ -44,20 +40,30 @@
     data: () => ({
       loading: false,
       model: {
-        username: 'admin@example.com',
-        password: 'password'
+        email: '',
+        password: ''
       }
     }),
 
     methods: {
-      login() {
+      async login() {
         this.loading = true;
-        setTimeout(() => {
-          this.$router.push('/dashboard');
-        }, 1000);
-      }
-    }
 
+        await this.$store.dispatch("authenticateUser", {
+        email: this.model.email,
+        password: this.model.password
+      })
+      .then(()=> {
+
+        this.loading = false;
+      })
+      .catch( error => console.log(error));        
+      },
+
+    signInSuccess() {
+      return this.$store.getters.loginErrorMsg;
+    }
+    }
   };
 </script>
 <style scoped lang="css">
