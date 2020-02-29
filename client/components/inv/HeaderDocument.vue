@@ -88,6 +88,8 @@
           item-text="description"
         ></v-autocomplete>
       </v-col>
+    </v-row>
+    <v-row>
       <v-col>
         <v-file-input show-size counter multiple label="Anexo"></v-file-input>
       </v-col>
