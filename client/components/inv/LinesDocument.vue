@@ -2,7 +2,8 @@
   <v-data-table
     :headers="headers"
     :items="formModel.items"
-    item-key="article"
+    v-model="formModel.selected"
+    item-key="product_id"
     class="elevation-1"
     :show-select="form.isSelectedProduct"
   >
@@ -59,7 +60,15 @@
                     return-object
                   ></v-autocomplete>
                   <v-col>
-                    <v-text-field type="number" v-model="editedItem.quantity" required label="Qnt."></v-text-field>
+                    <v-text-field
+                      type="number"
+                      :rules="[
+                        form.rulesQuantity.loanMin,
+                        form.rulesQuantity.loanMaxMax
+                      ]"
+                      v-model="editedItem.quantity"
+                      label="Qnt."
+                    ></v-text-field>
                   </v-col>
                 </v-row>
                 <v-row>
@@ -118,7 +127,8 @@ export default {
         createdAt: new Date().toISOString(),
         isSavingDataAndClose: false,
         isSavingData: false,
-        items: []
+        items: [],
+        selected: []
       })
     },
     form: {
@@ -138,7 +148,12 @@ export default {
         businessArea: [],
         docTypes: [],
         products: [],
-        unitys: []
+        unitys: [],
+        rulesQuantity: {
+          required: value => !!value || "Required.",
+          loanMin: value =>  value >= 0 || "Quantidade não pode ser menor de 0",
+          loanMax: value => value <= 50000 || "Quantidade não pode ser menor de 50000"
+        }
       })
     },
     items: {
@@ -167,9 +182,15 @@ export default {
     dateMenu: false,
 
     headers: [
+      {
+        text: "#",
+        align: "left",
+        sortable: false,
+        value: "sel"
+      },
       { text: "Artigo", value: "product_id" },
       { text: "Descrição", value: "description" },
-      { text: "UN", value: "unity" },
+      { text: "UN", value: "unit_id" },
       { text: "Qnt.", value: "quantity" },
       { text: "Projeto", value: "project_id" },
       { text: "Notas", value: "notes" }
@@ -209,19 +230,22 @@ export default {
     save() {
       console.log(this.editedItem);
 
+      let unity = "";
+
+      if (!this.editedItem.unity.code) {
+        unity = this.editedItem.unity;
+      } else {
+        unity = this.editedItem.unity.code;
+      }
+
       this.formModel.items.push({
         product_id: this.editedItem.product.code,
-        unit_id: this.editedItem.unity.code,
-        project_id: this.editedItem.project.code,
-
-        //product: this.editedItem.product,
         description: this.editedItem.product.description,
+        unit_id: unity,
+        project_id: this.editedItem.project.code,
         quantity: this.editedItem.quantity,
-        unity: this.editedItem.unity,
-        businessArea_id:this.formModel.businessArea,
-        //businessArea: this.formModel.businessArea,
-        //project: this.editedItem.project,
-        notes: this.editedItem.notes
+        notes: this.editedItem.notes,
+        in_out: this.formModel.documenttype.type
       });
 
       this.close();

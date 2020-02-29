@@ -84,7 +84,12 @@ export default {
         businessArea: [],
         docTypes: [],
         products: [],
-        unitys: []
+        unitys: [],
+        rulesQuantity: {
+          required: value => !!value || "Required.",
+          loanMin: value => value >= 0 || "Quantidade não pode ser menor de 0",
+          loanMax: value => value <= 50000 || "Quantidade não pode ser menor de 50000"
+        }
       })
     }
   },
@@ -102,6 +107,7 @@ export default {
       "businessArea"
     );
     this.form.projects = await this.$store.dispatch("getDataAsync", "projects");
+
     this.form.docTypes = await this.$store.dispatch(
       "getDataAsync",
       "documenttypes"
@@ -176,6 +182,16 @@ export default {
     },
 
     async submit() {
+      let details = [];
+
+      let typeArticle = this.formModel.documenttype.typeArticle;
+
+      if (this.formModel.documenttype.type == "E") {
+        details = this.formModel.selected;
+      } else {
+        details = his.formModel.items;
+      }
+
       const post_data = {
         from_warehouse_id: null,
         document_type_id: this.formModel.documenttype.code,
