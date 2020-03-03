@@ -1,26 +1,60 @@
 <template>
-  <v-layout>
-    <v-row>
+  <v-layout column justify-space-around>
+    <v-flex>
       <v-btn-toggle>
-        <v-bottom-navigation
-    color="primary"
-    horizontal>
+        <v-bottom-navigation color="primary" horizontal>
+          <v-btn @click="openBalance">
+            <span>Extrato</span>
+            <v-icon>text-box</v-icon>
+          </v-btn>
           <v-btn v-for="document in documentTypes" :key="document.code" @click="openFrm(document)">
-              <span>{{document.code}}</span>
-              <v-icon>{{document.icon}}</v-icon>
+            <span>{{document.code}}</span>
+            <v-icon>{{document.icon}}</v-icon>
           </v-btn>
         </v-bottom-navigation>
       </v-btn-toggle>
-    </v-row>
+    </v-flex>
+    <v-flex>
+      <v-data-table
+        :headers="headers"
+        :items="pedding_Items"
+        item-key="product_id"
+        class="elevation-1"
+      >
+        <template v-slot:item.businessArea="{ item }">{{ getPrincipalBussinessArea(item)}}</template>
+      </v-data-table>
+    </v-flex>
   </v-layout>
 </template>
 <script>
 export default {
   data: () => ({
     documentTypes: [],
-    classifier:null,
+    pedding_Items: [],
+    classifier: null,
+    businessArea: [],
+    headers: [
+      {
+        text: "#",
+        align: "left",
+        sortable: false,
+        value: "sel"
+      },
+      { text: "Aréa Negocio", value: "businessArea" },
+      { text: "Funcionario", value: "Entity.code" },
+      { text: "Nome", value: "Entity.name" },
+      { text: "Artigo", value: "product_id" },
+      { text: "Descrição", value: "description" },
+      { text: "UN", value: "Product.Unity.base" },
+      { text: "Qnt.", value: "quantity" }
+    ]
   }),
   beforeMount: async function() {
+    this.businessArea = await this.$store.dispatch(
+      "getDataAsync",
+      "businessArea"
+    );
+
     let doc = this.$router.currentRoute.query["id"];
 
     this.documentTypes = await this.$store.dispatch(
@@ -29,14 +63,33 @@ export default {
     );
 
     this.classifier = doc;
+
+    var url = `products/entity/${"all"}/filters?hasstock=${1}&type=${
+      this.documentTypes[0].typeArticle
+    }`;
+
+    this.pedding_Items = await this.$store.dispatch("getDataAsync", url);
   },
   methods: {
     openFrm(item) {
-
       var url = `/inventory/EFGC/Form?doc=${item.code}&tipo=${this.classifier}`;
 
       this.$router.push(url);
+    },
+    openBalance() {
+      var url = `/inventory/EFGC/Statement?tipo=${this.classifier}`;
 
+      this.$router.push(url);
+    },
+    getPrincipalBussinessArea(item) {
+      if (!item) return "";
+
+      let buss = item.Entity.BusinessArea.filter(d => d.isPrincipal === true);
+
+      if (buss.length > 0) {
+        return this.businessArea.find(p => p.code == buss[0].businessArea)
+          .description;
+      }
     }
   }
 };

@@ -245,7 +245,8 @@ export default {
         project_id: this.editedItem.project.code,
         quantity: this.editedItem.quantity,
         notes: this.editedItem.notes,
-        in_out: this.formModel.documenttype.type
+        in_out: this.formModel.documenttype.type,
+        factor: 1
       });
 
       this.close();

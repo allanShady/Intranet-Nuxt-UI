@@ -189,7 +189,7 @@ export default {
       if (this.formModel.documenttype.type == "E") {
         details = this.formModel.selected;
       } else {
-        details = his.formModel.items;
+        details = this.formModel.items;
       }
 
       const post_data = {
