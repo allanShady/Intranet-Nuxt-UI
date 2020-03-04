@@ -65,6 +65,7 @@ import PageHeader from '@/components/PageHeader'
 import ThemeSettings from '@/components/ThemeSettings'
 
 export default {
+  middleware: 'custom-auth',
   components: {
     AppDrawer,
     AppToolbar,

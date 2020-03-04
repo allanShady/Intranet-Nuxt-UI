@@ -11,6 +11,14 @@ const logError = error => {
   }
 }
 
+const removeLocalStoreAuthData = () => {
+  localStorage.removeItem('expiration_date')
+  localStorage.removeItem('token')
+  localStorage.removeItem('user_email')
+  localStorage.removeItem('user_name')
+  localStorage.removeItem('user_id')
+}
+
 export const mutations = {
   toggleDrawer(state) {
     state.drawer = !state.drawer
@@ -95,12 +103,14 @@ export const actions = {
 
   logout(vuexContext) {
     vuexContext.commit('clearAuthData')
-    localStorage.removeItem('expiration_date')
-    localStorage.removeItem('token')
-    localStorage.removeItem('user_email')
-    localStorage.removeItem('user_name')
-    localStorage.removeItem('user_id')
+    removeLocalStoreAuthData();
   },
+
+  requestPasswordReset(vuexContext) 
+  { 
+    vuexContext.commit('clearAuthData')
+    removeLocalStoreAuthData();
+  }
 } 
 
 export const getters = {
