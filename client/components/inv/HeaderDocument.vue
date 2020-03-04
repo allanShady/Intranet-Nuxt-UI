@@ -88,6 +88,8 @@
           item-text="description"
         ></v-autocomplete>
       </v-col>
+    </v-row>
+    <v-row>
       <v-col>
         <v-file-input show-size counter multiple label="Anexo"></v-file-input>
       </v-col>
@@ -95,8 +97,6 @@
   </v-flex>
 </template>
 <script>
-
-
 export default {
   props: {
     formModel: {
@@ -127,54 +127,33 @@ export default {
         requiredAttachs: false,
         requiredProject: true,
         requiredNotes: true,
+        isSelectedProduct: false,
+        canAddProduct: true,
         employees: [],
         projects: [],
         businessArea: [],
         docTypes: [],
+        products: [],
+        unitys: [],
+        rulesQuantity: {
+          required: value => !!value || "Required.",
+          loanMin: value => value >= 0 || "Quantidade não pode ser menor de 0",
+          loanMax: value => value <= 50000 || "Quantidade não pode ser menor de 50000"
+        }
       })
     }
   },
-  props: {
-    formModel: {
-      type: Object,
-      default: () => ({
-        title: "Documentos Internos",
-        documenttype: null,
-        date: new Date().toISOString().substr(0, 10),
-        referenceDoc: "",
-        typeEntity: "U",
-        entity: null,
-        businessArea: null,
-        Attachs: [],
-        createdBy: null,
-        createdAt: new Date().toISOString(),
-        isSavingDataAndClose: false,
-        isSavingData: false,
-        items: []
-      })
-    },
-    form:{
-      type: Object,
-      default:() => ({
-        title:"Documentos Internos",
-        typeDocument:null,
-        requiredBussinessArea: true,
-        requiredExternalDocNumber:true,
-        requiredAttachs:false,
-        requiredProject:true,
-        requiredNotes:true
-      })
-    }
-  },
+
   data: () => ({
     dialog: false,
-    dateMenu: false,
+    dateMenu: false
   }),
-  beforeMount: async function() {
-
-  },
+  beforeMount: async function() {},
   methods: {
-    changeEntity(item) {
+    async changeEntity(item) {
+      this.formModel.items = [];
+      this.formModel.businessArea = null;
+
       if (!item) {
       } else {
         var buss = item.BusinessArea.filter(d => d.isPrincipal === true);
@@ -182,9 +161,31 @@ export default {
         if (buss.length > 0) {
           this.formModel.businessArea = buss[0].businessArea;
         }
-      }
 
-      this.formModel.items = [];
+        let entity = item.code;
+        let typeArticle = this.formModel.documenttype.typeArticle;
+
+        if (this.formModel.documenttype.type == "E") {
+          var url = `products/entity/${
+            item.code
+          }/filters?hasstock=${1}&type=${typeArticle}`;
+
+          var items = await this.$store.dispatch("getDataAsync", url);
+
+          items.forEach(line => {
+            this.formModel.items.push({
+              product_id: line.product_id,
+              description: line.description,
+              unit_id: line.Product.Unity.base,
+              project_id: null,
+              quantity: line.quantity,
+              businessArea_id: this.formModel.businessArea,
+              notes: null,
+              in_out: this.formModel.documenttype.type
+            });
+          });
+        }
+      }
     },
 
     filterCodeName(item, queryText, itemText) {

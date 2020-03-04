@@ -440,7 +440,7 @@ methods: {
         attachement:  this.formModel.attachement.length || 'note attached any doc' ,
         details: this.formModel.details,
       }
-      console.log('DATA TO SAVE IS: ',post_data);
+
       this.formModel.isSavingData = true;
 
       await this.$store.dispatch("postDataAsync", {api_resourse: 'stocks' , post_data})
@@ -451,7 +451,9 @@ methods: {
         .catch(error => {
             console.log('Error on the component');
             console.log(error);
-        });
+      });
+
+
     },
     //==============================================================================================================================================
     cancel() {

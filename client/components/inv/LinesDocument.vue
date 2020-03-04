@@ -2,7 +2,8 @@
   <v-data-table
     :headers="headers"
     :items="formModel.items"
-    item-key="article"
+    v-model="formModel.selected"
+    item-key="product_id"
     class="elevation-1"
     :show-select="form.isSelectedProduct"
   >
@@ -16,7 +17,7 @@
 
         <v-dialog v-model="dialog" max-width="500px">
           <template v-slot:activator="{ on }">
-            <v-btn v-on="on" v-show="!form.canAddProduct" >
+            <v-btn v-on="on" v-show="!form.canAddProduct">
               <v-icon>mdi-plus-circle-outline</v-icon>
             </v-btn>
           </template>
@@ -59,7 +60,15 @@
                     return-object
                   ></v-autocomplete>
                   <v-col>
-                    <v-text-field type="number" v-model="editedItem.quantity" required label="Qnt."></v-text-field>
+                    <v-text-field
+                      type="number"
+                      :rules="[
+                        form.rulesQuantity.loanMin,
+                        form.rulesQuantity.loanMaxMax
+                      ]"
+                      v-model="editedItem.quantity"
+                      label="Qnt."
+                    ></v-text-field>
                   </v-col>
                 </v-row>
                 <v-row>
@@ -118,7 +127,8 @@ export default {
         createdAt: new Date().toISOString(),
         isSavingDataAndClose: false,
         isSavingData: false,
-        items: []
+        items: [],
+        selected: []
       })
     },
     form: {
@@ -132,13 +142,18 @@ export default {
         requiredProject: true,
         requiredNotes: true,
         isSelectedProduct: false,
-        canAddProduct:true,
+        canAddProduct: true,
         employees: [],
         projects: [],
         businessArea: [],
         docTypes: [],
-        products:[],
-        unitys:[]
+        products: [],
+        unitys: [],
+        rulesQuantity: {
+          required: value => !!value || "Required.",
+          loanMin: value =>  value >= 0 || "Quantidade não pode ser menor de 0",
+          loanMax: value => value <= 50000 || "Quantidade não pode ser menor de 50000"
+        }
       })
     },
     items: {
@@ -150,7 +165,7 @@ export default {
   data: () => ({
     isSelected: false,
 
-editedItem: {},
+    editedItem: { quantity: 0 },
     editedIndex: 0,
     defaultItem: {
       title: "Adiciona o Artigo",
@@ -160,18 +175,24 @@ editedItem: {},
       quantity: 0,
       project: null,
       factor: 1,
-      notes: null,
+      notes: null
     },
 
     dialog: false,
     dateMenu: false,
 
     headers: [
-      { text: "Artigo", value: "product.code" },
+      {
+        text: "#",
+        align: "left",
+        sortable: false,
+        value: "sel"
+      },
+      { text: "Artigo", value: "product_id" },
       { text: "Descrição", value: "description" },
-      { text: "UN", value: "unity" },
+      { text: "UN", value: "unit_id" },
       { text: "Qnt.", value: "quantity" },
-      { text: "Projeto", value: "project.code" },
+      { text: "Projeto", value: "project_id" },
       { text: "Notas", value: "notes" }
     ]
   }),
@@ -182,7 +203,6 @@ editedItem: {},
     changeArticle(item) {
       if (!item) {
         this.editedItem.unity = null;
-
       } else {
         this.editedItem.unity = item.Unity.base;
       }
@@ -209,19 +229,24 @@ editedItem: {},
 
     save() {
       console.log(this.editedItem);
+
+      let unity = "";
+
+      if (!this.editedItem.unity.code) {
+        unity = this.editedItem.unity;
+      } else {
+        unity = this.editedItem.unity.code;
+      }
+
       this.formModel.items.push({
-
         product_id: this.editedItem.product.code,
-        unit_id: this.editedItem.unity.code,
-        project_id: this.editedItem.project.code,
-
-        product: this.editedItem.product,
         description: this.editedItem.product.description,
+        unit_id: unity,
+        project_id: this.editedItem.project.code,
         quantity: this.editedItem.quantity,
-        unity: this.editedItem.unity,
-        businessArea: this.formModel.businessArea,
-        project: this.editedItem.project,
-        notes: this.editedItem.notes
+        notes: this.editedItem.notes,
+        in_out: this.formModel.documenttype.type,
+        factor: 1
       });
 
       this.close();
