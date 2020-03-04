@@ -195,9 +195,9 @@ export default {
       const post_data = {
         from_warehouse_id: null,
         document_type_id: this.formModel.documenttype.code,
-        entity_id: this.formModel.entity.code,
-        entity_name: this.formModel.entity.name,
-        business_area_id: this.formModel.businessArea.code,
+        entity_id: !this.formModel.entity?null: this.formModel.entity.code,
+        entity_name: !this.formModel.entity? null:this.formModel.entity.name ,
+        business_area_id: !this.formModel.businessArea? null:this.formModel.businessArea.code,
         date: this.formModel.date,
         reference_doc: this.formModel.referenceDoc,
         entity_type: this.formModel.typeEntity || null,

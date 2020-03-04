@@ -127,10 +127,19 @@ export default {
         requiredAttachs: false,
         requiredProject: true,
         requiredNotes: true,
+        isSelectedProduct: false,
+        canAddProduct: true,
         employees: [],
         projects: [],
         businessArea: [],
-        docTypes: []
+        docTypes: [],
+        products: [],
+        unitys: [],
+        rulesQuantity: {
+          required: value => !!value || "Required.",
+          loanMin: value => value >= 0 || "Quantidade não pode ser menor de 0",
+          loanMax: value => value <= 50000 || "Quantidade não pode ser menor de 50000"
+        }
       })
     }
   },
