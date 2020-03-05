@@ -3,13 +3,28 @@
     <v-toolbar-title class="ml-0 pl-3">
       <v-app-bar-nav-icon @click.stop="toggleDrawer()"></v-app-bar-nav-icon>
     </v-toolbar-title>
-    <v-text-field
-      flat
-      solo-inverted
-      prepend-icon="search"
-      label="Search"
-      class="hidden-sm-and-down mt-auto"
-    ></v-text-field>
+
+    <v-select
+      prepend-icon="mdi-store"
+      v-model="branch"
+      :items="Branch"
+      label="Filial"
+      item-text="description"
+      item-value="code"
+      return-object
+      single-line
+      @input="selectBranch"
+    ></v-select>
+    <v-select
+      prepend-icon="mdi-store"
+      v-model="warehouse"
+      :items="Warehouse"
+      label="Armazem"
+      item-text="description"
+      item-value="code"
+      return-object
+      single-line
+    ></v-select>
     <v-spacer></v-spacer>
     <v-btn icon href="https://github.com/moeddami/nuxt-material-admin">
       <v-icon>fa-2x fa-github</v-icon>
@@ -43,7 +58,6 @@
     >
       <template v-slot:activator="{ on }">
         <v-btn icon large text v-on="on">
-         
           <v-avatar size="30px">
             <v-icon>person</v-icon>
           </v-avatar>
@@ -75,58 +89,71 @@
 </template>
 
 <script>
-import Util from '@/util'
-import NotificationList from '@/components/widgets/list/NotificationList'
+import Util from "@/util";
+import NotificationList from "@/components/widgets/list/NotificationList";
 
 export default {
-  name: 'app-toolbar',
+  name: "app-toolbar",
   components: {
     NotificationList
   },
   data: function() {
     return {
+      Branch: [],
+      branch: null,
+      Warehouse: [],
+      warehouse: null,
       items: [
         {
-          icon: 'account_circle',
-          href: '#',
-          title: 'Profile',
+          icon: "account_circle",
+          href: "#",
+          title: "Profile",
           click: e => {
-            console.log(e)
+            console.log(e);
           }
         },
         {
-          icon: 'settings',
-          href: '#',
-          title: 'Settings',
+          icon: "settings",
+          href: "#",
+          title: "Settings",
           click: e => {
-            console.log(e)
+            console.log(e);
           }
         },
         {
-          icon: 'fullscreen_exit',
-          href: '#',
-          title: 'Logout',
+          icon: "fullscreen_exit",
+          href: "#",
+          title: "Logout",
           click: this.handleLogout
         }
       ]
-    }
+    };
+  },
+  beforeMount: async function() {
+    this.Branch = await this.$store.dispatch("getDataAsync", "branch");
+
+    //this.Warehouse = await this.$store.dispatch("getDataAsync", "warehouse");
   },
   computed: {
     toolbarColor() {
-      return this.$vuetify.options.extra.mainNav
+      return this.$vuetify.options.extra.mainNav;
     }
   },
   methods: {
     toggleDrawer() {
-      this.$store.commit('toggleDrawer')
+      this.$store.commit("toggleDrawer");
     },
     handleFullScreen() {
-      Util.toggleFullScreen()
+      Util.toggleFullScreen();
     },
     handleLogout() {
       this.$store.dispatch("logout");
-      this.$router.push('/login')
+      this.$router.push("/login");
+    },
+    selectBranch(item){
+      console.log(item);
+      this.Warehouse = item.Warehouses;
     }
   }
-}
+};
 </script>

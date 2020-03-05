@@ -93,7 +93,9 @@ export default {
       })
     }
   },
-  data: () => ({}),
+  data: () => ({
+
+  }),
   beforeMount: async function() {
     let doc = this.$router.currentRoute.query["doc"];
     let classifier = this.$router.currentRoute.query["tipo"];
@@ -122,6 +124,8 @@ export default {
       "getDataAsync",
       "products/filters?type=" + this.formModel.documenttype.typeArticle
     );
+
+    console.log(this.form.products);
     this.form.unitys = await this.$store.dispatch("getDataAsync", "units");
   },
   methods: {
