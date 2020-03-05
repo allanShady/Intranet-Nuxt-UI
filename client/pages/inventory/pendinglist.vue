@@ -7,7 +7,7 @@
 import PendingList from "@/components/crm/inv/PendingList";
 
 export default {
-  layout: "dashboard",
+  layout: "inventory",
   components: {
     PendingList
   },

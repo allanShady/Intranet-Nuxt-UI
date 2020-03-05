@@ -6,7 +6,7 @@
 import StatementForm from "@/components/inv/Statement";
 
 export default {
-  layout: "dashboard",
+  layout: "inventory",
   middleware: "custom-auth",
   components: {
     StatementForm

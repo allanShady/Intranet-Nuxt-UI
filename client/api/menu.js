@@ -14,7 +14,6 @@ const Menu = [
     component: 'Inv',
     icon: 'reorder',
     items: [
-      {name: 'internalDoc', icon: 'reorder',title: 'Internal Doc', href: '/inventory/create'},
       {name: 'approvalPending', icon: 'reorder',title: 'Approval', href: '/inventory/pendinglist'},
       {name: 'approvalPending', icon: 'reorder',title: 'Ferramentas', href: '/inventory/EFGC/dashboard?id=Ferramentas'},
       {name: 'approvalPending', icon: 'reorder',title: 'Stock', href: '/inventory/EFGC/dashboard?id=Stock'},
