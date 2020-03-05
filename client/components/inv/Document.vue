@@ -53,7 +53,7 @@ export default {
       type: Object,
       default: () => ({
         title: "Documentos Internos",
-        typeDocument: null,
+        documenttype: null,
         date: new Date().toISOString().substr(0, 10),
         referenceDoc: "",
         typeEntity: "U",
@@ -120,12 +120,6 @@ export default {
     this.form.isSelectedProduct = this.form.docTypes[0].isSelectedProduct;
     this.form.canAddProduct = this.form.docTypes[0].isSelectedProduct;
 
-    this.form.products = await this.$store.dispatch(
-      "getDataAsync",
-      "products/filters?type=" + this.formModel.documenttype.typeArticle
-    );
-
-    console.log(this.form.products);
     this.form.unitys = await this.$store.dispatch("getDataAsync", "units");
   },
   methods: {
@@ -140,8 +134,7 @@ export default {
 
     async clearDoc() {
       this.formModel = {
-        title: "Documentos Internos",
-        typeDocument: null,
+        documenttype: this.formModel.documenttype ,
         date: new Date().toISOString().substr(0, 10),
         referenceDoc: "",
         typeEntity: "U",

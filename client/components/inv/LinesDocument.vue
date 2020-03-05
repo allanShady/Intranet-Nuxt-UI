@@ -41,7 +41,10 @@
                       item-value="code"
                       required
                       @input="changeArticle"
-                      :filter="filterCodeDesc"
+                      :search-input.sync="search"
+                      :loading="isLoading"
+                      hide-no-data
+                      hide-selected
                       return-object
                     ></v-autocomplete>
                   </v-col>
@@ -151,8 +154,9 @@ export default {
         unitys: [],
         rulesQuantity: {
           required: value => !!value || "Required.",
-          loanMin: value =>  value >= 0 || "Quantidade não pode ser menor de 0",
-          loanMax: value => value <= 50000 || "Quantidade não pode ser menor de 50000"
+          loanMin: value => value >= 0 || "Quantidade não pode ser menor de 0",
+          loanMax: value =>
+            value <= 50000 || "Quantidade não pode ser menor de 50000"
         }
       })
     },
@@ -164,6 +168,10 @@ export default {
 
   data: () => ({
     isSelected: false,
+
+    isLoading: false,
+    model: null,
+    search: null,
 
     editedItem: { quantity: 0 },
     editedIndex: 0,
@@ -273,6 +281,18 @@ export default {
       return (
         textOne.indexOf(searchText) > -1 || textTwo.indexOf(searchText) > -1
       );
+    },
+    getProducts(item) {}
+  },
+  watch: {
+    search: async function(value) {
+      this.isLoading = true;
+
+      var url = await `products/filters?type=${this.formModel.documenttype.typeArticle}&code=${value}`;
+
+      this.form.products = await this.$store.dispatch("getDataAsync", url);
+
+      this.isLoading = false;
     }
   }
 };
