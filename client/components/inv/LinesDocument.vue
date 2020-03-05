@@ -236,8 +236,6 @@ export default {
     },
 
     save() {
-      console.log(this.editedItem);
-
       let unity = "";
 
       if (!this.editedItem.unity.code) {
@@ -246,20 +244,26 @@ export default {
         unity = this.editedItem.unity.code;
       }
 
-      this.formModel.items.push({
-        product_id: this.editedItem.product.code,
-        description: this.editedItem.product.description,
-        unit_id: unity,
-        project_id: this.editedItem.project.code,
-        quantity: this.editedItem.quantity,
-        notes: this.editedItem.notes,
-        in_out: this.formModel.documenttype.type,
-        factor: 1,
-        branch: localStorage.branch,
-        warehouse: localStorage.warehouse
-      });
+      if (this.editedItem.product) {
+        let proj = !this.editedItem.project? null: this.editedItem.project.code;
 
-      this.close();
+        this.formModel.items.push({
+          product_id: this.editedItem.product.code,
+          description: this.editedItem.product.description,
+          unit_id: unity,
+          project_id:proj ,
+          quantity: this.editedItem.quantity,
+          notes: this.editedItem.notes,
+          in_out: this.formModel.documenttype.type,
+          factor: 1,
+          branch: localStorage.branch,
+          warehouse: localStorage.warehouse
+        });
+
+        this.close();
+      } else {
+        alert("É obrigatorio selecionar o artigo");
+      }
     },
 
     filterCodeName(item, queryText, itemText) {
