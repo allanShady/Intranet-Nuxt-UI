@@ -254,11 +254,14 @@ export default {
         quantity: this.editedItem.quantity,
         notes: this.editedItem.notes,
         in_out: this.formModel.documenttype.type,
-        factor: 1
+        factor: 1,
+        branch: localStorage.branch,
+        warehouse: localStorage.warehouse
       });
 
       this.close();
     },
+
     filterCodeName(item, queryText, itemText) {
       if (!queryText) return "";
 

@@ -1,6 +1,10 @@
 export const state = () => ({
   drawer: true,
-  loginErrorMsg: null
+  loginErrorMsg: null,
+  branch:null,
+  Branch: [],
+  warehouse:null,
+  Warehouse:[]
 })
 
 const logError = error => {
@@ -40,17 +44,19 @@ export const mutations = {
     state.auth.user_name = null;
     state.auth.token_expires_in = null;
     state.auth.user_id = null;
-  }
+  },
+
+
 }
 
 export const actions = {
   async authenticateUser(vuexContext, user) {
-    
+
     return await this.$axios.$post('/auth/login', {
       email: user.email,
       password: user.password
   })
-  .then(result => { 
+  .then(result => {
     vuexContext.commit("setAuthData", result);
     localStorage.setItem("token", result.token);
     localStorage.setItem("expiration_date", result.expiresIn);
@@ -58,10 +64,10 @@ export const actions = {
     localStorage.setItem("user_name", result.userName);
     localStorage.setItem("user_id", result.id);
   })
-  .catch(error => { 
-    logError(error); 
+  .catch(error => {
+    logError(error);
     vuexContext.commit('storeSignInErrorMsg', error.response.data);
-  }); 
+  });
   },
 
   async getDataAsync(vuexContext, resource) {
@@ -78,14 +84,14 @@ export const actions = {
      .catch(error => logError(error));
   },
 
-  //Auth 
+  //Auth
   tryAutoLogin({
     commit
   }) {
     const token = localStorage.getItem('token')
     //If the token is not set
     if (!token) return
-    
+
     const expirationDate = new Date(localStorage.getItem('expirationDate'))
     const now = new Date()
 
@@ -101,7 +107,7 @@ export const actions = {
     localStorage.removeItem('user_name')
     localStorage.removeItem('user_id')
   },
-} 
+}
 
 export const getters = {
   loginErrorMsg(state) {

@@ -24,6 +24,7 @@
       item-value="code"
       return-object
       single-line
+      @input="selectWarehouse"
     ></v-select>
     <v-spacer></v-spacer>
     <v-btn icon href="https://github.com/moeddami/nuxt-material-admin">
@@ -130,15 +131,24 @@ export default {
     };
   },
   beforeMount: async function() {
+    this.branch = localStorage.branch;
+
     this.Branch = await this.$store.dispatch("getDataAsync", "branch");
 
-    //this.Warehouse = await this.$store.dispatch("getDataAsync", "warehouse");
+    if (this.branch) {
+
+      let bar = this.Branch.filter(p => p.code == this.branch)[0];
+
+      this.Warehouse = bar.Warehouses;
+      this.warehouse = localStorage.warehouse;
+    }
   },
   computed: {
     toolbarColor() {
       return this.$vuetify.options.extra.mainNav;
     }
   },
+  created() {},
   methods: {
     toggleDrawer() {
       this.$store.commit("toggleDrawer");
@@ -150,9 +160,17 @@ export default {
       this.$store.dispatch("logout");
       this.$router.push("/login");
     },
-    selectBranch(item){
-      console.log(item);
+    selectBranch(item) {
+      if (!item) return;
+
+      localStorage.branch = this.branch.code;
+
       this.Warehouse = item.Warehouses;
+    },
+    selectWarehouse(item) {
+      if (!item) return;
+
+      localStorage.warehouse = this.warehouse.code;
     }
   }
 };
