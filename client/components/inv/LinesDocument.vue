@@ -17,6 +17,14 @@
 
         <v-dialog v-model="dialog" max-width="500px">
           <template v-slot:activator="{ on }">
+            <v-text-field
+              v-model="search"
+              append-icon="search"
+              label="Pesquisa"
+              single-line
+              hide-details
+              v-show="!form.canAddProduct"
+            ></v-text-field>
             <v-btn v-on="on" v-show="!form.canAddProduct">
               <v-icon>mdi-plus-circle-outline</v-icon>
             </v-btn>
@@ -196,11 +204,11 @@ export default {
         sortable: false,
         value: "sel"
       },
-      { text: "Artigo", value: "product_id" },
+      { text: "Artigo", value: "product" },
       { text: "Descrição", value: "description" },
-      { text: "UN", value: "unit_id" },
+      { text: "UN", value: "unity" },
       { text: "Qnt.", value: "quantity" },
-      { text: "Projeto", value: "project_id" },
+      { text: "Projeto", value: "project" },
       { text: "Notas", value: "notes" }
     ]
   }),
@@ -245,13 +253,15 @@ export default {
       }
 
       if (this.editedItem.product) {
-        let proj = !this.editedItem.project? null: this.editedItem.project.code;
+        let proj = !this.editedItem.project
+          ? null
+          : this.editedItem.project.code;
 
         this.formModel.items.push({
-          product_id: this.editedItem.product.code,
+          product: this.editedItem.product.code,
           description: this.editedItem.product.description,
-          unit_id: unity,
-          project_id:proj ,
+          unity: unity,
+          project: proj,
           quantity: this.editedItem.quantity,
           notes: this.editedItem.notes,
           in_out: this.formModel.documenttype.type,

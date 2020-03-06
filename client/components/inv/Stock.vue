@@ -1,34 +1,23 @@
 <template>
-  <v-layout column justify-space-around>
-    <v-flex>
-      <v-card>
-        <v-btn-toggle>
-        <v-bottom-navigation color="primary" horizontal>
-
-          <v-btn v-for="document in documentTypes" :key="document.code" @click="openFrm(document)">
-            <span>{{document.code}}</span>
-            <v-icon>{{document.icon}}</v-icon>
-          </v-btn>
-        </v-bottom-navigation>
-      </v-btn-toggle>
-
-      </v-card>
-    </v-flex>
-    <v-flex>
-      <statement></statement>
-    </v-flex>
-    </v-layout>
+<v-flex>
+  <v-card-title>
+    <v-text-field v-model="search" append-icon="search" label="Pesquisa" single-line hide-details></v-text-field>
+  </v-card-title>
+  <v-data-table :headers="headers" :items="pedding_Items" item-key="product" :search="search">
+    <template v-slot:item.businessArea="{ item }">{{ getPrincipalBussinessArea(item)}}</template>
+  </v-data-table>
+  </v-flex>
 </template>
 <script>
-import Statement from "@/components/inv/Statement";
-
 export default {
-  components: {
-    Statement
-  },
   data: () => ({
+    search: "",
+    isLoading: false,
     documentTypes: [],
+    pedding_Items: [],
     classifier: null,
+    businessArea: [],
+    headers: []
   }),
   beforeMount: async function() {
     this.businessArea = await this.$store.dispatch(
@@ -89,23 +78,6 @@ export default {
     }
     this.pedding_Items = await this.$store.dispatch("getDataAsync", url);
     console.log(this.pedding_Items);
-  },
-  methods: {
-    openFrm(item) {
-      var url = `/inventory/EFGC/Form?doc=${item.code}&tipo=${this.classifier}`;
-
-      this.$router.push(url);
-    },
-    getPrincipalBussinessArea(item) {
-      if (!item) return "";
-
-      let buss = item.Entity.BusinessArea.filter(d => d.isPrincipal === true);
-
-      if (buss.length > 0) {
-        return this.businessArea.find(p => p.code == buss[0].businessArea)
-          .description;
-      }
-    }
   }
 };
 </script>
