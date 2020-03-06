@@ -96,16 +96,7 @@ export default {
 
       this.$router.push(url);
     },
-    getPrincipalBussinessArea(item) {
-      if (!item) return "";
 
-      let buss = item.Entity.BusinessArea.filter(d => d.isPrincipal === true);
-
-      if (buss.length > 0) {
-        return this.businessArea.find(p => p.code == buss[0].businessArea)
-          .description;
-      }
-    }
   }
 };
 </script>

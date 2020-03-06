@@ -78,6 +78,18 @@ export default {
     }
     this.pedding_Items = await this.$store.dispatch("getDataAsync", url);
     console.log(this.pedding_Items);
+  },
+  methods:{
+    getPrincipalBussinessArea(item) {
+      if (!item) return "";
+
+      let buss = item.Entity.BusinessArea.filter(d => d.isPrincipal === true);
+
+      if (buss.length > 0) {
+        return this.businessArea.find(p => p.code == buss[0].businessArea)
+          .description;
+      }
+    }
   }
 };
 </script>
