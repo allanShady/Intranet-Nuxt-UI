@@ -22,20 +22,21 @@
       </v-tab-item>
 
       <v-tab-item>
-        <v-card tile>
-          <v-card-text>
 
-          </v-card-text>
-        </v-card>
+              <pending-documents></pending-documents>
+  
       </v-tab-item>
     </v-tabs>
   </div>
 </template>
 <script>
 import InventoryForm from "@/components/inv/Inventory";
+import PendingDocuments from "./PendingDocuments";
+
 export default {
   components: {
-    InventoryForm
+    InventoryForm,
+    PendingDocuments
   }
 };
 </script>
