@@ -11,8 +11,8 @@
           :filter="filterCodeDesc"
           return-object
           v-validate="'required'"
-          data-vv-name="typeDocument"
-          :error-messages="errors.collect('typeDocument')"
+          data-vv-name="formModel.documenttype"
+          :error-messages="errors.collect('formModel.documenttype')"
           required
           item-text="description"
           item-value="code"
@@ -63,8 +63,8 @@
           return-object
           @input="changeEntity"
           v-validate="'required'"
-          data-vv-name="typeDocument"
-          :error-messages="errors.collect('typeDocument')"
+          data-vv-name="formModel.entity"
+          :error-messages="errors.collect('formModel.entity')"
           required
           item-text="name"
           item-value="code"
@@ -81,8 +81,8 @@
           :filter="filterCodeDesc"
           return-object
           v-validate="'required'"
-          data-vv-name="typeDocument"
-          :error-messages="errors.collect('typeDocument')"
+          data-vv-name="formModel.businessArea"
+          :error-messages="errors.collect('formModel.businessArea')"
           required
           item-value="code"
           item-text="description"
@@ -103,7 +103,7 @@ export default {
       type: Object,
       default: () => ({
         title: "Devolução Equipamentos",
-        typeDocument: null,
+        documenttype: null,
         date: new Date().toISOString().substr(0, 10),
         docNumber: "",
         typeEntity: "U",
@@ -121,7 +121,7 @@ export default {
       type: Object,
       default: () => ({
         title: "Documentos Internos",
-        typeDocument: null,
+        documenttype: null,
         requiredBussinessArea: true,
         requiredExternalDocNumber: true,
         requiredAttachs: false,
@@ -138,7 +138,8 @@ export default {
         rulesQuantity: {
           required: value => !!value || "Required.",
           loanMin: value => value >= 0 || "Quantidade não pode ser menor de 0",
-          loanMax: value => value <= 50000 || "Quantidade não pode ser menor de 50000"
+          loanMax: value =>
+            value <= 50000 || "Quantidade não pode ser menor de 50000"
         }
       })
     }

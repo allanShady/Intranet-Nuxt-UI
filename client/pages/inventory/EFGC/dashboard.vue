@@ -5,7 +5,7 @@
 import dashboard from "@/components/inv/Dashboard";
 
 export default {
-  layout: "dashboard",
+  layout: "inventory",
   components: {
     dashboard
   },

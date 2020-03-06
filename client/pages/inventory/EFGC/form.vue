@@ -5,7 +5,7 @@
 import DocumentForm from "@/components/inv/Document";
 
 export default {
-  layout: "dashboard",
+  layout: "inventory",
   middleware: 'custom-auth',
   components: {
     DocumentForm
