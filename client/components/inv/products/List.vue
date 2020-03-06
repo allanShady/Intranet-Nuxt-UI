@@ -1,0 +1,219 @@
+<template>
+  <v-card>
+    <v-card-title>
+      Artigos
+      <v-spacer></v-spacer>
+      <v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details></v-text-field>
+      <v-icon color="primary" @click="dialog = !dialog">add</v-icon>
+      <v-dialog v-model="dialog" max-width="500px">
+        <v-card>
+          <v-card-title>
+            <span class="headline">{{ formTitle }}</span>
+          </v-card-title>
+
+          <v-card-text>
+            <v-container>
+              <v-row>
+                <v-col cols="12" sm="12" md="6">
+                  <v-text-field v-model="productModel.code" label="Codigo"></v-text-field>
+                </v-col>
+                <v-col cols="12" sm="12" md="6">
+                  <v-autocomplete
+                    v-model="productModel.supplier"
+                    :items="product_suppliers"
+                    clearable
+                    label="Fornecedor"
+                    return-object
+                    v-validate="'required'"
+                    data-vv-name="productModel.supplier"
+                    :error-messages="errors.collect('productModel.supplier')"
+                    required
+                    item-text="name"
+                    item-value="code"
+                  ></v-autocomplete>
+                </v-col>
+              </v-row>
+              <v-row>
+                <v-col>
+                  <v-text-field v-model="productModel.description" label="Descricao"></v-text-field>
+                </v-col>
+              </v-row>
+              <v-row>
+                <v-col cols="12" sm="12" md="6">
+                  <v-autocomplete
+                    v-model="productModel.type"
+                    :items="product_types"
+                    clearable
+                    label="Tipo"
+                    return-object
+                    v-validate="'required'"
+                    data-vv-name="productModel.type"
+                    :error-messages="errors.collect('productModel.type')"
+                    required
+                    item-text="description"
+                    item-value="code"
+                  ></v-autocomplete>
+                </v-col>
+                <v-col cols="12" sm="12" md="6">
+                  <v-autocomplete
+                    v-model="productModel.status"
+                    :items="product_statuses"
+                    clearable
+                    label="Estado"
+                    return-object
+                    v-validate="'required'"
+                    data-vv-name="productModel.status"
+                    :error-messages="errors.collect('productModel.status')"
+                    required
+                    item-text="Description"
+                    item-value="id"
+                  ></v-autocomplete>
+                </v-col>
+              </v-row>
+              <v-row>
+                <v-col cols="12" sm="12" md="6">
+                  <v-text-field v-model="productModel.barcode" label="Cod. Barras"></v-text-field>
+                </v-col>
+                <v-col cols="12" sm="12" md="6">
+                  <v-text-field v-model="productModel.stock" label="Stock"></v-text-field>
+                </v-col>
+              </v-row>
+            </v-container>
+          </v-card-text>
+
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn color="blue darken-1" text @click="close">Cancelar</v-btn>
+            <v-btn color="blue darken-1" text @click="save">Gravar</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </v-card-title>
+
+    <v-card-text class="pa-0">
+      <v-data-table
+        :headers="headers"
+        :items="products"
+        :search="search"
+        single-select
+        :items-per-page="20"
+        item-key="code"
+        class="elevation-0"
+        :loading="loading"
+        loading-text="Loading products. Please wait"
+      >
+        <template v-slot:item.progress="{ item }">
+          <v-progress-linear :value="item.progress" height="5" :color="item.color"></v-progress-linear>
+        </template>
+
+        <template v-slot:item.action="{ item }">
+          <v-icon small class="mr-2" @click="editItem(item)">mdi-pencil</v-icon>
+          <v-icon small @click="deleteItem(item)">mdi-delete</v-icon>
+        </template>
+      </v-data-table>
+
+      <v-divider></v-divider>
+    </v-card-text>
+  </v-card>
+</template>
+<script>
+export default {
+  data: () => ({
+    search: "",
+    products: [],
+    product_types: [],
+    product_statuses: [],
+    product_suppliers: [],
+    productModel: {},
+    dialog: false,
+    formTitle: "Criar Artigo",
+    loading: false,
+    headers: [
+      { text: "Codigo", value: "code" },
+      { text: "Descricao", value: "description" },
+      { text: "Cod. Barras", value: "barcode" },
+      { text: "Tipo", value: "Type.code" },
+      { text: "Unidade", value: "Unity.base" },
+      { text: "Stock Actual", value: "stock" },
+      { text: "Actions", value: "action", sortable: false }
+    ]
+  }),
+  methods: {
+    detailsItem(value) {},
+
+    editItem(value) {
+      console.log("details requested: ", value);
+      this.$router.push(`/inventory/products/${value.code}`);
+    },
+
+    deleteItem(value) {},
+
+    close() {
+      this.dialog = false;
+
+      //Reset form
+      (this.productModel.code = null),
+        (this.productModel.description = null),
+        (this.productModel.barcode = null),
+        (this.productModel.supplier = null);
+        (this.productModel.type = null),
+        (this.productModel.Warehouse = null),
+        (this.productModel.unit = null);
+        (this.productModel.stock = null);
+        (this.productModel.status = null);
+    },
+
+    async save() {
+      let post_data = { 
+        code: this.productModel.code,
+        description: this.productModel.description,
+        barcode: this.productModel.barcode, 
+        supplier_id: this.productModel.supplier.code,        
+        type: this.productModel.type.code,
+        status_id: this.productModel.status.id,
+        stock: this.productModel.stock,
+      };
+
+      console.log('Product to Save::::', post_data);
+      let created_product = await this.$store.dispatch("postDataAsync", {
+        api_resourse: "products",
+        post_data
+      });
+
+      this.products.push({
+        code: created_product.code,
+        description: created_product.description,
+        barcode: created_product.barcode,
+        type: created_product.type,
+        Warehouse: created_product.Warehouse,
+        unit: productModel.unit
+      });
+
+      this.close();
+    },
+
+    async initData() {
+      this.loading = !this.loading;
+      this.products = await this.$store.dispatch("getDataAsync", "products");
+      this.loading = !this.loading;
+
+      this.product_types = await this.$store.dispatch(
+        "getDataAsync",
+        "products/types"
+      );
+      this.product_suppliers = await this.$store.dispatch(
+        "getDataAsync",
+        "products/suppliers"
+      );
+      this.product_statuses = await this.$store.dispatch(
+        "getDataAsync",
+        "products/statuses"
+      );
+    }
+  },
+
+  created() {
+    this.initData();
+  }
+};
+</script>
