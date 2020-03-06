@@ -36,7 +36,7 @@ export default {
       "businessArea"
     );
 
-    let doc = this.$router.currentRoute.query["id"];
+    let doc = this.$router.currentRoute.query["tipo"];
 
     this.documentTypes = await this.$store.dispatch(
       "getDataAsync",
@@ -88,7 +88,6 @@ export default {
       ];
     }
     this.pedding_Items = await this.$store.dispatch("getDataAsync", url);
-    console.log(this.pedding_Items);
   },
   methods: {
     openFrm(item) {
@@ -96,16 +95,7 @@ export default {
 
       this.$router.push(url);
     },
-    getPrincipalBussinessArea(item) {
-      if (!item) return "";
 
-      let buss = item.Entity.BusinessArea.filter(d => d.isPrincipal === true);
-
-      if (buss.length > 0) {
-        return this.businessArea.find(p => p.code == buss[0].businessArea)
-          .description;
-      }
-    }
   }
 };
 </script>

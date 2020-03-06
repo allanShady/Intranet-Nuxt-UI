@@ -221,7 +221,7 @@
                   <v-progress-linear :value="item.progress" height="5" :color="item.color"></v-progress-linear>
                 </template>
                 <template v-slot:item.action>
-                  <v-icon  @click="detailsItem(item)">mdi-eye</v-icon>
+                  <v-icon  @click="detailsItem">mdi-eye</v-icon>
                 </template>
               </v-data-table>
             </template>

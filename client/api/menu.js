@@ -3,7 +3,7 @@ const Menu = [
   {
     title: 'Dashboard',
     group: 'apps',
-    icon: 'dashboard',
+    icon: 'mdi-view-dashboard',
     name: 'Dashboard',
     href: '/dashboard'
   },
@@ -12,44 +12,44 @@ const Menu = [
     title: 'Inventory',
     group: 'Inv',
     component: 'Inv',
-    icon: 'reorder',
+    icon: 'mdi-clipboard-arrow-down-outline',
     items: [
       {name: 'products', icon: '',title: 'Artigos', href: '/inventory/products'},
       {name: 'approvalPending', icon: 'reorder',title: 'Approval', href: '/inventory/pendinglist'},
-      {name: 'approvalPending', icon: 'reorder',title: 'Ferramentas', href: '/inventory/EFGC/dashboard?id=Ferramentas'},
-      {name: 'approvalPending', icon: 'reorder',title: 'Equipamentos', href: '/inventory/EFGC/dashboard?id=Equipamentos'},
-      {name: 'approvalPending', icon: 'reorder',title: 'Stock', href: '/inventory/EFGC/dashboard?id=Stock'},
+      {name: 'approvalPending', icon: 'reorder',title: 'Ferramentas', href: '/inventory/EFGC/dashboard?tipo=Ferramentas'},
+      {name: 'approvalPending', icon: 'reorder',title: 'Equipamentos', href: '/inventory/EFGC/dashboard?tipo=Equipamentos'},
+      {name: 'approvalPending', icon: 'mdi-view-dashboard',title: 'Stock', href: '/inventory/EFGC/dashboard?tipo=Stock'},
     ]
   },
-  {header: 'Human Resources'},
-  {
-    title: 'Rh',
-    group: 'rh',
-    component: 'rh',
-    icon: 'reorder',
-    items: [
-      {name: 'ability', icon: 'reorder',title: 'Avaliação', href: '/rh/avaliacao'},
-    ]
-  },
+  // {header: 'Human Resources'},
+  // {
+  //   title: 'Rh',
+  //   group: 'rh',
+  //   component: 'rh',
+  //   icon: 'reorder',
+  //   items: [
+  //     {name: 'ability', icon: 'reorder',title: 'Avaliação', href: '/rh/avaliacao'},
+  //   ]
+  // },
   {
     title: 'Order',
     group: 'apps',
-    icon: 'reorder',
+    icon: 'mdi-clipboard-check',
     name: 'order',
     href: '/order/create'
   },
-  {
-    title: 'Appointment',
-    group: 'apps',
-    icon: 'tune',
-    name: 'appointment',
-    href: '/crm/appointment/'
-  },
+  // {
+  //   title: 'Appointment',
+  //   group: 'apps',
+  //   icon: 'tune',
+  //   name: 'appointment',
+  //   href: '/crm/appointment/'
+  // },
   {header: 'Projects'},
   {
     title: 'Project',
     group: 'projects',
-    icon: 'layers',
+    icon: 'mdi-layers',
     name: 'project',
     href: '/project/'
   },
@@ -57,7 +57,7 @@ const Menu = [
   {
     title: 'Utilizadores',
     group: 'Utilizadores',
-    icon: 'reorder',
+    icon: 'mdi-account',
     name: 'utilizadores',
     href: '/users'
   },

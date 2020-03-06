@@ -3,7 +3,7 @@
     :headers="headers"
     :items="formModel.items"
     v-model="formModel.selected"
-    item-key="product_id"
+    item-key="product"
     class="elevation-1"
     :show-select="form.isSelectedProduct"
   >
@@ -17,6 +17,10 @@
 
         <v-dialog v-model="dialog" max-width="500px">
           <template v-slot:activator="{ on }">
+            <v-btn v-on="on" v-show="!form.canAddProduct">
+              <v-icon>mdi-plus-circle-outline</v-icon>
+            </v-btn>
+
             <v-text-field
               v-model="search"
               append-icon="search"
@@ -25,9 +29,6 @@
               hide-details
               v-show="!form.canAddProduct"
             ></v-text-field>
-            <v-btn v-on="on" v-show="!form.canAddProduct">
-              <v-icon>mdi-plus-circle-outline</v-icon>
-            </v-btn>
           </template>
 
           <v-card>
@@ -114,6 +115,10 @@
           </v-card>
         </v-dialog>
       </v-toolbar>
+    </template>
+
+    <template v-slot:item.action>
+      <v-icon v-show="!form.canAddProduct" @click="removeLine">mdi-minus-circle-outline</v-icon>
     </template>
 
     <template v-slot:no-data>0 - Linhas Adicionadas</template>
@@ -209,7 +214,8 @@ export default {
       { text: "UN", value: "unity" },
       { text: "Qnt.", value: "quantity" },
       { text: "Projeto", value: "project" },
-      { text: "Notas", value: "notes" }
+      { text: "Notas", value: "notes" },
+      { text: "", value: "action", sortable: false }
     ]
   }),
   computed: {
@@ -235,8 +241,9 @@ export default {
     },
 
     close() {
-      console.log("closing the dialog");
+
       this.dialog = false;
+
       setTimeout(() => {
         this.editedItem = Object.assign({}, this.defaultItem);
         this.editedIndex = -1;
@@ -267,7 +274,8 @@ export default {
           in_out: this.formModel.documenttype.type,
           factor: 1,
           branch: localStorage.branch,
-          warehouse: localStorage.warehouse
+          warehouse: localStorage.warehouse,
+          location: localStorage.localization
         });
 
         this.close();
@@ -299,7 +307,11 @@ export default {
         textOne.indexOf(searchText) > -1 || textTwo.indexOf(searchText) > -1
       );
     },
-    getProducts(item) {}
+    getProducts(item) {},
+
+    removeLine(item) {
+      this.formModel.items.splice(item);
+    }
   },
   watch: {
     search: async function(value) {
