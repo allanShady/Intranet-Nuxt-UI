@@ -23,6 +23,8 @@
 <script>
 export default {
   data: () => ({
+    search: '',
+    isLoading: false,
     items: [],
     selected: [],
     documentTypes: [],

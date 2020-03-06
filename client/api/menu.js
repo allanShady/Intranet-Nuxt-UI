@@ -16,6 +16,7 @@ const Menu = [
     items: [
       {name: 'approvalPending', icon: 'reorder',title: 'Approval', href: '/inventory/pendinglist'},
       {name: 'approvalPending', icon: 'reorder',title: 'Ferramentas', href: '/inventory/EFGC/dashboard?id=Ferramentas'},
+      {name: 'approvalPending', icon: 'reorder',title: 'Equipamentos', href: '/inventory/EFGC/dashboard?id=Equipamentos'},
       {name: 'approvalPending', icon: 'reorder',title: 'Stock', href: '/inventory/EFGC/dashboard?id=Stock'},
     ]
   },
