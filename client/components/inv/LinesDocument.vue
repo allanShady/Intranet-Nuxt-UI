@@ -28,6 +28,9 @@
             <v-btn v-on="on" v-show="!form.canAddProduct">
               <v-icon>mdi-plus-circle-outline</v-icon>
             </v-btn>
+            <v-btn @click="removeLine" v-show="!form.canAddProduct">
+              <v-icon>mdi-minus-circle-outline</v-icon>
+            </v-btn>
           </template>
 
           <v-card>

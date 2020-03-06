@@ -3,9 +3,9 @@
     <v-toolbar-title class="ml-0 pl-3">
       <v-app-bar-nav-icon @click.stop="toggleDrawer()"></v-app-bar-nav-icon>
     </v-toolbar-title>
-
+<v-spacer></v-spacer>
     <v-select
-      prepend-icon="mdi-store"
+      prepend-icon="mdi-store-outline"
       v-model="branch"
       :items="Branch"
       label="Filial"
@@ -26,13 +26,18 @@
       single-line
       @input="selectWarehouse"
     ></v-select>
-    <v-spacer></v-spacer>
-    <v-btn icon href="https://github.com/moeddami/nuxt-material-admin">
-      <v-icon>fa-2x fa-github</v-icon>
-    </v-btn>
-    <v-btn icon @click="handleFullScreen()">
-      <v-icon>fullscreen</v-icon>
-    </v-btn>
+    <v-select
+      prepend-icon="mdi-map-marker-circle"
+      v-model="localization"
+      :items="Localization"
+      label="Localização"
+      item-text="description"
+      item-value="code"
+      return-object
+      single-line
+      @input="selectLocalization"
+    ></v-select>
+
     <v-menu
       offset-y
       origin="center center"
@@ -104,6 +109,8 @@ export default {
       branch: null,
       Warehouse: [],
       warehouse: null,
+      Localization:[],
+      localization:null,
       items: [
         {
           icon: "account_circle",
@@ -142,6 +149,13 @@ export default {
       this.Warehouse = bar.Warehouses;
       this.warehouse = localStorage.warehouse;
     }
+
+    if(this.warehouse){
+      let loc = this.Warehouse.filter(p=> p.code == this.warehouse);
+      console.log(loc);
+      this.Localization = loc.localizations;
+      this.localization =  localStorage.localization;
+    }
   },
   computed: {
     toolbarColor() {
@@ -171,6 +185,12 @@ export default {
       if (!item) return;
 
       localStorage.warehouse = this.warehouse.code;
+      this.Localization = this.warehouse.localizations;
+    },
+    selectLocalization(item){
+      if (!item) return;
+
+      localStorage.localization = this.localization.code;
     }
   }
 };

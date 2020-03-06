@@ -20,16 +20,16 @@ const Menu = [
       {name: 'approvalPending', icon: 'reorder',title: 'Stock', href: '/inventory/EFGC/dashboard?id=Stock'},
     ]
   },
-  {header: 'Human Resources'},
-  {
-    title: 'Rh',
-    group: 'rh',
-    component: 'rh',
-    icon: 'reorder',
-    items: [
-      {name: 'ability', icon: 'reorder',title: 'Avaliação', href: '/rh/avaliacao'},
-    ]
-  },
+  // {header: 'Human Resources'},
+  // {
+  //   title: 'Rh',
+  //   group: 'rh',
+  //   component: 'rh',
+  //   icon: 'reorder',
+  //   items: [
+  //     {name: 'ability', icon: 'reorder',title: 'Avaliação', href: '/rh/avaliacao'},
+  //   ]
+  // },
   {
     title: 'Order',
     group: 'apps',
@@ -37,13 +37,13 @@ const Menu = [
     name: 'order',
     href: '/order/create'
   },
-  {
-    title: 'Appointment',
-    group: 'apps',
-    icon: 'tune',
-    name: 'appointment',
-    href: '/crm/appointment/'
-  },
+  // {
+  //   title: 'Appointment',
+  //   group: 'apps',
+  //   icon: 'tune',
+  //   name: 'appointment',
+  //   href: '/crm/appointment/'
+  // },
   {header: 'Projects'},
   {
     title: 'Project',
