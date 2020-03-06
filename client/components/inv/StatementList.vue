@@ -117,14 +117,11 @@ export default {
         "getDataAsync",
         "documenttypes/" + doc
       );
-
       let warehouseId = localStorage.warehouse;
 
       var url = `Stocks/filters?warehouseId=${warehouseId}&type=${this.documentTypes[0].typeArticle}&dateBegin=${this.dateBegin}&dateEnd=${this.dateEnd}`;
 
       this.items = await this.$store.dispatch("getDataAsync", url);
-
-      console.log(this.items);
     }
   }
 };
