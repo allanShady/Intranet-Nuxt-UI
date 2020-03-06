@@ -151,8 +151,8 @@ export default {
     }
 
     if(this.warehouse){
-      let loc = this.Warehouse.filter(p=> p.code == this.warehouse);
-      console.log(loc);
+      let loc = this.Warehouse.filter(p=> p.code == this.warehouse)[0];
+
       this.Localization = loc.localizations;
       this.localization =  localStorage.localization;
     }

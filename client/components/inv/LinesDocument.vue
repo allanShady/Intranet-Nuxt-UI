@@ -270,7 +270,8 @@ export default {
           in_out: this.formModel.documenttype.type,
           factor: 1,
           branch: localStorage.branch,
-          warehouse: localStorage.warehouse
+          warehouse: localStorage.warehouse,
+          location: localStorage.localization
         });
 
         this.close();
