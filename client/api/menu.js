@@ -3,7 +3,7 @@ const Menu = [
   {
     title: 'Dashboard',
     group: 'apps',
-    icon: 'dashboard',
+    icon: 'mdi-view-dashboard',
     name: 'Dashboard',
     href: '/dashboard'
   },
@@ -12,12 +12,12 @@ const Menu = [
     title: 'Inventory',
     group: 'Inv',
     component: 'Inv',
-    icon: 'reorder',
+    icon: 'mdi-clipboard-arrow-down-outline',
     items: [
       {name: 'approvalPending', icon: 'reorder',title: 'Approval', href: '/inventory/pendinglist'},
       {name: 'approvalPending', icon: 'reorder',title: 'Ferramentas', href: '/inventory/EFGC/dashboard?id=Ferramentas'},
       {name: 'approvalPending', icon: 'reorder',title: 'Equipamentos', href: '/inventory/EFGC/dashboard?id=Equipamentos'},
-      {name: 'approvalPending', icon: 'reorder',title: 'Stock', href: '/inventory/EFGC/dashboard?id=Stock'},
+      {name: 'approvalPending', icon: 'mdi-view-dashboard',title: 'Stock', href: '/inventory/EFGC/dashboard?id=Stock'},
     ]
   },
   // {header: 'Human Resources'},
@@ -33,7 +33,7 @@ const Menu = [
   {
     title: 'Order',
     group: 'apps',
-    icon: 'reorder',
+    icon: 'mdi-clipboard-check',
     name: 'order',
     href: '/order/create'
   },
@@ -48,7 +48,7 @@ const Menu = [
   {
     title: 'Project',
     group: 'projects',
-    icon: 'layers',
+    icon: 'mdi-layers',
     name: 'project',
     href: '/project/'
   },
@@ -56,7 +56,7 @@ const Menu = [
   {
     title: 'Utilizadores',
     group: 'Utilizadores',
-    icon: 'reorder',
+    icon: 'mdi-account',
     name: 'utilizadores',
     href: '/users'
   },
