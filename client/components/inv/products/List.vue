@@ -75,7 +75,7 @@
                   <v-text-field v-model="productModel.barcode" label="Cod. Barras"></v-text-field>
                 </v-col>
                 <v-col cols="12" sm="12" md="6">
-                  <v-text-field v-model="productModel.stock" label="Stock"></v-text-field>
+                  <v-text-field v-model="productModel.stock" type="number" min="0" label="Stock"></v-text-field>
                 </v-col>
               </v-row>
             </v-container>
@@ -132,17 +132,18 @@ export default {
       { text: "Codigo", value: "code" },
       { text: "Descricao", value: "description" },
       { text: "Cod. Barras", value: "barcode" },
-      { text: "Tipo", value: "Type.code" },
-      { text: "Unidade", value: "Unity.base" },
-      { text: "Stock Actual", value: "stock" },
+      { text: "Tipo", value: "Type.description" },
+      { text: "Estado", value: "status.Description" },
+      { text: "Fornecedor", value: "supplier.name" },
+      { text: "Stock", value: "stock" },
       { text: "Actions", value: "action", sortable: false }
     ]
   }),
+  
   methods: {
     detailsItem(value) {},
 
     editItem(value) {
-      console.log("details requested: ", value);
       this.$router.push(`/inventory/products/${value.code}`);
     },
 
@@ -174,20 +175,14 @@ export default {
         stock: this.productModel.stock,
       };
 
-      console.log('Product to Save::::', post_data);
       let created_product = await this.$store.dispatch("postDataAsync", {
         api_resourse: "products",
         post_data
       });
 
-      this.products.push({
-        code: created_product.code,
-        description: created_product.description,
-        barcode: created_product.barcode,
-        type: created_product.type,
-        Warehouse: created_product.Warehouse,
-        unit: productModel.unit
-      });
+      console.log(created_product)
+
+      this.products.push(created_product);
 
       this.close();
     },
