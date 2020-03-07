@@ -94,6 +94,8 @@ export default {
       var url = `/inventory/EFGC/Form?doc=${item.code}&tipo=${this.classifier}`;
 
       this.$router.push(url);
+
+      this.$forceUpdate();
     },
 
   }
