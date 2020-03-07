@@ -19,6 +19,29 @@ const Menu = [
       {name: 'approvalPending', icon: 'reorder',title: 'Ferramentas', href: '/inventory/EFGC/dashboard?tipo=Ferramentas'},
       {name: 'approvalPending', icon: 'reorder',title: 'Equipamentos', href: '/inventory/EFGC/dashboard?tipo=Equipamentos'},
       {name: 'approvalPending', icon: 'mdi-view-dashboard',title: 'Stock', href: '/inventory/EFGC/dashboard?tipo=Stock'},
+
+      {
+        title: 'PPC',
+        group: 'PPC',
+        component: 'PPC',
+        icon: 'mdi-clipboard-arrow-down-outline',
+        items: [
+          {name: 'approvalPending', icon: 'reorder',title: 'PPC', href: '/inventory/EFGC/dashboard?tipo=PPC'},
+
+        ]
+      },
+    ]
+  },
+
+  {header: 'PPC'},
+  {
+    title: 'PPC',
+    group: 'PPC',
+    component: 'PPC',
+    icon: 'mdi-clipboard-arrow-down-outline',
+    items: [
+      {name: 'approvalPending', icon: 'reorder',title: 'PPC', href: '/inventory/EFGC/dashboard?tipo=PPC'},
+
     ]
   },
   // {header: 'Human Resources'},
