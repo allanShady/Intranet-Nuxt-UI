@@ -54,8 +54,8 @@
               data-vv-name="productModel.status"
               :error-messages="errors.collect('productModel.status')"
               required
-              item-text="Description"
-              item-value="id"
+              item-text="description"
+              item-value="code"
             ></v-autocomplete>
           </v-col>
         </v-row>
@@ -64,7 +64,7 @@
             <v-text-field v-model="productModel.barcode" label="Cod. Barras"></v-text-field>
           </v-col>
           <v-col cols="12" sm="12" md="6">
-            <v-text-field v-model="productModel.stock" label="Stock"></v-text-field>
+            <v-text-field v-model="productModel.stock" type="number" min="0" label="Stock"></v-text-field>
           </v-col>
         </v-row>
       </v-container>
@@ -116,12 +116,12 @@ export default {
         barcode: this.productModel.barcode,
         supplier_id: this.productModel.supplier.code,
         type: this.productModel.type.code,
-        status_id: this.productModel.status.id,
+        status_id: this.productModel.status.code,
         stock: this.productModel.stock
       };
 
       console.log("Product to Save::::", post_data);
-      let created_product = await this.$store.dispatch("putDataAsync", {
+      let created_product = await this.$store.dispatch("postDataAsync", {
         api_resourse: "products",
         post_data
       });
@@ -137,7 +137,10 @@ export default {
             "getDataAsync",
             `products/${this.$route.params.id.trim()}`
         );
-      }
+
+        //Init model if the response is 204 - not found
+        if(!this.productModel) this.productModel = {};
+      }    
 
       this.product_types = await this.$store.dispatch(
         "getDataAsync",
