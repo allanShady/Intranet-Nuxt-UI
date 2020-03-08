@@ -1,4 +1,4 @@
-before_script: cd src
+before_script: cd client
 
 language: node_js
 node_js:
