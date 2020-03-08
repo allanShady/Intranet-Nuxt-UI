@@ -133,7 +133,7 @@ export default {
       { text: "Descricao", value: "description" },
       { text: "Cod. Barras", value: "barcode" },
       { text: "Tipo", value: "Type.description" },
-      { text: "Estado", value: "status.Description" },
+      { text: "Estado", value: "status.description" },
       { text: "Fornecedor", value: "supplier.name" },
       { text: "Stock", value: "stock" },
       { text: "Actions", value: "action", sortable: false }
