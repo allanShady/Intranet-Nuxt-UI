@@ -15,11 +15,15 @@ export default {
     isLoading: false,
     documentTypes: [],
     pedding_Items: [],
+    hasStock: 0,
+    productType: '',
+    url: '',
     classifier: null,
     businessArea: [],
     headers: []
   }),
-  beforeMount: async function() {
+
+  async created() {
     this.businessArea = await this.$store.dispatch(
       "getDataAsync",
       "businessArea"
@@ -29,16 +33,14 @@ export default {
 
     this.documentTypes = await this.$store.dispatch(
       "getDataAsync",
-      "documenttypes/" + doc
+      `documenttypes/${doc}`
     );
 
     this.classifier = doc;
     let documentType = this.documentTypes[0];
 
     if (documentType.isStockMovimentEntity) {
-      var url = `products/entity/${"all"}/filters?hasstock=${1}&type=${
-        this.documentTypes[0].typeArticle
-      }`;
+      this.url = `products/entity/${"all"}/filters?hasstock=${1}&type=${this.documentTypes[0].typeArticle}`;
 
       this.headers = [
         {
@@ -58,7 +60,7 @@ export default {
     }
 
     if (documentType.isStockMoviment) {
-      var url = `products/warehouse/${"all"}/filters?hasstock=${1}&type=${
+      this.url = `products/warehouse/${"all"}/filters?hasstock=${1}&type=${
         this.documentTypes[0].typeArticle
       }`;
 
@@ -76,7 +78,9 @@ export default {
         { text: "Stock", value: "stock" }
       ];
     }
-    this.pedding_Items = await this.$store.dispatch("getDataAsync", url);
+
+    //this.url = `products/entity/${"all"}/filters?hasstock=${this.hasStock}&type=${this.productType}`
+    this.pedding_Items = await this.$store.dispatch("getDataAsync", this.url);
   },
   methods:{
     getPrincipalBussinessArea(item) {
