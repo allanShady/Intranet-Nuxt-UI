@@ -65,8 +65,8 @@
                     data-vv-name="productModel.status"
                     :error-messages="errors.collect('productModel.status')"
                     required
-                    item-text="Description"
-                    item-value="id"
+                    item-text="description"
+                    item-value="code"
                   ></v-autocomplete>
                 </v-col>
               </v-row>
