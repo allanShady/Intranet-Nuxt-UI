@@ -36,14 +36,14 @@ export default {
       "businessArea"
     );
 
-    let doc = this.$router.currentRoute.query["tipo"];
+    let docType = this.$router.currentRoute.query["tipo"];
 
     this.documentTypes = await this.$store.dispatch(
       "getDataAsync",
-      "documenttypes/" + doc
+      `documenttypes/${docType}`
     );
 
-    this.classifier = doc;
+    this.classifier = docType;
     let documentType = this.documentTypes[0];
 
     if (documentType.isStockMovimentEntity) {
@@ -89,6 +89,10 @@ export default {
     }
     this.pedding_Items = await this.$store.dispatch("getDataAsync", url);
   },
+
+  created() {
+    console.log(`I'm loading this form 4 now`)
+  },
   methods: {
     openFrm(item) {
       var url = `/inventory/EFGC/Form?doc=${item.code}&tipo=${this.classifier}`;
@@ -97,7 +101,6 @@ export default {
 
       this.$forceUpdate();
     },
-
   }
 };
 </script>
