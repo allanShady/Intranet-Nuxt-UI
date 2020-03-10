@@ -29,6 +29,8 @@ export default {
   data: () => ({
     documentTypes: [],
     classifier: null,
+    url: null,
+    hasStockParam: 0 // to track the query params that retrieve product that has stocks and value 
   }),
   beforeMount: async function() {
     this.businessArea = await this.$store.dispatch(
@@ -47,9 +49,7 @@ export default {
     let documentType = this.documentTypes[0];
 
     if (documentType.isStockMovimentEntity) {
-      var url = `products/entity/${"all"}/filters?hasstock=${1}&type=${
-        this.documentTypes[0].typeArticle
-      }`;
+      this.hasStockParam = 1;
 
       this.headers = [
         {
@@ -67,11 +67,9 @@ export default {
         { text: "Qnt.", value: "quantity" }
       ];
     }
-
+    
     if (documentType.isStockMoviment) {
-      var url = `products/warehouse/${"all"}/filters?hasstock=${1}&type=${
-        this.documentTypes[0].typeArticle
-      }`;
+      this.hasStockParam = 1;
 
       this.headers = [
         {
@@ -87,18 +85,20 @@ export default {
         { text: "Stock", value: "stock" }
       ];
     }
-    this.pedding_Items = await this.$store.dispatch("getDataAsync", url);
+    
+    this.url = `products/warehouse/${"all"}/filters?hasstock=${this.hasStockParam}&type=${
+      this.documentTypes[0].typeArticle}`;
+
+    this.pedding_Items = await this.$store.dispatch("getDataAsync", this.url);
   },
 
   created() {
-    console.log(`I'm loading this form 4 now`)
+    
   },
+
   methods: {
     openFrm(item) {
-      var url = `/inventory/EFGC/Form?doc=${item.code}&tipo=${this.classifier}`;
-
-      this.$router.push(url);
-
+      this.$router.push(`/inventory/EFGC/Form?doc=${item.code}&tipo=${this.classifier}`);
       this.$forceUpdate();
     },
   }

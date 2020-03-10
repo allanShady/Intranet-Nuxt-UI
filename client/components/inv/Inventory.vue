@@ -53,11 +53,11 @@ export default {
       "documenttypes"
     );
 
-    console.log(this.documentTypes);
-
     var url = `products/filters?hasstock=${1}&documentType=${
       this.documentTypes[0].typeArticle
     }`;
+
+    console.log('THE DOCUMENT TYPES: ', this.documentTypes, 'THE ENDPOINT IS: ', url);
 
     this.items = await this.$store.dispatch("getDataAsync", url);
   }
