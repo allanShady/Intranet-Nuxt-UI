@@ -18,6 +18,7 @@ const Menu = [
       {name: 'approvalPending', icon: 'reorder',title: 'Approval', href: '/inventory/pendinglist'},
       {name: 'approvalPending', icon: 'reorder',title: 'Ferramentas', href: '/inventory/EFGC/dashboard?tipo=Ferramentas'},
       {name: 'approvalPending', icon: 'reorder',title: 'Equipamentos', href: '/inventory/EFGC/dashboard?tipo=Equipamentos'},
+      {name: 'gas', icon: '',title: 'Gáses', href: '/inventory/EFGC/dashboard?tipo=gases'},
       {name: 'approvalPending', icon: 'mdi-view-dashboard',title: 'Stock', href: '/inventory/EFGC/dashboard?tipo=Stock'},
 
       {
