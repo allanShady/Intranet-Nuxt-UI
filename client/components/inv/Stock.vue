@@ -80,6 +80,7 @@ export default {
     }
 
     //this.url = `products/entity/${"all"}/filters?hasstock=${this.hasStock}&type=${this.productType}`
+    console.log(' THE URL IS: ', this.url);
     this.pedding_Items = await this.$store.dispatch("getDataAsync", this.url);
   },
   methods:{

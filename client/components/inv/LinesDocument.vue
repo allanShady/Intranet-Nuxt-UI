@@ -17,9 +17,8 @@
 
         <v-dialog v-model="dialog" max-width="500px">
           <template v-slot:activator="{ on }">
-            <v-btn v-on="on" v-show="!form.canAddProduct">
-              <v-icon>mdi-plus-circle-outline</v-icon>
-            </v-btn>
+
+              <v-icon  v-on="on" v-show="!form.canAddProduct" color="">mdi-plus-circle-outline</v-icon>
 
             <v-text-field
               v-model="search"
@@ -39,26 +38,25 @@
             <v-card-text>
               <v-container>
                 <v-row>
-                  <v-col>
-                    <v-autocomplete
-                      class="body-1"
-                      :items="form.products"
-                      v-model="editedItem.product"
-                      clearable
-                      label="Selecione o Artigo"
-                      item-text="description"
-                      item-value="code"
-                      required
-                      @input="changeArticle"
-                      :search-input.sync="search"
-                      :loading="isLoading"
-                      hide-no-data
-                      hide-selected
-                      return-object
-                    ></v-autocomplete>
-                  </v-col>
+                  <v-autocomplete
+                    class="body-1"
+                    :items="form.products"
+                    v-model="editedItem.product"
+                    clearable
+                    label="Selecione o Artigo"
+                    item-text="description"
+                    item-value="code"
+                    required
+                    @input="changeArticle"
+                    :search-input.sync="search"
+                    :loading="isLoading"
+                    hide-no-data
+                    hide-selected
+                    return-object
+                  ></v-autocomplete>
                 </v-row>
-                <v-row>
+                <!-- this row is not applied for Gas area-->
+                <v-row v-if="!(form.menuArea.toLowerCase() === 'gases')">
                   <v-autocomplete
                     class="body-1"
                     :items="form.unitys"
@@ -71,38 +69,48 @@
                     :filter="filterCodeDesc"
                     return-object
                   ></v-autocomplete>
-                  <v-col>
-                    <v-text-field
-                      type="number"
-                      :rules="[
+                  <v-spacer></v-spacer>
+                  <v-text-field
+                    type="number"
+                    min="0"
+                    :rules="[
                         form.rulesQuantity.loanMin,
                         form.rulesQuantity.loanMaxMax
                       ]"
-                      v-model="editedItem.quantity"
-                      label="Qnt."
-                    ></v-text-field>
-                  </v-col>
+                    v-model="editedItem.quantity"
+                    label="Qnt."
+                  ></v-text-field>
+                </v-row>
+                <v-row v-else-if="(form.menuArea === 'gases')">
+                  <v-autocomplete
+                    class="body-1"
+                    :items="form.productStatuses"
+                    v-model="editedItem.status"
+                    clearable
+                    label="Seleccione estado da botija"
+                    item-text="description"
+                    item-value="code"
+                    required
+                    :filter="filterCodeDesc"
+                    return-object
+                  ></v-autocomplete>
                 </v-row>
                 <v-row>
-                  <v-col>
-                    <v-autocomplete
-                      class="body-1"
-                      :items="form.projects"
-                      v-model="editedItem.project"
-                      clearable
-                      label="Selecione o projecto"
-                      item-text="description"
-                      item-value="code"
-                      required
-                      :filter="filterCodeDesc"
-                      return-object
-                    ></v-autocomplete>
-                  </v-col>
+                  <v-autocomplete
+                    class="body-1"
+                    :items="form.projects"
+                    v-model="editedItem.project"
+                    clearable
+                    label="Selecione o projecto"
+                    item-text="description"
+                    item-value="code"
+                    required
+                    :filter="filterCodeDesc"
+                    return-object
+                  ></v-autocomplete>
                 </v-row>
                 <v-row>
-                  <v-col>
-                    <v-text-field v-model="editedItem.notes" label="Notas"></v-text-field>
-                  </v-col>
+                  <v-text-field v-model="editedItem.notes" label="Notas"></v-text-field>
                 </v-row>
               </v-container>
             </v-card-text>
@@ -144,6 +152,7 @@ export default {
         isSavingDataAndClose: false,
         isSavingData: false,
         items: [],
+        productStatuses: [],
         selected: []
       })
     },
@@ -151,6 +160,7 @@ export default {
       type: Object,
       default: () => ({
         title: "Documentos Internos",
+        menuArea: "",
         typeDocument: null,
         requiredBussinessArea: true,
         requiredExternalDocNumber: true,
@@ -218,6 +228,7 @@ export default {
       { text: "", value: "action", sortable: false }
     ]
   }),
+
   computed: {
     location: () => window.location
   },
@@ -241,7 +252,6 @@ export default {
     },
 
     close() {
-
       this.dialog = false;
 
       setTimeout(() => {
@@ -296,10 +306,17 @@ export default {
       );
     },
 
+    async intProductStatus(productType) {
+      this.form.productStatuses = await this.$store.dispatch(
+        "getDataAsync",
+        `products/statuses/filters?${productType}`
+      );
+    },
+
     filterCodeDesc(item, queryText, itemText) {
       if (!queryText) return "";
 
-      const textOne = item.code.toLowerCase();
+      const textOne = item.code.toString().toLowerCase();
       const textTwo = item.description.toLowerCase();
       const searchText = queryText.toLowerCase();
 
@@ -311,8 +328,21 @@ export default {
 
     removeLine(item) {
       this.formModel.items.splice(item);
+    },
+
+    isGasesMenu() {
+      return this.form.menuArea.toLowerCase() === "gases";
     }
   },
+
+  async created() {
+    this.form.menuArea = this.$router.currentRoute.query["tipo"];
+
+    if ((this.form.menuArea === "gases"))
+      //get status for gas products
+      await this.intProductStatus("producttype=55");
+  },
+
   watch: {
     search: async function(value) {
       this.isLoading = true;
