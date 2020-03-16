@@ -1,7 +1,7 @@
 <template>
   <v-flex>
     <v-card-title>
-      <v-text-field v-model="search" append-icon="search" label="Pesquisa" single-line hide-details></v-text-field>
+      <v-text-field v-model="search" append-icon="mdi-magnify" label="Pesquisa" single-line hide-details></v-text-field>
     </v-card-title>
     <v-data-table
       :headers="headers"
@@ -32,7 +32,7 @@ export default {
       { text: "Funcionario", value: "Entity.name" },
       { text: "Departamento", value: "BussinessArea.description" },
       { text: "Artigo", value: "product_id" },
-      { text: "Descrição", value: "description" },
+      { text: "Descrição", value: "Product.description" },
       { text: "UN", value: "unit_id" },
       { text: "Qnt.", value: "quantity" },
       { text: "Estado", value: "status" }

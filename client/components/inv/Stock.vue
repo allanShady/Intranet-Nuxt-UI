@@ -1,7 +1,7 @@
 <template>
 <v-flex>
   <v-card-title>
-    <v-text-field v-model="search" append-icon="search" label="Pesquisa" single-line hide-details></v-text-field>
+    <v-text-field v-model="search" append-icon="mdi-magnify" label="Pesquisa" single-line hide-details></v-text-field>
   </v-card-title>
   <v-data-table :headers="headers" :items="pedding_Items" item-key="product" :search="search">
     <template v-slot:item.businessArea="{ item }">{{ getPrincipalBussinessArea(item)}}</template>
