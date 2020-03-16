@@ -198,12 +198,13 @@ export default {
         date: this.formModel.date,
         reference_doc: this.formModel.referenceDoc,
         entity_type: this.formModel.typeEntity || null,
-        attachement:
-          this.formModel.attachement.length || "note attached any doc",
+        attachement: this.formModel.attachement.length || "note attached any doc",
         details: this.formModel.items
       };
 
       this.formModel.isSavingData = true;
+
+      console.log(post_data);
 
       await this.$store
         .dispatch("postDataAsync", { api_resourse: "stocks", post_data })

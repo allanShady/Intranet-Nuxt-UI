@@ -56,7 +56,7 @@
         <v-col>
           <v-text-field
             v-model="search"
-            append-icon="search"
+            append-icon="mdi-magnify"
             label="Pesquisa"
             single-line
             hide-details
@@ -64,7 +64,7 @@
         </v-col>
         <v-col>
           <v-btn @click="openStatement">
-            <v-icon>mdi-plus-circle-outline</v-icon>
+            <v-icon>mdi-magnify</v-icon>
           </v-btn>
         </v-col>
       </v-toolbar>
@@ -90,12 +90,6 @@ export default {
     documentTypes: [],
     isSelectedProduct: true,
     headers: [
-       {
-        text: "#",
-        align: "left",
-        sortable: false,
-        value: "id"
-      },
       { text: "Data", value: "date" },
       { text: "Documento", value: "DocumentType.code" },
       { text: "Artigo", value: "Product.code" },
@@ -103,7 +97,7 @@ export default {
       { text: "UN", value: "Unity.code" },
       { text: "Qnt.", value: "quantity" },
       { text: "Funcionario", value: "Entity.name" },
-      { text: "Area de Negocio", value: "BusinessArea.name" },
+      { text: "Area de Negocio", value: "BusinessArea.description" },
       { text: "Projeto", value: "Project.description" },
       { text: "Estado", value: "status" }
     ]
@@ -122,6 +116,8 @@ export default {
       var url = `Stocks/filters?warehouseId=${warehouseId}&type=${this.documentTypes[0].typeArticle}&dateBegin=${this.dateBegin}&dateEnd=${this.dateEnd}`;
 
       this.items = await this.$store.dispatch("getDataAsync", url);
+
+      console.log(this.items);
     }
   }
 };
