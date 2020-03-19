@@ -296,7 +296,8 @@ export default {
           factor: 1,
           branch: localStorage.branch,
           warehouse: localStorage.warehouse || 'Sede',
-          location: localStorage.localization || 'Sede'
+          location: localStorage.localization || 'Sede',
+          businessArea: !this.formModel.businessArea? null:this.formModel.businessArea.code,
         });
 
         this.close();

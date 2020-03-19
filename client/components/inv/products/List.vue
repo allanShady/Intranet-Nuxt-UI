@@ -3,7 +3,7 @@
     <v-card-title>
       Artigos
       <v-spacer></v-spacer>
-      <v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details></v-text-field>
+      <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details></v-text-field>
       <v-icon color="primary" @click="dialog = !dialog">add</v-icon>
       <v-dialog v-model="dialog" max-width="500px">
         <v-card>
@@ -139,7 +139,7 @@ export default {
       { text: "Actions", value: "action", sortable: false }
     ]
   }),
-  
+
   methods: {
     detailsItem(value) {},
 
@@ -165,11 +165,11 @@ export default {
     },
 
     async save() {
-      let post_data = { 
+      let post_data = {
         code: this.productModel.code,
         description: this.productModel.description,
-        barcode: this.productModel.barcode, 
-        supplier_id: this.productModel.supplier.code,        
+        barcode: this.productModel.barcode,
+        supplier_id: this.productModel.supplier.code,
         type: this.productModel.type.code,
         status_id: this.productModel.status.id,
         stock: this.productModel.stock,

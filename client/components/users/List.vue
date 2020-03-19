@@ -19,7 +19,7 @@
                   </v-col>
                   <v-col cols="12" sm="12" md="6">
                     <v-text-field v-model="userModel.last_name" label="Last Name"></v-text-field>
-                  </v-col>                  
+                  </v-col>
                 </v-row>
                 <v-row>
                   <v-col cols="12" sm="12" md="6">
@@ -27,7 +27,7 @@
                   </v-col>
                   <v-col cols="12" sm="12" md="6">
                     <v-text-field v-model="userModel.phone_number_1" label="Phone Nbr."></v-text-field>
-                  </v-col>                  
+                  </v-col>
                 </v-row>
                 <v-row>
                   <v-col cols="12" sm="12" md="6">
@@ -58,7 +58,7 @@
         :items-per-page="20"
         item-key="code"
         class="elevation-0"
-        :loading="loading" 
+        :loading="loading"
         loading-text="Loading users. Please wait"
       >
         <template v-slot:item.progress="{ item }">
@@ -117,12 +117,12 @@ export default {
       this.userModel.phone_number_1 = null,
       this.userModel.password = null,
       this.userModel.confirm_password = null
-    }, 
+    },
 
     async save() {
      let post_data = this.userModel;
      let created_user = await this.$store.dispatch("postDataAsync", {api_resourse: 'auth/create' , post_data})
-     
+
      this.users.push({
        id: created_user.id,
        first_name: created_user.firstName,
@@ -130,15 +130,15 @@ export default {
        email: created_user.email,
        phone_number_1: created_user.phoneNumber1,
        inactive: false
-     }) 
+     })
 
       this.close();
     },
-    
+
     async initData() {
       this.loading = !this.loading;
-      this.users = await this.$store.dispatch("getDataAsync", 'auth/users');  
-      this.loading = !this.loading;  
+      this.users = await this.$store.dispatch("getDataAsync", 'auth/users');
+      this.loading = !this.loading;
     }
   },
 
