@@ -4,8 +4,8 @@
       Utilizadores
       <v-spacer></v-spacer>
       <v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details></v-text-field>
-      <v-icon color="primary" @click="dialog = !dialog" >add</v-icon>
-      <v-dialog v-model="dialog" max-width="500px">
+      <v-icon @click="dialog = !dialog" color="primary">mdi-plus-circle-outline</v-icon>
+      <v-dialog v-model="dialog" max-width="600px">
           <v-card>
             <v-card-title>
               <span class="headline">{{ formTitle }}</span>
