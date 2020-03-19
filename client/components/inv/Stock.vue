@@ -59,6 +59,20 @@ export default {
       ];
     }
 
+     if(this.$route.query.tipo == 'gases') {
+    
+      this.headers = [
+        { text: "Artigo", value: "product.code" },
+        { text: "Descrição", value: "product.description" },
+        { text: "Projecto", value: "project.description" },
+        { text: "Estado", value: "status.description" },
+        { text: "Fornecedor", value: "supplier.name" }
+      ];
+    
+      this.pedding_Items = await this.getGasBottlesInProject();
+      return
+    }
+
     if (documentType.isStockMoviment) {
       this.url = `products/warehouse/${"all"}/filters?hasstock=${1}&type=${
         this.documentTypes[0].typeArticle
@@ -80,10 +94,14 @@ export default {
     }
 
     //this.url = `products/entity/${"all"}/filters?hasstock=${this.hasStock}&type=${this.productType}`
-    console.log(' THE URL IS: ', this.url);
+    //console.log(' THE URL IS: ', this.url);
     this.pedding_Items = await this.$store.dispatch("getDataAsync", this.url);
   },
   methods:{
+    async getGasBottlesInProject(project) {
+      return await this.$store.dispatch("getDataAsync", `products/gasbottle`);
+    },
+
     getPrincipalBussinessArea(item) {
       if (!item) return "";
 
