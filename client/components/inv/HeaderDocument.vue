@@ -177,7 +177,7 @@ export default {
             this.formModel.items.push({
               product_id: line.product_id,
               description: line.description,
-              unit_id: line.Product.Unity.base,
+              unit_id: line.Product.Unity ?  line.Product.Unity.base : '',
               project_id: null,
               quantity: line.quantity,
               businessArea_id: this.formModel.businessArea,
