@@ -36,7 +36,7 @@ export default {
     this.businessArea = await this.$store.dispatch(
       "getDataAsync",
       "businessArea"
-    );
+    );             
 
     let docType = this.$router.currentRoute.query["tipo"];
 
@@ -92,8 +92,8 @@ export default {
     this.pedding_Items = await this.$store.dispatch("getDataAsync", this.url);
   },
 
-  created() {
-    
+   created() {  
+   
   },
 
   methods: {
