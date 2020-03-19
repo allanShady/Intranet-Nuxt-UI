@@ -17,9 +17,7 @@
 
         <v-dialog v-model="dialog" max-width="500px">
           <template v-slot:activator="{ on }">
-
-              <v-icon  v-on="on" v-show="!form.canAddProduct" color="">mdi-plus-circle-outline</v-icon>
-
+              <v-icon  v-on="on" v-show="!form.canAddProduct" color="primary">mdi-plus-circle-outline</v-icon>
             <v-text-field
               v-model="search"
               append-icon="search"
@@ -37,8 +35,24 @@
 
             <v-card-text>
               <v-container>
+                                <v-row>
+                  <v-autocomplete
+                    class="body-1"
+                    :items="form.projects"
+                    v-model="editedItem.project"
+                    clearable
+                    label="Selecione o projecto"
+                    item-text="description"
+                    item-value="code"
+                    required
+                    :filter="filterCodeDesc"
+                    return-object
+                    @change="SeachProduct(value)"
+                  ></v-autocomplete>
+                </v-row>
                 <v-row>
                   <v-autocomplete
+                    :disabled="!editedItem.project"
                     class="body-1"
                     :items="form.products"
                     v-model="editedItem.product"
@@ -83,6 +97,7 @@
                 </v-row>
                 <v-row v-else-if="(form.menuArea === 'gases')">
                   <v-autocomplete
+                  :disabled="!editedItem.product"
                     class="body-1"
                     :items="form.productStatuses"
                     v-model="editedItem.status"
@@ -96,21 +111,7 @@
                   ></v-autocomplete>
                 </v-row>
                 <v-row>
-                  <v-autocomplete
-                    class="body-1"
-                    :items="form.projects"
-                    v-model="editedItem.project"
-                    clearable
-                    label="Selecione o projecto"
-                    item-text="description"
-                    item-value="code"
-                    required
-                    :filter="filterCodeDesc"
-                    return-object
-                  ></v-autocomplete>
-                </v-row>
-                <v-row>
-                  <v-text-field v-model="editedItem.notes" label="Notas"></v-text-field>
+                  <v-textarea clearable v-model="editedItem.notes" label="Notas"></v-textarea>
                 </v-row>
               </v-container>
             </v-card-text>
@@ -118,7 +119,7 @@
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn color="blue darken-1" text @click="close">Cancel</v-btn>
-              <v-btn color="blue darken-1" text @click="save">Adicionar</v-btn>
+              <v-btn small  :disabled="!editedItem.product" color="blue darken-1" text @click="save">Adicionar</v-btn>
             </v-card-actions>
           </v-card>
         </v-dialog>
@@ -126,7 +127,9 @@
     </template>
 
     <template v-slot:item.action>
-      <v-icon v-show="!form.canAddProduct" @click="removeLine">mdi-minus-circle-outline</v-icon>
+      <v-icon v-show="!form.canAddProduct" @click="removeLine" small color="error">
+        mdi-minus-circle-outline
+        </v-icon>
     </template>
 
     <template v-slot:no-data>0 - Linhas Adicionadas</template>
@@ -237,7 +240,7 @@ export default {
       if (!item) {
         this.editedItem.unity = null;
       } else {
-        this.editedItem.unity = item.Unity.base;
+        this.editedItem.unity = item.Unity ? item.Unity.base : 'UN';
       }
     },
 
@@ -251,6 +254,13 @@ export default {
         this.items.splice(index, 1);
     },
 
+    SeachProduct(value) {
+      if(!value) {
+        this.form.products = []
+        this.isLoading = false;
+      }
+    },
+
     close() {
       this.dialog = false;
 
@@ -261,7 +271,7 @@ export default {
     },
 
     save() {
-      let unity = "";
+      let unity = '';
 
       if (!this.editedItem.unity.code) {
         unity = this.editedItem.unity;
@@ -277,15 +287,16 @@ export default {
         this.formModel.items.push({
           product: this.editedItem.product.code,
           description: this.editedItem.product.description,
-          unity: unity,
+          unity: unity || '',
           project: proj,
-          quantity: this.editedItem.quantity,
+          quantity:  this.editedItem.quantity || this.editedItem.status.code,
+          status:  this.editedItem.status,
           notes: this.editedItem.notes,
           in_out: this.formModel.documenttype.type,
           factor: 1,
           branch: localStorage.branch,
-          warehouse: localStorage.warehouse,
-          location: localStorage.localization
+          warehouse: localStorage.warehouse || 'Sede',
+          location: localStorage.localization || 'Sede'
         });
 
         this.close();
@@ -338,18 +349,40 @@ export default {
   async created() {
     this.form.menuArea = this.$router.currentRoute.query["tipo"];
 
-    if ((this.form.menuArea === "gases"))
-      //get status for gas products
+    if ((this.form.menuArea === "gases")) 
+    {
+      //get and init product status wich are just valid 4 gas
       await this.intProductStatus("producttype=55");
+
+      this.headers = [
+      {
+        text: "#",
+        align: "left",
+        sortable: false,
+        value: "sel"
+      },
+      { text: "Artigo", value: "product" },
+      { text: "Descrição", value: "description" },
+      { text: "UN", value: "unity" },
+      { text: "Estado", value: "status.description" },
+      { text: "Projeto", value: "project" },
+      { text: "Notas", value: "notes" },
+      { text: "", value: "action", sortable: false }
+    ]
+    }
   },
 
   watch: {
     search: async function(value) {
       this.isLoading = true;
 
-      var url = await `products/filters?type=${this.formModel.documenttype.typeArticle}&code=${value}`;
+      let url = await `products/filters?type=${this.formModel.documenttype.typeArticle}&code=${value}`;
 
-      this.form.products = await this.$store.dispatch("getDataAsync", url);
+      if((this.form.menuArea === "gases")) // project filter
+        url = `${url}&project=${this.editedItem.project.code}`
+
+      if(value)
+        this.form.products = await this.$store.dispatch("getDataAsync", url);
 
       this.isLoading = false;
     }
