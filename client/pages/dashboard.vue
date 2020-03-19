@@ -219,7 +219,7 @@
           </mini-statistic>
         </v-flex>
         <!-- mini statistic  end -->
-
+        
       </v-layout>
     </v-container>
   </v-app>
