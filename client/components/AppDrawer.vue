@@ -6,12 +6,12 @@
     :dark="$vuetify.dark"
     app
     v-model="drawer"
-    width="260"
+    width="210"
   >
     <v-toolbar color="primary darken-1" dark>
-      <img src="../static/m.png" height="36" alt="Vue Material Admin Template" />
+      <img src="../static/logo1.png" height="36" :alt="companyInfo.name + 'logo'" />
       <v-toolbar-title class="ml-0 pl-3">
-        <span class="hidden-sm-and-down">Vue Material</span>
+        <span class="hidden-sm-and-down">{{companyInfo.name}}</span>
       </v-toolbar-title>
     </v-toolbar>
     <vue-perfect-scrollbar class="drawer-menu--scroll" :settings="scrollSettings">
@@ -101,6 +101,10 @@ export default {
     }
   },
   data: () => ({
+    companyInfo: {
+      name: 'Belutécnica',
+      logo: "../static/logo1.png"
+    },
     mini: false,
     scrollSettings: {
       maxScrollbarLength: 160
