@@ -1,6 +1,6 @@
 <template>
   <div id="appRoot">
-    <nuxt />
+    <nuxt :key="$router.fullPath" />
   </div>
 </template>
 
