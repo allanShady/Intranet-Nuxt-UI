@@ -6,7 +6,7 @@
     :dark="$vuetify.dark"
     app
     v-model="drawer"
-    width="210"
+    width="212"
   >
     <v-toolbar color="primary darken-1" dark>
       <img src="../static/logo1.png" height="36" :alt="companyInfo.name + 'logo'" />
