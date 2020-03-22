@@ -1,5 +1,5 @@
 const Menu = [
-  {header: 'Apps'},
+  {header: 'Dashboard'},
   {
     title: 'Dashboard',
     group: 'apps',
@@ -7,34 +7,35 @@ const Menu = [
     name: 'Dashboard',
     href: '/dashboard'
   },
-  {header: 'Inventory'},
+  {header: 'Inventário'},
   {
-    title: 'Inventory',
+    title: 'Inventário',
     group: 'Inv',
     component: 'Inv',
     icon: 'mdi-clipboard-arrow-down-outline',
     items: [
       {name: 'products', icon: '',title: 'Artigos', href: '/inventory/products'},
-      {name: 'approvalPending', icon: 'reorder',title: 'Approval', href: '/inventory/pendinglist'},
-      {name: 'approvalPending', icon: 'reorder',title: 'Ferramentas', href: '/inventory/EFGC/dashboard?tipo=Ferramentas'},
-      {name: 'approvalPending', icon: 'reorder',title: 'Equipamentos', href: '/inventory/EFGC/dashboard?tipo=Equipamentos'},
+      {name: 'approvalPending', icon: 'reorder',title: 'Aprovações', href: '/inventory/pendinglist'},
+      {name: 'tools', icon: 'reorder',title: 'Ferramentas', href: '/inventory/EFGC/dashboard?tipo=Ferramentas'},
+      {name: 'equipements', icon: 'reorder',title: 'Equipamentos', href: '/inventory/EFGC/dashboard?tipo=Equipamentos'},
       {name: 'gas', icon: '',title: 'Gáses', href: '/inventory/EFGC/dashboard?tipo=gases'},
-      {name: 'approvalPending', icon: 'mdi-view-dashboard',title: 'Stock', href: '/inventory/EFGC/dashboard?tipo=Stock'},
+      {name: 'stock', icon: 'mdi-view-dashboard',title: 'Stock', href: '/inventory/EFGC/dashboard?tipo=Stock'},
+      {name: 'ppc', icon: 'reorder',title: 'PPC', href: '/inventory/EFGC/dashboard?tipo=PPC'}
 
-      {
+      /*{
         title: 'PPC',
         group: 'PPC',
         component: 'PPC',
         icon: 'mdi-clipboard-arrow-down-outline',
         items: [
-          {name: 'approvalPending', icon: 'reorder',title: 'PPC', href: '/inventory/EFGC/dashboard?tipo=PPC'},
+         ,
 
         ]
-      },
+      },*/
     ]
   },
 
-  {header: 'PPC'},
+ /* {header: 'PPC'},
   {
     title: 'PPC',
     group: 'PPC',
@@ -44,7 +45,7 @@ const Menu = [
       {name: 'approvalPending', icon: 'reorder',title: 'PPC', href: '/inventory/EFGC/dashboard?tipo=PPC'},
 
     ]
-  },
+  },*/
   // {header: 'Human Resources'},
   // {
   //   title: 'Rh',
@@ -55,13 +56,13 @@ const Menu = [
   //     {name: 'ability', icon: 'reorder',title: 'Avaliação', href: '/rh/avaliacao'},
   //   ]
   // },
-  {
+  /*{
     title: 'Order',
     group: 'apps',
     icon: 'mdi-clipboard-check',
     name: 'order',
     href: '/order/create'
-  },
+  },*/
   // {
   //   title: 'Appointment',
   //   group: 'apps',
@@ -69,14 +70,14 @@ const Menu = [
   //   name: 'appointment',
   //   href: '/crm/appointment/'
   // },
-  {header: 'Projects'},
+/*  {header: 'Projects'},
   {
     title: 'Project',
     group: 'projects',
     icon: 'mdi-layers',
     name: 'project',
     href: '/project/'
-  },
+  },*/
   {header: 'Utilizadores'},
   {
     title: 'Utilizadores',
