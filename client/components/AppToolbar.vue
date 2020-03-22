@@ -49,7 +49,7 @@
         <v-btn icon text v-on="on">
           <v-badge color="red" overlap>
             <span slot="badge">3</span>
-            <v-icon medium>notifications</v-icon>
+            <v-icon small>notifications</v-icon>
           </v-badge>
         </v-btn>
       </template>
