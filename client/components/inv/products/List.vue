@@ -117,6 +117,8 @@
   </v-card>
 </template>
 <script>
+import {mapGetters} from 'vuex';
+
 export default {
   data: () => ({
     search: "",
@@ -189,7 +191,12 @@ export default {
 
     async initData() {
       this.loading = !this.loading;
-      this.products = await this.$store.dispatch("getDataAsync", "products");
+       this.$store.dispatch("getDataAsync", "products")
+      .then((result) => {         
+          this.products  = result     
+      }).catch((err) => {
+        
+      });;
       this.loading = !this.loading;
 
       this.product_types = await this.$store.dispatch(
@@ -207,8 +214,13 @@ export default {
     }
   },
 
-  created() {
-    this.initData();
+  async created() {
+    await this.initData();
+    console.log('Product pagination: ', this.productPagination)
+  },
+
+  computed: {
+    ...mapGetters(['productPagination'])
   }
 };
 </script>
