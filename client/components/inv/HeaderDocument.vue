@@ -55,9 +55,9 @@
         <v-autocomplete
           class="body-1"
           v-model="formModel.entity"
-          :items="form.employees"
+          :items=" $route.query.doc !== 'DRGAS' ?  form.employees : form.product_suppliers"
           clearable
-          label="Selecione o funcionário"
+          :label=" $route.query.doc !== 'DRGAS' ? 'Selecione o funcionário' : 'Selecione o fornecedor'"
           prepend-icon="mdi-account-box"
           :filter="filterCodeName"
           return-object
@@ -70,7 +70,7 @@
           item-value="code"
         ></v-autocomplete>
       </v-col>
-      <v-col>
+      <v-col v-if="$route.query.doc !== 'DRGAS'">
         <v-autocomplete
           class="body-1"
           v-model="formModel.businessArea"
@@ -149,42 +149,59 @@ export default {
     dialog: false,
     dateMenu: false
   }),
-  beforeMount: async function() {},
+
+  beforeMount() {
+    console.log('The best way to predict your futere is to code bug', this.formModel.documenttype.code);
+  },
+
   methods: {
+    async getProducts(supplier, status, type) {
+      return await this.$store.dispatch("getDataAsync", `products/supplier/${supplier}?status=${status}&type=${type}`)
+    },
+
     async changeEntity(item) {
-      this.formModel.items = [];
-      this.formModel.businessArea = null;
+    
+      if(this.$route.query.doc === 'DRGAS') {
+       this.formModel.items  = await this.getProducts(item.code, 12, '55');
+      }
+      else
+      {
+        this.formModel.items = [];
+        this.formModel.businessArea = null;
 
-      if (!item) {
-      } else {
-        var buss = item.BusinessArea.filter(d => d.isPrincipal === true);
+        if (!item) {
+        } else {
+          var buss = item.BusinessArea.filter(d => d.isPrincipal === true);
 
-        if (buss.length > 0) {
-          this.formModel.businessArea = buss[0].businessArea;
-        }
+          if (buss.length > 0) {
+            this.formModel.businessArea = buss[0].businessArea;
+          }
 
-        let entity = item.code;
-        let typeArticle = this.formModel.documenttype.typeArticle;
+          let entity = item.code;
+          let typeArticle = this.formModel.documenttype.typeArticle;
 
-        if (this.formModel.documenttype.type == "E") {
-          var url = `products/entity/${
-            item.code
-          }/filters?hasstock=${1}&type=${typeArticle}`;
+          console.log('FORM MODEL IS: ', this.formModel.documenttype.type);
 
-          var items = await this.$store.dispatch("getDataAsync", url);
+          if (this.formModel.documenttype.type == "E") {
+            var url = `products/entity/${
+              item.code
+            }/filters?hasstock=${1}&type=${typeArticle}`;
 
-          items.forEach(line => {
-            this.formModel.items.push({
-              product_id: line.product_id,
-              description: line.description,
-              unit_id: line.Product.Unity ?  line.Product.Unity.base : '',
-              project_id: null,
-              quantity: line.quantity,
-              businessArea_id: this.formModel.businessArea,
-              notes: null,
-              in_out: this.formModel.documenttype.type
+            var items = await this.$store.dispatch("getDataAsync", url);
+
+            items.forEach(line => {
+              this.formModel.items.push({
+                product_id: line.product_id,
+                description: line.description,
+                unit_id: line.Product.Unity ?  line.Product.Unity.base : '',
+                project_id: null,
+                quantity: line.quantity,
+                businessArea_id: this.formModel.businessArea,
+                notes: null,
+                in_out: this.formModel.documenttype.type
+              });
             });
-          });
+          }
         }
       }
     },

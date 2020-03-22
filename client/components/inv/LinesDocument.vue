@@ -17,7 +17,7 @@
 
         <v-dialog v-model="dialog" max-width="500px">
           <template v-slot:activator="{ on }">
-              <v-icon  v-on="on" v-show="!form.canAddProduct" color="primary">mdi-plus-circle-outline</v-icon>
+            <v-icon v-on="on" v-if="$route.query.doc !== 'DRGAS'" v-show="!form.canAddProduct" color="primary">mdi-plus-circle-outline</v-icon>
             <v-text-field
               v-model="search"
               append-icon="search"
@@ -35,8 +35,9 @@
 
             <v-card-text>
               <v-container>
-                                <v-row>
+                <v-row>
                   <v-autocomplete
+                    v-if="($route.query.doc !== 'DRGAS')"
                     class="body-1"
                     :items="form.projects"
                     v-model="editedItem.project"
@@ -52,7 +53,7 @@
                 </v-row>
                 <v-row>
                   <v-autocomplete
-                    :disabled="!editedItem.project"
+                    :disabled="($route.query.doc !== 'DRGAS')"
                     class="body-1"
                     :items="form.products"
                     v-model="editedItem.product"
@@ -70,7 +71,7 @@
                   ></v-autocomplete>
                 </v-row>
                 <!-- this row is not applied for Gas area-->
-                <v-row v-if="!(form.menuArea.toLowerCase() === 'gases')">
+                <v-row v-if="!($route.query.tipo === 'gases')">
                   <v-autocomplete
                     class="body-1"
                     :items="form.unitys"
@@ -95,9 +96,9 @@
                     label="Qnt."
                   ></v-text-field>
                 </v-row>
-                <v-row v-else-if="(form.menuArea === 'gases')">
+                <v-row v-else-if="($route.query.tipo === 'gases')">
                   <v-autocomplete
-                  :disabled="!editedItem.product"
+                    :disabled="!editedItem.product"
                     class="body-1"
                     :items="form.productStatuses"
                     v-model="editedItem.status"
@@ -119,7 +120,13 @@
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn color="blue darken-1" text @click="close">Cancel</v-btn>
-              <v-btn small  :disabled="!editedItem.product" color="blue darken-1" text @click="save">Adicionar</v-btn>
+              <v-btn
+                small
+                :disabled="!editedItem.product"
+                color="blue darken-1"
+                text
+                @click="save"
+              >Adicionar</v-btn>
             </v-card-actions>
           </v-card>
         </v-dialog>
@@ -127,9 +134,12 @@
     </template>
 
     <template v-slot:item.action>
-      <v-icon v-show="!form.canAddProduct" @click="removeLine" small color="error">
-        mdi-minus-circle-outline
-        </v-icon>
+      <v-icon
+        v-show="!form.canAddProduct"
+        @click="removeLine"
+        small
+        color="error"
+      >mdi-minus-circle-outline</v-icon>
     </template>
 
     <template v-slot:no-data>0 - Linhas Adicionadas</template>
@@ -137,6 +147,9 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+import gasServices from '@/services/gasServices.js';
+
 export default {
   props: {
     formModel: {
@@ -240,7 +253,7 @@ export default {
       if (!item) {
         this.editedItem.unity = null;
       } else {
-        this.editedItem.unity = item.Unity ? item.Unity.base : 'UN';
+        this.editedItem.unity = item.Unity ? item.Unity.base : "UN";
       }
     },
 
@@ -255,8 +268,8 @@ export default {
     },
 
     SeachProduct(value) {
-      if(!value) {
-        this.form.products = []
+      if (!value) {
+        this.form.products = [];
         this.isLoading = false;
       }
     },
@@ -271,7 +284,7 @@ export default {
     },
 
     save() {
-      let unity = '';
+      let unity = "";
 
       if (!this.editedItem.unity.code) {
         unity = this.editedItem.unity;
@@ -287,17 +300,19 @@ export default {
         this.formModel.items.push({
           product: this.editedItem.product.code,
           description: this.editedItem.product.description,
-          unity: unity || '',
+          unity: unity || 'UN',
           project: proj,
-          quantity:  this.editedItem.quantity || this.editedItem.status.code,
-          status:  this.editedItem.status,
+          quantity: this.editedItem.quantity || this.editedItem.status.code,
+          status: this.editedItem.status,
           notes: this.editedItem.notes,
           in_out: this.formModel.documenttype.type,
           factor: 1,
           branch: localStorage.branch,
-          warehouse: localStorage.warehouse || 'Sede',
-          location: localStorage.localization || 'Sede',
-          businessArea: !this.formModel.businessArea? null:this.formModel.businessArea.code,
+          warehouse: localStorage.warehouse || "Sede",
+          location: localStorage.localization || "Sede",
+          businessArea: !this.formModel.businessArea
+            ? null
+            : this.formModel.businessArea.code
         });
 
         this.close();
@@ -336,6 +351,7 @@ export default {
         textOne.indexOf(searchText) > -1 || textTwo.indexOf(searchText) > -1
       );
     },
+
     getProducts(item) {},
 
     removeLine(item) {
@@ -350,27 +366,36 @@ export default {
   async created() {
     this.form.menuArea = this.$router.currentRoute.query["tipo"];
 
-    if ((this.form.menuArea === "gases")) 
-    {
+    console.log('Form model document type: ', this.$store.getters.electedDocument);
+
+    //TODO: Please refactory this code i'm bagging cause this is hard to maintan
+    if (this.form.menuArea === "gases") {
       //get and init product status wich are just valid 4 gas
       await this.intProductStatus("producttype=55");
 
+      if(this.$route.query.doc === 'DRGAS')
+        this.headers =  gasServices.getTableHeadersView('wharehouse');
+      else
       this.headers = [
-      {
-        text: "#",
-        align: "left",
-        sortable: false,
-        value: "sel"
-      },
-      { text: "Artigo", value: "product" },
-      { text: "Descrição", value: "description" },
-      { text: "UN", value: "unity" },
-      { text: "Estado", value: "status.description" },
-      { text: "Projeto", value: "project" },
-      { text: "Notas", value: "notes" },
-      { text: "", value: "action", sortable: false }
-    ]
+        {
+          text: "#",
+          align: "left",
+          sortable: false,
+          value: "sel"
+        },
+        { text: "Artigo", value: "product" },
+        { text: "Descrição", value: "description" },
+        { text: "UN", value: "unity" },
+        { text: "Estado", value: "status.description" },
+        { text: "Projeto", value: "project" },
+        { text: "Notas", value: "notes" },
+        { text: "", value: "action", sortable: false }
+      ];
     }
+  },
+
+  computed: { 
+    ...mapGetters(['selectedDocument'])
   },
 
   watch: {
@@ -379,10 +404,11 @@ export default {
 
       let url = await `products/filters?type=${this.formModel.documenttype.typeArticle}&code=${value}`;
 
-      if((this.form.menuArea === "gases")) // project filter
-        url = `${url}&project=${this.editedItem.project.code}`
+      if (this.form.menuArea === "gases")
+        // project filter
+        url = `${url}&project=${this.editedItem.project.code}`;
 
-      if(value)
+      if (value)
         this.form.products = await this.$store.dispatch("getDataAsync", url);
 
       this.isLoading = false;
