@@ -1,7 +1,13 @@
 <template>
   <v-flex>
     <v-card-title>
-      <v-text-field v-model="search" append-icon="mdi-magnify" label="Pesquisa" single-line hide-details></v-text-field>
+      <v-text-field
+        v-model="search"
+        append-icon="mdi-magnify"
+        label="Pesquisa"
+        single-line
+        hide-details
+      ></v-text-field>
     </v-card-title>
     <v-data-table
       :headers="headers"
@@ -9,20 +15,27 @@
       v-model="selected"
       item-key="product_id"
       class="elevation-1"
-      :show-select="isSelectedProduct"
+      :show-select="!isSelectedProduct"
       :search="search"
     >
-      <template v-slot:item.businessArea="{ item }">{{ getPrincipalBussinessArea(item)}}</template>
+      <template v-slot:item.businessArea="{ item }">
+        {{
+        getPrincipalBussinessArea(item)
+        }}
+      </template>
 
       <template v-slot:no-data>0 - Linhas Com Funcionario</template>
     </v-data-table>
   </v-flex>
 </template>
 <script>
+import gasServices from '@/services/gasServices.js';
+
 export default {
   data: () => ({
     type: "",
     search: "",
+    menuArea: '',
     isLoading: false,
     items: [],
     selected: [],
@@ -38,21 +51,35 @@ export default {
       { text: "Estado", value: "status" }
     ]
   }),
-  beforeMount: async function() {
-    this.type = this.$router.currentRoute.query["tipo"];
 
-    this.documentTypes = await this.$store.dispatch(
-      "getDataAsync",
-      "documenttypes/" + this.type
-    );
+  methods: {
+    async initComponent(menuArea) {
+      if(menuArea === 'gases') { // project filter
+        let value = 'all' //TODO : search form
+        let url = `products/filters?type=55&code=${value}&project=${value}`;
 
-    var url = `products/entity/${'all'}/filters?hasstock=${1}&documentType=${
-      this.documentTypes[0].typeArticle
-    }`;
+        //Init headers
+        this.headers = gasServices.getTableHeadersView('wharehouse');
+        this.items = await this.$store.dispatch("getDataAsync", url);
+      } else {
+        //TODO: Implement the appropriet logic here
+        this.type = menuArea;
+        this.documentTypes = await this.$store.dispatch(
+          "getDataAsync",
+          "documenttypes/" + this.type
+        );
 
-    this.items = await this.$store.dispatch("getDataAsync", url);
+        let url = `products/entity/${'all'}/filters?hasstock=${1}&documentType=${
+          this.documentTypes[0].typeArticle
+        }`;
 
-    console.log("THE DOCUMENT TYPES: ", this.items, "THE ENDPOINT IS: ", url);
-  }
+        this.items = await this.$store.dispatch("getDataAsync", url);
+      }
+    }
+  },
+
+  async created() {
+    this.initComponent(this.$route.query.tipo);
+  },
 };
 </script>
