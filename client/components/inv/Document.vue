@@ -3,13 +3,10 @@
     <v-layout row wrap>
       <v-flex>
         <v-card>
-          <v-toolbar color="primary" dark>
+          <v-toolbar height="35px" color="primary" dark>
             <v-toolbar-title>{{form.title}}</v-toolbar-title>
             <v-spacer></v-spacer>
-
-            <v-btn icon @click="requestCloseForm">
-              <v-icon>close</v-icon>
-            </v-btn>
+            <v-icon @click="requestCloseForm">close</v-icon>
           </v-toolbar>
 
           <v-card-text>
@@ -29,9 +26,9 @@
               ></v-switch>
             </div>
             <v-spacer></v-spacer>
-            <v-btn color="primary" :loading="formModel.isSavingData" @click="submit(1)">Gravar</v-btn>
+            <v-btn color="primary" small :loading="formModel.isSavingData" @click="submit(1)">Gravar</v-btn>
 
-            <v-btn @click="clearDoc">Clear</v-btn>
+            <v-btn @click="clearDoc" small>Clear</v-btn>
           </v-card-actions>
         </v-card>
       </v-flex>
@@ -53,7 +50,7 @@ export default {
       type: Object,
       default: () => ({
         title: "Documentos Internos",
-        documenttype: null,
+        documenttype: {},
         date: new Date().toISOString().substr(0, 10),
         referenceDoc: "",
         typeEntity: "U",
@@ -80,6 +77,7 @@ export default {
         isSelectedProduct: false,
         canAddProduct: true,
         employees: [],
+        product_suppliers: [],
         projects: [],
         businessArea: [],
         docTypes: [],
@@ -88,17 +86,23 @@ export default {
         rulesQuantity: {
           required: value => !!value || "Required.",
           loanMin: value => value >= 0 || "Quantidade não pode ser menor de 0",
-          loanMax: value => value <= 50000 || "Quantidade não pode ser menor de 50000"
+          loanMax: value =>
+            value <= 50000 || "Quantidade não pode ser menor de 50000"
         }
       })
     }
   },
-  data: () => ({
+  data: () => ({}),
 
-  }),
   beforeMount: async function() {
     let doc = this.$router.currentRoute.query["doc"];
     let classifier = this.$router.currentRoute.query["tipo"];
+
+    if (this.$route.query.tipo === "gases")
+      this.form.product_suppliers = await this.$store.dispatch(
+        "getDataAsync",
+        "products/suppliers"
+      );
 
     this.form.employees = await this.$store.dispatch(
       "getDataAsync",
@@ -115,6 +119,9 @@ export default {
       "documenttypes"
     );
     this.form.docTypes = this.form.docTypes.filter(p => p.code == doc);
+
+    //Call state action to
+    this.$store.dispatch("setCurrentDocument", this.form.docTypes[0]);
 
     this.formModel.documenttype = this.form.docTypes[0];
     this.form.isSelectedProduct = this.form.docTypes[0].isSelectedProduct;
@@ -134,7 +141,7 @@ export default {
 
     async clearDoc() {
       this.formModel = {
-        documenttype: this.formModel.documenttype ,
+        documenttype: this.formModel.documenttype,
         date: new Date().toISOString().substr(0, 10),
         referenceDoc: "",
         typeEntity: "U",
@@ -178,6 +185,27 @@ export default {
       );
     },
 
+    prepareItems4_DRGAS_doc(items) {
+      let itemsToSave = [];
+
+      items.forEach(element => {
+        itemsToSave.push({
+          product: element.code,
+          description: element.description,
+          unity: element.Unity.base || "UN",
+          status_id: element.status.code || element.status_id,
+          notes: "Reabastecimento da botija",
+          in_out: this.formModel.documenttype.type,
+          factor: 1,
+          branch: localStorage.branch,
+          warehouse: localStorage.warehouse || "Sede",
+          location: localStorage.localization || "Sede"
+        });
+      });
+
+      return itemsToSave;
+    },
+
     async submit() {
       let details = [];
 
@@ -192,15 +220,26 @@ export default {
       const post_data = {
         from_warehouse_id: null,
         document_type_id: this.formModel.documenttype.code,
-        entity_id: !this.formModel.entity?null: this.formModel.entity.code,
-        entity_name: !this.formModel.entity? null:this.formModel.entity.name ,
-        business_area_id: !this.formModel.businessArea? null:this.formModel.businessArea.code,
+        entity_id: !this.formModel.entity ? null : this.formModel.entity.code,
+        entity_name: !this.formModel.entity ? null : this.formModel.entity.name,
+        business_area_id: !this.formModel.businessArea
+          ? null
+          : this.formModel.businessArea.code,
         date: this.formModel.date,
         reference_doc: this.formModel.referenceDoc,
         entity_type: this.formModel.typeEntity || null,
-        attachement: this.formModel.attachement.length || "note attached any doc",
+        attachement:
+          this.formModel.attachement.length || "note attached any doc",
         details: this.formModel.items
       };
+
+      if (this.$route.query.doc === "DRGAS") {
+        post_data.details = this.prepareItems4_DRGAS_doc(this.formModel.items);
+        post_data.entity_id = null;
+        post_data.supplier_id = !this.formModel.entity
+          ? null
+          : this.formModel.entity.code;
+      }
 
       this.formModel.isSavingData = true;
 
