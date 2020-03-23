@@ -192,7 +192,7 @@ export default {
         itemsToSave.push({
           product: element.code,
           description: element.description,
-          unity: element.Unity.base || "UN",
+          unity: element.Unity ? element.Unity.base || "UN" : "UN",
           status_id: element.status.code || element.status_id,
           notes: "Reabastecimento da botija",
           in_out: this.formModel.documenttype.type,
