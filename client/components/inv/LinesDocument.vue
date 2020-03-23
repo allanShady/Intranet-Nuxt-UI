@@ -48,12 +48,12 @@
                     required
                     :filter="filterCodeDesc"
                     return-object
-                    @change="SeachProduct(value)"
+                    @change="SeachProduct()"
                   ></v-autocomplete>
                 </v-row>
                 <v-row>
                   <v-autocomplete
-                    :disabled="($route.query.doc !== 'DRGAS')"
+                    :disabled="($route.query.doc === 'DRGAS')"
                     class="body-1"
                     :items="form.products"
                     v-model="editedItem.product"
@@ -297,13 +297,15 @@ export default {
           ? null
           : this.editedItem.project.code;
 
+        console.log('Edited item: ', this.editedItem.status);
+
         this.formModel.items.push({
           product: this.editedItem.product.code,
           description: this.editedItem.product.description,
           unity: unity || 'UN',
           project: proj,
           quantity: this.editedItem.quantity || this.editedItem.status.code,
-          status: this.editedItem.status,
+          status_id: this.editedItem.status.code,
           notes: this.editedItem.notes,
           in_out: this.formModel.documenttype.type,
           factor: 1,
@@ -404,7 +406,7 @@ export default {
 
       let url = await `products/filters?type=${this.formModel.documenttype.typeArticle}&code=${value}`;
 
-      if (this.form.menuArea === "gases")
+      if (this.form.menuArea === "gases" && this.editedItem.project)
         // project filter
         url = `${url}&project=${this.editedItem.project.code}`;
 
