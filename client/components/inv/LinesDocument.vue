@@ -304,8 +304,8 @@ export default {
           description: this.editedItem.product.description,
           unity: unity || 'UN',
           project: proj,
-          quantity: this.editedItem.quantity || this.editedItem.status.code,
-          status_id: this.editedItem.status.code,
+          quantity: this.editedItem.quantity,
+          status_id: this.editedItem.status ? this.editedItem.status.code : null,
           notes: this.editedItem.notes,
           in_out: this.formModel.documenttype.type,
           factor: 1,
@@ -407,8 +407,20 @@ export default {
       let url = await `products/filters?type=${this.formModel.documenttype.typeArticle}&code=${value}`;
 
       if (this.form.menuArea === "gases" && this.editedItem.project)
-        // project filter
-        url = `${url}&project=${this.editedItem.project.code}`;
+        if(this.$route.query.doc === 'DGAS') {
+          url = `products/gasbottle?project=${this.editedItem.project.code}`;
+          let pendingItems = await this.$store.dispatch("getDataAsync", url);
+
+          this.form.products = []
+
+          pendingItems.forEach(element => {
+            this.form.products.push(element.product)
+          });
+
+          return;
+        }
+        else // project filter
+          url = `${url}&project=${this.editedItem.project.code}`;
 
       if (value)
         this.form.products = await this.$store.dispatch("getDataAsync", url);
