@@ -98,10 +98,11 @@ export default {
     let doc = this.$router.currentRoute.query["doc"];
     let classifier = this.$router.currentRoute.query["tipo"];   
 
-    this.form.employees = await this.$store.dispatch(
+    /*this.form.employees = await this.$store.dispatch(
       "getDataAsync",
       "employees"
-    );
+    );*/
+
     this.form.businessArea = await this.$store.dispatch(
       "getDataAsync",
       "businessArea"
@@ -137,8 +138,13 @@ export default {
       if (this.$route.query.doc === "DRGAS")
         this.form.product_suppliers = await this.$store.dispatch(
           "getDataAsync",
-          `products/suppliers?supplier=${value}`
-        );
+          `products/suppliers?supplier=${value}`); 
+        else
+        {
+          this.form.employees = await this.$store.dispatch(
+          "getDataAsync",
+          `entities?SearchTerm=${value}`);
+        }
     },
 
     async clearDoc() {
