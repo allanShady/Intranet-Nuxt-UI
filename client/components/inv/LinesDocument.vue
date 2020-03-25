@@ -303,7 +303,6 @@ export default {
 
       if(this.$route.query.doc === 'DRGAS') {
         this.formModel.items.push(this.editedItem.product);
-        this.formModel.items = [];
       }
       else {
         this.formModel.items.push({

@@ -254,7 +254,7 @@ export default {
             this.onCreatingSupplier = false
             this.dialog = !this.dialog
             this.$emit('search-entities', result.code)
-            this.formModel.entity = result.code
+            this.formModel.entity = result
         }).catch((err) => {
           
         });
