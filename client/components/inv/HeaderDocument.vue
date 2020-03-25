@@ -4,6 +4,8 @@
       <v-col>
         <v-autocomplete
           prepend-icon="mdi-text-box"
+          color="primary"
+          disabled
           v-model="formModel.documenttype"
           :items="form.docTypes"
           clearable
@@ -60,6 +62,7 @@
           :label=" $route.query.doc !== 'DRGAS' ? 'Selecione o funcionário' : 'Selecione o fornecedor'"
           prepend-icon="mdi-account-box"
           :filter="filterCodeName"
+          :search-input.sync="searchEntity"
           return-object
           @input="changeEntity"
           v-validate="'required'"
@@ -68,11 +71,43 @@
           required
           item-text="name"
           item-value="code"
+          no-data-text="Nenhum registo foi encontrado"
+          caption
         ></v-autocomplete>
       </v-col>
+      <v-col v-show="$route.query.doc === 'DRGAS' 
+      && form.product_suppliers.length === 0">
+          <v-btn color="warning" @click="dialog = !dialog" flat small>Criar</v-btn>  
+
+          <v-dialog v-model="dialog" max-width="600px">
+          <v-card>
+            <v-card-title>
+              <span class="headline"> Novo fornecedor</span>
+            </v-card-title>
+
+            <v-card-text>
+              <v-container>
+                <v-row>
+                  <v-col cols="12" sm="12" md="4">
+                    <v-text-field v-model="supplier.code" label="Codigo"></v-text-field>
+                  </v-col>
+                  <v-col cols="12" sm="12" md="8">
+                    <v-text-field v-model="supplier.Name" label="Nome"></v-text-field>
+                  </v-col>
+                </v-row>                
+              </v-container>
+            </v-card-text>
+            <v-card-actions><v-spacer></v-spacer>
+              <v-btn color="warning"  @click="dialog = !dialog" small>Cancelar</v-btn>               
+              <v-btn color="primary" :loading="onCreatingSupplier"  @click="createNewSupplier" small>Gravar</v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>       
+      </v-col>
+      
       <v-col v-if="$route.query.doc !== 'DRGAS'">
         <v-autocomplete
-          class="body-1"
+          class="caption"
           v-model="formModel.businessArea"
           :items="form.businessArea"
           clearable
@@ -147,7 +182,11 @@ export default {
 
   data: () => ({
     dialog: false,
-    dateMenu: false
+    dateMenu: false,
+    searchEntity: {},
+    supplier: {},
+    dialog: false,
+    onCreatingSupplier: false
   }),
 
   beforeMount() {
@@ -161,10 +200,10 @@ export default {
 
     async changeEntity(item) {
     
-      if(this.$route.query.doc === 'DRGAS') {
+      /*if(this.$route.query.doc === 'DRGAS') {
        this.formModel.items  = await this.getProducts(item.code, 12, '55');
-      }
-      else
+      }*/
+      if(this.$route.query.doc !== 'DRGAS')
       {
         this.formModel.items = [];
         this.formModel.businessArea = null;
@@ -206,6 +245,23 @@ export default {
       }
     },
 
+    async createNewSupplier(){
+      this.onCreatingSupplier = true
+
+      await this.$store
+        .dispatch("postDataAsync", { api_resourse: "products/suppliers", post_data : this.supplier }) 
+        .then((result) => {
+            this.onCreatingSupplier = false
+            this.dialog = !this.dialog
+            this.$emit('search-entities', result.code)
+            this.formModel.entity = result.code
+        }).catch((err) => {
+          
+        });
+
+      
+    },
+
     filterCodeName(item, queryText, itemText) {
       if (!queryText) return "";
 
@@ -232,6 +288,12 @@ export default {
   },
   computed: {
     location: () => window.location
+  },
+
+  watch: {
+    searchEntity(value) {
+      this.$emit('search-entities', value)
+    }
   }
 };
 </script>

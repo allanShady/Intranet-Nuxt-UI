@@ -17,7 +17,7 @@
 
         <v-dialog v-model="dialog" max-width="500px">
           <template v-slot:activator="{ on }">
-            <v-icon v-on="on" v-if="$route.query.doc !== 'DRGAS'" v-show="!form.canAddProduct" color="primary">mdi-plus-circle-outline</v-icon>
+            <v-icon v-on="on" v-show="!form.canAddProduct" color="primary">mdi-plus-circle-outline</v-icon>
             <v-text-field
               v-model="search"
               append-icon="search"
@@ -37,7 +37,7 @@
               <v-container>
                 <v-row>
                   <v-autocomplete
-                    v-if="($route.query.doc !== 'DRGAS')"
+                    v-if="($route.query.doc === 'EGAS')"
                     class="body-1"
                     :items="form.projects"
                     v-model="editedItem.project"
@@ -53,7 +53,6 @@
                 </v-row>
                 <v-row>
                   <v-autocomplete
-                    :disabled="($route.query.doc === 'DRGAS')"
                     class="body-1"
                     :items="form.products"
                     v-model="editedItem.product"
@@ -98,6 +97,7 @@
                 </v-row>
                 <v-row v-else-if="($route.query.tipo === 'gases')">
                   <v-autocomplete
+                    v-if="$route.query.doc !== 'DRGAS'"
                     :disabled="!editedItem.product"
                     class="body-1"
                     :items="form.productStatuses"
@@ -250,6 +250,8 @@ export default {
   },
   methods: {
     changeArticle(item) {
+      console.log('Current selected item: ', item);
+
       if (!item) {
         this.editedItem.unity = null;
       } else {
@@ -297,14 +299,21 @@ export default {
           ? null
           : this.editedItem.project.code;
 
-        console.log('Edited item: ', this.editedItem.status);
+        console.log('Edited item: ', this.editedItem);
 
+      if(this.$route.query.doc === 'DRGAS') {
+        this.formModel.items.push(this.editedItem.product);
+        this.formModel.items = [];
+      }
+      else {
         this.formModel.items.push({
           product: this.editedItem.product.code,
           description: this.editedItem.product.description,
           unity: unity || 'UN',
-          project: proj,
+          project: proj || this.editedItem.product.project.code || null,
+          project_desc: this.editedItem.product.project ? this.editedItem.product.project.description : this.editedItem.project.description,
           quantity: this.editedItem.quantity,
+          status_desc: this.editedItem.status ? this.editedItem.status.description : null,
           status_id: this.editedItem.status ? this.editedItem.status.code : null,
           notes: this.editedItem.notes,
           in_out: this.formModel.documenttype.type,
@@ -316,7 +325,7 @@ export default {
             ? null
             : this.formModel.businessArea.code
         });
-
+      }
         this.close();
       } else {
         alert("É obrigatorio selecionar o artigo");
@@ -360,6 +369,10 @@ export default {
       this.formModel.items.splice(item);
     },
 
+    async getProducts(supplier, status, type) {
+      return await this.$store.dispatch("getDataAsync", `products/supplier/${supplier}?status=${status}&type=${type}`)
+    },
+
     isGasesMenu() {
       return this.form.menuArea.toLowerCase() === "gases";
     }
@@ -388,8 +401,8 @@ export default {
         { text: "Artigo", value: "product" },
         { text: "Descrição", value: "description" },
         { text: "UN", value: "unity" },
-        { text: "Estado", value: "status.description" },
-        { text: "Projeto", value: "project" },
+        { text: "Estado", value: "status_desc" },
+        { text: "Projeto", value: "project_desc" },
         { text: "Notas", value: "notes" },
         { text: "", value: "action", sortable: false }
       ];
@@ -406,21 +419,26 @@ export default {
 
       let url = await `products/filters?type=${this.formModel.documenttype.typeArticle}&code=${value}`;
 
-      if (this.form.menuArea === "gases" && this.editedItem.project)
+      if (this.form.menuArea === "gases")
         if(this.$route.query.doc === 'DGAS') {
-          url = `products/gasbottle?project=${this.editedItem.project.code}`;
+          url = `products/gasbottle?project=${'all'}`;
           let pendingItems = await this.$store.dispatch("getDataAsync", url);
 
           this.form.products = []
 
           pendingItems.forEach(element => {
-            this.form.products.push(element.product)
+            this.form.products.push({project: element.project, status: element.status , ...element.product })
           });
+                this.isLoading = false;
 
           return;
         }
         else // project filter
-          url = `${url}&project=${this.editedItem.project.code}`;
+          if(this.$route.query.doc === 'DRGAS') {
+            this.form.products = await this.getProducts('all', 12, '55') 
+            this.isLoading = false;
+            return
+          }
 
       if (value)
         this.form.products = await this.$store.dispatch("getDataAsync", url);

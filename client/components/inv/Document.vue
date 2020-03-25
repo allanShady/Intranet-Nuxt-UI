@@ -11,7 +11,7 @@
 
           <v-card-text>
             <v-flex lg12>
-              <HeaderDocument-Form v-bind:form="form" v-bind:formModel="formModel"></HeaderDocument-Form>
+              <HeaderDocument-Form v-bind:form="form" @search-entities="searchEntities"  v-bind:formModel="formModel"></HeaderDocument-Form>
             </v-flex>
             <v-flex lg12>
               <LinesDocument-Form v-bind:form="form" v-bind:formModel="formModel"></LinesDocument-Form>
@@ -96,13 +96,7 @@ export default {
 
   beforeMount: async function() {
     let doc = this.$router.currentRoute.query["doc"];
-    let classifier = this.$router.currentRoute.query["tipo"];
-
-    if (this.$route.query.tipo === "gases")
-      this.form.product_suppliers = await this.$store.dispatch(
-        "getDataAsync",
-        "products/suppliers"
-      );
+    let classifier = this.$router.currentRoute.query["tipo"];   
 
     this.form.employees = await this.$store.dispatch(
       "getDataAsync",
@@ -137,6 +131,14 @@ export default {
       var url = `/inventory/EFGC/Dashboard?id=${classifier}`;
 
       this.$router.push(url);
+    },
+
+    async searchEntities(value) {
+      if (this.$route.query.doc === "DRGAS")
+        this.form.product_suppliers = await this.$store.dispatch(
+          "getDataAsync",
+          `products/suppliers?supplier=${value}`
+        );
     },
 
     async clearDoc() {
