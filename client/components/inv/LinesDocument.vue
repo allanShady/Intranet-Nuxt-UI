@@ -147,8 +147,8 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-import gasServices from '@/services/gasServices.js';
+import { mapGetters } from "vuex";
+import gasServices from "@/services/gasServices.js";
 
 export default {
   props: {
@@ -250,7 +250,7 @@ export default {
   },
   methods: {
     changeArticle(item) {
-      console.log('Current selected item: ', item);
+      console.log("Current selected item: ", item);
 
       if (!item) {
         this.editedItem.unity = null;
@@ -299,32 +299,42 @@ export default {
           ? null
           : this.editedItem.project.code;
 
-        console.log('Edited item: ', this.editedItem);
+        console.log("Edited item: ", this.editedItem);
 
-      if(this.$route.query.doc === 'DRGAS') {
-        this.formModel.items.push(this.editedItem.product);
-      }
-      else {
-        this.formModel.items.push({
-          product: this.editedItem.product.code,
-          description: this.editedItem.product.description,
-          unity: unity || 'UN',
-          project: proj || this.editedItem.product.project ? this.editedItem.product.project.code : null,
-          project_desc: this.editedItem.product.project ? this.editedItem.product.project.description : this.editedItem.project ? this.editedItem.project.description : null,
-          quantity: this.editedItem.quantity,
-          status_desc: this.editedItem.status ? this.editedItem.status.description : null,
-          status_id: this.editedItem.status ? this.editedItem.status.code : null,
-          notes: this.editedItem.notes,
-          in_out: this.formModel.documenttype.type,
-          factor: 1,
-          branch: localStorage.branch,
-          warehouse: localStorage.warehouse || "Sede",
-          location: localStorage.localization || "Sede",
-          businessArea: !this.formModel.businessArea
-            ? null
-            : this.formModel.businessArea.code
-        });
-      }
+        if (this.$route.query.doc === "DRGAS") {
+          this.formModel.items.push(this.editedItem.product);
+        } else {
+          this.formModel.items.push({
+            product: this.editedItem.product.code,
+            description: this.editedItem.product.description,
+            unity: unity || "UN",
+            project:
+              proj || this.editedItem.product.project
+                ? this.editedItem.product.project.code
+                : null,
+            project_desc: this.editedItem.product.project
+              ? this.editedItem.product.project.description
+              : this.editedItem.project
+              ? this.editedItem.project.description
+              : null,
+            quantity: this.editedItem.quantity,
+            status_desc: this.editedItem.status
+              ? this.editedItem.status.description
+              : null,
+            status_id: this.editedItem.status
+              ? this.editedItem.status.code
+              : null,
+            notes: this.editedItem.notes,
+            in_out: this.formModel.documenttype.type,
+            factor: 1,
+            branch: localStorage.branch,
+            warehouse: localStorage.warehouse || "Sede",
+            location: localStorage.localization || "Sede",
+            businessArea: !this.formModel.businessArea.code
+              ? this.formModel.businessArea
+              : this.formModel.businessArea.code
+          });
+        }
         this.close();
       } else {
         alert("É obrigatorio selecionar o artigo");
@@ -369,7 +379,10 @@ export default {
     },
 
     async getProducts(supplier, status, type) {
-      return await this.$store.dispatch("getDataAsync", `products/supplier/${supplier}?status=${status}&type=${type}`)
+      return await this.$store.dispatch(
+        "getDataAsync",
+        `products/supplier/${supplier}?status=${status}&type=${type}`
+      );
     },
 
     isGasesMenu() {
@@ -380,36 +393,39 @@ export default {
   async created() {
     this.form.menuArea = this.$router.currentRoute.query["tipo"];
 
-    console.log('Form model document type: ', this.$store.getters.electedDocument);
+    console.log(
+      "Form model document type: ",
+      this.$store.getters.selectedDocument
+    );
 
     //TODO: Please refactory this code i'm bagging cause this is hard to maintan
     if (this.form.menuArea === "gases") {
       //get and init product status wich are just valid 4 gas
       await this.intProductStatus("producttype=55");
 
-      if(this.$route.query.doc === 'DRGAS')
-        this.headers =  gasServices.getTableHeadersView('wharehouse');
+      if (this.$route.query.doc === "DRGAS")
+        this.headers = gasServices.getTableHeadersView("wharehouse");
       else
-      this.headers = [
-        {
-          text: "#",
-          align: "left",
-          sortable: false,
-          value: "sel"
-        },
-        { text: "Artigo", value: "product" },
-        { text: "Descrição", value: "description" },
-        { text: "UN", value: "unity" },
-        { text: "Estado", value: "status_desc" },
-        { text: "Projeto", value: "project_desc" },
-        { text: "Notas", value: "notes" },
-        { text: "", value: "action", sortable: false }
-      ];
+        this.headers = [
+          {
+            text: "#",
+            align: "left",
+            sortable: false,
+            value: "sel"
+          },
+          { text: "Artigo", value: "product" },
+          { text: "Descrição", value: "description" },
+          { text: "UN", value: "unity" },
+          { text: "Estado", value: "status_desc" },
+          { text: "Projeto", value: "project_desc" },
+          { text: "Notas", value: "notes" },
+          { text: "", value: "action", sortable: false }
+        ];
     }
   },
 
-  computed: { 
-    ...mapGetters(['selectedDocument'])
+  computed: {
+    ...mapGetters(["selectedDocument"])
   },
 
   watch: {
@@ -419,25 +435,28 @@ export default {
       let url = await `products/filters?type=${this.formModel.documenttype.typeArticle}&code=${value}`;
 
       if (this.form.menuArea === "gases")
-        if(this.$route.query.doc === 'DGAS') {
-          url = `products/gasbottle?project=${'all'}`;
+        if (this.$route.query.doc === "DGAS") {
+          url = `products/gasbottle?project=${"all"}`;
           let pendingItems = await this.$store.dispatch("getDataAsync", url);
 
-          this.form.products = []
+          this.form.products = [];
 
           pendingItems.forEach(element => {
-            this.form.products.push({project: element.project, status: element.status , ...element.product })
+            this.form.products.push({
+              project: element.project,
+              status: element.status,
+              ...element.product
+            });
           });
-                this.isLoading = false;
+          this.isLoading = false;
 
           return;
+        } // project filter
+        else if (this.$route.query.doc === "DRGAS") {
+          this.form.products = await this.getProducts("all", 12, "55");
+          this.isLoading = false;
+          return;
         }
-        else // project filter
-          if(this.$route.query.doc === 'DRGAS') {
-            this.form.products = await this.getProducts('all', 12, '55') 
-            this.isLoading = false;
-            return
-          }
 
       if (value)
         this.form.products = await this.$store.dispatch("getDataAsync", url);

@@ -75,14 +75,14 @@
           caption
         ></v-autocomplete>
       </v-col>
-      <v-col v-show="$route.query.doc === 'DRGAS' 
+      <v-col v-show="$route.query.doc === 'DRGAS'
       && form.product_suppliers.length === 0">
-          <v-btn color="warning" @click="dialog = !dialog" flat small>Criar</v-btn>  
+        <v-btn color="warning" @click="dialog = !dialog" flat small>Criar</v-btn>
 
-          <v-dialog v-model="dialog" max-width="600px">
+        <v-dialog v-model="dialog" max-width="600px">
           <v-card>
             <v-card-title>
-              <span class="headline"> Novo fornecedor</span>
+              <span class="headline">Novo fornecedor</span>
             </v-card-title>
 
             <v-card-text>
@@ -94,17 +94,23 @@
                   <v-col cols="12" sm="12" md="8">
                     <v-text-field v-model="supplier.Name" label="Nome"></v-text-field>
                   </v-col>
-                </v-row>                
+                </v-row>
               </v-container>
             </v-card-text>
-            <v-card-actions><v-spacer></v-spacer>
-              <v-btn color="warning"  @click="dialog = !dialog" small>Cancelar</v-btn>               
-              <v-btn color="primary" :loading="onCreatingSupplier"  @click="createNewSupplier" small>Gravar</v-btn>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn color="warning" @click="dialog = !dialog" small>Cancelar</v-btn>
+              <v-btn
+                color="primary"
+                :loading="onCreatingSupplier"
+                @click="createNewSupplier"
+                small
+              >Gravar</v-btn>
             </v-card-actions>
           </v-card>
-        </v-dialog>       
+        </v-dialog>
       </v-col>
-      
+
       <v-col v-if="$route.query.doc !== 'DRGAS'">
         <v-autocomplete
           class="caption"
@@ -190,21 +196,25 @@ export default {
   }),
 
   beforeMount() {
-    console.log('The best way to predict your futere is to code bug', this.formModel.documenttype.code);
+    console.log(
+      "The best way to predict your futere is to code bug",
+      this.formModel.documenttype.code
+    );
   },
 
   methods: {
     async getProducts(supplier, status, type) {
-      return await this.$store.dispatch("getDataAsync", `products/supplier/${supplier}?status=${status}&type=${type}`)
+      return await this.$store.dispatch(
+        "getDataAsync",
+        `products/supplier/${supplier}?status=${status}&type=${type}`
+      );
     },
 
     async changeEntity(item) {
-    
       /*if(this.$route.query.doc === 'DRGAS') {
        this.formModel.items  = await this.getProducts(item.code, 12, '55');
       }*/
-      if(this.$route.query.doc !== 'DRGAS')
-      {
+      if (this.$route.query.doc !== "DRGAS") {
         this.formModel.items = [];
         this.formModel.businessArea = null;
 
@@ -219,7 +229,7 @@ export default {
           let entity = item.code;
           let typeArticle = this.formModel.documenttype.typeArticle;
 
-          console.log('FORM MODEL IS: ', this.formModel.documenttype.type);
+          console.log("FORM MODEL IS: ", this.formModel.documenttype.type);
 
           if (this.formModel.documenttype.type == "E") {
             var url = `products/entity/${
@@ -228,16 +238,24 @@ export default {
 
             var items = await this.$store.dispatch("getDataAsync", url);
 
+            console.log(this.formModel.businessArea);
+
             items.forEach(line => {
               this.formModel.items.push({
-                product_id: line.product_id,
-                description: line.description,
-                unit_id: line.Product.Unity ?  line.Product.Unity.base : '',
-                project_id: null,
+                product: line.Product.code,
+                description: line.Product.description,
+                unity: line.Product.Unity ? line.Product.Unity.base : "",
+                project: null,
                 quantity: line.quantity,
-                businessArea_id: this.formModel.businessArea,
                 notes: null,
-                in_out: this.formModel.documenttype.type
+                in_out: this.formModel.documenttype.type,
+                warehouse: localStorage.warehouse || "Sede",
+                location: localStorage.localization || "Sede",
+                factor: 1,
+                branch: localStorage.branch,
+                businessArea: !this.formModel.businessArea.code
+                  ? this.formModel.businessArea
+                  : this.formModel.businessArea.code
               });
             });
           }
@@ -245,21 +263,21 @@ export default {
       }
     },
 
-    async createNewSupplier(){
-      this.onCreatingSupplier = true
+    async createNewSupplier() {
+      this.onCreatingSupplier = true;
 
       await this.$store
-        .dispatch("postDataAsync", { api_resourse: "products/suppliers", post_data : this.supplier }) 
-        .then((result) => {
-            this.onCreatingSupplier = false
-            this.dialog = !this.dialog
-            this.$emit('search-entities', result.code)
-            this.formModel.entity = result
-        }).catch((err) => {
-          
-        });
-
-      
+        .dispatch("postDataAsync", {
+          api_resourse: "products/suppliers",
+          post_data: this.supplier
+        })
+        .then(result => {
+          this.onCreatingSupplier = false;
+          this.dialog = !this.dialog;
+          this.$emit("search-entities", result.code);
+          this.formModel.entity = result;
+        })
+        .catch(err => {});
     },
 
     filterCodeName(item, queryText, itemText) {
@@ -292,7 +310,7 @@ export default {
 
   watch: {
     searchEntity(value) {
-      this.$emit('search-entities', value)
+      this.$emit("search-entities", value);
     }
   }
 };
