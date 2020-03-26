@@ -42,7 +42,6 @@ export default {
     console.log(documentType)
 
     if (documentType.isStockMovimentEntity) {
-      this.url = `products/entity/${"all"}/filters?HasStock=${1}&Type=${this.documentTypes[0].typeArticle}`;
 
       this.headers = [
         {
@@ -54,15 +53,15 @@ export default {
         { text: "Aréa Negocio", value: "businessArea" },
         { text: "Funcionario", value: "Entity.code" },
         { text: "Nome", value: "Entity.name" },
-        { text: "Artigo", value: "product_id" },
-        { text: "Descrição", value: "description" },
+        { text: "Artigo", value: "Product.code" },
+        { text: "Descrição", value: "Product.description" },
         { text: "UN", value: "Product.Unity.base" },
         { text: "Qnt.", value: "quantity" }
       ];
 
-      this.url = `products/entity/${"all"}/filters?hasstock=${this.hasStock}&type=${this.productType}`
+      this.url = `products/entity/${"all"}/filters?HasStock=${1}&Type=${this.documentTypes[0].typeArticle}`;
       this.pedding_Items = await this.$store.dispatch("getDataAsync", this.url);
-
+console.log(' THE URL IS: ', this.url);
       return
     }
 
@@ -82,7 +81,6 @@ export default {
 
     if (documentType.isStockMoviment) {
 
-
       this.headers = [
         {
           text: "#",
@@ -100,12 +98,10 @@ export default {
       this.url = `products/warehouse/${"all"}/filters?hasstock=${1}&type=${
         this.documentTypes[0].typeArticle
       }`;
+
       this.pedding_Items = await this.$store.dispatch("getDataAsync", this.url);
       return
     }
-
-    //
-    //console.log(' THE URL IS: ', this.url);
 
   },
   methods:{
