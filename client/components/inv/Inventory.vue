@@ -29,13 +29,13 @@
   </v-flex>
 </template>
 <script>
-import gasServices from '@/services/gasServices.js';
+import gasServices from "@/services/gasServices.js";
 
 export default {
   data: () => ({
     type: "",
     search: "",
-    menuArea: '',
+    menuArea: "",
     isLoading: false,
     items: [],
     selected: [],
@@ -54,12 +54,14 @@ export default {
 
   methods: {
     async initComponent(menuArea) {
-      if(menuArea === 'gases') { // project filter
-        let value = 'all' //TODO : search form
+      let currentQuery = this.$route.query.tipo;
+      if (menuArea === "gases") {
+        // project filter
+        let value = "all"; //TODO : search form
         let url = `products/filters?type=55&code=${value}&project=${value}`;
 
         //Init headers
-        this.headers = gasServices.getTableHeadersView('wharehouse');
+        this.headers = gasServices.getTableHeadersView("wharehouse");
         this.items = await this.$store.dispatch("getDataAsync", url);
       } else {
         //TODO: Implement the appropriet logic here
@@ -69,7 +71,7 @@ export default {
           "documenttypes/" + this.type
         );
 
-        let url = `products/entity/${'all'}/filters?hasstock=${1}&documentType=${
+        let url = `products/entity/${"all"}/filters?hasstock=${1}&documentType=${
           this.documentTypes[0].typeArticle
         }`;
 
@@ -80,6 +82,6 @@ export default {
 
   async created() {
     this.initComponent(this.$route.query.tipo);
-  },
+  }
 };
 </script>

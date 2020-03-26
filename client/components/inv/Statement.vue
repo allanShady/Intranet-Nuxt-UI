@@ -8,20 +8,20 @@
 
       <v-tab-item>
         <v-card tile>
-            <Stock></Stock>
+          <Stock></Stock>
         </v-card>
       </v-tab-item>
 
-      <v-tab-item>
+      <v-tab-item  v-if="wharehouseTabVisible">
         <v-card tile>
-            <Inventory-form v-if="wharehouseTabVisible"></Inventory-form>
+          <Inventory-form v-if="wharehouseTabVisible"></Inventory-form>
         </v-card>
       </v-tab-item>
 
-      <v-tab-item>
+      <v-tab-item v-if="tabVisible">
         <v-card tile>
           <v-card-text>
-                <!--Wharehouse component goes here-->
+            <!--Wharehouse component goes here-->
           </v-card-text>
         </v-card>
       </v-tab-item>
@@ -37,7 +37,6 @@
   </div>
 </template>
 <script>
-
 import InventoryForm from "@/components/inv/Inventory";
 import StatementList from "@/components/inv/StatementList";
 import Stock from "@/components/inv/Stock";
@@ -47,7 +46,7 @@ export default {
     return {
       tabVisible: false,
       wharehouseTabVisible: true
-    }
+    };
   },
   components: {
     InventoryForm,
@@ -56,12 +55,14 @@ export default {
   },
 
   created() {
+    //Hide the validation tab if the area is for gases
+    let currentQuery = this.$route.query.tipo;
 
-  //Hide the validation tab if the area is for gases
-  let currentQuery = this.$route.query.tipo;
+    console.log(currentQuery)
 
-  if(currentQuery === 'PPC') this.tabVisible = true
-  if( currentQuery === 'Stock') this.wharehouseTabVisible = false
+    if (currentQuery === "PPC") this.tabVisible = true;
+    if (currentQuery === "Stock") this.wharehouseTabVisible = false;
+
   }
 };
 </script>

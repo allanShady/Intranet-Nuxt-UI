@@ -24,12 +24,12 @@ export default {
   }),
 
   async created() {
+    let doc = this.$route.query.tipo;
+
     this.businessArea = await this.$store.dispatch(
       "getDataAsync",
       "businessArea"
     );
-
-    let doc = this.$router.currentRoute.query["tipo"];
 
     this.documentTypes = await this.$store.dispatch(
       "getDataAsync",
@@ -39,8 +39,10 @@ export default {
     this.classifier = doc;
     let documentType = this.documentTypes[0];
 
+    console.log(documentType)
+
     if (documentType.isStockMovimentEntity) {
-      this.url = `products/entity/${"all"}/filters?hasstock=${1}&type=${this.documentTypes[0].typeArticle}`;
+      this.url = `products/entity/${"all"}/filters?HasStock=${1}&Type=${this.documentTypes[0].typeArticle}`;
 
       this.headers = [
         {
@@ -57,10 +59,15 @@ export default {
         { text: "UN", value: "Product.Unity.base" },
         { text: "Qnt.", value: "quantity" }
       ];
+
+      this.url = `products/entity/${"all"}/filters?hasstock=${this.hasStock}&type=${this.productType}`
+      this.pedding_Items = await this.$store.dispatch("getDataAsync", this.url);
+
+      return
     }
 
-     if(this.$route.query.tipo == 'gases') {
-    
+    if(this.$route.query.tipo == 'gases') {
+
       this.headers = [
         { text: "Artigo", value: "product.code" },
         { text: "Descrição", value: "product.description" },
@@ -68,15 +75,13 @@ export default {
         { text: "Estado", value: "status.description" },
         { text: "Fornecedor", value: "supplier.name" }
       ];
-    
+
       this.pedding_Items = await this.getGasBottlesInProject();
       return
     }
 
     if (documentType.isStockMoviment) {
-      this.url = `products/warehouse/${"all"}/filters?hasstock=${1}&type=${
-        this.documentTypes[0].typeArticle
-      }`;
+
 
       this.headers = [
         {
@@ -91,11 +96,17 @@ export default {
         { text: "Filial", value: "Warehouse.branch" },
         { text: "Stock", value: "stock" }
       ];
+
+      this.url = `products/warehouse/${"all"}/filters?hasstock=${1}&type=${
+        this.documentTypes[0].typeArticle
+      }`;
+      this.pedding_Items = await this.$store.dispatch("getDataAsync", this.url);
+      return
     }
 
-    //this.url = `products/entity/${"all"}/filters?hasstock=${this.hasStock}&type=${this.productType}`
+    //
     //console.log(' THE URL IS: ', this.url);
-    this.pedding_Items = await this.$store.dispatch("getDataAsync", this.url);
+
   },
   methods:{
     async getGasBottlesInProject(project) {

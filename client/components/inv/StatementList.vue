@@ -105,8 +105,10 @@ export default {
   beforeMount: async function() {},
   methods: {
     async openStatement() {
+      let currentQuery = this.$route.query.tipo;
+      console.log(currentQuery)
       let doc = this.$router.currentRoute.query["tipo"];
-
+      console.log(doc)
       this.documentTypes = await this.$store.dispatch(
         "getDataAsync",
         "documenttypes/" + doc
