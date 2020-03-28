@@ -6,11 +6,59 @@
     item-key="product"
     class="elevation-1"
     :show-select="form.isSelectedProduct"
+    :loading="loadingTableRecords"
   >
+    <!-- NOTAS Edity quantity -->
+    <template v-if="$route.query.doc === 'DPPC'" v-slot:item.quantity="props">
+        <v-edit-dialog
+          :return-value.sync="props.item.quantity"
+          
+        > {{ props.item.quantity }}
+          <template v-slot:input>
+            <v-text-field
+              dense
+              v-model="props.item.quantity"
+              label="Qtd Entregar"
+              single-line
+              type="number"
+              min="1"
+            ></v-text-field>
+          </template>
+        </v-edit-dialog>
+      </template>
+      <!-- Edit status -->
+      <template v-if="$route.query.doc === 'DPPC'" v-slot:item.status.description="props">
+           <v-autocomplete width="50px"
+              dense
+              class="caption"
+              :items="product_statuses"
+              v-model="props.item.status"
+              item-text="description"
+              item-value="code"
+              required
+              return-object
+            ></v-autocomplete>
+        </template>
+          <template v-if="$route.query.doc === 'DPPC'" v-slot:item.notes="props">
+        <v-edit-dialog
+          :return-value.sync="props.item.notes"
+          
+        > {{ props.item.notes }}
+          <template v-slot:input>
+            <v-text-field
+              dense
+              v-model="props.item.notes"
+              label="Notas"
+              single-line
+            ></v-text-field>
+          </template>
+        </v-edit-dialog>
+      </template>
+
     <template v-slot:top>
       <v-toolbar flat dense color="transparent">
         <v-toolbar-title>
-          <h3>Linhas</h3>
+          <h6 color="warning">{{TableHeaderText}}</h6>
         </v-toolbar-title>
 
         <v-spacer></v-spacer>
@@ -19,6 +67,7 @@
           <template v-slot:activator="{ on }">
             <v-icon v-on="on" v-show="!form.canAddProduct" color="primary">mdi-plus-circle-outline</v-icon>
             <v-text-field
+              dense
               v-model="search"
               append-icon="search"
               label="Pesquisa"
@@ -37,6 +86,7 @@
               <v-container>
                 <v-row>
                   <v-autocomplete
+                    dense
                     v-if="($route.query.doc === 'EGAS')"
                     class="body-1"
                     :items="form.projects"
@@ -53,6 +103,7 @@
                 </v-row>
                 <v-row>
                   <v-autocomplete
+                    dense
                     class="body-1"
                     :items="form.products"
                     v-model="editedItem.product"
@@ -72,6 +123,7 @@
                 <!-- this row is not applied for Gas area-->
                 <v-row v-if="!($route.query.tipo === 'gases')">
                   <v-autocomplete
+                    dense
                     class="body-1"
                     :items="form.unitys"
                     v-model="editedItem.unity"
@@ -85,18 +137,21 @@
                   ></v-autocomplete>
                   <v-spacer></v-spacer>
                   <v-text-field
+                    dense
                     type="number"
-                    min="0"
+                    value="1"
+                    min="1"
                     :rules="[
                         form.rulesQuantity.loanMin,
                         form.rulesQuantity.loanMaxMax
                       ]"
                     v-model="editedItem.quantity"
-                    label="Qnt."
+                    label="Qtd."
                   ></v-text-field>
                 </v-row>
                 <v-row v-else-if="($route.query.tipo === 'gases')">
                   <v-autocomplete
+                    dense
                     v-if="$route.query.doc !== 'DRGAS'"
                     :disabled="!editedItem.product"
                     class="body-1"
@@ -112,7 +167,7 @@
                   ></v-autocomplete>
                 </v-row>
                 <v-row>
-                  <v-textarea clearable v-model="editedItem.notes" label="Notas"></v-textarea>
+                  <v-textarea dense clearable v-model="editedItem.notes" label="Notas"></v-textarea>
                 </v-row>
               </v-container>
             </v-card-text>
@@ -142,13 +197,14 @@
       >mdi-minus-circle-outline</v-icon>
     </template>
 
-    <template v-slot:no-data>0 - Linhas Adicionadas</template>
+    <template dense v-slot:no-data>0 - Linhas Adicionadas</template>
   </v-data-table>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
 import gasServices from '@/services/gasServices.js';
+import ppcServices from '@/services/ppcServices.js';
 
 export default {
   props: {
@@ -207,11 +263,12 @@ export default {
 
   data: () => ({
     isSelected: false,
-
+    loadingTableRecords: false,
     isLoading: false,
     model: null,
+    product_statuses:[],
     search: null,
-
+    TableHeaderText: 'Linhas',
     editedItem: { quantity: 0 },
     editedIndex: 0,
     defaultItem: {
@@ -348,7 +405,7 @@ export default {
         "getDataAsync",
         `products/statuses/filters?${productType}`
       );
-    },
+    }, 
 
     filterCodeDesc(item, queryText, itemText) {
       if (!queryText) return "";
@@ -382,6 +439,17 @@ export default {
 
     console.log('Form model document type: ', this.$store.getters.electedDocument);
 
+
+    if(this.$route.query.doc === 'DPPC') {
+      this.headers =  ppcServices.getTableHeadersView('DPPC');
+
+      this.product_statuses = await this.$store.dispatch(
+        "getDataAsync",
+        "products/statuses"
+      );
+      this.TableHeaderText = 'PPCs pendentes de devolução'
+    }
+    else
     //TODO: Please refactory this code i'm bagging cause this is hard to maintan
     if (this.form.menuArea === "gases") {
       //get and init product status wich are just valid 4 gas
