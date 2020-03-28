@@ -39,6 +39,7 @@
 <script>
 import LinesDocumentForm from "@/components/inv/LinesDocument";
 import HeaderDocumentForm from "@/components/inv/HeaderDocument";
+import ppcServices from '@/services/ppcServices.js';
 
 export default {
   components: {
@@ -214,6 +215,23 @@ export default {
       return itemsToSave;
     },
 
+    async uploadFile(subDirectory, ownerId) {
+      const formData = new FormData();
+
+      formData.append('files', this.formModel.attachments)
+      
+      if(this.formModel.attachments && ownerId) {        
+        await this.$store
+        .dispatch("postDataWithCustomHeaderAsync", 
+        { 
+          api_resourse: `file/upload/${subDirectory}/${ownerId}`, 
+          post_data: formData, 
+          headers: {'Content-Type': 'multipart/form-data'} 
+        })
+        .then(resp => { console.log(resp) });
+      }
+    },
+
     async submit() {
       let details = [];
 
@@ -247,6 +265,9 @@ export default {
         post_data.supplier_id = !this.formModel.entity
           ? null
           : this.formModel.entity.code;
+      } 
+      else if(this.$route.query.doc === "DPPC") {
+        post_data.details = ppcServices.prepareLinesToSave(this.formModel.items)
       }
 
       this.formModel.isSavingData = true;
@@ -256,6 +277,11 @@ export default {
       await this.$store
         .dispatch("postDataAsync", { api_resourse: "stocks", post_data })
         .then(response => {
+          //Upload file
+          this.uploadFile(this.$route.query.tipo, response.id)
+          .then(res => {console.log('The file ', res)})
+          //2. Update document file
+
           this.formModel.isSavingData = !this.formModel.isSavingData;
           alert("Documento Gravado - com Sucesso");
 
