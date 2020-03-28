@@ -115,8 +115,6 @@ export const actions = {
   },
 
   async postDataWithCustomHeaderAsync(vuexContext, data) {
-
-    console.log('Data to save are: ', data)
     return await this.$axios
       .$post(`/${data.api_resourse}`, data.post_data, data.headers)
       .then(response => response)
