@@ -3,6 +3,7 @@
     <v-row>
       <v-col>
         <v-autocomplete
+          dense
           prepend-icon="mdi-text-box"
           color="primary"
           disabled
@@ -23,6 +24,7 @@
 
       <v-col>
         <v-text-field
+          dense
           prepend-icon="mdi-file-document-outline"
           v-model="formModel.referenceDoc"
           label="Nr. Guia"
@@ -41,6 +43,7 @@
         >
           <template v-slot:activator="{ on }">
             <v-text-field
+              dense
               v-model="formModel.date"
               label="Date"
               prepend-icon="event"
@@ -55,6 +58,7 @@
     <v-row>
       <v-col>
         <v-autocomplete
+          dense
           class="body-1"
           v-model="formModel.entity"
           :items=" $route.query.doc !== 'DRGAS' ?  form.employees : form.product_suppliers"
@@ -89,10 +93,10 @@
               <v-container>
                 <v-row>
                   <v-col cols="12" sm="12" md="4">
-                    <v-text-field v-model="supplier.code" label="Codigo"></v-text-field>
+                    <v-text-field dense v-model="supplier.code" label="Codigo"></v-text-field>
                   </v-col>
                   <v-col cols="12" sm="12" md="8">
-                    <v-text-field v-model="supplier.Name" label="Nome"></v-text-field>
+                    <v-text-field dense v-model="supplier.Name" label="Nome"></v-text-field>
                   </v-col>
                 </v-row>                
               </v-container>
@@ -107,6 +111,7 @@
       
       <v-col v-if="$route.query.doc !== 'DRGAS'">
         <v-autocomplete
+          dense
           class="caption"
           v-model="formModel.businessArea"
           :items="form.businessArea"
@@ -126,7 +131,7 @@
     </v-row>
     <v-row>
       <v-col>
-        <v-file-input show-size counter multiple label="Anexo"></v-file-input>
+        <v-file-input dense show-size v-model="formModel.attachments" counter label="Anexo"></v-file-input>
       </v-col>
     </v-row>
   </v-flex>
@@ -219,15 +224,31 @@ export default {
           let entity = item.code;
           let typeArticle = this.formModel.documenttype.typeArticle;
 
-          console.log('FORM MODEL IS: ', this.formModel.documenttype.type);
+          console.log('FORM MODEL IS: ', this.formModel.documenttype);
+
+          //Get Pending items
+          if(this.$route.query.doc === 'DPPC') {
+            let url = `stocks/pending?entity=${item.code}&statusArtigo=${6}&doctype=${'EPPC'}`;
+            
+            this.form.loadingTableRecords = true;
+            await this.$store.dispatch("getDataAsync", url)
+            .then((resp) => {
+              resp.forEach(element => {
+                this.formModel.items.push(element);
+              });
+              this.form.loadingTableRecords = false
+              
+            });
+
+          }else
 
           if (this.formModel.documenttype.type == "E") {
-            var url = `products/entity/${
+            let url = `products/entity/${
               item.code
             }/filters?hasstock=${1}&type=${typeArticle}`;
 
-            var items = await this.$store.dispatch("getDataAsync", url);
-
+            let items = await this.$store.dispatch("getDataAsync", url);
+            console.log('My items: ', items);
             items.forEach(line => {
               this.formModel.items.push({
                 product_id: line.product_id,
