@@ -11,7 +11,11 @@
 
           <v-card-text>
             <v-flex lg12>
-              <HeaderDocument-Form v-bind:form="form" @search-entities="searchEntities"  v-bind:formModel="formModel"></HeaderDocument-Form>
+              <HeaderDocument-Form
+                v-bind:form="form"
+                @search-entities="searchEntities"
+                v-bind:formModel="formModel"
+              ></HeaderDocument-Form>
             </v-flex>
             <v-flex lg12>
               <LinesDocument-Form v-bind:form="form" v-bind:formModel="formModel"></LinesDocument-Form>
@@ -32,6 +36,12 @@
           </v-card-actions>
         </v-card>
       </v-flex>
+
+      <!-- File upload snack bar reporting -->
+      <v-snackbar v-model="snackBar.show" top :color="snackBar.color" :timeout="snackBar.timeout">
+        {{ snackBar.display_message }}
+        <v-btn small text @click="snackBar.show = false">Close</v-btn>
+      </v-snackbar>
     </v-layout>
   </v-container>
 </template>
@@ -39,7 +49,7 @@
 <script>
 import LinesDocumentForm from "@/components/inv/LinesDocument";
 import HeaderDocumentForm from "@/components/inv/HeaderDocument";
-import ppcServices from '@/services/ppcServices.js';
+import ppcServices from "@/services/ppcServices.js";
 
 export default {
   components: {
@@ -93,11 +103,18 @@ export default {
       })
     }
   },
-  data: () => ({}),
+  data: () => ({
+    snackBar: {
+      show: false,
+      color: "cyan darken-2",
+      display_message: "O upload do anexo foi terminado com sucesso",
+      timeout: 6000
+    }
+  }),
 
   beforeMount: async function() {
     let doc = this.$router.currentRoute.query["doc"];
-    let classifier = this.$router.currentRoute.query["tipo"];   
+    let classifier = this.$router.currentRoute.query["tipo"];
 
     /*this.form.employees = await this.$store.dispatch(
       "getDataAsync",
@@ -125,6 +142,7 @@ export default {
 
     this.form.unitys = await this.$store.dispatch("getDataAsync", "units");
   },
+
   methods: {
     async redirectDashboard() {
       let doc = this.$router.currentRoute.query["doc"];
@@ -139,13 +157,14 @@ export default {
       if (this.$route.query.doc === "DRGAS")
         this.form.product_suppliers = await this.$store.dispatch(
           "getDataAsync",
-          `products/suppliers?supplier=${value}`); 
-        else
-        {
-          this.form.employees = await this.$store.dispatch(
+          `products/suppliers?supplier=${value}`
+        );
+      else {
+        this.form.employees = await this.$store.dispatch(
           "getDataAsync",
-          `entities?SearchTerm=${value}`);
-        }
+          `entities?SearchTerm=${value}`
+        );
+      }
     },
 
     async clearDoc() {
@@ -218,17 +237,18 @@ export default {
     async uploadFile(subDirectory, ownerId) {
       const formData = new FormData();
 
-      formData.append('files', this.formModel.attachments)
-      
-      if(this.formModel.attachments && ownerId) {        
+      formData.append("files", this.formModel.attachments);
+
+      if (this.formModel.attachments && ownerId) {
         await this.$store
-        .dispatch("postDataWithCustomHeaderAsync", 
-        { 
-          api_resourse: `file/upload/${subDirectory}/${ownerId}`, 
-          post_data: formData, 
-          headers: {'Content-Type': 'multipart/form-data'} 
-        })
-        .then(resp => { console.log(resp) });
+          .dispatch("postDataWithCustomHeaderAsync", {
+            api_resourse: `file/upload/${subDirectory}/${ownerId}`,
+            post_data: formData,
+            headers: { "Content-Type": "multipart/form-data" }
+          })
+          .then(resp => {
+            console.log(resp);
+          });
       }
     },
 
@@ -265,36 +285,56 @@ export default {
         post_data.supplier_id = !this.formModel.entity
           ? null
           : this.formModel.entity.code;
-      } 
-      else if(this.$route.query.doc === "DPPC") {
-        post_data.details = ppcServices.prepareLinesToSave(this.formModel.items)
+      } else if (this.$route.query.doc === "DPPC") {
+        post_data.details = ppcServices.prepareLinesToSave(
+          this.formModel.items
+        );
       }
 
       this.formModel.isSavingData = true;
 
-      console.log(post_data);
-
       await this.$store
         .dispatch("postDataAsync", { api_resourse: "stocks", post_data })
-        .then(response => {
+        .then(async response => {
+          //Pass value for the globally snack bar
+          this.$store.dispatch("activeSnackBar", {
+            show: true,
+            color: "success",
+            display_message: `${this.formModel.documenttype.code} - gravado com sucesso. Fazendo upload dos ficheiros`,
+            timeout: 12000,
+            Bottom: true,
+            left: true,
+            right: false,
+            top: false
+          });
+
           //Upload file
-          this.uploadFile(this.$route.query.tipo, response.id)
-          .then(res => {console.log('The file ', res)})
-          //2. Update document file
+          await this.uploadFile(this.$route.query.tipo, response.id).then(
+            res => {
+              this.snackBar.show = true;
+              //2. Update document file
+              this.formModel.isSavingData = !this.formModel.isSavingData;
 
-          this.formModel.isSavingData = !this.formModel.isSavingData;
-          alert("Documento Gravado - com Sucesso");
-
-          if (this.isSavingDataAndClose == true) {
-            this.redirectDashboard();
-          } else {
-            this.clearDoc();
-          }
+              if (this.isSavingDataAndClose == true) {
+                this.redirectDashboard();
+              } else {
+                this.clearDoc();
+              }
+            }
+          );
         })
         .catch(error => {
-          console.log("Error on the component");
-          console.log(error);
-          alert("Ocorreu um erro durante a gração do documento");
+          console.log("Erro: ", error);
+          this.$store.dispatch("activeSnackBar", {
+            show: true,
+            color: "error",
+            display_message: `Erro ao gravar - ${this.$$route.query.doc}.`,
+            timeout: 7000,
+            Bottom: true,
+            left: true,
+            right: false,
+            top: false
+          });
         });
     },
     //==============================================================================================================================================

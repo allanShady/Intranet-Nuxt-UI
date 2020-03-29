@@ -8,14 +8,18 @@
           <v-container class="mb-12">
             <!-- Page Header -->
             <page-header></page-header>
-            <nuxt :key="$route.fullPath"/>
+            <nuxt :key="$route.fullPath" />
           </v-container>
           <!-- App Footer -->
           <v-footer height="auto" class="white pa-3 app--footer">
             <span class="caption">&copy; {{ new Date().getFullYear() }}</span>
             <v-spacer></v-spacer>
-            <span class="caption mr-1">Developed & suppoted by 
-              <a href="https://www.incentea.com/pt/home?country=mocambique">InCentea MZ</a> </span>
+            <span class="caption mr-1">
+              Developed & supported by
+              <a
+                href="https://www.incentea.com/pt/home?country=mocambique"
+              >ínCentea MZ</a>
+            </span>
             <!--v-icon color="pink" small>favorite</v-icon-->
           </v-footer>
         </v-content>
@@ -46,28 +50,34 @@
         >
           <theme-settings></theme-settings>
         </v-navigation-drawer>
+
+        <v-snackbar
+          :value="snackBar.show"
+          :bottom="snackBar.bottom"
+          :color="snackBar.color"
+          :left="snackBar.left"
+          :right="snackBar.right"
+          :timeout="snackBar.timeout"
+          :top="snackBar.top"
+        >
+          {{ snackBar.display_message }}
+          <v-btn text @click="closeSnackBar(true)">Close</v-btn>
+        </v-snackbar>
       </v-app>
     </template>
-
-    <v-snackbar :timeout="3000" bottom right :color="snackbar.color" v-model="snackbar.show">
-      {{ snackbar.text }}
-      <v-btn dark flat @click.native="snackbar.show = false" icon>
-        <v-icon>close</v-icon>
-      </v-btn>
-    </v-snackbar>
   </div>
 </template>
 
 <script>
-import AppDrawer from '@/components/AppDrawer'
-import AppToolbar from '@/components/AppToolbar'
-import AppFab from '@/components/AppFab'
-import PageHeader from '@/components/PageHeader'
-import ThemeSettings from '@/components/ThemeSettings'
+import AppDrawer from "@/components/AppDrawer";
+import AppToolbar from "@/components/AppToolbar";
+import AppFab from "@/components/AppFab";
+import PageHeader from "@/components/PageHeader";
+import ThemeSettings from "@/components/ThemeSettings";
+import { mapState, mapActions } from "vuex";
 
 export default {
-
-  middleware: 'custom-auth',
+  middleware: "custom-auth",
   components: {
     AppDrawer,
     AppToolbar,
@@ -77,21 +87,21 @@ export default {
   },
   data: () => ({
     expanded: true,
-    rightDrawer: false,
-    snackbar: {
-      show: false,
-      text: '',
-      color: ''
-    }
+    rightDrawer: false
   }),
 
   methods: {
     openThemeSettings() {
-      this.$vuetify.goTo(0)
-      this.rightDrawer = !this.rightDrawer
-    }
+      this.$vuetify.goTo(0);
+      this.rightDrawer = !this.rightDrawer;
+    },
+    ...mapActions(["closeSnackBar"])
+  },
+
+  computed: {
+    ...mapState(["snackBar"])
   }
-}
+};
 </script>
 
 <style lang="stylus" scoped>

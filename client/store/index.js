@@ -15,6 +15,16 @@ const removeLocalStoreAuthData = () => {
 };
 
 export const state = () => ({
+  snackBar: {
+    show: false,
+    color: 'info',
+    display_message: '',
+    timeout: 3000,
+    Bottom: true,
+    left: true,
+    right: false,
+    top: false,
+  }, 
   drawer: true,
   loginErrorMsg: null,
   branch: null,
@@ -34,8 +44,22 @@ export const mutations = {
     state.productPagination = pagination;
   },
 
+  ACTIVE_SNACK_BAR(state, snackBar) {
+    state.snackBar.show = snackBar.show
+    state.snackBar.display_message = snackBar.display_message
+    state.snackBar.color = snackBar.color
+    state.snackBar.timeout = snackBar.timeout
+    state.snackBar.Bottom = snackBar.Bottom
+    state.snackBar.left = snackBar.left
+    state.snackBar.right = snackBar.right
+    state.snackBar.top = snackBar.top
+  },
+
+  CLOSE_SNACK_BAR(state, snackBar) {
+    state.snackBar.show = snackBar.show
+  },
+
   SET_CURRENT_SELECTED_DOCUMENT(state, document) {
-    console.log('mutation to')
     state.currentSelectedDocument = document;
   },
 
@@ -87,8 +111,15 @@ export const actions = {
       });
   },
 
+  activeSnackBar(vuexContext, snackBar){
+    vuexContext.commit('ACTIVE_SNACK_BAR', snackBar);
+  },
+
+  closeSnackBar(vuexContext, showSnackBar){
+    vuexContext.commit('CLOSE_SNACK_BAR', showSnackBar);
+  },
+
   setCurrentDocument(vuexContext, document){
-    console.log('Action called')
     vuexContext.commit('SET_CURRENT_SELECTED_DOCUMENT', document);
   },
 
@@ -149,8 +180,12 @@ export const getters = {
     return state.loginErrorMsg;
   },
 
-  productPagination(state) {
-    return state.productPagination;
+  loginErrorMsg(state) {
+    return state.loginErrorMsg;
+  },
+
+  snackBar(state) {
+    return state.snackBar;
   },
 
   selectedDocument(state) {

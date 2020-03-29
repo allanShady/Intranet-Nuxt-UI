@@ -17,7 +17,8 @@
             <Inventory-form v-if="wharehouseTabVisible"></Inventory-form>
         </v-card>
       </v-tab-item>
-
+      
+      <!-- Validation tables -->
       <v-tab-item>
         <v-card tile>
           <v-card-text>
