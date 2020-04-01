@@ -22,7 +22,7 @@
       <v-tab-item>
         <v-card tile>
           <v-card-text>
-                <!--Wharehouse component goes here-->
+            <items-delivery-validation-tab></items-delivery-validation-tab>
           </v-card-text>
         </v-card>
       </v-tab-item>
@@ -42,6 +42,7 @@
 import InventoryForm from "@/components/inv/Inventory";
 import StatementList from "@/components/inv/StatementList";
 import Stock from "@/components/inv/Stock";
+import ItemsDeliveryValidationTab from './ItemsDeliveryValidationTab';
 
 export default {
   data() {
@@ -53,7 +54,8 @@ export default {
   components: {
     InventoryForm,
     StatementList,
-    Stock
+    Stock,
+    ItemsDeliveryValidationTab
   },
 
   created() {
