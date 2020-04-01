@@ -228,7 +228,7 @@ export default {
 
           //Get Pending items
           if(this.$route.query.doc === 'DPPC') {
-            let url = `stocks/pending?entity=${item.code}&statusArtigo=${6}&doctype=${'EPPC'}`;
+            let url = `stocks/pending?entity=${item.code}&productstatuses=${6}&doctype=${'EPPC'}`;
             
             this.form.loadingTableRecords = true;
             await this.$store.dispatch("getDataAsync", url)
