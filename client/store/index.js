@@ -3,6 +3,8 @@ const logError = error => {
     console.log(error.response.data);
     console.log(error.response.status);
     console.log(error.response.headers);
+
+    return error.response.status;
   }
 };
 
@@ -142,7 +144,7 @@ export const actions = {
     return await this.$axios
       .$post(`/${data.api_resourse}`, data.post_data)
       .then(response => response)
-      .catch(error => logError(error));
+      .catch(error => { logError(error) });
   },
 
   async postDataWithCustomHeaderAsync(vuexContext, data) {
