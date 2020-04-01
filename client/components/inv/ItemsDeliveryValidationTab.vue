@@ -1,114 +1,225 @@
 <template>
-<v-flex>
-    <v-text-field v-model="search" append-icon="mdi-magnify" placeholder="pesquisar..." single-line hide-details></v-text-field>
-  <v-data-table :headers="headers" :items="pedding_Items" :search="search">
-  </v-data-table>
+  <v-flex>
+    <v-row>
+    <v-combobox
+      v-model="selected_statuses"
+      :items="statuses"
+      label="Selecione os estados de validação"
+      item-text="description"
+      multiple
+      clearable
+      hide-selected
+      :loading="onFecthingItems"
+      small-chips
+      deletable-chips
+      auto-select-first
+      outlined
+      return-object
+      dense
+    ></v-combobox>
+    <v-spacer></v-spacer>
+    <v-btn v-show="pending_selected_items.length > 0" small color="success"
+     @click="submitValidationOfSelectedItems()" 
+    >Validar</v-btn>
+    </v-row>
+    <v-data-table
+      :headers="headers"
+      v-model="pending_selected_items"
+      :items="pending_items"
+      show-select
+      :search="search"
+      class="caption"
+    >
+      <template v-slot:item.status.description="{ item }">
+        <v-chip
+          small
+          :color="getColor(item.status)"
+          dark
+        >{{ statusProperlyDescription(item.status)}}</v-chip>
+      </template>
+      
+      <!-- edit quantity -->
+    <template v-slot:item.quantity="props">
+      <v-edit-dialog :return-value.sync="props.item.quantity">
+        {{ props.item.quantity }}
+        <template v-slot:input>
+          <v-text-field
+            dense
+            v-model="props.item.quantity"
+            label="Qtd validada"
+            single-line
+            type="number"
+            min="1"
+          ></v-text-field>
+        </template>
+      </v-edit-dialog>
+    </template>
+
+      <!-- Notas validacao -->
+      <template v-slot:item.validation_notes="props">
+      <v-edit-dialog :return-value.sync="props.item.validation_notes">
+        {{ props.item.validation_notes }}
+        <template v-slot:input>
+          <v-text-field dense class="caption" v-model="props.item.validation_notes" label="Notas validação" single-line></v-text-field>
+        </template>
+      </v-edit-dialog>
+    </template>
+    </v-data-table>
   </v-flex>
 </template>
+
 <script>
+import ppcServices from "@/services/ppcServices.js";
+
 export default {
   data: () => ({
-    search: "",
-    isLoading: false,
-    documentTypes: [],
-    pedding_Items: [],
-    hasStock: 0,
-    productType: '',
-    url: '',
-    classifier: null,
-    businessArea: [],
+    search: '',
+    onFecthingItems: false,
+    pending_selected_items: [],
+    pending_items: [],
+    selected_statuses: [],
+    statuses: ["Programming", "Design", "Vue", "Vuetify"],
     headers: []
   }),
 
   async created() {
-    this.businessArea = await this.$store.dispatch(
-      "getDataAsync",
-      "businessArea"
-    );
+    this.headers = ppcServices.getTableHeadersView4Validation("DPPC");
+    this.pending_items = await this.fecthPendingItems4Validation()
 
-    let doc = this.$router.currentRoute.query["tipo"];
-
-    this.documentTypes = await this.$store.dispatch(
-      "getDataAsync",
-      `documenttypes/${doc}`
-    );
-
-    this.classifier = doc;
-    let documentType = this.documentTypes[0];
-
-    if (documentType.isStockMovimentEntity) {
-      this.url = `products/entity/${"all"}/filters?hasstock=${1}&type=${this.documentTypes[0].typeArticle}`;
-
-      this.headers = [
-        {
-          text: "#",
-          align: "left",
-          sortable: false,
-          value: "sel"
-        },
-        { text: "Aréa Negocio", value: "businessArea" },
-        { text: "Funcionario", value: "Entity.code" },
-        { text: "Nome", value: "Entity.name" },
-        { text: "Artigo", value: "product_id" },
-        { text: "Descrição", value: "description" },
-        { text: "UN", value: "Product.Unity.base" },
-        { text: "Qnt.", value: "quantity" }
-      ];
-    }
-
-     if(this.$route.query.tipo == 'gases') {
-    
-      this.headers = [
-        { text: "Artigo", value: "product.code" },
-        { text: "Descrição", value: "product.description" },
-        { text: "Projecto", value: "project.description" },
-        { text: "Estado", value: "status.description" },
-        { text: "Fornecedor", value: "supplier.name" }
-      ];
-    
-      this.pedding_Items = await this.getGasBottlesInProject();
-      return
-    }
-
-    if (documentType.isStockMoviment) {
-      this.url = `products/warehouse/${"all"}/filters?hasstock=${1}&type=${
-        this.documentTypes[0].typeArticle
-      }`;
-
-      this.headers = [
-        {
-          text: "#",
-          align: "left",
-          sortable: false,
-          value: "sel"
-        },
-        { text: "Artigo", value: "Product.code" },
-        { text: "Descrição", value: "Product.description" },
-        { text: "Armazem", value: "Warehouse.description" },
-        { text: "Filial", value: "Warehouse.branch" },
-        { text: "Stock", value: "stock" }
-      ];
-    }
-
-    //this.url = `products/entity/${"all"}/filters?hasstock=${this.hasStock}&type=${this.productType}`
-    //console.log(' THE URL IS: ', this.url);
-    this.pedding_Items = await this.$store.dispatch("getDataAsync", this.url);
+    //init statuses
+    this.statuses = await this.fecthStatus("Validação");
   },
-  methods:{
-    async getGasBottlesInProject(project) {
-      return await this.$store.dispatch("getDataAsync", `products/gasbottle`);
+
+  methods: {
+    async fecthPendingItems4Validation (statuses = '') {
+        return await this.$store.dispatch(
+        "getDataAsync",
+        `stocks/pending?doctype=${"DPPC"}${statuses}`
+      );
     },
 
-    getPrincipalBussinessArea(item) {
-      if (!item) return "";
+    async fecthStatus(filter) {
+      let statuses_from_API = await this.$store.dispatch(
+        "getDataAsync",
+        "products/statuses"
+      );
+      let validation_statuses = statuses_from_API.filter(s =>
+        s.description.includes(filter)
+      );
+      let result = [];
 
-      let buss = item.Entity.BusinessArea.filter(d => d.isPrincipal === true);
+      validation_statuses.forEach(element => {
+        result.push({
+          id: element.code,
+          description: element.description.split(" ")[1]
+        });
+      });
 
-      if (buss.length > 0) {
-        return this.businessArea.find(p => p.code == buss[0].businessArea)
-          .description;
-      }
+      return result;
+    },
+
+    notifyError() {
+      this.$store.dispatch("activeSnackBar", {
+            show: true,
+            color: "error",
+            display_message: `Erro ao gravar a devolucao dos items selecionados`,
+            timeout: 7000,
+            Bottom: true,
+            left: true,
+            right: false,
+            top: false
+          });
+    },
+
+    statusProperlyDescription: (status) => status.description.split(" ")[1],
+
+    async submitValidationOfSelectedItems() {
+      this.onSavingData = true;
+      let post_data = ppcServices.prepareDeliveryPostData(this.pending_selected_items, 'VDPPC')
+
+      console.log('The post data is: ', post_data);
+
+      await this.$store
+        .dispatch("postDataAsync", { api_resourse: "stocks", post_data})
+        .then(async response => {
+          
+          if(!response) {
+            this.notifyError();
+            return
+          }
+
+          //Pass value for the globally snack bar
+          this.$store.dispatch("activeSnackBar", {
+            show: true,
+            color: "success",
+            display_message: `A devolução de ${post_data.details.length} items foi gravada com sucesso`,
+            timeout: 12000,
+            Bottom: true,
+            left: true,
+            right: false,
+            top: false
+          })
+          .catch(error => console.log('UMM: ', error));
+          
+
+          //Update the pending items
+          this.pending_items = await this.$store.dispatch(
+            "getDataAsync",
+            `stocks/pending?doctype=${"VDPPC"}`
+          );
+        });
+    },
+
+    getColor(value) {    
+      if (value)
+        switch (value.description.split(" ")[1]) {
+          case "Danificado":
+            return "error";
+            break;
+          case "Lavandaria":
+            return "info";
+            break;
+          case "Armazem":
+            return "success";
+            break;
+          case "Fúncionario":
+            return "warning";
+            break;
+          default:
+            return  "primary"
+            break;
+        }
     }
+  },
+
+  watch: {
+    pending_selected_items: pending_selected_items => {
+      console.log("pendingSelectedItem changed: ", pending_selected_items);
+    },
+
+    async selected_statuses(selected_statuses) { 
+      let status_to_search = '';
+      
+      for (let index = 0; index < selected_statuses.length; index++) {
+        if(index == 0) {
+          status_to_search = `productstatuses=${selected_statuses[index].id}`
+          continue
+        }
+
+        status_to_search = `${status_to_search}&productstatuses=${selected_statuses[index].id}`
+      }
+
+      if(status_to_search) 
+        status_to_search = `&${status_to_search}`
+        
+        this.onFecthingItems = true;
+
+        this.fecthPendingItems4Validation(status_to_search)
+        .then(resp => {
+          this.pending_items = resp,
+          this.onFecthingItems = false;
+        });
+   }
   }
 };
 </script>
