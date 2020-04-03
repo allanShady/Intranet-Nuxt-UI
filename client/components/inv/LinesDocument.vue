@@ -2,10 +2,9 @@
   <v-data-table
     :headers="headers"
     :items="formModel.items"
-    v-model="formModel.selected"
-    item-key="product"
+    v-model="pending_selected_items"
     class="elevation-1"
-    :show-select="form.isSelectedProduct"
+     show-select
     :loading="loadingTableRecords"
   >
     <!-- NOTAS Edity quantity -->
@@ -197,6 +196,7 @@
 import { mapGetters } from "vuex";
 import gasServices from "@/services/gasServices.js";
 import ppcServices from "@/services/ppcServices.js";
+import genericServices from "@/services/genericServices.js";
 
 export default {
   props: {
@@ -254,6 +254,7 @@ export default {
   },
 
   data: () => ({
+    pending_selected_items: [],
     isSelected: false,
     loadingTableRecords: false,
     isLoading: false,
@@ -276,22 +277,7 @@ export default {
 
     dialog: false,
     dateMenu: false,
-
-    headers: [
-      {
-        text: "#",
-        align: "left",
-        sortable: false,
-        value: "sel"
-      },
-      { text: "Artigo", value: "product" },
-      { text: "Descrição", value: "description" },
-      { text: "UN", value: "unity" },
-      { text: "Qnt.", value: "quantity" },
-      { text: "Projeto", value: "project" },
-      { text: "Notas", value: "notes" },
-      { text: "", value: "action", sortable: false }
-    ]
+    headers: genericServices.getTableHeadersView(''),
   }),
 
   computed: {
@@ -353,10 +339,12 @@ export default {
         if (this.$route.query.doc === "DRGAS") {
           this.formModel.items.push(this.editedItem.product);
         } else {
+          console.log('The edited Item is: ', this.editedItem.product);
+
           this.formModel.items.push({
-            product: this.editedItem.product.code,
+            product_id: this.editedItem.product.id,
             description: this.editedItem.product.description,
-            unity: unity || "UN",
+            unity_id: unity ? unity.base || "UN" : 'UN',
             project:
               proj || this.editedItem.product.project
                 ? this.editedItem.product.project.code
@@ -480,13 +468,20 @@ export default {
           { text: "", value: "action", sortable: false }
         ];
     }
+    else if(this.$route.query.doc == 'DE' || this.$route.query.doc == 'DF')
+      this.headers = genericServices.getTableHeadersView('E'); //Init table non 
   },
 
   computed: {
     ...mapGetters(["selectedDocument"])
   },
 
-  watch: {
+   watch: {
+    pending_selected_items (pending_selected_items) {
+      console.log("pendingSelectedItem changed: ", pending_selected_items);
+      this.formModel.pending_selected_items = pending_selected_items;
+    },
+
     search: async function(value) {
       this.isLoading = true;
 
@@ -522,5 +517,5 @@ export default {
       this.isLoading = false;
     }
   }
-};
+}
 </script>
