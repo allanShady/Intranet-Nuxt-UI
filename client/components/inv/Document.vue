@@ -285,11 +285,14 @@ export default {
         post_data.supplier_id = !this.formModel.entity
           ? null
           : this.formModel.entity.code;
-      } else if (this.$route.query.doc === "DPPC") {
+      } else if (this.$route.query.doc === "DPPC" || this.$route.query.doc === "DE" || this.$route.query.doc === "DF") {
+        if(this.$route.query.doc === "DE" || this.$route.query.doc === "DF")
+          post_data.details = this.formModel.pending_selected_items
+
+      } else if(this.$route.query.doc === "SE" || this.$route.query.doc === "SF")
         post_data.details = ppcServices.prepareLinesToSave(
           this.formModel.items
         );
-      }
 
       this.formModel.isSavingData = true;
 
@@ -328,7 +331,7 @@ export default {
           this.$store.dispatch("activeSnackBar", {
             show: true,
             color: "error",
-            display_message: `Erro ao gravar - ${this.$$route.query.doc}.`,
+            display_message: `Erro ao gravar - ${this.$route.query.doc}.`,
             timeout: 7000,
             Bottom: true,
             left: true,
