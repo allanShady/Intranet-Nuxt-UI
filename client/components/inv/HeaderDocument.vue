@@ -81,12 +81,12 @@
       </v-col>
       <v-col v-show="$route.query.doc === 'DRGAS' 
       && form.product_suppliers.length === 0">
-          <v-btn color="warning" @click="dialog = !dialog" flat small>Criar</v-btn>  
+        <v-btn color="warning" @click="dialog = !dialog" flat small>Criar</v-btn>
 
-          <v-dialog v-model="dialog" max-width="600px">
+        <v-dialog v-model="dialog" max-width="600px">
           <v-card>
             <v-card-title>
-              <span class="headline"> Novo fornecedor</span>
+              <span class="headline">Novo fornecedor</span>
             </v-card-title>
 
             <v-card-text>
@@ -98,17 +98,23 @@
                   <v-col cols="12" sm="12" md="8">
                     <v-text-field dense v-model="supplier.Name" label="Nome"></v-text-field>
                   </v-col>
-                </v-row>                
+                </v-row>
               </v-container>
             </v-card-text>
-            <v-card-actions><v-spacer></v-spacer>
-              <v-btn color="warning"  @click="dialog = !dialog" small>Cancelar</v-btn>               
-              <v-btn color="primary" :loading="onCreatingSupplier"  @click="createNewSupplier" small>Gravar</v-btn>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn color="warning" @click="dialog = !dialog" small>Cancelar</v-btn>
+              <v-btn
+                color="primary"
+                :loading="onCreatingSupplier"
+                @click="createNewSupplier"
+                small
+              >Gravar</v-btn>
             </v-card-actions>
           </v-card>
-        </v-dialog>       
+        </v-dialog>
       </v-col>
-      
+
       <v-col v-if="$route.query.doc !== 'DRGAS'">
         <v-autocomplete
           dense
@@ -136,13 +142,16 @@
     </v-row>
   </v-flex>
 </template>
+
 <script>
+
 export default {
   props: {
     formModel: {
       type: Object,
       default: () => ({
-        title: "Devolução Equipamentos",
+        title: '',
+        pending_selected_items: [],
         documenttype: null,
         date: new Date().toISOString().substr(0, 10),
         docNumber: "",
@@ -195,21 +204,25 @@ export default {
   }),
 
   beforeMount() {
-    console.log('The best way to predict your futere is to code bug', this.formModel.documenttype.code);
+    console.log(
+      "The best way to predict your futere is to code bug",
+      this.formModel.documenttype.code
+    );
   },
 
   methods: {
     async getProducts(supplier, status, type) {
-      return await this.$store.dispatch("getDataAsync", `products/supplier/${supplier}?status=${status}&type=${type}`)
+      return await this.$store.dispatch(
+        "getDataAsync",
+        `products/supplier/${supplier}?status=${status}&type=${type}`
+      );
     },
 
     async changeEntity(item) {
-    
       /*if(this.$route.query.doc === 'DRGAS') {
        this.formModel.items  = await this.getProducts(item.code, 12, '55');
       }*/
-      if(this.$route.query.doc !== 'DRGAS')
-      {
+      if (this.$route.query.doc !== "DRGAS") {
         this.formModel.items = [];
         this.formModel.businessArea = null;
 
@@ -224,63 +237,47 @@ export default {
           let entity = item.code;
           let typeArticle = this.formModel.documenttype.typeArticle;
 
-          console.log('FORM MODEL IS: ', this.formModel.documenttype);
+          console.log("FORM MODEL IS: ", this.formModel.documenttype);
 
           //Get Pending items
-          if(this.$route.query.doc === 'DPPC') {
-            let url = `stocks/pending?entity=${item.code}&productstatuses=${6}&doctype=${'EPPC'}`;
-            
+          if (this.$route.query.doc === "DPPC") {
+            let url = `stocks/pending?entity=${
+              item.code
+            }&productstatuses=${6}&doctype=${"EPPC"}`;
+
             this.form.loadingTableRecords = true;
-            await this.$store.dispatch("getDataAsync", url)
-            .then((resp) => {
+            await this.$store.dispatch("getDataAsync", url).then(resp => {
               resp.forEach(element => {
                 this.formModel.items.push(element);
               });
-              this.form.loadingTableRecords = false
-              
+              this.form.loadingTableRecords = false;
             });
-
-          }else
-
-          if (this.formModel.documenttype.type == "E") {
-            let url = `products/entity/${
-              item.code
-            }/filters?hasstock=${1}&type=${typeArticle}`;
-
-            let items = await this.$store.dispatch("getDataAsync", url);
-            console.log('My items: ', items);
-            items.forEach(line => {
-              this.formModel.items.push({
-                product_id: line.product_id,
-                description: line.description,
-                unit_id: line.Product.Unity ?  line.Product.Unity.base : '',
-                project_id: null,
-                quantity: line.quantity,
-                businessArea_id: this.formModel.businessArea,
-                notes: null,
-                in_out: this.formModel.documenttype.type
-              });
-            });
+          } else if (this.formModel.documenttype.type == "E") {
+            let url = `stocks/pending?doctype=${"SE"}`;
+            this.formModel.items = await this.$store.dispatch(
+              "getDataAsync",
+              url
+            );
           }
         }
       }
     },
 
-    async createNewSupplier(){
-      this.onCreatingSupplier = true
+    async createNewSupplier() {
+      this.onCreatingSupplier = true;
 
       await this.$store
-        .dispatch("postDataAsync", { api_resourse: "products/suppliers", post_data : this.supplier }) 
-        .then((result) => {
-            this.onCreatingSupplier = false
-            this.dialog = !this.dialog
-            this.$emit('search-entities', result.code)
-            this.formModel.entity = result
-        }).catch((err) => {
-          
-        });
-
-      
+        .dispatch("postDataAsync", {
+          api_resourse: "products/suppliers",
+          post_data: this.supplier
+        })
+        .then(result => {
+          this.onCreatingSupplier = false;
+          this.dialog = !this.dialog;
+          this.$emit("search-entities", result.code);
+          this.formModel.entity = result;
+        })
+        .catch(err => {});
     },
 
     filterCodeName(item, queryText, itemText) {
@@ -313,7 +310,7 @@ export default {
 
   watch: {
     searchEntity(value) {
-      this.$emit('search-entities', value)
+      this.$emit("search-entities", value);
     }
   }
 };
