@@ -4,7 +4,7 @@
       <v-container>
         <v-row>
           <v-col cols="12" sm="12" md="6">
-            <v-text-field v-model="productModel.code" label="Codigo"></v-text-field>
+            <v-text-field v-model="productModel.id" label="Codigo"></v-text-field>
           </v-col>
           <v-col cols="12" sm="12" md="6">
             <v-autocomplete
@@ -97,7 +97,7 @@ export default {
         else 
         {
             //Reset form
-            (this.productModel.code = null),
+            (this.productModel.id = null),
                 (this.productModel.description = null),
                 (this.productModel.barcode = null),
                 (this.productModel.supplier = null);
@@ -111,7 +111,7 @@ export default {
 
     async save() {
       let post_data = {
-        code: this.productModel.code,
+        id: this.productModel.id,
         description: this.productModel.description,
         barcode: this.productModel.barcode,
         supplier_id: this.productModel.supplier.code,
@@ -146,10 +146,14 @@ export default {
         "getDataAsync",
         "products/types"
       );
+
       this.product_suppliers = await this.$store.dispatch(
         "getDataAsync",
         "products/suppliers"
       );
+
+      console.log('The suppliers are: ', this.product_suppliers);
+
       this.product_statuses = await this.$store.dispatch(
         "getDataAsync",
         "products/statuses"

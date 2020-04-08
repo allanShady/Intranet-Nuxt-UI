@@ -131,7 +131,7 @@ export default {
     formTitle: "Criar Artigo",
     loading: false,
     headers: [
-      { text: "Codigo", value: "code" },
+      { text: "Codigo", value: "id" },
       { text: "Descricao", value: "description" },
       { text: "Cod. Barras", value: "barcode" },
       { text: "Tipo", value: "Type.description" },
@@ -146,7 +146,7 @@ export default {
     detailsItem(value) {},
 
     editItem(value) {
-      this.$router.push(`/inventory/products/${value.code}`);
+      this.$router.push(`/inventory/products/${value.id}`);
     },
 
     deleteItem(value) {},
@@ -155,7 +155,7 @@ export default {
       this.dialog = false;
 
       //Reset form
-      (this.productModel.code = null),
+      (this.productModel.id = null),
         (this.productModel.description = null),
         (this.productModel.barcode = null),
         (this.productModel.supplier = null);
@@ -168,7 +168,7 @@ export default {
 
     async save() {
       let post_data = {
-        code: this.productModel.code,
+        id: this.productModel.id,
         description: this.productModel.description,
         barcode: this.productModel.barcode,
         supplier_id: this.productModel.supplier.code,
