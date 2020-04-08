@@ -1,7 +1,7 @@
 <template>
   <v-card>
     <v-toolbar flat color="primary" dark>
-      <v-toolbar-title>Artigo - {{ project.code }}</v-toolbar-title>
+      <v-toolbar-title>Artigo - {{ project.id }}</v-toolbar-title>
     </v-toolbar>
     <v-tabs horizontal>
       <v-tab>
