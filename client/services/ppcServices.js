@@ -36,22 +36,22 @@ export default {
         return headers;
     },
 
-    prepareLinesToSave(itemsTocope) { 
+    prepareLinesToSave(itemsTocopy) { 
         let result = [];
         
-        itemsTocope.forEach(element => {
+        itemsTocopy.forEach(element => {
             result.push({
                 id: element.id,
                 notes: element.notes,
-                product: element.product_id,
+                product_id: element.product_id,
                 description: element.description,
-                unity: element.unity_id,
+                unity_id: element.unity_id,
                 quantity: element.quantity,
                 DocumentId: element.header_id,
-                status_id: element.status.code,
+                status_id: element.status || '',
                 factor: 1,
-                branch: localStorage.getItem('branch'), 
-                warehouse: localStorage.getItem('warehouse') || "Sede",
+                branch_id: localStorage.getItem('branch'), 
+                warehouse_id: localStorage.getItem('warehouse') || "Sede",
                 location: localStorage.getItem('localization') || "Sede",
                 businessArea: element.business_area
             });
