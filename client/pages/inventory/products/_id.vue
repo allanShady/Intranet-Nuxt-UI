@@ -11,10 +11,12 @@
               v-model="productModel.supplier"
               :items="product_suppliers"
               clearable
+              :search-input.sync="search_supplier"
               label="Fornecedor"
               return-object
               v-validate="'required'"
               data-vv-name="productModel.supplier"
+              no-data-text="Sem registo com esse termo"
               :error-messages="errors.collect('productModel.supplier')"
               required
               item-text="name"
@@ -85,6 +87,7 @@ export default {
     menu: false,
     productModel: {},
     product_types: [],
+    search_supplier: '',
     product_statuses: [],
     product_suppliers: []
   }),
@@ -139,20 +142,17 @@ export default {
         );
 
         //Init model if the response is 204 - not found
-        if(!this.productModel) this.productModel = {};
+        if(!this.productModel) 
+          this.productModel = {};
+        else  
+          //init suppliers
+          this.search_supplier = this.productModel.supplier.code
       }    
 
       this.product_types = await this.$store.dispatch(
         "getDataAsync",
         "products/types"
       );
-
-      this.product_suppliers = await this.$store.dispatch(
-        "getDataAsync",
-        "products/suppliers"
-      );
-
-      console.log('The suppliers are: ', this.product_suppliers);
 
       this.product_statuses = await this.$store.dispatch(
         "getDataAsync",
@@ -163,6 +163,15 @@ export default {
 
   created() {
     this.initData();
+  },
+
+  watch: {
+    async search_supplier (search_term) {
+      this.product_suppliers = await this.$store.dispatch(
+          "getDataAsync",
+          `products/suppliers?supplier=${search_term}`
+        );
+    }
   }
 };
 </script>
