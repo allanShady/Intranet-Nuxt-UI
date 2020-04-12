@@ -59,7 +59,7 @@ export default {
         let url = `products/filters?type=55&code=${value}&project=${value}`;
 
         //Init headers
-        this.headers = gasServices.getTableHeadersView('wharehouse');
+        this.headers = gasServices.getTableHeadersView('productView');
         this.items = await this.$store.dispatch("getDataAsync", url);
       } else {
         //TODO: Implement the appropriet logic here

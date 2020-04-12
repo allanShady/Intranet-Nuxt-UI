@@ -3,91 +3,8 @@
     <v-card-title>
       Artigos
       <v-spacer></v-spacer>
-      <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details></v-text-field>
-      <v-icon color="primary" @click="dialog = !dialog">add</v-icon>
-      <v-dialog v-model="dialog" max-width="500px">
-        <v-card>
-          <v-card-title>
-            <span class="headline">{{ formTitle }}</span>
-          </v-card-title>
-
-          <v-card-text>
-            <v-container>
-              <v-row>
-                <v-col cols="12" sm="12" md="6">
-                  <v-text-field v-model="productModel.code" label="Codigo"></v-text-field>
-                </v-col>
-                <v-col cols="12" sm="12" md="6">
-                  <v-autocomplete
-                    v-model="productModel.supplier"
-                    :items="product_suppliers"
-                    clearable
-                    label="Fornecedor"
-                    return-object
-                    v-validate="'required'"
-                    data-vv-name="productModel.supplier"
-                    :error-messages="errors.collect('productModel.supplier')"
-                    required
-                    item-text="name"
-                    item-value="code"
-                  ></v-autocomplete>
-                </v-col>
-              </v-row>
-              <v-row>
-                <v-col>
-                  <v-text-field v-model="productModel.description" label="Descricao"></v-text-field>
-                </v-col>
-              </v-row>
-              <v-row>
-                <v-col cols="12" sm="12" md="6">
-                  <v-autocomplete
-                    v-model="productModel.type"
-                    :items="product_types"
-                    clearable
-                    label="Tipo"
-                    return-object
-                    v-validate="'required'"
-                    data-vv-name="productModel.type"
-                    :error-messages="errors.collect('productModel.type')"
-                    required
-                    item-text="description"
-                    item-value="code"
-                  ></v-autocomplete>
-                </v-col>
-                <v-col cols="12" sm="12" md="6">
-                  <v-autocomplete
-                    v-model="productModel.status"
-                    :items="product_statuses"
-                    clearable
-                    label="Estado"
-                    return-object
-                    v-validate="'required'"
-                    data-vv-name="productModel.status"
-                    :error-messages="errors.collect('productModel.status')"
-                    required
-                    item-text="description"
-                    item-value="code"
-                  ></v-autocomplete>
-                </v-col>
-              </v-row>
-              <v-row>
-                <v-col cols="12" sm="12" md="6">
-                  <v-text-field v-model="productModel.barcode" label="Cod. Barras"></v-text-field>
-                </v-col>
-                <v-col cols="12" sm="12" md="6">
-                  <v-text-field v-model="productModel.stock" type="number" min="0" label="Stock"></v-text-field>
-                </v-col>
-              </v-row>
-            </v-container>
-          </v-card-text>
-
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn color="blue darken-1" text @click="close">Cancelar</v-btn>
-            <v-btn color="blue darken-1" text @click="save">Gravar</v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-dialog>
+      <v-text-field v-model="search" append-icon="mdi-magnify" label="Search"  single-line hide-details></v-text-field>
+      <v-icon color="primary" @click="createNewProduct()">add</v-icon>
     </v-card-title>
 
     <v-card-text class="pa-0">
@@ -124,6 +41,7 @@ export default {
     search: "",
     products: [],
     product_types: [],
+    search_product: '',
     product_statuses: [],
     product_suppliers: [],
     productModel: {},
@@ -164,6 +82,11 @@ export default {
         (this.productModel.unit = null);
         (this.productModel.stock = null);
         (this.productModel.status = null);
+    },
+
+    //Redirect to the form to create new product
+    createNewProduct() {
+      this.$router.push(`/inventory/products/new`);
     },
 
     async save() {
@@ -221,6 +144,15 @@ export default {
 
   computed: {
     ...mapGetters(['productPagination'])
+  },
+
+  watch: {
+    async search_product (search_term) {
+      this.products = await this.$store.dispatch(
+          "getDataAsync",
+          `products/filters?code=${search_term}`
+        );
+    }
   }
 };
 </script>

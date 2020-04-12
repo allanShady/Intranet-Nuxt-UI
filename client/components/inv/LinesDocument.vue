@@ -260,6 +260,7 @@ export default {
     isLoading: false,
     model: null,
     product_statuses: [],
+    project_of_selected_item: null,
     search: null,
     TableHeaderText: "Linhas",
     editedItem: { quantity: 0 },
@@ -285,12 +286,13 @@ export default {
   },
   methods: {
     changeArticle(item) {
-      console.log("Current selected item: ", item);
-
+      
       if (!item) {
+        this.project_of_selected_item = item.project || null
         this.editedItem.unity = null;
       } else {
         this.editedItem.unity = item.Unity ? item.Unity.base : "UN";
+        this.editedItem.supplier = item.supplier ? item.supplier : null 
       }
     },
 
@@ -321,12 +323,12 @@ export default {
     },
 
     save() {
-      let unity = "";
+      let unit;
 
       if (!this.editedItem.unity.code) {
-        unity = this.editedItem.unity;
+        unit = this.editedItem.unity;
       } else {
-        unity = this.editedItem.unity.code;
+        unit = this.editedItem.unity.code;
       }
 
       if (this.editedItem.product) {
@@ -334,21 +336,13 @@ export default {
           ? null
           : this.editedItem.project.code;
 
-        console.log("Edited item: ", this.editedItem);
-
         if (this.$route.query.doc === "DRGAS") {
           this.formModel.items.push(this.editedItem.product);
         } else {
-          console.log('The edited Item is: ', this.editedItem.product);
-
-          this.formModel.items.push({
+            let itemToAdd = {
             product_id: this.editedItem.product.id,
             description: this.editedItem.product.description,
-            unity_id: unity ? unity.base || "UN" : 'UN',
-            project:
-              proj || this.editedItem.product.project
-                ? this.editedItem.product.project.code
-                : null,
+            unit_id: unit ? (unit.base ? unit.base : "UN") : 'UN',
             project_desc: this.editedItem.product.project
               ? this.editedItem.product.project.description
               : this.editedItem.project
@@ -364,13 +358,37 @@ export default {
             notes: this.editedItem.notes,
             in_out: this.formModel.documenttype.type,
             factor: 1,
-            branch: localStorage.branch,
-            warehouse: localStorage.warehouse || "Sede",
+            branch_id: localStorage.branch,
+            warehouse_id: localStorage.warehouse || "Sede",
             location: localStorage.localization || "Sede",
             businessArea: !this.formModel.businessArea
               ? null
               : this.formModel.businessArea.code
-          });
+          };
+
+          if(this.$route.query.tipo === 'gases') {
+            if(this.$route.query.tipo === 'DRGAS')
+              itemToAdd.project = this.project_of_selected_item.code 
+            else if(this.$route.query.doc === 'DGAS')
+              itemToAdd.project = this.editedItem.product.project
+                ? this.editedItem.product.project.code
+                : this.editedItem.project
+                ? this.editedItem.project.code
+                : null
+              else
+                itemToAdd.project = proj
+
+            itemToAdd.supplier = this.editedItem.supplier;
+          }
+          else 
+          {
+            itemToAdd.project = proj || this.editedItem.product.project
+                ? this.editedItem.product.project.code
+                : null
+          } 
+
+          console.log('The item to add is:', itemToAdd);
+          this.formModel.items.push(itemToAdd);
         }
         this.close();
       } else {
@@ -449,19 +467,13 @@ export default {
       //get and init product status wich are just valid 4 gas
       await this.intProductStatus("producttype=55");
 
-      if (this.$route.query.doc === "DRGAS")
+      if (this.$route.query.doc === "DRGAS" || this.$route.query.doc === "EGAS")
         this.headers = gasServices.getTableHeadersView("wharehouse");
       else
         this.headers = [
-          {
-            text: "#",
-            align: "left",
-            sortable: false,
-            value: "sel"
-          },
-          { text: "Artigo", value: "product" },
+          { text: "Artigo", value: "product_id" },
           { text: "Descrição", value: "description" },
-          { text: "UN", value: "unity" },
+          { text: "UN", value: "unit_id" },
           { text: "Estado", value: "status_desc" },
           { text: "Projeto", value: "project_desc" },
           { text: "Notas", value: "notes" },
@@ -506,7 +518,7 @@ export default {
           return;
         } // project filter
         else if (this.$route.query.doc === "DRGAS") {
-          this.form.products = await this.getProducts("all", 12, "55");
+          this.form.products = await this.getProducts('*', 12, "55");
           this.isLoading = false;
           return;
         }

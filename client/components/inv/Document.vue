@@ -214,22 +214,25 @@ export default {
     },
 
     prepareItems4_DRGAS_doc(items) {
+
       let itemsToSave = [];
 
       items.forEach(element => {
         itemsToSave.push({
-          product: element.code,
+          product_id: element.id,
           description: element.description,
-          unity: element.Unity ? element.Unity.base || "UN" : "UN",
+          unit_id: element.Unity ? element.Unity.base || "UN" : "UN",
           status_id: element.status.code || element.status_id,
           notes: "Reabastecimento da botija",
           in_out: this.formModel.documenttype.type,
           factor: 1,
           branch: localStorage.branch,
-          warehouse: localStorage.warehouse || "Sede",
+          warehouse_id: localStorage.warehouse || "Sede",
           location: localStorage.localization || "Sede"
         });
       });
+
+      console.log('Items to save are -----------: ', itemsToSave);
 
       return itemsToSave;
     },

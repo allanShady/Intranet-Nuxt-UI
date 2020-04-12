@@ -252,8 +252,16 @@ export default {
               });
               this.form.loadingTableRecords = false;
             });
-          } else if (this.formModel.documenttype.type == "E") {
-            let url = `stocks/pending?doctype=${"SE"}`;
+          } else if (this.formModel.documenttype.type == "E" && this.$route.query.tipo !== 'gases') {
+            let previous_doc; 
+            
+            if(this.$route.query.doc === 'DE')
+              previous_doc = 'SE';
+            else if(this.$route.query.doc === 'DF')
+              previous_doc = 'SF'
+
+            let url = `stocks/pending?doctype=${previous_doc}&entity=${item.code}`;
+
             this.formModel.items = await this.$store.dispatch(
               "getDataAsync",
               url

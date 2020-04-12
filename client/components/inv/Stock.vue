@@ -62,7 +62,7 @@ export default {
      if(this.$route.query.tipo == 'gases') {
     
       this.headers = [
-        { text: "Artigo", value: "product.code" },
+        { text: "Artigo", value: "product.id" },
         { text: "Descrição", value: "product.description" },
         { text: "Projecto", value: "project.description" },
         { text: "Estado", value: "status.description" },
@@ -85,7 +85,7 @@ export default {
           sortable: false,
           value: "sel"
         },
-        { text: "Artigo", value: "Product.code" },
+        { text: "Artigo", value: "Product.id" },
         { text: "Descrição", value: "Product.description" },
         { text: "Armazem", value: "Warehouse.description" },
         { text: "Filial", value: "Warehouse.branch" },
