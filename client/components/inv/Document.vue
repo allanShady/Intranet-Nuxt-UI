@@ -213,6 +213,14 @@ export default {
       );
     },
 
+    prepareItems4_DPPC_doc(items) {
+      items.forEach(element => {
+        element.status_id = element.status.code
+      });
+
+      return items;
+    },
+
     prepareItems4_DRGAS_doc(items) {
 
       let itemsToSave = [];
@@ -291,6 +299,8 @@ export default {
       } else if (this.$route.query.doc === "DPPC" || this.$route.query.doc === "DE" || this.$route.query.doc === "DF") {
         if(this.$route.query.doc === "DE" || this.$route.query.doc === "DF")
           post_data.details = this.formModel.pending_selected_items
+        else if(this.$route.query.doc === 'DPPC')
+          post_data.details = this.prepareItems4_DPPC_doc(this.formModel.pending_selected_items)
 
       } else if(this.$route.query.doc === "SE" || this.$route.query.doc === "SF")
         post_data.details = ppcServices.prepareLinesToSave(
