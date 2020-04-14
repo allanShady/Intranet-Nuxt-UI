@@ -4,7 +4,7 @@ export default {
         let headers = [
             { text: "Artigo", value: "product_id" },
             { text: "Descrição", value: "description" },
-            { text: "UN", value: "unity_id" },
+            { text: "UN", value: "unit_id" },
             { text: "Qnt.", value: "quantity" },
             { text: "Projeto", value: "project.description" },
             { text: "Notas", value: "notes" },
