@@ -94,8 +94,8 @@ export default {
         id: this.productModel.id,
         description: this.productModel.description,
         barcode: this.productModel.barcode,
-        supplier_id: this.productModel.supplier.code,
-        type: this.productModel.type.code,
+        supplier_id: this.productModel.supplier.code || null,
+        type: this.productModel.type.code || null,
         status_id: this.productModel.status.id,
         stock: this.productModel.stock,
       };
