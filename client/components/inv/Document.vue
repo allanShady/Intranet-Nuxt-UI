@@ -42,6 +42,21 @@
         {{ snackBar.display_message }}
         <v-btn small text @click="snackBar.show = false">Close</v-btn>
       </v-snackbar>
+
+      <!-- Document snack bar -->
+      <v-snackbar
+          v-model="docSnackBar.show"
+          :bottom="docSnackBar.bottom"
+          :color="docSnackBar.color"
+          :left="docSnackBar.left"
+          :right="docSnackBar.right"
+          :timeout="docSnackBar.timeout"
+          :top="docSnackBar.top"
+        >
+          {{ docSnackBar.display_message }}
+          <v-btn text @click="docSnackBar.show = false">Close</v-btn>
+        </v-snackbar>
+      <!-- end snack bar-->
     </v-layout>
   </v-container>
 </template>
@@ -109,7 +124,18 @@ export default {
       color: "cyan darken-2",
       display_message: "O upload do anexo foi terminado com sucesso",
       timeout: 6000
-    }
+    },
+
+    docSnackBar: {
+    show: false,
+    color: 'info',
+    display_message: '',
+    timeout: 3000,
+    Bottom: true,
+    left: true,
+    right: false,
+    top: false,
+  }, 
   }),
 
   beforeMount: async function() {
@@ -313,17 +339,15 @@ export default {
         .dispatch("postDataAsync", { api_resourse: "stocks", post_data })
         .then(async response => {
           //Pass value for the globally snack bar
-          this.$store.dispatch("activeSnackBar", {
-            show: true,
-            color: "success",
-            display_message: `${this.formModel.documenttype.code} - gravado com sucesso. Fazendo upload dos ficheiros`,
-            timeout: 12000,
-            Bottom: true,
-            left: true,
-            right: false,
-            top: false
-          });
-
+            this.docSnackBar.color = 'success'
+            this.docSnackBar.display_message = `${this.formModel.documenttype.code} - gravado com sucesso. Fazendo upload dos ficheiros`
+            this.docSnackBar.timeout = 12000
+            this.docSnackBar.Bottom = true
+            this.docSnackBar.left = true
+            this.docSnackBar.right = false
+            this.docSnackBar.top = false
+            this.docSnackBar.show = true
+          
           //Upload file
           await this.uploadFile(this.$route.query.tipo, response.id).then(
             res => {
@@ -340,17 +364,15 @@ export default {
           );
         })
         .catch(error => {
-          console.log("Erro: ", error);
-          this.$store.dispatch("activeSnackBar", {
-            show: true,
-            color: "error",
-            display_message: `Erro ao gravar - ${this.$route.query.doc}.`,
-            timeout: 7000,
-            Bottom: true,
-            left: true,
-            right: false,
-            top: false
-          });
+            console.log("Erro: ", error);
+            this.docSnackBar.color = "error"
+            this.docSnackBar.display_message = `Erro ao gravar - ${this.$route.query.doc}.`
+            this.docSnackBar.timeout = 7000
+            this.docSnackBar.Bottom = true
+            this.docSnackBar.left = true
+            this.docSnackBar.right = false
+            this.docSnackBar.top = false
+            this.docSnackBar.show = true
         });
     },
     //==============================================================================================================================================
