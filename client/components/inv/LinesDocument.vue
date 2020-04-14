@@ -467,7 +467,9 @@ export default {
       //get and init product status wich are just valid 4 gas
       await this.intProductStatus("producttype=55");
 
-      if (this.$route.query.doc === "DRGAS" || this.$route.query.doc === "EGAS")
+      if (this.$route.query.doc === "DRGAS")
+        this.headers = gasServices.getTableHeadersView("productView");
+      else if(this.$route.query.doc === "EGAS")
         this.headers = gasServices.getTableHeadersView("wharehouse");
       else
         this.headers = [
