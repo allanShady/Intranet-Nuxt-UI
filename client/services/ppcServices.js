@@ -38,7 +38,7 @@ export default {
 
     prepareLinesToSave(itemsTocopy) { 
         let result = [];
-        
+
         itemsTocopy.forEach(element => {
             result.push({
                 id: element.id,
@@ -48,7 +48,7 @@ export default {
                 unity_id: element.unity_id,
                 quantity: element.quantity,
                 DocumentId: element.header_id,
-                status_id: element.status || '',
+                status_id: element.status ? element.status.code : null,
                 factor: 1,
                 branch_id: localStorage.getItem('branch'), 
                 warehouse_id: localStorage.getItem('warehouse') || "Sede",
