@@ -15,7 +15,7 @@ const Menu = [
     icon: 'mdi-clipboard-arrow-down-outline',
     items: [
       {name: 'products', icon: '',title: 'Artigos', href: '/inventory/products'},
-      {name: 'approvalPending', icon: 'reorder',title: 'Aprovações', href: '/inventory/pendinglist'},
+      //{name: 'approvalPending', icon: 'reorder',title: 'Aprovações', href: '/inventory/pendinglist'},
       {name: 'tools', icon: 'reorder',title: 'Ferramentas', href: '/inventory/EFGC/dashboard?tipo=Ferramentas'},
       {name: 'equipements', icon: 'reorder',title: 'Equipamentos', href: '/inventory/EFGC/dashboard?tipo=Equipamentos'},
       {name: 'gas', icon: '',title: 'Gáses', href: '/inventory/EFGC/dashboard?tipo=gases'},
