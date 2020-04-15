@@ -11,6 +11,7 @@
 
 <script>
 import gasServices from '@/services/gasServices.js';
+import genericServices from '@/services/genericServices.js';
 
 export default {
   data: () => ({
@@ -30,81 +31,71 @@ export default {
     //Gets the doc type from query  
     let doc_type = this.$route.query.tipo; 
 
+    //get the products type based on the document
+    this.documentTypes = await this.$store.dispatch(
+      "getDataAsync",
+      `documenttypes/${this.$router.currentRoute.query.tipo}`
+    );
+
+    //get the products type of the document
+    let product_type = this.documentTypes[0].typeArticle
+
     switch (doc_type) {
       case 'gases': // --- gas documents
         this.headers = gasServices.getTableHeadersView('stocks');
         this.pedding_Items = await this.getGasBottlesInProject();
-        return; break;
+        return; 
+      case 'Equipamentos': // --- Equipments documents
+        this.initStocksBalance('stock_balaces', product_type, '*')
+        return;
+      case 'Ferramentas': // --- Tools documents
+        this.initStocksBalance('stock_balaces', product_type, '*')
+        return; 
+      case 'PPC': // --- Tools documents
+        this.initStocksBalance('stock_balaces', product_type, '*')
+        return; 
       default:
+        this.url = `products/warehouse/${"all"}/filters?hasstock=${1}&type=${
+          product_type
+        }`;
+
+        this.headers = [
+          { text: "Artigo", value: "Product.id" },
+          { text: "Descrição", value: "Product.description" },
+          { text: "Armazem", value: "Warehouse.description" },
+          { text: "Filial", value: "Warehouse.branch" },
+          { text: "Stock", value: "stock" }
+        ];
+        
+        this.pedding_Items = await this.$store.dispatch("getDataAsync", this.url);
         break;
     }
 
     console.log('The stock list was created');
-    
+
     this.businessArea = await this.$store.dispatch(
       "getDataAsync",
       "businessArea"
     );
 
-    let doc = this.$router.currentRoute.query["tipo"];
-
-    this.documentTypes = await this.$store.dispatch(
-      "getDataAsync",
-      `documenttypes/${doc}`
-    );
-
-    this.classifier = doc;
-    let documentType = this.documentTypes[0];
-
-    if (documentType.isStockMovimentEntity) {
-      this.url = `products/entity/${"all"}/filters?hasstock=${1}&type=${this.documentTypes[0].typeArticle}`;
-
-      this.headers = [
-        {
-          text: "#",
-          align: "left",
-          sortable: false,
-          value: "sel"
-        },
-        { text: "Aréa Negocio", value: "businessArea" },
-        { text: "Funcionario", value: "Entity.code" },
-        { text: "Nome", value: "Entity.name" },
-        { text: "Artigo", value: "product_id" },
-        { text: "Descrição", value: "description" },
-        { text: "UN", value: "Product.Unity.base" },
-        { text: "Qnt.", value: "quantity" }
-      ];
+    if (this.documentTypes[0].isStockMoviment) {
+      
     }
-
-  
-
-    if (documentType.isStockMoviment) {
-      this.url = `products/warehouse/${"all"}/filters?hasstock=${1}&type=${
-        this.documentTypes[0].typeArticle
-      }`;
-
-      this.headers = [
-        {
-          text: "#",
-          align: "left",
-          sortable: false,
-          value: "sel"
-        },
-        { text: "Artigo", value: "Product.id" },
-        { text: "Descrição", value: "Product.description" },
-        { text: "Armazem", value: "Warehouse.description" },
-        { text: "Filial", value: "Warehouse.branch" },
-        { text: "Stock", value: "stock" }
-      ];
-    }
-
-    //this.url = `products/entity/${"all"}/filters?hasstock=${this.hasStock}&type=${this.productType}`
-    //console.log(' THE URL IS: ', this.url);
-    this.pedding_Items = await this.$store.dispatch("getDataAsync", this.url);
   },
   methods:{
     async getGasBottlesInProject(project) {
       return await this.$store.dispatch("getDataAsync", `products/gasbottle`);
+    },
+
+    async getStockBalances(product_type, entity) {
+      console.log('product_type: ', product_type, 'entity: ', entity)
+      return await this.$store.dispatch("getDataAsync", 
+        `stocks/balance?ProductType=${product_type}&Entity=${entity}`);
+    },
+
+    async initStocksBalance(tableHeaderView, product_type, entity) {
+      this.headers = genericServices.getTableHeadersView(tableHeaderView);
+      this.pedding_Items = await this.getStockBalances(product_type, entity);
     },
 
     getPrincipalBussinessArea(item) {

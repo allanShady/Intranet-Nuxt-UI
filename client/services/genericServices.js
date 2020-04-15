@@ -1,7 +1,21 @@
 export default {
     getTableHeadersView(documentType) {
+        let headers = [];
+
+        if(documentType == 'stock_balaces') {
+            headers = [
+                { text: "Aréa Negocio", value: "business_area" },
+                { text: "Funcionario", value: "entity_id" },
+                { text: "Nome", value: "entity" },
+                { text: "Artigo", value: "product_id" },
+                { text: "Descrição", value: "product_description" },
+                { text: "UN", value: "unit" },
+                { text: "Qnt.", value: "balance", sortable: true }
+            ]
+        } else {
+        
         //Init headers
-        let headers = [
+        headers = [
             { text: "Artigo", value: "product_id" },
             { text: "Descrição", value: "description" },
             { text: "UN", value: "unit_id" },
@@ -13,7 +27,8 @@ export default {
         
         if(documentType == 'E')
             headers.unshift({ text: "Nr. Doc", value: "doc_number" })
-
+        }
+        
         return headers;
     },
 
