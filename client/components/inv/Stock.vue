@@ -1,14 +1,17 @@
 <template>
 <v-flex>
   <v-card-title>
-    <v-text-field v-model="search" append-icon="mdi-magnify" label="Pesquisa" single-line hide-details></v-text-field>
+    <v-text-field v-model="search" append-icon="mdi-magnify" label="Pesquisa stocks" single-line hide-details></v-text-field>
   </v-card-title>
   <v-data-table :headers="headers" :items="pedding_Items" :search="search">
     <template v-slot:item.businessArea="{ item }">{{ getPrincipalBussinessArea(item)}}</template>
   </v-data-table>
   </v-flex>
 </template>
+
 <script>
+import gasServices from '@/services/gasServices.js';
+
 export default {
   data: () => ({
     search: "",
@@ -24,6 +27,20 @@ export default {
   }),
 
   async created() {
+    //Gets the doc type from query  
+    let doc_type = this.$route.query.tipo; 
+
+    switch (doc_type) {
+      case 'gases': // --- gas documents
+        this.headers = gasServices.getTableHeadersView('stocks');
+        this.pedding_Items = await this.getGasBottlesInProject();
+        return; break;
+      default:
+        break;
+    }
+
+    console.log('The stock list was created');
+    
     this.businessArea = await this.$store.dispatch(
       "getDataAsync",
       "businessArea"
@@ -59,19 +76,7 @@ export default {
       ];
     }
 
-     if(this.$route.query.tipo == 'gases') {
-    
-      this.headers = [
-        { text: "Artigo", value: "product.id" },
-        { text: "Descrição", value: "product.description" },
-        { text: "Projecto", value: "project.description" },
-        { text: "Estado", value: "status.description" },
-        { text: "Fornecedor", value: "supplier.name" }
-      ];
-    
-      this.pedding_Items = await this.getGasBottlesInProject();
-      return
-    }
+  
 
     if (documentType.isStockMoviment) {
       this.url = `products/warehouse/${"all"}/filters?hasstock=${1}&type=${
