@@ -260,7 +260,7 @@ export default {
           notes: "Reabastecimento da botija",
           in_out: this.formModel.documenttype.type,
           factor: 1,
-          branch: localStorage.branch,
+          branch_id: localStorage.branch,
           warehouse_id: localStorage.warehouse || "Sede",
           location: localStorage.localization || "Sede"
         });
