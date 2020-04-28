@@ -17,10 +17,10 @@ const Menu = [
       {name: 'products', icon: '',title: 'Artigos', href: '/inventory/products'},
       //{name: 'approvalPending', icon: 'reorder',title: 'Aprovações', href: '/inventory/pendinglist'},
       {name: 'tools', icon: 'reorder',title: 'Ferramentas', href: '/inventory/EFGC/dashboard?tipo=Ferramentas'},
-      {name: 'equipements', icon: 'reorder',title: 'Equipamentos', href: '/inventory/EFGC/dashboard?tipo=Equipamentos'},
+      {name: 'equipements', icon: 'tools',title: 'Equipamentos', href: '/inventory/EFGC/dashboard?tipo=Equipamentos'},
       {name: 'gas', icon: '',title: 'Gáses', href: '/inventory/EFGC/dashboard?tipo=gases'},
       {name: 'stock', icon: 'mdi-view-dashboard',title: 'Stock', href: '/inventory/EFGC/dashboard?tipo=Stock'},
-      {name: 'ppc', icon: 'reorder',title: 'PPC', href: '/inventory/EFGC/dashboard?tipo=PPC'}
+      {name: 'EPI', icon: 'reorder',title: 'EPIs', href: '/inventory/EFGC/dashboard?tipo=PPC'}
 
       /*{
         title: 'PPC',
