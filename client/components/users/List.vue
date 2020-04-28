@@ -61,9 +61,13 @@
         :loading="loading"
         loading-text="Loading users. Please wait"
       >
-        <template v-slot:item.progress="{ item }">
-          <v-progress-linear :value="item.progress" height="5" :color="item.color"></v-progress-linear>
-        </template>
+ <template v-slot:item.inactive="{ item }">
+        <v-chip
+          small
+          :color="item.inactive ? 'error' : 'success'"
+          dark
+        >{{ item.inactive ? 'inactivo': 'activo' }}</v-chip>
+      </template>
 
         <template v-slot:item.action="{ item }">
           <v-icon small class="mr-2" @click="editItem(item)">mdi-pencil</v-icon>
@@ -88,12 +92,12 @@ export default {
     headers: [
 
       { text: "#", value: "id" },
-      { text: "First name", value: "first_name" },
-      { text: "Last name", value: "last_name" },
+      { text: "Nome", value: "first_name" },
+      { text: "Apelido", value: "last_name" },
       { text: "Email", value: "email" },
-      { text: "Phone nbr.", value: "phone_number_1" },
-      { text: "Active", value: "inactive" },
-      { text: "Actions", value: "action", sortable: false }
+      { text: "Celular", value: "phone_number_1" },
+      { text: "Estado", value: "inactive" },
+      { text: "", value: "action", sortable: false }
     ],
   }),
   methods: {

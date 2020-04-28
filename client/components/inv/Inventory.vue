@@ -80,6 +80,8 @@ export default {
 
   async created() {
     this.initComponent(this.$route.query.tipo);
+
+    console.log('The inventory tab was created');
   },
 };
 </script>

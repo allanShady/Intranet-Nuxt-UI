@@ -33,7 +33,7 @@ export default {
         value: "doc_number"
       },
       { text: "Documento", value: "document_type.description" },
-      { text: "Funcionario", value: "entity.name" },
+      { text: "Funcionário", value: "entity.name" },
       { text: "A. Negocio", value: "business_area.description" },
       { text: "Nr. Guia", value: "reference_doc" },
       { text: "Data", value: "date" },

@@ -88,6 +88,8 @@ export default {
 
     //init statuses
     this.statuses = await this.fecthStatus("Validação");
+
+    console.log('The item to validate area was created');
   },
 
   methods: {

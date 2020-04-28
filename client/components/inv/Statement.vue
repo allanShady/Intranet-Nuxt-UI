@@ -1,7 +1,7 @@
 <template>
   <div id="page-forms">
     <v-tabs>
-      <v-tab>Stock</v-tab>
+      <v-tab>{{$route.query.tipo.toLowerCase() !== 'stock' ? 'Pendentes de devolução' : 'Stock actual' }}</v-tab>
       <v-tab v-if="wharehouseTabVisible">Armazém</v-tab>
       <v-tab v-if="tabVisible">Validação</v-tab>
       <v-tab>Extrato</v-tab>

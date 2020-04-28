@@ -83,7 +83,7 @@
                     :items="form.projects"
                     v-model="editedItem.project"
                     clearable
-                    label="Selecione o projecto"
+                    label="Selecione o Cliente"
                     item-text="description"
                     item-value="code"
                     required
@@ -477,7 +477,7 @@ export default {
           { text: "Descrição", value: "description" },
           { text: "UN", value: "unit_id" },
           { text: "Estado", value: "status_desc" },
-          { text: "Projeto", value: "project_desc" },
+          { text: "Cliente", value: "project_desc" },
           { text: "Notas", value: "notes" },
           { text: "", value: "action", sortable: false }
         ];

@@ -96,9 +96,9 @@ export default {
       { text: "Descrição", value: "description" },
       { text: "UN", value: "Unity.code" },
       { text: "Qnt.", value: "quantity" },
-      { text: "Funcionario", value: "Entity.name" },
+      { text: "Funcionário", value: "Entity.name" },
       { text: "Area de Negocio", value: "BusinessArea.description" },
-      { text: "Projeto", value: "Project.description" },
+      { text: "Cliente", value: "Project.description" },
       { text: "Estado", value: "status" }
     ]
   }),
@@ -119,6 +119,10 @@ export default {
 
       console.log(this.items);
     }
+  },
+
+  created() {
+    console.log('The statment List was created');
   }
 };
 </script>
