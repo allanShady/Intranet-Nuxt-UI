@@ -63,6 +63,7 @@ module.exports = {
     ["nuxt-validate"],
     ['@nuxtjs/axios'],
     ['@nuxtjs/auth'],
+    ["@nuxtjs/dotenv"]
 
  ],
  /*

@@ -193,5 +193,5 @@ export const getters = {
   selectedDocument(state) {
     return state.currentSelectedDocument;
   }
-  
+
 };

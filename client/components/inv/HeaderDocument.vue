@@ -79,7 +79,7 @@
           caption
         ></v-autocomplete>
       </v-col>
-      <v-col v-show="$route.query.doc === 'DRGAS' 
+      <v-col v-show="$route.query.doc === 'DRGAS'
       && form.product_suppliers.length === 0">
         <v-btn color="warning" @click="dialog = !dialog" flat small>Criar</v-btn>
 
