@@ -3,8 +3,8 @@
     :headers="headers"
     :items="formModel.items"
     v-model="pending_selected_items"
-    class="elevation-1"
-     show-select
+    class="elevation-1"    
+    show-select
     :loading="loadingTableRecords"
   >
     <!-- NOTAS Edity quantity -->
