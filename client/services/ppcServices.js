@@ -22,8 +22,9 @@ export default {
         if(document === 'DPPC') {
             //Init headers
         headers = [
-            { text: "Artigo", value: "product_id" },
-            { text: "descrição", value: "description" },
+            //{ text: "Artigo", value: "product_id" },
+            //{ text: "descrição", value: "description" },
+            { text: "Artigo", value: "description" },
             { text: "unidade", value: "unity_id" },
             { text: "Qtd. Pendente", value: "pending_qtd" },
             { text: "Qtd. Validação", value: "quantity" },

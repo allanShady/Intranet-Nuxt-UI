@@ -23,9 +23,9 @@ export default {
                 break;
             case 'stocks':
                 headers = [
-                    { text: "Artigo", value: "product.id" },
+                    //{ text: "Artigo", value: "product.id" },
                     { text: "Descrição", value: "product.description" },
-                    { text: "Projecto", value: "project.description" },
+                    { text: "Cliente", value: "project.description" },
                     { text: "Estado", value: "status.description" },
                     { text: "Fornecedor", value: "supplier.name" }
                 ];

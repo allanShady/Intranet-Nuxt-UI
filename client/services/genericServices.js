@@ -5,10 +5,10 @@ export default {
         if(documentType == 'stock_balaces') {
             headers = [
                 { text: "Aréa Negocio", value: "business_area" },
-                { text: "Funcionario", value: "entity_id" },
-                { text: "Nome", value: "entity" },
-                { text: "Artigo", value: "product_id" },
-                { text: "Descrição", value: "product_description" },
+                //{ text: "Funcionario", value: "entity_id" },
+                { text: "Funcionário", value: "entity" },
+                //{ text: "Artigo", value: "product_id" },
+                { text: "Artigo", value: "product_description" },
                 { text: "UN", value: "unit" },
                 { text: "Qnt.", value: "balance", sortable: true }
             ]
@@ -16,11 +16,11 @@ export default {
         
         //Init headers
         headers = [
-            { text: "Artigo", value: "product_id" },
-            { text: "Descrição", value: "description" },
+            //{ text: "Artigo", value: "product_id" },
+            { text: "Artigo", value: "description" },
             { text: "UN", value: "unit_id" },
             { text: "Qnt.", value: "quantity" },
-            { text: "Projeto", value: "project.description" },
+            { text: "Cliente", value: "project.description" },
             { text: "Notas", value: "notes" },
             { text: "", value: "action", sortable: false }
         ]
