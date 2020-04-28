@@ -19,7 +19,7 @@
       </v-tab-item>
       
       <!-- Validation tables -->
-      <v-tab-item>
+      <v-tab-item v-if="$route.query.tipo.toLowerCase() == 'ppc' || $route.query.tipo.toLowerCase() == 'epi'">
         <v-card tile>
           <v-card-text>
             <items-delivery-validation-tab></items-delivery-validation-tab>
