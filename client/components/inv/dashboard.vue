@@ -1,23 +1,26 @@
 <template>
   <v-layout column justify-space-around>
     <v-flex>
-      <v-card>
-        <v-btn-toggle>
-        <v-bottom-navigation color="primary" horizontal>
+      <v-btn-toggle>
+        <v-bottom-navigation color="primary"  horizontal>
+          <v-btn mr-4
+            depressed
 
-          <v-btn v-for="document in documentTypes" :key="document.code" @click="openFrm(document)">
-            <span>{{document.code}}</span>
-            <v-icon>{{document.icon}}</v-icon>
+            
+            v-for="document in documentTypes"
+            :key="document.code"
+            @click="openFrm(document)"
+          >
+            {{document.friendlyUserName}}
+            <!--v-icon>{{document.icon}}</v-icon-->
           </v-btn>
         </v-bottom-navigation>
       </v-btn-toggle>
-
-      </v-card>
     </v-flex>
     <v-flex>
       <statement></statement>
     </v-flex>
-    </v-layout>
+  </v-layout>
 </template>
 <script>
 import Statement from "@/components/inv/Statement";
@@ -30,13 +33,13 @@ export default {
     documentTypes: [],
     classifier: null,
     url: null,
-    hasStockParam: 0 // to track the query params that retrieve product that has stocks and value 
+    hasStockParam: 0 // to track the query params that retrieve product that has stocks and value
   }),
   beforeMount: async function() {
     this.businessArea = await this.$store.dispatch(
       "getDataAsync",
       "businessArea"
-    );             
+    );
 
     let docType = this.$router.currentRoute.query["tipo"];
 
@@ -67,7 +70,7 @@ export default {
         { text: "Qnt.", value: "quantity" }
       ];
     }
-    
+
     if (documentType.isStockMoviment) {
       this.hasStockParam = 1;
 
@@ -85,22 +88,39 @@ export default {
         { text: "Stock", value: "stock" }
       ];
     }
-    
-    this.url = `products/warehouse/${"all"}/filters?hasstock=${this.hasStockParam}&type=${
-      this.documentTypes[0].typeArticle}`;
+
+    this.url = `products/warehouse/${"all"}/filters?hasstock=${
+      this.hasStockParam
+    }&type=${this.documentTypes[0].typeArticle}`;
 
     this.pedding_Items = await this.$store.dispatch("getDataAsync", this.url);
   },
 
-   created() {  
-   
-  },
+  created() {},
 
   methods: {
     openFrm(item) {
-      this.$router.push(`/inventory/EFGC/Form?doc=${item.code}&tipo=${this.classifier}`);
+      this.$router.push(
+        `/inventory/EFGC/Form?doc=${item.code}&tipo=${this.classifier}`
+      );
       this.$forceUpdate();
     },
+
+    getColor(displayName){
+      switch (displayName) {
+        case 'Atribuir':
+          return 'teal'
+          break;
+      case 'Registar Devolução':
+          return 'success'
+          break;
+      case 'Recepção à lavandaria':
+          return 'orange'
+          break;
+        default:
+          break;
+      }
+    }
   }
 };
 </script>
