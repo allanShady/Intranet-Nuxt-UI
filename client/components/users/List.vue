@@ -3,7 +3,7 @@
     <v-card-title>
       Utilizadores
       <v-spacer></v-spacer>
-      <v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details></v-text-field>
+      <v-text-field v-model="search" append-icon="search" label="Pesquisar" single-line hide-details></v-text-field>
       <v-icon @click="dialog = !dialog" color="primary">mdi-plus-circle-outline</v-icon>
       <v-dialog v-model="dialog" max-width="600px">
           <v-card>
@@ -15,10 +15,10 @@
               <v-container>
                 <v-row>
                   <v-col cols="12" sm="12" md="6">
-                    <v-text-field v-model="userModel.first_name" label="First Name"></v-text-field>
+                    <v-text-field v-model="userModel.first_name" label="Nome"></v-text-field>
                   </v-col>
                   <v-col cols="12" sm="12" md="6">
-                    <v-text-field v-model="userModel.last_name" label="Last Name"></v-text-field>
+                    <v-text-field v-model="userModel.last_name" label="Apelido"></v-text-field>
                   </v-col>
                 </v-row>
                 <v-row>
@@ -26,15 +26,15 @@
                     <v-text-field v-model="userModel.email" type="email" label="Email"></v-text-field>
                   </v-col>
                   <v-col cols="12" sm="12" md="6">
-                    <v-text-field v-model="userModel.phone_number_1" label="Phone Nbr."></v-text-field>
+                    <v-text-field v-model="userModel.phone_number_1" label="Celular"></v-text-field>
                   </v-col>
                 </v-row>
                 <v-row>
                   <v-col cols="12" sm="12" md="6">
-                    <v-text-field v-model="userModel.password" type="password" label="Password"></v-text-field>
+                    <v-text-field v-model="userModel.password" type="password" label="Senha"></v-text-field>
                   </v-col>
                   <v-col>
-                    <v-text-field v-model="userModel.confirm_password" type="password" label="Confirm Password"></v-text-field>
+                    <v-text-field v-model="userModel.confirm_password" type="password" label="Confirmar a senha"></v-text-field>
                   </v-col>
                 </v-row>
               </v-container>
@@ -42,8 +42,8 @@
 
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn color="blue darken-1" text @click="close">Cancel</v-btn>
-              <v-btn color="blue darken-1" text @click="save">Save</v-btn>
+              <v-btn color="blue darken-1" text @click="close">Cancelar</v-btn>
+              <v-btn color="blue darken-1" text @click="save">Gravar</v-btn>
             </v-card-actions>
           </v-card>
         </v-dialog>
@@ -59,7 +59,7 @@
         item-key="code"
         class="elevation-0"
         :loading="loading"
-        loading-text="Loading users. Please wait"
+        loading-text="Carregando a lista dos utilizadores. Por favor aguarde"
       >
  <template v-slot:item.inactive="{ item }">
         <v-chip
