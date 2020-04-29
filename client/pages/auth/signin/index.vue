@@ -8,23 +8,23 @@
               <v-card-text>
                 <div class="layout column align-center">
                   <img src="~/static/logo2.png" alt="Vue Material Admin">
-                  <p class="primary--text">Sign in to your account</p>
+                  <p class="primary--text">Inicie a sessão com a sua conta</p>
                 </div>
                 <v-form>
-                  <v-text-field append-icon="person" name="login" label="Login" placeholder="youremail@domain.com" type="text"
+                  <v-text-field append-icon="person" name="login" label="Email" placeholder="seu@email.com" type="text"
                                 v-model="model.email"></v-text-field>
-                  <v-text-field append-icon="lock" name="password" label="Password" id="password" placeholder="password"  type="password"
+                  <v-text-field append-icon="lock" name="password" label="Senha" id="password" placeholder="senha"  type="password"
                                 v-model="model.password"></v-text-field>
                 
-                  <span style="cursor: pointer; color: #3366BB" class="caption" @click="requestPasswordReset">I forget password</span>
+                  <span style="cursor: pointer; color: #3366BB" class="caption" @click="requestPasswordReset">Esqueci a senha</span>
                   <p v-show="signInSuccess()">
                     <v-icon small color="warning" class="text-xs-center">warning</v-icon>
-                  <span class="body-1 red--text" color="red">Invalid Email address or Password!</span>                  
+                  <span class="body-1 red--text" color="red">Email ou senha inválido!</span>                  
                   </p>
                 </v-form>
               </v-card-text>
               <v-card-actions>
-                <v-btn block color="primary" small @click="login" :loading="loading">Login</v-btn>
+                <v-btn block color="primary" small @click="login" :loading="loading">Autenticar</v-btn>
               </v-card-actions>
             </v-card>
           </v-flex>

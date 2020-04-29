@@ -246,6 +246,7 @@ export default {
             }&productstatuses=${6}&doctype=${"EPPC"}`;
 
             this.form.loadingTableRecords = true;
+            
             await this.$store.dispatch("getDataAsync", url).then(resp => {
               resp.forEach(element => {
                 this.formModel.items.push(element);
