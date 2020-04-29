@@ -4,7 +4,7 @@ export default {
 
         if(documentType == 'stock_balaces') {
             headers = [
-                { text: "Aréa Negocio", value: "business_area" },
+                { text: "Aréa negocio", value: "business_area" },
                 //{ text: "Funcionario", value: "entity_id" },
                 { text: "Funcionário", value: "entity" },
                 //{ text: "Artigo", value: "product_id" },
@@ -20,7 +20,7 @@ export default {
             { text: "Artigo", value: "description" },
             { text: "UN", value: "unit_id" },
             { text: "Qnt.", value: "quantity" },
-            { text: "Cliente", value: "project.description" },
+            { text: "Entidade", value: "project.description" },
             { text: "Notas", value: "notes" },
             { text: "", value: "action", sortable: false }
         ]

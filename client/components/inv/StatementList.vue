@@ -98,7 +98,7 @@ export default {
       { text: "Qnt.", value: "quantity" },
       { text: "Funcionário", value: "Entity.name" },
       { text: "Area de Negocio", value: "BusinessArea.description" },
-      { text: "Cliente", value: "Project.description" },
+      { text: "Entidade", value: "Project.description" },
       { text: "Estado", value: "status" }
     ]
   }),
