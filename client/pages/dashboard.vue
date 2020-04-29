@@ -2,6 +2,8 @@
   <v-app :dark="true">
     <v-container grid-list-xl fluid>
       <v-layout row wrap>
+        
+        
 
         <!-- Circle statistic -->
         <v-flex lg4 sm12 xs12 v-for="(item,index) in trending" :key="'c-trending'+index">
@@ -17,208 +19,6 @@
         </v-flex>
 
 
-
-        <v-flex lg7 sm12 xs12>
-          <plain-table></plain-table>
-        </v-flex>
-        <v-flex lg5 sm12 xs12>
-          <plain-table-order></plain-table-order>
-        </v-flex>
-
-<!-- statistic section -->
-        <v-flex lg4 sm12 xs12>
-          <linear-statistic
-            title="Sales"
-            sub-title="Sales increase"
-            icon="trending_up"
-            color="success"
-            :value="15"
-          >
-          </linear-statistic>
-          <linear-statistic class="my-4"
-                            title="Orders"
-                            sub-title="Increase"
-                            icon="trending_up"
-                            color="pink"
-                            :value="30"
-          >
-          </linear-statistic>
-          <linear-statistic class="my-4"
-                            title="Revenue"
-                            sub-title="Revenue increase"
-                            icon="trending_up"
-                            color="primary"
-                            :value="50"
-          >
-          </linear-statistic>
-          <linear-statistic class="mt-4"
-                            title="Cost"
-                            sub-title="Cost reduce"
-                            icon="trending_down"
-                            color="orange"
-                            :value="25"
-          >
-          </linear-statistic>
-        </v-flex>
-        <!-- social/weather card start -->
-        <v-flex lg4 sm12 xs12>
-          <profile-card>
-          </profile-card>
-        </v-flex>
-        <v-flex lg4 sm12 xs12>
-          <box-chart
-            card-color="indigo"
-            title="Trending"
-            sub-title="10%"
-            icon="trending_up"
-            :data="siteTrafficData"
-            :chart-color="[color.indigo.lighten1]"
-            type="line"
-          >
-          </box-chart>
-          <box-chart class="mt-4"
-                     card-color="pink"
-                     title="Page views"
-                     sub-title="10%"
-                     icon="trending_up"
-                     :data="siteTrafficData"
-                     :chart-color="[color.pink.darken1, 'rgba(255,255,255,0.3)']"
-                     gradient
-                     type="area"
-          >
-          </box-chart>
-        </v-flex>
-
-
-
-
-        <v-flex lg8 sm12 xs12>
-          <v-widget title="Site Traffic" content-bg="white">
-            <v-btn icon slot="widget-header-action">
-              <v-icon class="text--secondary">refresh</v-icon>
-            </v-btn>
-            <div slot="widget-content">
-              <e-chart
-                :path-option="[
-                  ['dataset.source', siteTrafficData],
-                  ['color', [color.lightBlue.base, color.green.lighten1]],
-                  ['legend.show', true],
-                  ['xAxis.axisLabel.show', true],
-                  ['yAxis.axisLabel.show', true],
-                  ['grid.left', '2%'],
-                  ['grid.bottom', '5%'],
-                  ['grid.right', '3%'],
-                  ['series[0].type', 'bar'],
-                  ['series[0].areaStyle', {}],
-                  ['series[0].smooth', true],
-                  ['series[1].smooth', true],
-                  ['series[1].type', 'bar'],
-                  ['series[1].areaStyle', {}],
-                ]"
-                height="400px"
-                width="85%"
-              >
-              </e-chart>
-            </div>
-          </v-widget>
-        </v-flex>
-        <v-flex lg4 sm12 xs12>
-          <v-widget title="Top Location" content-bg="white">
-            <div slot="widget-content">
-              <e-chart
-                :path-option="[
-                  ['dataset.source', locationData],
-                  ['legend.bottom', '0'],
-                  ['color', [color.lightBlue.base, color.indigo.base, color.pink.base, color.green.base, color.cyan.base, color.teal.base]],
-                  ['xAxis.show', false],
-                  ['yAxis.show', false],
-                  ['series[0].type', 'pie'],
-                  ['series[0].avoidLabelOverlap', true],
-                  ['series[0].radius', ['50%', '70%']],
-                ]"
-                height="400px"
-                width="100%"
-              >
-              </e-chart>
-            </div>
-          </v-widget>
-        </v-flex>
-
-        <v-flex lg12 sm12 xs12>
-          <v-widget title="Agendamento" content-bg="white">
-            <v-btn icon slot="widget-header-action">
-              <v-icon class="text--secondary">refresh</v-icon>
-            </v-btn>
-            <div slot="widget-content">
-               <calendar></calendar>
-            </div>
-          </v-widget>
-        </v-flex>
-
-
-
-
-        <!-- acitivity/chat widget -->
-        <v-flex lg6 sm12 xs12>
-          <chat-window height="308px"></chat-window>
-        </v-flex>
-        <v-flex lg6 sm12 xs12>
-          <v-widget title="Activities" contentBg="white">
-            <div slot="widget-content">
-              <ol class="timeline timeline-activity timeline-point-sm timeline-content-right">
-                <li class="timeline-block" v-for="(item, index) in activity" :key="index">
-                  <div class="timeline-point">
-                    <v-circle dot large :color="item.color"></v-circle>
-                  </div>
-                  <div class="timeline-content">
-                    <time datetime="2018" class="subheading">{{item.timeString}}</time>
-                    <div class="py-2 text--secondary" v-html="item.text"></div>
-                  </div>
-                </li>
-              </ol>
-            </div>
-          </v-widget>
-        </v-flex>
-
-        <!-- mini statistic start -->
-
-        <v-flex lg3 sm6 xs12>
-          <mini-statistic
-            icon="fa fa-facebook"
-            title="100+"
-            sub-title="Likes"
-            color="indigo"
-          >
-          </mini-statistic>
-        </v-flex>
-        <v-flex lg3 sm6 xs12>
-          <mini-statistic
-            icon="fa fa-google"
-            title="150+"
-            sub-title="Connections"
-            color="red"
-          >
-          </mini-statistic>
-        </v-flex>
-        <v-flex lg3 sm6 xs12>
-          <mini-statistic
-            icon="fa fa-twitter"
-            title="200+"
-            sub-title="Followers"
-            color="light-blue"
-          >
-          </mini-statistic>
-        </v-flex>
-        <v-flex lg3 sm6 xs12>
-          <mini-statistic
-            icon="fa fa-instagram"
-            title="50+"
-            sub-title="Shots"
-            color="purple"
-          >
-          </mini-statistic>
-        </v-flex>
-        <!-- mini statistic  end -->
         
       </v-layout>
     </v-container>
@@ -314,44 +114,44 @@
       ],
       trending: [
         {
-          subheading: 'Email',
+          subheading: 'EPIs',
           headline: '15+',
-          caption: 'email opens',
-          percent: 15,
+          caption: 'EPIs Pendentes',
+          percent: 40,
           icon: {
-            label: 'email',
+            label: 'epi',
             color: 'info'
           },
           linear: {
-            value: 15,
+            value: 40,
             color: 'info'
           }
         },
         {
-          subheading: 'Tasks',
-          headline: '90%',
-          caption: 'tasks completed.',
-          percent: 90,
+          subheading: 'Ferramentas e Equipamentos',
+          headline: '70%',
+          caption: 'Ferramentas e Equipamentos entregues.',
+          percent: 70,
           icon: {
             label: 'list',
             color: 'primary'
           },
           linear: {
-            value: 90,
+            value: 70,
             color: 'success'
           }
         },
         {
-          subheading: 'Issues',
-          headline: '100%',
-          caption: 'issues fixed.',
-          percent: 100,
+          subheading: 'Gas',
+          headline: '20%',
+          caption: 'Botijas de Gas em projetos.',
+          percent: 20,
           icon: {
             label: 'bug_report',
             color: 'primary'
           },
           linear: {
-            value: 100,
+            value: 20,
             color: 'error'
           }
         },
