@@ -32,7 +32,7 @@
             <v-spacer></v-spacer>
             <v-btn color="primary" small :loading="formModel.isSavingData" @click="submit(1)">Gravar</v-btn>
 
-            <v-btn @click="clearDoc" small>Clear</v-btn>
+            <v-btn @click="clearDoc" small>Limpar</v-btn>
           </v-card-actions>
         </v-card>
       </v-flex>
