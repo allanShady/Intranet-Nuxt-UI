@@ -1,9 +1,10 @@
 <template>
   <div>
     <v-container >
+      <v-card  tile >
           <v-row no-gutters align="center" justify="space-around">
-            <v-col md="2">
-            <v-menu outline
+            <v-col md="2" class="px-4">
+            <v-menu class="mr-4" 
               ref="dateMenu1"
               v-model="dateMenu1"
               :close-on-content-click="false"
@@ -11,7 +12,7 @@
               min-width="50px"
             >
               <template v-slot:activator="{ on }">
-                <v-text-field
+                <v-text-field 
                   v-model="dateBegin"
                   label="Data de início "
                   prepend-icon="event"
@@ -22,7 +23,7 @@
               <v-date-picker v-model="dateBegin" no-title @input="dateMenu1 = false"></v-date-picker>
             </v-menu>
              </v-col> 
-             <v-col md="2">
+             <v-col md="2" class="px-4">
             <v-menu
               ref="dateMenu2"
               v-model="dateMenu2"
@@ -32,18 +33,19 @@
               min-width="50px"
             >
               <template v-slot:activator="{ on }">
-                <v-text-field v-model="dateEnd" label="Data fim" prepend-icon="event" readonly v-on="on"></v-text-field>
+                <v-text-field v-model="dateEnd" label="Data de fim" prepend-icon="event" readonly v-on="on"></v-text-field>
               </template>
               <v-date-picker v-model="dateEnd" no-title @input="dateMenu2 = false"></v-date-picker>
             </v-menu>
              </v-col>
           <v-spacer></v-spacer>
-          <v-col md="2">
-            <v-btn block  @click="openStatement">
-              <v-icon color="success">mdi-magnify</v-icon>
+          <v-col md="2" class="px-4">
+            <v-btn block color="success"  @click="openStatement">
+              <v-icon >mdi-magnify</v-icon>
             </v-btn>
           </v-col>
           </v-row>
+          </v-card >
     </v-container>
     <!-- End container -->
 
@@ -53,7 +55,7 @@
       v-model="selected"
       item-key="id"
       class="elevation-1"
-      :show-select="isSelectedProduct"
+
       :search="search"
     >
       <template v-slot:top>
