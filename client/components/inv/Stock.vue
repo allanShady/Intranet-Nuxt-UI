@@ -4,9 +4,9 @@
       <v-text-field
         v-model="search"
         append-icon="mdi-magnify"
-        label="Pesquisa stocks"
+        label="Pesquisar"
         single-line
-        hide-details
+        
       ></v-text-field>
     </v-card-title>
     <v-data-table

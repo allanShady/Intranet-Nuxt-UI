@@ -61,7 +61,7 @@
               dense
               v-model="search"
               append-icon="search"
-              label="Pesquisa"
+              label="Pesquisar"
               single-line
               hide-details
               v-show="!form.canAddProduct"
@@ -203,7 +203,7 @@ export default {
     formModel: {
       type: Object,
       default: () => ({
-        title: "Documentos Internos",
+        title: "Documentos internos",
         typeDocument: null,
         date: new Date().toISOString().substr(0, 10),
         docNumber: "",

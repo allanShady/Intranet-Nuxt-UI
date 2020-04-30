@@ -25,7 +25,7 @@
           <v-card-actions class="pb-3">
             <div class="d-flex">
               <v-switch
-                label="Ao Gravar Abre Novo Documento"
+                label="Ao gravar abrir novo documento"
                 v-model="formModel.isSavingDataAndClose"
               ></v-switch>
             </div>
@@ -75,7 +75,7 @@ export default {
     formModel: {
       type: Object,
       default: () => ({
-        title: "Documentos Internos",
+        title: "Documentos internos",
         documenttype: {},
         date: new Date().toISOString().substr(0, 10),
         referenceDoc: "",
@@ -93,7 +93,7 @@ export default {
     form: {
       type: Object,
       default: () => ({
-        title: "Documentos Internos",
+        title: "Documentos internos",
         typeDocument: null,
         requiredBussinessArea: true,
         requiredExternalDocNumber: true,

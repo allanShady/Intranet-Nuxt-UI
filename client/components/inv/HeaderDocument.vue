@@ -27,7 +27,7 @@
           dense
           prepend-icon="mdi-file-document-outline"
           v-model="formModel.referenceDoc"
-          label="Nr. Guia"
+          label="Número de requisição"
           :error-messages="errors.collect('docNumber')"
           required
         ></v-text-field>
@@ -45,7 +45,7 @@
             <v-text-field
               dense
               v-model="formModel.date"
-              label="Date"
+              label="Data"
               prepend-icon="event"
               readonly
               v-on="on"
@@ -118,11 +118,11 @@
       <v-col v-if="$route.query.doc !== 'DRGAS'">
         <v-autocomplete
           dense
-          class="caption"
+          
           v-model="formModel.businessArea"
           :items="form.businessArea"
           clearable
-          label="Selecione o Área de Negocio"
+          label="Selecione a área de negócio"
           prepend-icon="mdi-cash-usd-outline"
           :filter="filterCodeDesc"
           return-object
@@ -169,7 +169,7 @@ export default {
     form: {
       type: Object,
       default: () => ({
-        title: "Documentos Internos",
+        title: "Documentos internos",
         documenttype: null,
         requiredBussinessArea: true,
         requiredExternalDocNumber: true,

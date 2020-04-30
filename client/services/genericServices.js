@@ -4,13 +4,13 @@ export default {
 
         if(documentType == 'stock_balaces') {
             headers = [
-                { text: "Aréa negocio", value: "business_area" },
+                { text: "Aréa de negócio", value: "business_area" },
                 //{ text: "Funcionario", value: "entity_id" },
                 { text: "Funcionário", value: "entity" },
                 //{ text: "Artigo", value: "product_id" },
                 { text: "Artigo", value: "product_description" },
-                { text: "UN", value: "unit" },
-                { text: "Qnt.", value: "balance", sortable: true }
+                { text: "Unidade", value: "unit" },
+                { text: "Qtd.", value: "balance", sortable: true }
             ]
         } else {
         
@@ -18,8 +18,8 @@ export default {
         headers = [
             //{ text: "Artigo", value: "product_id" },
             { text: "Artigo", value: "description" },
-            { text: "UN", value: "unit_id" },
-            { text: "Qnt.", value: "quantity" },
+            { text: "Unidade", value: "unit_id" },
+            { text: "Qtd.", value: "quantity" },
             { text: "Entidade", value: "project.description" },
             { text: "Notas", value: "notes" },
             { text: "", value: "action", sortable: false }

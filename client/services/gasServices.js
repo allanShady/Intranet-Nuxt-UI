@@ -15,7 +15,7 @@ export default {
             case 'productView':
                 headers = [
                     { text: "Artigo", value: "id" },
-                    { text: "descrição", value: "description" },
+                    { text: "Descrição", value: "description" },
                     { text: "Unidade", value: "Unity.id" },
                     { text: "Estado", value: "status.description" },
                     { text: "Fornecedor", value: "supplier.name" },

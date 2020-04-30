@@ -27,7 +27,7 @@ export default {
     LineRepair: {
       type: Object,
       default: () => ({
-        title: "Documentos Internos",
+        title: "Documentos internos",
         type: null,
         quantity: 0,
         status: null,

@@ -4,7 +4,7 @@
       <v-text-field
         v-model="search"
         append-icon="mdi-magnify"
-        label="Pesquisa"
+        label="Pesquisar"
         single-line
         hide-details
       ></v-text-field>
@@ -42,12 +42,12 @@ export default {
     documentTypes: [],
     isSelectedProduct: true,
     headers: [
-      { text: "Funcionario", value: "Entity.name" },
-      { text: "Departamento", value: "BussinessArea.description" },
+      { text: "Funcionário", value: "Entity.name" },
+      { text: "Área de negócio", value: "BussinessArea.description" },
       { text: "Artigo", value: "product_id" },
       { text: "Descrição", value: "Product.description" },
-      { text: "UN", value: "unit_id" },
-      { text: "Qnt.", value: "quantity" },
+      { text: "Unidade", value: "unit_id" },
+      { text: "Qtd.", value: "quantity" },
       { text: "Estado", value: "status" }
     ]
   }),

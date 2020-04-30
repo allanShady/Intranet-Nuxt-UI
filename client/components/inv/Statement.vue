@@ -2,9 +2,9 @@
   <div id="page-forms">
     <v-tabs>
       <v-tab>{{$route.query.tipo.toLowerCase() !== 'stock' ? 'Pendentes de devolução' : 'Stock actual' }}</v-tab>
-      <v-tab v-if="wharehouseTabVisible">Armazém</v-tab>
-      <v-tab v-if="tabVisible">Validação</v-tab>
-      <v-tab>Extrato</v-tab>
+      <v-tab v-if="wharehouseTabVisible">Resumo de artigos</v-tab>
+      <v-tab v-if="tabVisible">Análise</v-tab>
+      <v-tab>Extracto</v-tab>
 
       <v-tab-item>
         <v-card tile>
@@ -29,9 +29,7 @@
 
       <v-tab-item>
         <v-card tile>
-          <v-card-text>
             <Statement-List></Statement-List>
-          </v-card-text>
         </v-card>
       </v-tab-item>
     </v-tabs>

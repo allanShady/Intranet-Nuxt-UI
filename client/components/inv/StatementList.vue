@@ -1,80 +1,79 @@
 <template>
-  <v-data-table
-    :headers="headers"
-    :items="items"
-    v-model="selected"
-    item-key="id"
-    class="elevation-1"
-    :show-select="isSelectedProduct"
-    :search="search"
-  >
-    <template v-slot:top>
-      <v-toolbar flat dense color="transparent">
-        <v-toolbar-title>
-          <h3>Movimentos</h3>
-        </v-toolbar-title>
+  <div>
+    <v-container >
+          <v-row no-gutters align="center" justify="space-around">
+            <v-col md="2">
+            <v-menu outline
+              ref="dateMenu1"
+              v-model="dateMenu1"
+              :close-on-content-click="false"
+              transition="scale-transition"
+              min-width="50px"
+            >
+              <template v-slot:activator="{ on }">
+                <v-text-field
+                  v-model="dateBegin"
+                  label="Data de início "
+                  prepend-icon="event"
+                  readonly
+                  v-on="on"
+                ></v-text-field>
+              </template>
+              <v-date-picker v-model="dateBegin" no-title @input="dateMenu1 = false"></v-date-picker>
+            </v-menu>
+             </v-col> 
+             <v-col md="2">
+            <v-menu
+              ref="dateMenu2"
+              v-model="dateMenu2"
+              :close-on-content-click="false"
+              transition="scale-transition"
+              offset-y
+              min-width="50px"
+            >
+              <template v-slot:activator="{ on }">
+                <v-text-field v-model="dateEnd" label="Data fim" prepend-icon="event" readonly v-on="on"></v-text-field>
+              </template>
+              <v-date-picker v-model="dateEnd" no-title @input="dateMenu2 = false"></v-date-picker>
+            </v-menu>
+             </v-col>
+          <v-spacer></v-spacer>
+          <v-col md="2">
+            <v-btn block  @click="openStatement">
+              <v-icon color="success">mdi-magnify</v-icon>
+            </v-btn>
+          </v-col>
+          </v-row>
+    </v-container>
+    <!-- End container -->
 
-        <v-spacer></v-spacer>
-        <v-col>
-          <v-menu
-            ref="dateMenu1"
-            v-model="dateMenu1"
-            :close-on-content-click="false"
-            transition="scale-transition"
-            offset-y
-            min-width="50px"
-          >
-            <template v-slot:activator="{ on }">
-              <v-text-field
-                v-model="dateBegin"
-                label="Inicio"
-                prepend-icon="event"
-                readonly
-                v-on="on"
-              ></v-text-field>
-            </template>
-            <v-date-picker v-model="dateBegin" no-title @input="dateMenu1 = false"></v-date-picker>
-          </v-menu>
-        </v-col>
-        <v-col>
-          <v-menu
-            ref="dateMenu2"
-            v-model="dateMenu2"
-            :close-on-content-click="false"
-            transition="scale-transition"
-            offset-y
-            min-width="50px"
-          >
-            <template v-slot:activator="{ on }">
-              <v-text-field v-model="dateEnd" label="Fim" prepend-icon="event" readonly v-on="on"></v-text-field>
-            </template>
-            <v-date-picker v-model="dateEnd" no-title @input="dateMenu2 = false"></v-date-picker>
-          </v-menu>
-        </v-col>
-
-
-        <v-col>
+    <v-data-table
+      :headers="headers"
+      :items="items"
+      v-model="selected"
+      item-key="id"
+      class="elevation-1"
+      :show-select="isSelectedProduct"
+      :search="search"
+    >
+      <template v-slot:top>
+        <v-toolbar flat dense color="transparent">
+          <v-spacer></v-spacer>
           <v-text-field
             v-model="search"
             append-icon="mdi-magnify"
-            label="Pesquisa"
+            label="Pesquisar"
             single-line
             hide-details
           ></v-text-field>
-        </v-col>
-        <v-col>
-          <v-btn @click="openStatement">
-            <v-icon>mdi-magnify</v-icon>
-          </v-btn>
-        </v-col>
-      </v-toolbar>
-    </template>
+        </v-toolbar>
+      </template>
 
-    <template v-slot:no-data>0 - Linhas Em Inventario</template>
-  </v-data-table>
+      <template v-slot:no-data>0 - Linhas Em Inventario</template>
+    </v-data-table>
+  </div>
 </template>
 <script>
-
 export default {
   data: () => ({
     search: "",
@@ -92,12 +91,12 @@ export default {
     headers: [
       { text: "Data", value: "date" },
       { text: "Documento", value: "DocumentType.code" },
-      { text: "Artigo", value: "Product.code" },
-      { text: "Descrição", value: "description" },
-      { text: "UN", value: "Unity.code" },
-      { text: "Qnt.", value: "quantity" },
+      { text: "Descrição", value: "description" }, // Artigo
+      { text: "Número de série", value: "Product.barcode" },
+      { text: "Unidade", value: "Unity.code" },
+      { text: "Qtd.", value: "quantity" },
       { text: "Funcionário", value: "Entity.name" },
-      { text: "Area de Negocio", value: "BusinessArea.description" },
+      { text: "Area de negócio", value: "BusinessArea.description" },
       { text: "Entidade", value: "Project.description" },
       { text: "Estado", value: "status" }
     ]
@@ -106,9 +105,9 @@ export default {
   methods: {
     async openStatement() {
       let currentQuery = this.$route.query.tipo;
-      console.log(currentQuery)
+      console.log(currentQuery);
       let doc = this.$router.currentRoute.query["tipo"];
-      console.log(doc)
+      console.log(doc);
       this.documentTypes = await this.$store.dispatch(
         "getDataAsync",
         "documenttypes/" + doc
@@ -124,7 +123,7 @@ export default {
   },
 
   created() {
-    console.log('The statment List was created');
+    console.log("The statment List was created");
   }
 };
 </script>

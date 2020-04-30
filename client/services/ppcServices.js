@@ -6,7 +6,7 @@ export default {
         headers = [
             { text: "Artigo", value: "product_id" },
             { text: "descrição", value: "description" },
-            { text: "unidade", value: "unity_id" },
+            { text: "Unidade", value: "unity_id" },
             { text: "Qtd. Pendente", value: "pending_qtd" },
             { text: "Qtd. Entrega", value: "quantity" },
             { text: "Estado", value: "status.description" },
@@ -25,12 +25,12 @@ export default {
             //{ text: "Artigo", value: "product_id" },
             //{ text: "descrição", value: "description" },
             { text: "Artigo", value: "description" },
-            { text: "unidade", value: "unity_id" },
+            { text: "Unidade", value: "unity_id" },
             { text: "Qtd. Pendente", value: "pending_qtd" },
             { text: "Qtd. Validação", value: "quantity" },
             { text: "Estado", value: "status.description" },
-            { text: "Notas devolução", value: "delivery_notes" },
-            { text: "Notas validação", value: "validation_notes" },
+            { text: "Notas (devolução)", value: "delivery_notes" },
+            { text: "Notas (validação)", value: "validation_notes" },
           ]
         }
 
