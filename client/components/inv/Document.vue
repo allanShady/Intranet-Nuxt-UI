@@ -77,6 +77,7 @@ export default {
       default: () => ({
         title: "Documentos internos",
         documenttype: {},
+        loadingEntity: false,
         date: new Date().toISOString().substr(0, 10),
         referenceDoc: "",
         typeEntity: "U",
@@ -95,6 +96,7 @@ export default {
       default: () => ({
         title: "Documentos internos",
         typeDocument: null,
+        loadingEntity: false,
         requiredBussinessArea: true,
         requiredExternalDocNumber: true,
         requiredAttachs: false,
@@ -180,6 +182,8 @@ export default {
     },
 
     async searchEntities(value) {
+      this.form.loadingEntity = true
+
       if (this.$route.query.doc === "DRGAS")
         this.form.product_suppliers = await this.$store.dispatch(
           "getDataAsync",
@@ -191,6 +195,8 @@ export default {
           `entities?SearchTerm=${value}`
         );
       }
+
+      this.form.loadingEntity = false
     },
 
     async clearDoc() {

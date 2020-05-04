@@ -14,6 +14,7 @@
       :items="pedding_Items"
       :group-by=" $route.query.tipo == 'gases' ? 'project.description': 'entity'"
       :search="search"
+      :loading="loading"
     >
       <template v-slot:item.businessArea="{ item }">{{ getPrincipalBussinessArea(item)}}</template>
     </v-data-table>
@@ -28,6 +29,7 @@ export default {
   data: () => ({
     search: "",
     isLoading: false,
+    loading: false,
     documentTypes: [],
     pedding_Items: [],
     hasStock: 0,
@@ -55,16 +57,16 @@ export default {
       case "gases": // --- gas documents
         this.headers = gasServices.getTableHeadersView("stocks");
         this.pedding_Items = await this.getGasBottlesInProject();
-        return;
+        break;
       case "Equipamentos": // --- Equipments documents
         this.initStocksBalance("stock_balaces", product_type, "*");
-        return;
+        break;
       case "Ferramentas": // --- Tools documents
         this.initStocksBalance("stock_balaces", product_type, "*");
-        return;
+        break;
       case "PPC": // --- Tools documents
         this.initStocksBalance("stock_balaces", product_type, "*");
-        return;
+        break;
       default:
         this.url = `products/warehouse/${"all"}/filters?hasstock=${1}&type=${product_type}`;
 
@@ -81,7 +83,7 @@ export default {
           this.url
         );
         break;
-    }
+    }    
 
     console.log("The stock list was created");
 
@@ -100,15 +102,21 @@ export default {
 
     async getStockBalances(product_type, entity) {
       console.log("product_type: ", product_type, "entity: ", entity);
+      this.loading = true
       return await this.$store.dispatch(
         "getDataAsync",
         `stocks/balance?ProductType=${product_type}&Entity=${entity}`
       );
+
+      this.loading = false
     },
 
     async initStocksBalance(tableHeaderView, product_type, entity) {
       this.headers = genericServices.getTableHeadersView(tableHeaderView);
+      this.loading = true
       this.pedding_Items = await this.getStockBalances(product_type, entity);
+      //stop the loader
+      this.loading = false
     },
 
     getPrincipalBussinessArea(item) {

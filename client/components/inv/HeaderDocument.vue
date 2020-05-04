@@ -73,6 +73,7 @@
           data-vv-name="formModel.entity"
           :error-messages="errors.collect('formModel.entity')"
           required
+          :loading="form.loadingEntity"
           item-text="name"
           item-value="code"
           no-data-text="Nenhum registo foi encontrado"
@@ -81,7 +82,7 @@
       </v-col>
       <v-col v-show="$route.query.doc === 'DRGAS'
       && form.product_suppliers.length === 0">
-        <v-btn color="warning" @click="dialog = !dialog" flat small>Criar</v-btn>
+        <v-btn color="warning" @click="dialog = !dialog" small>Criar</v-btn>
 
         <v-dialog v-model="dialog" max-width="600px">
           <v-card>
@@ -170,8 +171,9 @@ export default {
       type: Object,
       default: () => ({
         title: "Documentos internos",
-        documenttype: null,
+        documenttype: null,       
         requiredBussinessArea: true,
+        loadingEntity: false,
         requiredExternalDocNumber: true,
         requiredAttachs: false,
         requiredProject: true,

@@ -11,6 +11,7 @@
               v-model="productModel.supplier"
               :items="product_suppliers"
               clearable
+              :loading="loading"
               :search-input.sync="search_supplier"
               label="Fornecedor"
               return-object
@@ -26,7 +27,7 @@
         </v-row>
         <v-row>
           <v-col>
-            <v-text-field v-model="productModel.description" label="Descricao"></v-text-field>
+            <v-text-field v-model="productModel.description" label="Descrição"></v-text-field>
           </v-col>
         </v-row>
         <v-row>
@@ -47,6 +48,7 @@
           </v-col>
           <v-col cols="12" sm="12" md="6">
             <v-autocomplete
+              :disabled="!productModel.type"
               v-model="productModel.status"
               :items="product_statuses"
               clearable
@@ -87,6 +89,7 @@ export default {
     menu: false,
     productModel: {},
     product_types: [],
+    loading: true,
     search_supplier: '',
     product_statuses: [],
     product_suppliers: []
@@ -158,6 +161,9 @@ export default {
         "getDataAsync",
         "products/statuses"
       );
+
+      //Filter needed statuses for gas: 12 - Vaizo, 13 - Semi cheio and 14 - Cheio
+      this.product_statuses = this.product_statuses.filter(status => [12, 13, 14].includes(status.code))
     }
   },
 
@@ -167,10 +173,13 @@ export default {
 
   watch: {
     async search_supplier (search_term) {
+      this.loading = true
       this.product_suppliers = await this.$store.dispatch(
           "getDataAsync",
           `products/suppliers?supplier=${search_term}`
         );
+
+      this.loading = false
     }
   }
 };
