@@ -13,7 +13,7 @@
       :headers="headers"
       :items="items"
       v-model="selected"
-      item-key="product_id"
+     
       class="elevation-1"
       :show-select="!isSelectedProduct"
       :search="search"
