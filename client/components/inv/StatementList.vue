@@ -55,6 +55,7 @@
       v-model="selected"
       item-key="id"
       class="elevation-1"
+      :loading="loadingContent"
 
       :search="search"
     >
@@ -79,7 +80,7 @@
 export default {
   data: () => ({
     search: "",
-    isLoading: false,
+    loadingContent: false,
     dateEnd: new Date(Date.now()).toISOString().substr(0, 10),
     dateBegin: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)
       .toISOString()
@@ -94,7 +95,6 @@ export default {
       { text: "Data", value: "date" },
       { text: "Documento", value: "DocumentType.code" },
       { text: "Descrição", value: "description" }, // Artigo
-      { text: "Número de série", value: "Product.barcode" },
       { text: "Unidade", value: "Unity.code" },
       { text: "Qtd.", value: "quantity" },
       { text: "Funcionário", value: "Entity.name" },
@@ -118,13 +118,19 @@ export default {
 
       var url = `Stocks/filters?warehouseId=${warehouseId}&type=${this.documentTypes[0].typeArticle}&dateBegin=${this.dateBegin}&dateEnd=${this.dateEnd}`;
 
+      this.loadingContent = true;
       this.items = await this.$store.dispatch("getDataAsync", url);
+      this.loadingContent = false;
 
       console.log(this.items);
     }
   },
 
   created() {
+    //Add  the number of bottles
+    //TODO: Also add the number of project
+    if(this.$route.query.tipo.toLowerCase() == 'gases')
+    this.headers.splice(3, 0,  { text: "Número da Botija", value: "Product.barcode" })
     console.log("The statment List was created");
   }
 };
