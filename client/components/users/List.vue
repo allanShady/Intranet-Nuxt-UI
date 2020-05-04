@@ -4,7 +4,7 @@
       Utilizadores
       <v-spacer></v-spacer>
       <v-text-field v-model="search" append-icon="search" label="Pesquisar" single-line hide-details></v-text-field>
-      <v-icon @click="dialog = !dialog" color="primary">mdi-plus-circle-outline</v-icon>
+      <v-icon @click="dialog = !dialog" large color="primary">mdi-plus-circle-outline</v-icon>
       <v-dialog v-model="dialog" max-width="600px">
           <v-card>
             <v-card-title>
