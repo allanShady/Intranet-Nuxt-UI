@@ -4,7 +4,7 @@
       Artigos
       <v-spacer></v-spacer>
       <v-text-field v-model="search" append-icon="mdi-magnify" label="Pesquisar"  single-line hide-details></v-text-field>
-      <v-icon color="primary" @click="createNewProduct()">add</v-icon>
+      <v-icon color="primary" large @click="createNewProduct()">mdi-plus-circle-outline</v-icon>
     </v-card-title>
 
     <v-card-text class="pa-0">
@@ -49,7 +49,7 @@ export default {
     formTitle: "Criar Artigo",
     loading: false,
     headers: [
-      { text: "Codigo", value: "id" },
+      { text: "Código", value: "id" },
       { text: "Descrição", value: "description" },
       { text: "Cod. barras", value: "barcode" },
       { text: "Tipo", value: "Type.description" },
@@ -113,13 +113,9 @@ export default {
     },
 
     async initData() {
+      
       this.loading = !this.loading;
-       this.$store.dispatch("getDataAsync", "products")
-      .then((result) => {         
-          this.products  = result     
-      }).catch((err) => {
-        
-      });;
+      this.products = await this.$store.dispatch("getDataAsync", "products")
       this.loading = !this.loading;
 
       this.product_types = await this.$store.dispatch(
