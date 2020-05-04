@@ -1,6 +1,19 @@
 <template>
   <v-layout column justify-space-around>
+
     <v-flex>
+
+      <v-card outlined class="mr-4 mt-4">
+          <v-row no-gutters align="center" >
+              <!--v-col-->
+                <v-btn large outlined class="px-4 mr-4" v-for="document in documentTypes" :key="document.code" color="success"  @click="openFrm(document)">{{ document.friendlyUserName }}</v-btn>      
+             <!--/v-col-->
+          </v-row>
+          </v-card >
+
+    <!-- End container -->
+    </v-flex>
+    <!--v-flex>
       <v-btn-toggle>
         <v-bottom-navigation color="primary"  horizontal>
           <v-btn mr-4
@@ -9,14 +22,14 @@
             
             v-for="document in documentTypes"
             :key="document.code"
-            @click="openFrm(document)"
+           
           >
             {{document.friendlyUserName}}
-            <!--v-icon>{{document.icon}}</v-icon-->
-          </v-btn>
-        </v-bottom-navigation>
+            <v-icon>{{document.icon}}</v-icon-->
+          <!--/v-btn-->
+        <!--/v-bottom-navigation>
       </v-btn-toggle>
-    </v-flex>
+    </v-flex-->
     <v-flex>
       <statement></statement>
     </v-flex>
