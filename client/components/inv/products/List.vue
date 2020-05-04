@@ -3,7 +3,7 @@
     <v-card-title>
       Artigos
       <v-spacer></v-spacer>
-      <v-text-field v-model="search" append-icon="mdi-magnify" label="Search"  single-line hide-details></v-text-field>
+      <v-text-field v-model="search" append-icon="mdi-magnify" label="Pesquisar"  single-line hide-details></v-text-field>
       <v-icon color="primary" @click="createNewProduct()">add</v-icon>
     </v-card-title>
 
@@ -50,13 +50,13 @@ export default {
     loading: false,
     headers: [
       { text: "Codigo", value: "id" },
-      { text: "Descricao", value: "description" },
-      { text: "Cod. Barras", value: "barcode" },
+      { text: "Descrição", value: "description" },
+      { text: "Cod. barras", value: "barcode" },
       { text: "Tipo", value: "Type.description" },
       { text: "Estado", value: "status.description" },
       { text: "Fornecedor", value: "supplier.name" },
-      { text: "Stock", value: "stock" },
-      { text: "Actions", value: "action", sortable: false }
+      //{ text: "Stock", value: "stock" },
+      { text: "", value: "action", sortable: false }
     ]
   }),
 
