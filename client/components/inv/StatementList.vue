@@ -94,13 +94,12 @@ export default {
     headers: [
       { text: "Data", value: "date" },
       { text: "Documento", value: "DocumentType.code" },
-      { text: "Descrição", value: "description" }, // Artigo
-      { text: "Unidade", value: "Unity.code" },
-      { text: "Qtd.", value: "quantity" },
       { text: "Funcionário", value: "Entity.name" },
-      { text: "Area de negócio", value: "BusinessArea.description" },
       { text: "Entidade", value: "Project.description" },
-      { text: "Estado", value: "status" }
+      { text: "Artigo", value: "description" }, // Artigo
+      { text: "Unidade", value: "Unity.code" },
+      { text: "Qtd.", value: "quantity" },      
+      { text: "Area de negócio", value: "BusinessArea.description" },
     ]
   }),
   beforeMount: async function() {},
@@ -129,8 +128,10 @@ export default {
   created() {
     //Add  the number of bottles
     //TODO: Also add the number of project
-    if(this.$route.query.tipo.toLowerCase() == 'gases')
-    this.headers.splice(3, 0,  { text: "Número da Botija", value: "Product.barcode" })
+    if(this.$route.query.tipo.toLowerCase() == 'gases') {
+      this.headers.splice(4, 0,  { text: "Número da Botija", value: "Product.barcode" })
+      this.headers.splice((this.headers.length - 1), 0, { text: "Estado", value: "status" });
+    }
     console.log("The statment List was created");
   }
 };
