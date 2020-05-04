@@ -71,7 +71,7 @@ export default {
         this.headers = [
           { text: "Artigo", value: "Product.id" },
           { text: "Descrição", value: "Product.description" },
-          { text: "Armazem", value: "Warehouse.description" },
+          { text: "Armazém ", value: "Warehouse.description" },
           { text: "Filial", value: "Warehouse.branch" },
           { text: "Stock", value: "stock" }
         ];
