@@ -8,7 +8,7 @@
       <v-container>
         <v-row>
           <v-col cols="12" sm="12" md="6">
-            <v-text-field v-model="warehouse.code" label="Filial"></v-text-field>
+            <v-text-field v-model="warehouse.code" label="Armazén"></v-text-field>
           </v-col>
           <v-col cols="12" sm="12" md="6">
             <v-text-field v-model="warehouse.description" label="Descrição"></v-text-field>
