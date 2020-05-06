@@ -78,16 +78,41 @@ const Menu = [
     name: 'project',
     href: '/project/'
   },*/
-  {header: 'Utilizadores'},
+
+  
+  {header: 'Administração'},
   {
     title: 'Utilizadores',
     group: 'Utilizadores',
     icon: 'mdi-account',
     name: 'utilizadores',
-    href: '/users'
+    href: '/admin/users'
   },
 
-  // {divider: true},
+   {divider: true},
+   {
+     title: 'Filiais',
+     group: 'Administração',
+     icon: 'mdi-store',
+     name: 'Filiais',
+     href: '/admin/branches'
+   },
+   {divider: true},
+   {
+     title: 'Armazéns',
+     group: 'Administração',
+     icon: 'mdi-warehouse',
+     name: 'Armazéns',
+     href: '/admin/warehouses'
+   },
+   {divider: true},
+   {
+     title: 'Localizaçoes',
+     group: 'Administração',
+     icon: 'mdi-map-marker-multiple',
+     name: 'Localizaçoes',
+     href: '/admin/locations'
+   },
   // {
   //   title: 'Chat',
   //   group: 'apps',
