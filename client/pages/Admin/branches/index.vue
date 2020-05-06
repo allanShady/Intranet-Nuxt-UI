@@ -42,15 +42,14 @@ export default {
 
   methods: {
     async initData() {
-      this.loading = !this.loading;
+      this.list.loading = true
       this.list.records = await this.$store.dispatch("getDataAsync", "branch");
-      this.loading = !this.loading;
+      this.list.loading = false
     }
   },
 
   created() {
     this.initData();
   }
-  
 };
 </script>
