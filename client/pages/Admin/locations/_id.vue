@@ -86,6 +86,7 @@ export default {
         this.location.city = null;
         this.location.state = null;
         this.location.country = null;
+        this.location.warehouseId = null
         this.isUpdate = false;
     },
 
