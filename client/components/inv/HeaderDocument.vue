@@ -94,7 +94,7 @@
               <v-container>
                 <v-row>
                   <v-col cols="12" sm="12" md="4">
-                    <v-text-field dense v-model="supplier.code" label="Codigo"></v-text-field>
+                    <v-text-field dense v-model="supplier.code" label="Código"></v-text-field>
                   </v-col>
                   <v-col cols="12" sm="12" md="8">
                     <v-text-field dense v-model="supplier.Name" label="Nome"></v-text-field>
