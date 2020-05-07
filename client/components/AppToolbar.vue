@@ -3,42 +3,51 @@
     <v-toolbar-title class="ml-0 pl-3">
       <v-app-bar-nav-icon @click.stop="toggleDrawer()"></v-app-bar-nav-icon>
     </v-toolbar-title>
-<v-spacer></v-spacer>
-    <v-select
-      prepend-icon="mdi-store-outline"
-      v-model="branch"
-      :items="Branch"
-      label="Filial"
-      item-text="description"
-      item-value="code"
-      return-object
-      single-line
-      @input="selectBranch"
-    ></v-select>
-    <v-select
-      prepend-icon="mdi-store"
-      v-model="warehouse"
-      :items="Warehouse"
-      label="Armazem"
-      item-text="description"
-      item-value="code"
-      return-object
-      single-line
-      @input="selectWarehouse"
-    ></v-select>
-    <v-select
-      prepend-icon="mdi-map-marker-circle"
-      v-model="localization"
-      :items="Localization"
-      label="Localização"
-      item-text="description"
-      item-value="code"
-      return-object
-      single-line
-      @input="selectLocalization"
-    ></v-select>
+    <v-spacer></v-spacer>
+    <v-container class="mt-8">
+      <v-flex class="pa-1">
+        <v-row>
+          <v-col md="3">
+            <v-select
+              prepend-icon="mdi-store-outline"
+              v-model="branch"
+              :items="Branch"
+              label="Filial"
+              item-text="description"
+              item-value="code"
+              return-object
+              @input="selectBranch"
+            ></v-select>
+          </v-col>
+          <v-col md="3">
+            <v-select
+              prepend-icon="mdi-warehouse"
+              v-model="warehouse"
+              :items="Warehouse"
+              label="Armazém"
+              item-text="description"
+              item-value="code"
+              return-object
+              @input="selectWarehouse"
+            ></v-select>
+          </v-col>
+          <v-col md="3">
+            <v-select
+              prepend-icon="mdi-map-marker"
+              v-model="localization"
+              :items="Localization"
+              label="Localização"
+              item-text="description"
+              item-value="code"
+              return-object
+              @input="selectLocalization"
+            ></v-select>
+          </v-col>
+        </v-row>
+      </v-flex>
+    </v-container>
 
-    <v-menu
+    <!--v-menu
       offset-y
       origin="center center"
       :nudge-right="140"
@@ -54,7 +63,7 @@
         </v-btn>
       </template>
       <notification-list></notification-list>
-    </v-menu>
+    </v-menu-->
     <v-menu
       offset-y
       origin="center center"
@@ -109,8 +118,8 @@ export default {
       branch: null,
       Warehouse: [],
       warehouse: null,
-      Localization:[],
-      localization:null,
+      Localization: [],
+      localization: null,
       items: [
         {
           icon: "account_circle",
@@ -143,18 +152,17 @@ export default {
     this.Branch = await this.$store.dispatch("getDataAsync", "branch");
 
     if (this.branch) {
-
       let bar = this.Branch.filter(p => p.code == this.branch)[0];
 
       this.Warehouse = bar.Warehouses;
       this.warehouse = localStorage.warehouse;
     }
 
-    if(this.warehouse){
-      let loc = this.Warehouse.filter(p=> p.code == this.warehouse)[0];
+    if (this.warehouse) {
+      let loc = this.Warehouse.filter(p => p.code == this.warehouse)[0];
 
-      this.Localization = loc.localizations;
-      this.localization =  localStorage.localization;
+      //this.Localization = loc.localizations;
+      this.localization = localStorage.localization;
     }
   },
   computed: {
@@ -187,7 +195,7 @@ export default {
       localStorage.warehouse = this.warehouse.code;
       this.Localization = this.warehouse.localizations;
     },
-    selectLocalization(item){
+    selectLocalization(item) {
       if (!item) return;
 
       localStorage.localization = this.localization.code;
