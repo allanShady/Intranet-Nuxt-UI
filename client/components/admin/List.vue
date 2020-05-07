@@ -3,7 +3,13 @@
     <v-card-title>
       {{list.title}}
       <v-spacer></v-spacer>
-      <v-text-field v-model="search" append-icon="search" label="Pesquisar" single-line hide-details></v-text-field>
+      <v-text-field
+        v-model="search"
+        append-icon="search"
+        label="Pesquisar"
+        single-line
+        hide-details
+      ></v-text-field>
       <v-icon @click="gotoRoute('create')" large color="primary">mdi-plus-circle-outline</v-icon>
     </v-card-title>
 
@@ -19,16 +25,17 @@
         :loading="list.loading"
         :loading-text="list.loadingRecordsText"
       >
- <template v-slot:item.inactive="{ item }">
-        <v-chip
-          small
-          :color="item.inactive ? 'error' : 'success'"
-          dark
-        >{{ item.inactive ? 'inactivo': 'activo' }}</v-chip>
-      </template>
+        <template v-slot:item.inactive="{ item }">
+          <v-chip
+            small
+            :color="item.inactive ? 'error' : 'success'"
+            dark
+          >{{ item.inactive ? 'inactivo': 'activo' }}</v-chip>
+        </template>
 
         <template v-slot:item.action="{ item }">
           <v-icon small class="mr-2" @click="gotoRoute(item.code)">mdi-pencil</v-icon>
+          <v-icon v-if="$route.path =='/admin/warehouses'" small @click="vewDetails(item)">mdi-eye</v-icon>
           <v-icon small @click="deleteItem(item)">mdi-delete</v-icon>
         </template>
       </v-data-table>
@@ -38,7 +45,6 @@
   </v-card>
 </template>
 <script>
-
 export default {
   props: {
     list: {
@@ -52,20 +58,21 @@ export default {
     users: [],
     userModel: {},
     dialog: false,
-    formTitle: 'Criar',
+    formTitle: "Criar"
   }),
 
-  created() {
-  },
+  created() {},
 
   methods: {
-    gotoRoute(param){
-      this.$router.push(`${this.$route.fullPath}/${param}`)
+    gotoRoute(param) {
+      this.$router.push(`${this.$route.fullPath}/${param}`);
     },
 
-    deleteItem(value){
+    deleteItem(value) {},
 
-    },
-  },
+    vewDetails(warehouse) {
+      this.$emit('display-warehouse-locations', warehouse);
+    }
+  }
 };
 </script>
