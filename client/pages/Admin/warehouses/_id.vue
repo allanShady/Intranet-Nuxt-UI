@@ -27,7 +27,7 @@
             <v-text-field v-model="warehouse.city" type="text" label="Cidade"></v-text-field>
           </v-col>
           <v-col>
-            <v-text-field v-model="warehouse.state" type="text" label="Estado"></v-text-field>
+            <v-text-field v-model="warehouse.state" type="text" label="Distrito"></v-text-field>
           </v-col>
           <v-col>
             <v-text-field v-model="warehouse.country" type="text" label="Pais"></v-text-field>
