@@ -2,24 +2,34 @@
   <div id="page-forms">
     <v-container grid-list-xl fluid>
       <v-flex lg12 sm12 xs12>
-        <list :list="list"></list>
+        <list :list="list"  @show-warehouse-dialog="showWarehouse"></list>
       </v-flex>
+
+      <v-dialog
+      v-model="dialog"     
+       max-width="500px"
+      transition="dialog-transition"
+    >
+      <warehouse-list :list="warehouses"/>
+    </v-dialog>
     </v-container>
   </div>
 </template>
 
 <script>
 import List from "@/components/admin/List";
+import WarehouseList from "@/components/admin/branchWarehouses/list.vue";
 
 export default {
   layout: "dashboard",
   middleware: ["custom-auth"],
   components: {
-    List
+    List, WarehouseList
   },
   data() {
     return {
       menu: false,
+      dialog: false,
       list: {
         title: "Filiais",
         headers: [
@@ -30,12 +40,24 @@ export default {
           { text: "Cidade", value: "city" },
           { text: "Estado", value: "state" },
           { text: "Pais", value: "country" },
+          { text: "Armazéns", value: "view", sortable: false, align: 'center' },
           { text: "", value: "action", sortable: false }
         ],
 
         records: [],
         itemKey: "code",
         loading: false
+      },
+      warehouses: {
+        title: "Armazéns",
+        branch: '',
+        headers: [
+          { text: "Armazém", value: "code" },
+          { text: "Descrição", value: "description" }
+        ],
+
+        records: [],
+        itemKey: "code"
       }
     };
   },
@@ -45,6 +67,13 @@ export default {
       this.list.loading = true
       this.list.records = await this.$store.dispatch("getDataAsync", "branch");
       this.list.loading = false
+    },
+
+    showWarehouse(branch) {
+      console.log(branch)
+      this.warehouses.records = branch.Warehouses
+      this.warehouses.branch = branch.code
+      this.dialog = true
     }
   },
 
