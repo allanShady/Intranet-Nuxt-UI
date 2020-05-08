@@ -6,15 +6,29 @@
 
     <v-card-text>
       <v-container>
-        <v-row>
-          <v-col cols="12" sm="12" md="6">
-            <v-text-field v-model="warehouse.code" label="Armazén"></v-text-field>
+        <v-row>         
+           <v-col cols="12" sm="12" md="3">
+            <v-autocomplete
+              prepend-icon="mdi-store"
+              v-model="warehouse.branch"
+              :items="branches"
+              label="Filial"
+              item-text="description"
+              item-value="code"
+              return-object              
+              :loading="loadingBranches"
+            ></v-autocomplete>
+          </v-col>
+           <v-col cols="12" sm="12" md="3">
+            <v-text-field prepend-icon="mdi-warehouse" v-model="warehouse.code" label="Armazém"></v-text-field>
           </v-col>
           <v-col cols="12" sm="12" md="6">
             <v-text-field v-model="warehouse.description" label="Descrição"></v-text-field>
           </v-col>
         </v-row>
-        <v-row>
+        <span>Endereço</span>
+        <v-card outlined class="px-4">
+                  <v-row>
           <v-col cols="12" sm="12" md="6">
             <v-text-field v-model="warehouse.address1" type="text" label="Morada 1"></v-text-field>
           </v-col>
@@ -33,6 +47,7 @@
             <v-text-field v-model="warehouse.country" type="text" label="Pais"></v-text-field>
           </v-col>
         </v-row>
+        </v-card>
       </v-container>
     </v-card-text>
 
@@ -52,6 +67,8 @@ export default {
       warehouse: {},
       onSave: false,
       isUpdate: false,
+      loadingBranches: false,
+      branches: []
     };
   },
 
@@ -65,17 +82,27 @@ export default {
             `warehouse/${warehouseIdentifier}`
         );
 
-        this.isUpdate = true;
+        if(this.warehouse)
+          this.isUpdate = true;
     }
+
+    this.loadBranches();
   },
 
   methods: {
     async save() {
       let post_data = this.warehouse;
+      
+      post_data.branch = post_data.branch.code
 
      this.onSave = true
 
-     if(this.isUpdate);
+     if(this.isUpdate)
+     await this.$store.dispatch("putDataAsync", {
+        api_resourse: "warehouse",
+        identifier: this.warehouse.code,
+        post_data
+      });
      else
       await this.$store.dispatch("postDataAsync", {
         api_resourse: "warehouse",
@@ -94,7 +121,14 @@ export default {
         this.warehouse.city = null;
         this.warehouse.state = null;
         this.warehouse.country = null;
+        this.warehouse.branch = null;
         this.isUpdate = false;
+    },
+
+    async loadBranches() {
+      this.loadingBranches = true;
+      this.branches = await this.$store.dispatch("getDataAsync", "branch");
+      this.loadingBranches = false;
     },
 
     close() {
