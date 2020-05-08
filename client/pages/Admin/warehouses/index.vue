@@ -35,7 +35,7 @@ export default {
       list: {
         title: "Armazéns",
         headers: [
-          { text: "Armazén", value: "code" },
+          { text: "Armazém", value: "code" },
           { text: "Filial", value: "branch" },
           { text: "Descrição", value: "description" },
           { text: "Morada 1", value: "address1" },

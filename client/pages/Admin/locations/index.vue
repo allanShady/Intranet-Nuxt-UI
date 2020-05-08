@@ -24,7 +24,7 @@ export default {
         title: "Localizaçoes",
         headers: [
           { text: "Localização", value: "code" },
-          { text: "Armazén", value: "warehouseId" },
+          { text: "Armazém", value: "warehouseId" },
           { text: "Descrição", value: "description" },
           { text: "Activo", value: "active" },
           { text: "Anual", value: "anual" },
