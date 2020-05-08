@@ -18,17 +18,17 @@
         </v-row>
         <v-row>
           <v-col cols="12" sm="12" md="6">
-            <v-text-field v-model="userModel.email" type="email" label="Email"></v-text-field>
+            <v-text-field :disabled="isUpdate" v-model="userModel.email" type="email" label="Email"></v-text-field>
           </v-col>
           <v-col cols="12" sm="12" md="6">
             <v-text-field v-model="userModel.phone_number_1" label="Celular"></v-text-field>
           </v-col>
         </v-row>
         <v-row>
-          <v-col cols="12" sm="12" md="3">
+          <v-col v-if="displayPassworFields" cols="12" sm="12" md="3">
             <v-text-field v-model="userModel.password" type="password" label="Senha"></v-text-field>
           </v-col>
-          <v-col md="3">
+          <v-col v-if="displayPassworFields" md="3">
             <v-text-field
               v-model="userModel.confirm_password"
               type="password"
@@ -36,7 +36,7 @@
             ></v-text-field>
           </v-col>
           <v-col md="1">
-            <v-checkbox label="Activo" v-model="!userModel.inactive"></v-checkbox>
+            <v-checkbox label="Activo" v-model="userModel.inactive"></v-checkbox>
           </v-col>
         </v-row>
       </v-container>
@@ -55,31 +55,47 @@ export default {
   layout: "dashboard",
   data() {
     return {
-      userModel: { inactive: false },
+      userModel: { inactive: true },
       onSave: false,
-      isUpdate: false
+      isUpdate: null,
+      displayPassworFields: null
     };
   },
 
   async created() {
-    const locationIdentifier = this.$route.params.id.trim().toLowerCase();
-    if (locationIdentifier !== "create") {
-      this.location = await this.$store.dispatch(
+    const userIdentifier = this.$route.params.id.trim().toLowerCase();
+    if (userIdentifier !== "create") {
+      this.userModel = await this.$store.dispatch(
         "getDataAsync",
-        `auth/users/${locationIdentifier}`
+        `auth/users/${userIdentifier}`
       );
 
-      this.isUpdate = true;
+      if(this.userModel) {
+        this.isUpdate = true;
+        this.userModel.inactive = !this.userModel.inactive
+      }          
     }
+    else {
+     this.displayPassworFields = true
+     }
   },
 
   methods: {
     async save() {
       let post_data = this.userModel;
-
+      
       this.onSave = true;
 
-      if (this.isUpdate);
+      if (this.isUpdate) {
+      
+        post_data.inactive = !this.userModel.inactive
+        await this.$store.dispatch("putDataAsync", {
+          api_resourse: "auth/users",
+          identifier: this.$route.params.id,
+          post_data
+        });
+        
+      }
       else
         await this.$store.dispatch("postDataAsync", {
           api_resourse: "auth/create",
@@ -98,7 +114,8 @@ export default {
         (this.userModel.phone_number_1 = null),
         (this.userModel.password = null),
         (this.userModel.confirm_password = null);
-      this.isUpdate = false;
+        this.userModel.inactive = true
+      
     },
 
     close() {
