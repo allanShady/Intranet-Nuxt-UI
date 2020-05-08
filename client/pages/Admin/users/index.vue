@@ -27,7 +27,7 @@ export default {
           { text: "Apelido", value: "last_name" },
           { text: "Email", value: "email" },
           { text: "Celular", value: "phone_number_1" },
-          { text: "Estado", value: "inactive" },
+          { text: "Activo", value: "inactive" },
           { text: "", value: "action", sortable: false }
         ],
 

@@ -26,11 +26,13 @@
         :loading-text="list.loadingRecordsText"
       >
         <template v-slot:item.inactive="{ item }">
-          <v-chip
+          <!--v-chip
             small
             :color="item.inactive ? 'error' : 'success'"
             dark
-          >{{ item.inactive ? 'inactivo': 'activo' }}</v-chip>
+          >{{ item.inactive ? 'inactivo': 'activo' }}</v-chip-->
+          <v-icon small v-if="!item.inactive" color="success">mdi-check</v-icon>
+          <v-icon small v-else color="error">mdi-close</v-icon>
         </template>
 
         <template v-slot:item.active="{ item }">
