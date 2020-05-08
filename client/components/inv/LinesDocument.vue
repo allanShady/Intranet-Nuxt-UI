@@ -182,7 +182,7 @@
     <template v-slot:item.action>
       <v-icon
         v-show="!form.canAddProduct"
-        @click="removeLine"
+        @click="removeLine(item)"
         small
         color="error"
       >mdi-minus-circle-outline</v-icon>
@@ -288,7 +288,7 @@ export default {
     changeArticle(item) {
       
       if (!item) {
-        this.project_of_selected_item = item.project || null
+        this.project_of_selected_item = item ? item.project : null
         this.editedItem.unity = null;
       } else {
         this.editedItem.unity = item.Unity ? item.Unity.base : "UN";
@@ -430,7 +430,8 @@ export default {
     getProducts(item) {},
 
     removeLine(item) {
-      this.formModel.items.splice(item);
+      let indexOfItemToRemove = this.formModel.items.indexOf(item)
+      this.formModel.items.splice(indexOfItemToRemove, 1);
     },
 
     async getProducts(supplier, status, type) {
