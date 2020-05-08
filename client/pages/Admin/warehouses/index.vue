@@ -2,15 +2,17 @@
   <div id="page-forms">
     <v-container grid-list-xl fluid>
       <v-flex>
-        <v-row>
-          <v-col cols="12" sm="12" :md=" locations.records.length ? 8 : 12">
+        
             <list :list="list" @display-warehouse-locations="updateLocations"></list>
-          </v-col>
-          <v-col md="4" v-show="locations.records.length">
-            <locations-list :list="locations" />
-          </v-col>
-        </v-row>
       </v-flex>
+
+      <v-dialog
+      v-model="dialog"     
+       max-width="500px"
+      transition="dialog-transition"
+    >
+      <locations-list :list="locations"/>
+    </v-dialog>
     </v-container>
   </div>
 </template>
@@ -29,6 +31,7 @@ export default {
   data() {
     return {
       menu: false,
+      dialog: false,
       list: {
         title: "Armazéns",
         headers: [
@@ -40,6 +43,7 @@ export default {
           { text: "Cidade", value: "city" },
           { text: "Distrito", value: "state" },
           { text: "Pais", value: "country" },
+          { text: "Localizaçoes", value: "viewLoaciton", align: 'center' },
           { text: "", value: "action", sortable: false }
         ],
 
@@ -69,13 +73,13 @@ export default {
         "warehouse"
       );
 
-      this.updateLocations(this.list.records[0]);
       this.list.loading = false;
     },
 
     updateLocations(warehouse){
       this.locations.records = warehouse.localizations
       this.locations.warehouse = warehouse.code
+      this.dialog = true
     }
   },
 
