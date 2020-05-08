@@ -50,7 +50,8 @@
         </template>
 
         <template v-slot:item.action="{ item }">
-          <v-icon color="warning" small class="mr-2" @click="gotoRoute(item.code)">mdi-pencil</v-icon>
+          <v-icon v-if="$route.path =='/admin/users'" color="warning" small class="mr-2" @click="gotoRoute(item.email)">mdi-pencil</v-icon>
+          <v-icon v-else color="warning" small class="mr-2" @click="gotoRoute(item.code)">mdi-pencil</v-icon>
           <v-icon color="error" small @click="deleteItem(item)">mdi-delete</v-icon>
         </template>
       </v-data-table>
