@@ -10,7 +10,11 @@
       <v-container>
         <v-row>
           <v-col cols="12" sm="12" md="3">
-            <v-text-field prepend-icon="mdi mdi-map-marker" v-model="location.code" label="Localização"></v-text-field>
+            <v-text-field
+              prepend-icon="mdi mdi-map-marker"
+              v-model="location.code"
+              label="Localização"
+            ></v-text-field>
           </v-col>
           <v-col cols="12" sm="12" md="9">
             <v-text-field v-model="location.description" label="Descrição"></v-text-field>
@@ -18,14 +22,14 @@
         </v-row>
         <v-row>
           <v-col cols="12" sm="12" md="3">
-           <v-autocomplete
+            <v-autocomplete
               prepend-icon="mdi-warehouse"
               v-model="location.warehouseId"
               :items="warehouses"
               label="Armazén"
               item-text="description"
               item-value="code"
-              return-object              
+              return-object
               :loading="loadingWarehouses"
             ></v-autocomplete>
           </v-col>
@@ -55,7 +59,8 @@ export default {
       location: { active: true },
       onSave: false,
       isUpdate: false,
-      warehouses: []
+      warehouses: [],
+      loadingWarehouses: false
     };
   },
 
@@ -67,26 +72,36 @@ export default {
         `locations/${locationIdentifier}`
       );
 
-      this.isUpdate = true;
+      if (this.location) this.isUpdate = true;
     }
 
-    this.loadWarehouses();
+    await this.loadWarehouses();
   },
 
   methods: {
     async save() {
       let post_data = this.location;
-      post_data.warehouseId = post_data.warehouseId.code
+      post_data.warehouseId =
+        this.location.warehouseId.code || this.location.warehouseId;
 
       this.onSave = true;
 
-      if (this.isUpdate);
+      if (this.isUpdate)
+        await this.$store.dispatch("putDataAsync", {
+          api_resourse: "locations",
+          identifier: this.location.code,
+          post_data
+        });
       else
         await this.$store.dispatch("postDataAsync", {
           api_resourse: "locations",
           post_data
         });
 
+      this.pauseLoaderIndicatorAndClearValues();
+    },
+
+    pauseLoaderIndicatorAndClearValues() {
       this.onSave = false;
       this.clearValues();
     },
@@ -100,11 +115,8 @@ export default {
     clearValues() {
       this.location.code = null;
       this.location.description = null;
-      this.location.address1 = null;
-      this.location.address2 = null;
-      this.location.city = null;
-      this.location.state = null;
-      this.location.country = null;
+      this.location.active = null;
+      this.location.anual = null;
       this.location.warehouseId = null;
       this.isUpdate = false;
     },
