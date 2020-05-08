@@ -147,6 +147,13 @@ export const actions = {
       .catch(error => { logError(error) });
   },
 
+  async putDataAsync(vuexContext, data) {
+    return await this.$axios
+      .$put(`/${data.api_resourse}/${data.identifier}`, data.post_data)
+      .then(response => response)
+      .catch(error => { logError(error) });
+  },
+
   async postDataWithCustomHeaderAsync(vuexContext, data) {
     return await this.$axios
       .$post(`/${data.api_resourse}`, data.post_data, data.headers)
