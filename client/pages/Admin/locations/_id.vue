@@ -10,7 +10,7 @@
       <v-container>
         <v-row>
           <v-col cols="12" sm="12" md="3">
-            <v-text-field
+            <v-text-field :disabled="isUpdate"
               prepend-icon="mdi mdi-map-marker"
               v-model="location.code"
               label="Localização"
