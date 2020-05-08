@@ -1,19 +1,17 @@
 <template>
   <v-card>
     <v-card-title>
-      {{list.title}} <v-spacer></v-spacer> armazén: <label color="info"> {{list.warehouse}}</label>
+      {{list.title}} de armazém<v-spacer></v-spacer>  <v-chip text outlined small  color="warning" >{{list.warehouse}}</v-chip>
     </v-card-title>
 
     <v-card-text class="pa-0">
       <v-data-table
         :headers="list.headers"
-        :items="list.records"
-        single-select
-        :items-per-page="20"
+        :items="list.records"      
         :item-key="list.ItemKey"
         class="elevation-0"
-        disable-pagination
-      >
+        :no-data-text="`Sem ${list.title.toLowerCase()} associadas ao armazém - ${list.warehouse}`"
+      >      
       </v-data-table>
     </v-card-text>
   </v-card>
