@@ -27,6 +27,7 @@
       v-model="pending_selected_items"
       :items="pending_items"
       show-select
+      :loading="onFecthingItems"
       :search="search"
       class="caption"
     >
@@ -84,8 +85,10 @@ export default {
 
   async created() {
     this.headers = ppcServices.getTableHeadersView4Validation("DPPC");
+    
+    this.onFecthingItems = true
     this.pending_items = await this.fecthPendingItems4Validation()
-
+    this.onFecthingItems = false
     //init statuses
     this.statuses = await this.fecthStatus("Validação");
 
@@ -94,10 +97,12 @@ export default {
 
   methods: {
     async fecthPendingItems4Validation (statuses = '') {
+      this.onFecthingItems = true
         return await this.$store.dispatch(
         "getDataAsync",
         `stocks/pending?doctype=${"DPPC"}${statuses}`
       );
+      this.onFecthingItems = false
     },
 
     async fecthStatus(filter) {
@@ -164,11 +169,13 @@ export default {
           .catch(error => console.log('UMM: ', error));
           
 
+          this.onFecthingItems = true  
           //Update the pending items
           this.pending_items = await this.$store.dispatch(
             "getDataAsync",
             `stocks/pending?doctype=${"VDPPC"}`
           );
+          this.onFecthingItems = false
         });
     },
 
