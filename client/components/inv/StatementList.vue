@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-container >
-      <v-card  tile >
+      <v-card class="pa-2" tile >
           <v-row no-gutters align="center" justify="space-around">
             <v-col md="2" class="px-4">
             <v-menu class="mr-4" 
@@ -54,7 +54,7 @@
       :items="items"
       v-model="selected"
       item-key="id"
-      class="elevation-1"
+      class="caption"
       :loading="loadingContent"
 
       :search="search"
@@ -72,7 +72,12 @@
         </v-toolbar>
       </template>
 
-      <template v-slot:no-data>0 - Linhas Em Inventario</template>
+      <!--Format the date in user friendly-->
+      <template v-slot:item.date="{ item }">
+          {{item.date.slice(0, 10)}}
+        </template>
+
+      <template v-slot:no-data> <p color="info">Especifique o intervalo de data e click no botão a direita para listar extracto.</p></template>
     </v-data-table>
   </div>
 </template>
@@ -93,7 +98,7 @@ export default {
     isSelectedProduct: true,
     headers: [
       { text: "Data", value: "date" },
-      { text: "Documento", value: "DocumentType.code" },
+      { text: "Acção", value: "DocumentType.generatedAction" },
       { text: "Funcionário", value: "Entity.name" },
       { text: "Entidade", value: "Project.description" },
       { text: "Artigo", value: "description" }, // Artigo
@@ -129,7 +134,7 @@ export default {
     //Add  the number of bottles
     //TODO: Also add the number of project
     if(this.$route.query.tipo.toLowerCase() == 'gases') {
-      this.headers.splice(4, 0,  { text: "Número da Botija", value: "Product.barcode" })
+      this.headers.splice(4, 0,  { text: "Número da botija", value: "Product.barcode" })
       this.headers.splice((this.headers.length - 1), 0, { text: "Estado", value: "status" });
     }
     console.log("The statment List was created");
