@@ -13,7 +13,7 @@
       :headers="headers"
       :items="items"
       v-model="selected"
-     
+     :loading="loadingContent"
       class="elevation-1"
       :show-select="!isSelectedProduct"
       :search="search"
@@ -37,6 +37,7 @@ export default {
     search: "",
     menuArea: "",
     isLoading: false,
+    loadingContent: false,
     items: [],
     selected: [],
     documentTypes: [],
@@ -62,20 +63,28 @@ export default {
 
         //Init headers
         this.headers = gasServices.getTableHeadersView('productView');
+
+        this.loadingContent = true
         this.items = await this.$store.dispatch("getDataAsync", url);
+        this.loadingContent = false
       } else {
         //TODO: Implement the appropriet logic here
         this.type = menuArea;
+        this.loadingDocTypes = true
         this.documentTypes = await this.$store.dispatch(
           "getDataAsync",
           "documenttypes/" + this.type
         );
 
+        this.loadingDocTypes = false
+
         let url = `products/entity/${"all"}/filters?hasstock=${1}&documentType=${
           this.documentTypes[0].typeArticle
         }`;
 
+        this.loadingContent = true
         this.items = await this.$store.dispatch("getDataAsync", url);
+        this.loadingContent = false
       }
     }
   },
