@@ -75,7 +75,17 @@
       <!--Format the date in user friendly-->
       <template v-slot:item.date="{ item }">
           {{item.date.slice(0, 10)}}
-        </template>
+      </template>
+
+      <!--View doc attachment-->
+      <template v-slot:item.Document="{ item }">
+        <!--strong>{{item.Document.attachement_path}}</strong-->
+         <a :href="item.Document.attachement_path" target="_blank">
+          <v-icon color="primary" small >
+            mdi-eye
+          </v-icon>
+          </a>
+      </template>
 
       <template v-slot:no-data> <p color="info">Especifique o intervalo de data e click no botão a direita para listar extracto.</p></template>
     </v-data-table>
@@ -100,11 +110,12 @@ export default {
       { text: "Data", value: "date" },
       { text: "Acção", value: "DocumentType.generatedAction" },
       { text: "Funcionário", value: "Entity.name" },
+      { text: "Area de negócio", value: "BusinessArea.description" },
       { text: "Entidade", value: "Project.description" },
       { text: "Artigo", value: "description" }, // Artigo
       { text: "Unidade", value: "Unity.code" },
-      { text: "Qtd.", value: "quantity" },      
-      { text: "Area de negócio", value: "BusinessArea.description" },
+      { text: "Qtd.", value: "quantity" },   
+      { text: "Anexo", value: "Document" },
     ]
   }),
   beforeMount: async function() {},
@@ -138,6 +149,14 @@ export default {
       this.headers.splice((this.headers.length - 1), 0, { text: "Estado", value: "status" });
     }
     console.log("The statment List was created");
+  },
+
+  computed: {
+    documentAttachmentPath: (document) => {
+      const docPath = document.attachement_path
+      console.log(document)
+      return docPath
+    }
   }
 };
 </script>

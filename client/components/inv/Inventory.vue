@@ -24,7 +24,7 @@
         }}
       </template>
 
-      <template v-slot:no-data>0 - Linhas Com Funcionario</template>
+      <template v-slot:no-data>0 - Linhas com funcionário</template>
     </v-data-table>
   </v-flex>
 </template>
