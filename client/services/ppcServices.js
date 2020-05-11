@@ -24,6 +24,8 @@ export default {
         headers = [
             //{ text: "Artigo", value: "product_id" },
             //{ text: "descrição", value: "description" },
+            { text: "Funcionário", value: "entityName" },
+            { text: "Aréa de negócio", value: "businessAreaDescription" },
             { text: "Artigo", value: "description" },
             { text: "Unidade", value: "unity_id" },
             { text: "Qtd. Pendente", value: "pending_qtd" },
