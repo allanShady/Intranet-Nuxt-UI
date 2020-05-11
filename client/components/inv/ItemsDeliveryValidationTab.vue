@@ -27,15 +27,16 @@
       v-model="pending_selected_items"
       :items="pending_items"
       show-select
-      :loading="onFecthingItems"
+      :loading="onLoadingPendingItems"
       :search="search"
       class="caption"
     >
       <template v-slot:item.status.description="{ item }">
         <v-chip
+          outlined
           small
           :color="getColor(item.status)"
-          dark
+          class="caption"
         >{{ statusProperlyDescription(item.status)}}</v-chip>
       </template>
       
@@ -76,33 +77,35 @@ export default {
   data: () => ({
     search: '',
     onFecthingItems: false,
+    onLoadingPendingItems: false,
     pending_selected_items: [],
     pending_items: [],
     selected_statuses: [],
-    statuses: ["Programming", "Design", "Vue", "Vuetify"],
+    statuses: [],
     headers: []
   }),
 
   async created() {
     this.headers = ppcServices.getTableHeadersView4Validation("DPPC");
     
-    this.onFecthingItems = true
-    this.pending_items = await this.fecthPendingItems4Validation()
-    this.onFecthingItems = false
     //init statuses
-    this.statuses = await this.fecthStatus("Validação");
+    this.onFecthingItems = true
+    this.fecthStatus("Validação").then(response => {
+      this.statuses = response
+      this.onFecthingItems = false
+    });
 
-    console.log('The item to validate area was created');
+    this.onLoadingPendingItems = true
+    this.pending_items = await this.fecthPendingItems4Validation()
+    this.onLoadingPendingItems = false
   },
 
   methods: {
     async fecthPendingItems4Validation (statuses = '') {
-      this.onFecthingItems = true
         return await this.$store.dispatch(
         "getDataAsync",
         `stocks/pending?doctype=${"DPPC"}${statuses}`
       );
-      this.onFecthingItems = false
     },
 
     async fecthStatus(filter) {
@@ -169,13 +172,13 @@ export default {
           .catch(error => console.log('UMM: ', error));
           
 
-          this.onFecthingItems = true  
+          this.onLoadingPendingItems = true  
           //Update the pending items
           this.pending_items = await this.$store.dispatch(
             "getDataAsync",
             `stocks/pending?doctype=${"VDPPC"}`
           );
-          this.onFecthingItems = false
+          this.onLoadingPendingItems = false
         });
     },
 
@@ -221,12 +224,12 @@ export default {
       if(status_to_search) 
         status_to_search = `&${status_to_search}`
         
-        this.onFecthingItems = true;
+        this.onLoadingPendingItems = true;
 
         this.fecthPendingItems4Validation(status_to_search)
         .then(resp => {
           this.pending_items = resp,
-          this.onFecthingItems = false;
+          this.onLoadingPendingItems = false;
         });
    }
   }
