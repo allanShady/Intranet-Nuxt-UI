@@ -80,7 +80,7 @@
       <!--View doc attachment-->
       <template v-slot:item.Document="{ item }">
         <!--strong>{{item.Document.attachement_path}}</strong-->
-         <a :href="item.Document.attachement_path" target="_blank">
+         <a @click="documentAttachmentPath(item.Document.attachement_path)" target="_blank">
           <v-icon color="primary" small >
             mdi-eye
           </v-icon>
@@ -115,7 +115,7 @@ export default {
       { text: "Artigo", value: "description" }, // Artigo
       { text: "Unidade", value: "Unity.code" },
       { text: "Qtd.", value: "quantity" },   
-      { text: "Anexo", value: "Document" },
+      { text: "Anexo", value: "Document", align: 'center' },
     ]
   }),
   beforeMount: async function() {},
@@ -138,6 +138,26 @@ export default {
       this.loadingContent = false;
 
       console.log(this.items);
+    },
+
+    forceFileDownload(response) {
+      console.log('response to download', response);
+      const url = URL.createObjectURL(response);
+      const link = document.createElement('a')
+
+      link.href = url;
+      link.target ='_blank'
+      
+      document.body.appendChild(link)
+      link.click()
+    },
+
+    async documentAttachmentPath(document) {
+      const docPath = document.attachement_path
+      console.log(document)
+      const response = await this.$store.dispatch("fetchFileWithCustomHeaderAsync", 'file/DownloadSingle/asgu54');
+      this.forceFileDownload(response);
+      //return docPath
     }
   },
 
@@ -152,11 +172,7 @@ export default {
   },
 
   computed: {
-    documentAttachmentPath: (document) => {
-      const docPath = document.attachement_path
-      console.log(document)
-      return docPath
-    }
+    
   }
 };
 </script>
