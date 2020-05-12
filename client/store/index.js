@@ -16,6 +16,17 @@ const removeLocalStoreAuthData = () => {
   localStorage.removeItem("user_id");
 };
 
+const forceFileDownload = response => {
+  console.log('response to download', response);
+  const url = window.URL.createObjectURL(new Blob ([response.data]));
+  const link = document.createElement('a')
+
+  link.href = url;
+  link.setAttribute('download', 'file.png');
+  document.body.appendChild(link)
+  link.click()
+}
+
 export const state = () => ({
   snackBar: {
     show: false,
@@ -157,6 +168,13 @@ export const actions = {
   async postDataWithCustomHeaderAsync(vuexContext, data) {
     return await this.$axios
       .$post(`/${data.api_resourse}`, data.post_data, data.headers)
+      .then(response => response)
+      .catch(error => logError(error));
+  },
+
+  async fetchFileWithCustomHeaderAsync(vuexContext, filePath) {
+    return await this.$axios
+      .$get(`/${filePath}`, { responseType: 'blob'})
       .then(response => response)
       .catch(error => logError(error));
   },
