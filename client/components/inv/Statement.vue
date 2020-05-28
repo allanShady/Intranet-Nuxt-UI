@@ -2,6 +2,7 @@
   <div id="page-forms">
     <v-tabs>
       <v-tab>{{$route.query.tipo.toLowerCase() !== 'stock' ? 'Pendentes de devolução' : 'Stock actual' }}</v-tab>
+      <v-tab>{{$route.query.tipo.toLowerCase() !== 'stock' ? 'Pendentes de devolução' : 'Stock (Primavera)' }}</v-tab>
       <v-tab v-if="wharehouseTabVisible">Resumo de artigos</v-tab>
       <v-tab v-if="tabVisible">Análise</v-tab>
       <v-tab>Extracto</v-tab>
@@ -9,6 +10,12 @@
       <v-tab-item>
         <v-card tile>
           <Stock></Stock>
+        </v-card>
+      </v-tab-item>
+
+      <v-tab-item>
+        <v-card tile>
+          <third-part-balance/>
         </v-card>
       </v-tab-item>
 
@@ -39,6 +46,7 @@
 import InventoryForm from "@/components/inv/Inventory";
 import StatementList from "@/components/inv/StatementList";
 import Stock from "@/components/inv/Stock";
+import ThirdPartBalance from "@/components/third-part-erp/balance";
 import ItemsDeliveryValidationTab from './ItemsDeliveryValidationTab';
 
 export default {
@@ -52,7 +60,8 @@ export default {
     InventoryForm,
     StatementList,
     Stock,
-    ItemsDeliveryValidationTab
+    ItemsDeliveryValidationTab,
+    ThirdPartBalance
   },
 
   created() {
