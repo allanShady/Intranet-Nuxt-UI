@@ -186,19 +186,22 @@ export default {
       if (!item) return;
 
       localStorage.branch = this.branch.code;
-
       this.Warehouse = item.Warehouses;
+      this.$store.dispatch("setBranch", this.branch.code);
     },
     selectWarehouse(item) {
       if (!item) return;
 
       localStorage.warehouse = this.warehouse.code;
       this.Localization = this.warehouse.localizations;
+      this.$store.dispatch("setWarehouse", this.warehouse.code);
     },
     selectLocalization(item) {
       if (!item) return;
 
       localStorage.localization = this.localization.code;
+      //console.log('The location is: ', this.localization);
+      this.$store.dispatch("setLocation", this.localization.code);
     }
   }
 };
