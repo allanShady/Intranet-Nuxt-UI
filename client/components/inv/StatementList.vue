@@ -89,7 +89,13 @@
 
       <template v-slot:no-data> <p color="info">Especifique o intervalo de data e click no botão a direita para listar extracto.</p></template>
     </v-data-table>
-  </div>
+  
+  <!-- Errors and notifications snack bar reporting -->
+      <v-snackbar v-model="snackBar.show" bottom left :color="snackBar.color" :timeout="snackBar.timeout">
+        {{ snackBar.display_message }}
+        <v-btn small text @click="snackBar.show = false">Close</v-btn>
+      </v-snackbar>
+    </div>  
 </template>
 <script>
 export default {
@@ -104,6 +110,14 @@ export default {
     dateMenu2: false,
     items: [],
     selected: [],
+    snackBar: {
+      show: false,
+      color: "error",
+      display_message: "",
+      timeout: 5000,
+      bottom: true,
+      left: true,
+    },
     documentTypes: [],
     isSelectedProduct: true,
     headers: [
@@ -121,15 +135,24 @@ export default {
   beforeMount: async function() {},
   methods: {
     async openStatement() {
+
       let currentQuery = this.$route.query.tipo;
-      console.log(currentQuery);
+      //console.log(currentQuery);
       let doc = this.$router.currentRoute.query["tipo"];
-      console.log(doc);
+      //console.log(doc);
       this.documentTypes = await this.$store.dispatch(
         "getDataAsync",
         "documenttypes/" + doc
       );
-      let warehouseId = localStorage.warehouse;
+
+      //TODO: Get the warehouse from store not if not available into localstorage and not selected o navbar
+      const warehouseId = localStorage.warehouse || this.$store.getters.getWarehouse;
+
+      if(!warehouseId) {
+        this.snackBar.display_message = "O Armazém é obrigatório. Por favor preencha esse campo na barra de navegação acima."; 
+        this.snackBar.show = true;
+        //return;
+      }
 
       var url = `Stocks/filters?warehouseId=${warehouseId}&type=${this.documentTypes[0].typeArticle}&dateBegin=${this.dateBegin}&dateEnd=${this.dateEnd}`;
 
@@ -137,7 +160,7 @@ export default {
       this.items = await this.$store.dispatch("getDataAsync", url);
       this.loadingContent = false;
 
-      console.log(this.items);
+      //console.log(this.items);
     },
 
     forceFileDownload(response) {
@@ -153,11 +176,9 @@ export default {
     },
 
     async documentAttachmentPath(document) {
-      const docPath = document.attachement_path
-      console.log(document)
-      const response = await this.$store.dispatch("fetchFileWithCustomHeaderAsync", 'file/DownloadSingle/asgu54');
+      
+      const response = await this.$store.dispatch("fetchFileWithCustomHeaderAsync", `file/DownloadSingle/${document}`);
       this.forceFileDownload(response);
-      //return docPath
     }
   },
 
