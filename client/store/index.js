@@ -41,9 +41,10 @@ export const state = () => ({
   drawer: true,
   loginErrorMsg: null,
   branch: null,
+  warehouse: null,
+  location: null,
   Branch: [],
   currentSelectedDocument: undefined,
-  warehouse: null,
   Warehouse: [],
   productPagination: {}
 });
@@ -93,6 +94,21 @@ export const mutations = {
     state.auth.user_id = user.id;
   },
 
+  SET_BRANCH(state, branch) {
+    state.branch =  branch;
+    localStorage.setItem("branch", branch);
+  },
+
+  SET_WAREHOUSE(state, warehouse) {
+    state.warehouse =  warehouse;
+    localStorage.setItem("warehouse", warehouse);
+  },
+
+  SET_LOCATION(state, location) {
+    state.location =  location;
+    localStorage.setItem("location", location);
+  },
+
   clearAuthData(state) {
     state.auth.temp_token = null;
     state.auth.loggedIn = null;
@@ -126,6 +142,18 @@ export const actions = {
 
   activeSnackBar(vuexContext, snackBar){
     vuexContext.commit('ACTIVE_SNACK_BAR', snackBar);
+  },
+
+  setBranch(vuexContext, branch){
+    vuexContext.commit('SET_BRANCH', branch);
+  },
+
+  setWarehouse(vuexContext, warehouse){
+    vuexContext.commit('SET_WAREHOUSE', warehouse);
+  },
+
+  setLocation(vuexContext, location){
+    vuexContext.commit('SET_LOCATION', location);
   },
 
   closeSnackBar(vuexContext, showSnackBar){
@@ -206,6 +234,18 @@ export const getters = {
   loginErrorMsg(state) {
     return state.loginErrorMsg;
   },
+
+  getBranch(state) {
+    return state.branch;
+  },
+
+  getWarehouse( state ) {
+    return state.warehouse;
+  },
+
+  getLocation(state) {
+    return state.location;
+  }, 
 
   loginErrorMsg(state) {
     return state.loginErrorMsg;
