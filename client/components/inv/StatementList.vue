@@ -176,8 +176,7 @@ export default {
     },
 
     async documentAttachmentPath(document) {
-      
-      const response = await this.$store.dispatch("fetchFileWithCustomHeaderAsync", `file/DownloadSingle/${document}`);
+      const response = await this.$store.dispatch("fetchFileWithCustomHeaderAsync", `file/DownloadSingle/${encodeURI(document)}`);
       this.forceFileDownload(response);
     }
   },
