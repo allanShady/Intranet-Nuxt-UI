@@ -6,7 +6,11 @@
       <v-card outlined class="mr-4 mt-4">
           <v-row no-gutters align="center" >
               <!--v-col-->
-                <v-btn large outlined class="px-4 mr-4" v-for="document in documentTypes" :key="document.code" color="success"  @click="openFrm(document)">{{ document.friendlyUserName }}</v-btn>      
+                <v-btn large outlined class="px-4 mr-4"
+                 v-for="document in documentTypes" :key="document.code" color="success"
+                 v-if="!(['ELAV', 'EDPC', 'DDPC', 'ERPC', 'DRPC'].includes(document.code))"  
+                 @click="openFrm(document)">
+                  {{ document.friendlyUserName }}</v-btn>      
                 <v-btn v-if="$route.query.tipo == 'PPC'" large outlined class="px-4 mr-4"  color="warning"  @click="openFrm({code: 'more'})">Mais</v-btn>    
              <!--/v-col-->
           </v-row>
