@@ -153,21 +153,30 @@ export default {
       "getDataAsync",
       "businessArea"
     );
+
     this.form.projects = await this.$store.dispatch("getDataAsync", "projects");
 
     this.form.docTypes = await this.$store.dispatch(
       "getDataAsync",
       "documenttypes"
     );
-    this.form.docTypes = this.form.docTypes.filter(p => p.code == doc);
 
+    if(this.$route.query.doc != 'more')
+      this.form.docTypes = this.form.docTypes.filter(p => p.code == doc);
+    else 
+      this.form.docTypes = this.form.docTypes.filter(
+        p => p.classifier == 'PPC' 
+        && ['ELAV', 'EDPC', 'DDPC', 'ERPC', 'DRPC'].includes(p.code));
+      //Todo: filter doc of EPI;
+        
     //Call state action to
     this.$store.dispatch("setCurrentDocument", this.form.docTypes[0]);
 
-    this.formModel.documenttype = this.form.docTypes[0];
-    this.form.isSelectedProduct = this.form.docTypes[0].isSelectedProduct;
-    this.form.canAddProduct = this.form.docTypes[0].isSelectedProduct;
-
+    if(this.$router.currentRoute.query["doc"] != 'more') {
+      this.formModel.documenttype = this.form.docTypes[0];
+      this.form.isSelectedProduct = this.form.docTypes[0].isSelectedProduct;
+      this.form.canAddProduct = this.form.docTypes[0].isSelectedProduct;
+    }
     this.form.unitys = await this.$store.dispatch("getDataAsync", "units");
   },
 
