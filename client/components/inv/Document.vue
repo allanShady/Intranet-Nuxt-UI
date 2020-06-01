@@ -176,7 +176,12 @@ export default {
       this.formModel.documenttype = this.form.docTypes[0];
       this.form.isSelectedProduct = this.form.docTypes[0].isSelectedProduct;
       this.form.canAddProduct = this.form.docTypes[0].isSelectedProduct;
+    }else {
+      //this.formModel.documenttype = this.form.docTypes.includes(dt => dt.code == 'ELAV')[0]
+      this.form.isSelectedProduct = false;
+      this.form.canAddProduct = false;
     }
+
     this.form.unitys = await this.$store.dispatch("getDataAsync", "units");
   },
 
