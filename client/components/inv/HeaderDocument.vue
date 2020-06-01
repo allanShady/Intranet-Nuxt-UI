@@ -6,7 +6,7 @@
           dense
           prepend-icon="mdi-text-box"
           color="primary"
-          disabled
+          :disabled="$route.query.doc != 'more'"
           v-model="formModel.documenttype"
           :items="form.docTypes"
           clearable
