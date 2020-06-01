@@ -7,6 +7,7 @@
           <v-row no-gutters align="center" >
               <!--v-col-->
                 <v-btn large outlined class="px-4 mr-4" v-for="document in documentTypes" :key="document.code" color="success"  @click="openFrm(document)">{{ document.friendlyUserName }}</v-btn>      
+                <v-btn v-if="$route.query.tipo == 'PPC'" large outlined class="px-4 mr-4"  color="warning"  @click="openFrm({code: 'more'})">Mais</v-btn>    
              <!--/v-col-->
           </v-row>
           </v-card >
@@ -117,6 +118,10 @@ export default {
         `/inventory/EFGC/Form?doc=${item.code}&tipo=${this.classifier}`
       );
       this.$forceUpdate();
+    },
+
+    gotoEPIForm(){
+       this.$router.push(`/epi/more`) 
     },
 
     getColor(displayName){
