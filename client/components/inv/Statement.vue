@@ -2,7 +2,7 @@
   <div id="page-forms">
     <v-tabs>
       <v-tab>{{$route.query.tipo.toLowerCase() !== 'stock' ? 'Pendentes de devolução' : 'Stock actual' }}</v-tab>
-      <v-tab>{{$route.query.tipo.toLowerCase() !== 'stock' ? 'Pendentes de devolução' : 'Stock (Primavera)' }}</v-tab>
+      <v-tab v-if="$route.query.tipo == 'Stock'">{{$route.query.tipo.toLowerCase() !== 'stock' ? 'Pendentes de devolução' : 'Stock (Primavera)' }}</v-tab>
       <v-tab v-if="wharehouseTabVisible">Resumo de artigos</v-tab>
       <v-tab v-if="tabVisible">Análise</v-tab>
       <v-tab>Extracto</v-tab>
@@ -13,7 +13,7 @@
         </v-card>
       </v-tab-item>
 
-      <v-tab-item>
+      <v-tab-item v-if="$route.query.tipo == 'Stock'">
         <v-card tile>
           <third-part-balance/>
         </v-card>
