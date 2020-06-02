@@ -77,6 +77,15 @@
           {{item.date.slice(0, 10)}}
       </template>
 
+      <template v-slot:item.StatusDescription="{ item }">
+        <v-chip
+          outlined
+          small
+          :color="getColor(item.StatusDescription)"
+          class="caption"
+        >{{item.StatusDescription}}</v-chip>
+      </template>
+
       <!--View doc attachment-->
       <template v-slot:item.Document="{ item }">
         <!--strong>{{item.Document.attachement_path}}</strong-->
@@ -124,16 +133,40 @@ export default {
       { text: "Data", value: "date" },
       { text: "Acção", value: "DocumentType.generatedAction" },
       { text: "Funcionário", value: "Entity.name" },
-      { text: "Area de negócio", value: "BusinessArea.description" },
-      { text: "Entidade", value: "Project.description" },
+      { text: "Area de negócio", value: "BusinessArea.description" },      
       { text: "Artigo", value: "description" }, // Artigo
-      { text: "Unidade", value: "Unity.code" },
-      { text: "Qtd.", value: "quantity" },   
+      //{ text: "Unidade", value: "Unity.code" },
+      { text: "Qtd.", value: "quantity" },  
+      { text: "Estado", value: "StatusDescription" },
       { text: "Anexo", value: "Document", align: 'center' },
     ]
   }),
   beforeMount: async function() {},
   methods: {
+    getColor(value) {    
+      if (value)
+        switch (value.split(" ")[1] || value) {
+          case "Danificado":
+            return "error";
+            break;
+          case "Lavandaria":
+            return "info";
+            break;
+          case "Armazem":
+            return "success";
+            break;
+          case "Cheio":
+            return "success";
+            break;
+          case "Fúncionario":
+            return "warning";
+            break;
+          default:
+            return  "primary"
+            break;
+        }
+    },
+
     async openStatement() {
 
       let currentQuery = this.$route.query.tipo;
@@ -186,7 +219,8 @@ export default {
     //TODO: Also add the number of project
     if(this.$route.query.tipo.toLowerCase() == 'gases') {
       this.headers.splice(4, 0,  { text: "Número da botija", value: "Product.barcode" })
-      this.headers.splice((this.headers.length - 1), 0, { text: "Estado", value: "status" });
+      this.headers.splice(5, 0,  { text: "Entidade", value: "Project.description" })
+      //this.headers.splice((this.headers.length - 1), 0, { text: "Estado", value: "status" });
     }
     console.log("The statment List was created");
   },
