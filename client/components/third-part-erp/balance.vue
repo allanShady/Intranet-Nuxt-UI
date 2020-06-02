@@ -2,18 +2,16 @@
   <v-flex>
     <v-card-title>
       <v-text-field
-        v-model="search"
+        v-model="watchStockBalances"
         append-icon="mdi-magnify"
         label="Pesquisar"
-        single-line
-        
+        :search-input.sync="watchStockBalances"
+        single-line        
       ></v-text-field>
     </v-card-title>
     <v-data-table
       :headers="headers"
       :items="pedding_Items.records"
-      :group-by="'product'"
-      :search="search"
       :loading="loading"
     >
     </v-data-table>
@@ -29,6 +27,7 @@ export default {
     loading: false,
     documentTypes: [],
     pedding_Items: [],
+    watchStockBalances: null,
     hasStock: 0,
     productType: "",
     url: "",
@@ -39,29 +38,35 @@ export default {
 
   async created() {
         this.headers = [
-          { text: "Artigo", value: "productDescription" },
+          { text: "Artigo", value: "product" },
+          { text: "Descrição", value: "productDescription" },
           { text: "Armazém ", value: "warehouseDescription" },
           { text: "Stock", value: "stock" }
         ];
 
-        this.pedding_Items = await this.$store.dispatch(
-          "getDataAsync",
-          `stocks/erpbalance`
-        );
-
-        console.log(this.pedding_Items)
+        this.pedding_Items = await this.getStockBalances('')
   },
 
   methods: {
-    async getStockBalances(product_type, entity) {
+    async getStockBalances(searchTerm) {
       this.loading = true
-      return await this.$store.dispatch(
+
+      const result = await this.$store.dispatch(
         "getDataAsync",
-        `stocks/erpbalance`
+        searchTerm ? `stocks/erpbalance?SearchTerm=${searchTerm}` : `stocks/erpbalance` 
       );
 
       this.loading = false
+
+      return result
     },
+  },
+
+  watch: {
+    async watchStockBalances(searchTerm) {
+      this.pedding_Items = await this.getStockBalances(searchTerm)
+      console.log('search term:', searchTerm, 'result:', this.pedding_Items)
+    }
   }
 };
 </script>
