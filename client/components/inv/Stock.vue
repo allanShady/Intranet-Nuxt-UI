@@ -12,10 +12,11 @@
     <v-data-table
       :headers="headers"
       :items="pedding_Items"
-      :group-by=" $route.query.tipo == 'gases' ? 'project.description': 'entity'"
+      
       :search="search"
       :loading="loading"
     >
+    <!--:group-by=" $route.query.tipo == 'gases' ? 'project.description': 'entity'"-->
       <template v-slot:item.businessArea="{ item }">{{ getPrincipalBussinessArea(item)}}</template>
     </v-data-table>
   </v-flex>

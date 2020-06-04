@@ -3,10 +3,10 @@ export default {
         let headers = [];
 
         if(documentType == 'stock_balaces') {
-            headers = [
-                { text: "Aréa de negócio", value: "business_area" },
+            headers = [                
                 //{ text: "Funcionario", value: "entity_id" },
                 { text: "Funcionário", value: "entity" },
+                { text: "Aréa de negócio", value: "business_area" },
                 //{ text: "Artigo", value: "product_id" },
                 { text: "Artigo", value: "product_description" },
                 { text: "Unidade", value: "unit" },
