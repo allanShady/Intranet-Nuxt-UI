@@ -11,7 +11,7 @@
                  v-if="!(['ELAV', 'VDPPC', 'EDPC', 'DDPC', 'ERPC', 'DRPC'].includes(document.code))"  
                  @click="openFrm(document)">
                   {{ document.friendlyUserName }}</v-btn>      
-                <v-btn v-if="$route.query.tipo == 'PPC'" large outlined class="px-4 mr-4"  color="warning"  @click="openFrm({code: 'more'})">Mais</v-btn>    
+                <!--v-btn v-if="$route.query.tipo == 'PPC'" large outlined class="px-4 mr-4"  color="warning"  @click="openFrm({code: 'more'})">Mais</v-btn-->    
              <!--/v-col-->
           </v-row>
           </v-card >
