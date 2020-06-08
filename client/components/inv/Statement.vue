@@ -4,7 +4,7 @@
       <v-tab>{{$route.query.tipo.toLowerCase() !== 'stock' ? 'Pendentes de devolução' : 'Stock geral' }}</v-tab>
       <v-tab v-if="$route.query.tipo == 'Stock'">{{$route.query.tipo.toLowerCase() !== 'stock' ? 'Pendentes de devolução' : 'Stock (Primavera)' }}</v-tab>
       <v-tab v-if="wharehouseTabVisible">Resumo de artigos</v-tab>
-      <v-tab v-if="tabVisible">Análise</v-tab>
+      <v-tab v-if="tabVisible || $route.query.tipo.toLowerCase() == 'gases'">Análise</v-tab>
       <v-tab>Extracto</v-tab>
 
       <v-tab-item>
@@ -26,7 +26,7 @@
       </v-tab-item>
       
       <!-- Validation tables -->
-      <v-tab-item v-if="$route.query.tipo.toLowerCase() == 'ppc' || $route.query.tipo.toLowerCase() == 'epi'">
+      <v-tab-item v-if="$route.query.tipo.toLowerCase() == 'ppc' || $route.query.tipo.toLowerCase() == 'epi' || $route.query.tipo.toLowerCase() == 'gases'">
         <v-card tile>
           <v-card-text>
             <items-delivery-validation-tab></items-delivery-validation-tab>
