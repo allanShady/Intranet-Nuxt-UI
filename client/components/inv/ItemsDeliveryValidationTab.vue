@@ -30,6 +30,7 @@
       :loading="onLoadingPendingItems"
       :search="search"
       class="caption"
+      @select="select(value)"
     >
       <template v-slot:item.status.description="{ item }">
         <v-chip
@@ -107,6 +108,8 @@ export default {
         `stocks/pending?doctype=${"DPPC"}${statuses}`
       );
     },
+
+    select(value) { console.log('The selected values is: ', value) },
 
     async fecthStatus(filter) {
       let statuses_from_API = await this.$store.dispatch(
@@ -207,6 +210,7 @@ export default {
   watch: {
     pending_selected_items: pending_selected_items => {
       console.log("pendingSelectedItem changed: ", pending_selected_items);
+      console.log('The last el is:', pending_selected_items[pending_selected_items.length - 1]);
     },
 
     async selected_statuses(selected_statuses) { 

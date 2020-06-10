@@ -136,6 +136,7 @@ export const actions = {
       })
       .catch(error => {
         logError(error);
+        console.log('Error on logging: ', error.response);
         vuexContext.commit("storeSignInErrorMsg", error.response.data);
       });
   },
