@@ -1,4 +1,5 @@
 ### Publish instructions
+* Change the api-endPoint into **nuxt.config.js** file to (http://192.168.1.5:5001/api - *not always the same depent on the api setup* )  
 * Open the app project root
 * Open CMD as an Administrator (*Not always required*)
 * Run `yarn run generate` or `npm run generate`
