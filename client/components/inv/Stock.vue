@@ -11,7 +11,7 @@
     </v-card-title>
     <v-data-table
       :headers="headers"
-      :items="pedding_Items"
+      :items="pedding_Items.records"
       
       :search="search"
       :loading="loading"
@@ -57,7 +57,9 @@ export default {
     switch (doc_type) {
       case "gases": // --- gas documents
         this.headers = gasServices.getTableHeadersView("stocks");
-        this.pedding_Items = await this.getGasBottlesInProject();
+        this.pedding_Items = {
+          records: await this.getGasBottlesInProject()};
+        console.log('Pending battles', this.pedding_Items)
         break;
       case "Equipamentos": // --- Equipments documents
         this.initStocksBalance("stock_balaces", product_type, "*");
@@ -79,10 +81,10 @@ export default {
           { text: "Stock", value: "stock" }
         ];
 
-        this.pedding_Items = await this.$store.dispatch(
+        this.pedding_Items = { records: await this.$store.dispatch(
           "getDataAsync",
           this.url
-        );
+        )};
         break;
     }    
 
@@ -114,9 +116,10 @@ export default {
 
     async initStocksBalance(tableHeaderView, product_type, entity) {
       this.headers = genericServices.getTableHeadersView(tableHeaderView);
+      
       this.loading = true
       this.pedding_Items = await this.getStockBalances(product_type, entity);
-      //stop the loader
+      console.log('The returned pending itens are: ', this.pedding_Items);
       this.loading = false
     },
 

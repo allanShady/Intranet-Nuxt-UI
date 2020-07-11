@@ -4,12 +4,13 @@ export default {
 
         if(documentType == 'stock_balaces') {
             headers = [                
-                //{ text: "Funcionario", value: "entity_id" },
-                { text: "Funcionário", value: "entity" },
-                { text: "Aréa de negócio", value: "business_area" },
-                //{ text: "Artigo", value: "product_id" },
+                { text: "Cóodigo", value: "employee_id" },
+                { text: "Funcionário", value: "employee_name" },
+                { text: "Código", value: "business_area_id" },
+                { text: "Aréa de negócio", value: "business_area_description" },
+                { text: "Código", value: "product_id" },
                 { text: "Artigo", value: "product_description" },
-                { text: "Unidade", value: "unit" },
+                //{ text: "Unidade", value: "unit" },
                 { text: "Qtd.", value: "balance", sortable: true }
             ]
         } else {
