@@ -130,6 +130,7 @@
           v-validate="'required'"
           data-vv-name="formModel.businessArea"
           :error-messages="errors.collect('formModel.businessArea')"
+          @change="updateBusinessArea($event)"
           required
           item-value="code"
           item-text="description"
@@ -267,6 +268,10 @@ export default {
           }
         }
       }
+    },
+
+    updateBusinessArea(event) {
+      this.formModel.businessArea = this.formModel.businessArea ? this.formModel.businessArea.code : null 
     },
 
     async createNewSupplier() {

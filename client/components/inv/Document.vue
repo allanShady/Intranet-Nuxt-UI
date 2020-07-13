@@ -353,7 +353,7 @@ export default {
 
       this.formModel.isSavingData = true;
 
-      console.log('POST DATA: ', post_data); return;
+      console.log('POST DATA: ', post_data); //return;
 
       await this.$store
         .dispatch("postDataAsync", { api_resourse: "stocks", post_data })
