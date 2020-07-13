@@ -325,9 +325,7 @@ export default {
         document_type_id: this.formModel.documenttype.code,
         entity_id: !this.formModel.entity ? null : this.formModel.entity.code,
         entity_name: !this.formModel.entity ? null : this.formModel.entity.name,
-        business_area_id: !this.formModel.businessArea
-          ? null
-          : this.formModel.businessArea.code,
+        business_area_id: this.formModel.businessArea || null,
         date: this.formModel.date,
         reference_doc: this.formModel.referenceDoc,
         entity_type: this.formModel.typeEntity || null,
@@ -354,6 +352,8 @@ export default {
         );
 
       this.formModel.isSavingData = true;
+
+      console.log('POST DATA: ', post_data); return;
 
       await this.$store
         .dispatch("postDataAsync", { api_resourse: "stocks", post_data })

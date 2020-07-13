@@ -230,16 +230,11 @@ export default {
 
         if (!item) {
         } else {
-          var buss = item.BusinessArea.filter(d => d.isPrincipal === true);
-
-          if (buss.length > 0) {
-            this.formModel.businessArea = buss[0].businessArea;
-          }
+          let mainEmployeeBSArea = item.BusinessArea.filter(d => d.isPrincipal === true)[0];           
+          this.formModel.businessArea = !!mainEmployeeBSArea ? mainEmployeeBSArea.businessArea : null     
 
           let entity = item.code;
           let typeArticle = this.formModel.documenttype.typeArticle;
-
-          console.log("FORM MODEL IS: ", this.formModel.documenttype);
 
           //Get Pending items
           if (this.$route.query.doc === "DPPC") {
