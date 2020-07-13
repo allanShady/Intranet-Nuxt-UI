@@ -48,7 +48,7 @@ export default {
                 notes: element.notes,
                 product_id: element.product_id,
                 description: element.description,
-                unity_id: element.unity_id,
+                unity_id: element.unit_id,
                 quantity: element.quantity,
                 DocumentId: element.header_id,
                 status_id: element.status ? element.status.code : null,
