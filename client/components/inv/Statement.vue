@@ -3,7 +3,7 @@
     <v-tabs>
       <v-tab>{{$route.query.tipo.toLowerCase() !== 'stock' ? 'Pendentes de devolução' : 'Stock geral' }}</v-tab>
       <v-tab v-if="$route.query.tipo == 'Stock'">{{$route.query.tipo.toLowerCase() !== 'stock' ? 'Pendentes de devolução' : 'Stock (Primavera)' }}</v-tab>
-      <v-tab v-if="wharehouseTabVisible">Resumo de artigos</v-tab>
+      <v-tab v-if="$route.query.tipo.toLowerCase() == 'gases'">Botijas disponiveis</v-tab>
       <v-tab v-if="tabVisible || $route.query.tipo.toLowerCase() == 'gases'">Análise</v-tab>
       <v-tab>Extracto</v-tab>
 
@@ -19,7 +19,7 @@
         </v-card>
       </v-tab-item>
 
-      <v-tab-item  v-if="wharehouseTabVisible">
+      <v-tab-item  v-if="$route.query.tipo.toLowerCase() == 'gases'">
         <v-card tile>
           <Inventory-form v-if="wharehouseTabVisible"></Inventory-form>
         </v-card>
