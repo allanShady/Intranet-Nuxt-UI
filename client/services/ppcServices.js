@@ -6,7 +6,7 @@ export default {
         headers = [
             { text: "Artigo", value: "product_id" },
             { text: "descrição", value: "description" },
-            { text: "Unidade", value: "unity_id" },
+            { text: "Unidade", value: "unit_id" },
             { text: "Qtd. Pendente", value: "pending_qtd" },
             { text: "Qtd. Entrega", value: "quantity" },
             { text: "Estado", value: "status.description" },
