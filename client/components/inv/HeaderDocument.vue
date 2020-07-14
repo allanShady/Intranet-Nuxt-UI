@@ -201,6 +201,10 @@ export default {
     dialog: false,
     dateMenu: false,
     searchEntity: {},
+    isEmployeeSelected: false,
+    timeOut: 0,
+    setTimeOutResult: null,
+    oldSearchvalue: null,
     supplier: {},
     dialog: false,
     onCreatingSupplier: false
@@ -222,6 +226,7 @@ export default {
     },
 
     async changeEntity(item) {
+      this.oldSearchvalue = item && item.name 
       /*if(this.$route.query.doc === 'DRGAS') {
        this.formModel.items  = await this.getProducts(item.code, 12, '55');
       }*/
@@ -272,6 +277,7 @@ export default {
 
     updateBusinessArea(event) {
       this.formModel.businessArea = this.formModel.businessArea ? this.formModel.businessArea.code : null 
+      if(this.formModel.entity) this.isEmployeeSelected = true;
     },
 
     async createNewSupplier() {
@@ -321,7 +327,21 @@ export default {
 
   watch: {
     searchEntity(value) {
-      this.$emit("search-entities", value);
+      
+      if( (this.oldSearchvalue != value)) {// if user typed something
+        this.form.loadingEntity = true //info user that some work is in progress
+        if(this.setTimeOutResult) clearTimeout(this.setTimeOutResult); //Cancel the previous timeout 
+        
+        this.timeOut = 3000;
+        //console.log(`The request will be sent in ${this.timeOut/1000} seconds`, value, new Date().toTimeString());
+
+        this.setTimeOutResult = setTimeout(() => {
+          this.$emit("search-entities", value);
+        } , this.timeOut)     
+      }
+
+      //console.log('The old value: ', this.oldSearchvalue, 'The value: ', value);
+      this.oldSearchvalue = value // update the old entered value for search
     }
   }
 };
